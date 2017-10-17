@@ -5,7 +5,7 @@
 
 # System Requirements Specification
 
-* [HTBAC](https://en.wikipedia.org/wiki/Software_requirements_specification)
+* [HTBAC](https://github.com/jdakka/htbac/blob/master/docs/requirements/protocols/srs_main.tex)
 
 # References 
 
