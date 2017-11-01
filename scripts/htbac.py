@@ -8,7 +8,7 @@ import esmacs
 import exceptions
 import radical.utils as ru
 from radical.entk import task
-from radical.entk import stages
+from radical.entk import stage
 from radical.entk import pipeline
 from radical.entk import appman
 
