@@ -4,7 +4,8 @@ Framework supporting UCL ESMACS/TIES protocols
 
 ## How to run: 
 
-Generate from 
+
+`from htbac import htbac`
 
 ```
 ht = htbac()
