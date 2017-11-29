@@ -2,20 +2,14 @@
 # High Throughput Binding Affinity Calculator 
 
 Framework supporting UCL ESMACS/TIES protocols 
+See examples for how to run
 
-## How to run: 
+## Installation: 
 
+`virtualenv $HOME/venv`\
+`source $HOME/venv/bin/activate`\
+`git clone git@github.com:jdakka/radical.htbac.git`\
+`cd radical.htbac`\
 `pip install --process-dependency-links --upgrade .` 
 
 
-`from htbac import htbac`
-
-```
-ht = htbac()
-protocol_1 = esmacs(8, 2j6m-a698g)
-protocol_2 = esmacs(8, 2j6m-a698g)
-ht.add_protocol(protocol_1)
-ht.add_protocol(protocol_2)
-ht.cores(256)
-ht.run
-```
