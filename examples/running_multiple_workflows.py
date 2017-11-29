@@ -2,7 +2,8 @@
 
 #define protocol_1 = esmacs(number_of_replicas, data_dir)
 #define protocol_2 = esmacs(number_of_replicas, data_dir)
-#define protocol_3 = ties(number_of_replicas, lambda_initial, lambda_final, lambda_delta, data_dir , workflow)
+#define protocol_3 = ties(number_of_replicas, lambda_initial, lambda_final, lambda_delta, data_dir, workflow_steps)
+#add the total number of cores required by all protocols
 
 import radical.htbac as htbac 
 
@@ -16,6 +17,5 @@ if __name__ == '__main__':
     ht.add_protocol(protocol_1)
     ht.add_protocol(protocol_2)
     ht.add_protocol(protocol_3)
-    # add the total number of cores required by all protocols
     ht.cores(256)
     ht.run
