@@ -22,19 +22,19 @@ class esmacs(object):
     '''
 
     def __init__(self, replicas, rootdir):
-        self.name = esmacs
-        #self.resource = resource
-        self.replicas = replicas
-        self.rootdir = rootdir
-        #self.cores = cores
-        #self.kernel = kernel
-
+        
+        self.name        = esmacs
+        self.replicas    = replicas
+        self.rootdir     = rootdir
+        self.executable  = ['/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-ugni-smp-BlueWaters/namd2']
+        self.pre_exec    = ['export OMP_NUM_THREADS=1']
+        self.cpu_reqs    = {'processes': 1, 'process_type': 'MPI', 'threads_per_process': 31, 'thread_type': None}
+        
         mylist = []
 
         for subdir, dirs, files in os.walk(rootdir):
 
             for file in files:
-                # print os.path.join(subdir, file)
                 my_list.append(os.path.join(subdir, file))
 
         def generate_pipeline(num_tasks):
@@ -338,15 +338,3 @@ class esmacs(object):
                 print traceback.format_exc()
 '''
 
-if __name__ == '__main__':
-
-    esmacs(8, 2j6m-a698g)
-
-
-# Min Variable Product (MVP)
-
-    # kernel plugin for MD engines
-    # SRS contains everything
-        # priority
-        # future
-    # define N protocols
