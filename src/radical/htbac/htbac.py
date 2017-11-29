@@ -49,7 +49,6 @@ class htbac_runner():
     def run():
 
         pipelines = set()
-        #num_tasks = 8
         for p in self.protocols:
             pipelines.add(p.generate_pipeline())
 

@@ -16,5 +16,6 @@ if __name__ == '__main__':
     ht.add_protocol(protocol_1)
     ht.add_protocol(protocol_2)
     ht.add_protocol(protocol_3)
+    # add the total number of cores required by all protocols
     ht.cores(256)
     ht.run

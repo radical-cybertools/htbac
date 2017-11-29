@@ -71,7 +71,6 @@ class ties(object):
                         for f in my_list:
                             t.copy_input_data.append("{}/".format(replica)+f+" > "+f)
                     
-
                     	stage_ref.append(task_ref)
                         
                         p.add_stages(s)
