@@ -1,8 +1,11 @@
-# Use Cases
+# Use Cases Descriptions
 
-* ESMACS Protocol
+* [ESMACS Protocol](https://docs.google.com/document/d/1t7_EvRmhBOIsvZ6yEmXoZ25k-4ROnhYK_ptCppdFGjI/edit?usp=sharing)
+* [TIES Protocol](https://docs.google.com/document/d/1A7aPau8JBsiEZI9Rq9ReJwZ7rFqKyybhKZ-IvrH9qiY/edit#)
 
-* TIES Protocol
+# System Requirements Specification
+
+* [HTBAC](https://github.com/jdakka/htbac/blob/master/docs/requirements/protocols/srs_main.tex)
 
 # References 
 
