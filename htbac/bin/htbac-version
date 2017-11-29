@@ -1,0 +1,3 @@
+#!/bin/bash
+
+python -c "import radical.htbac; print radical.htbac.__version__"
