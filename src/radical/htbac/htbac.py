@@ -8,10 +8,8 @@ import esmacs
 import ties
 import exceptions
 import radical.utils as ru
-from radical.entk import task
-from radical.entk import stages
-from radical.entk import pipeline
-from radical.entk import appman
+from radical.entk import Pipeline, Stage, Task, AppManager, ResourceManager
+
 
 
 class Runner():
