@@ -1,9 +1,11 @@
+
 # High Throughput Binding Affinity Calculator 
 
 Framework supporting UCL ESMACS/TIES protocols 
 
 ## How to run: 
 
+`pip install --process-dependency-links --upgrade .` 
 
 `from htbac import htbac`
 
