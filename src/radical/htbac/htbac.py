@@ -5,6 +5,7 @@ __license__     = "MIT"
 
 
 import esmacs
+import ties
 import exceptions
 import radical.utils as ru
 from radical.entk import task
@@ -48,9 +49,9 @@ class htbac_runner():
     def run():
 
         pipelines = set()
-        num_tasks = 8
+        #num_tasks = 8
         for p in self.protocols:
-            pipelines.add(p.generate_pipeline(num_tasks))
+            pipelines.add(p.generate_pipeline())
 
         res_dict = {
             'resource': 'ncsa.bw_aprun',

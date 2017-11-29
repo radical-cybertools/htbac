@@ -7,8 +7,8 @@ import os
 
 
 class esmacs(object):
+    
     '''
-
     esmacs protocol consists of 7 stages: 
 
     1) Untar simulation tarball
@@ -18,11 +18,11 @@ class esmacs(object):
     5) Equilibration step 1 (300K unrestrained NPT)
     6) Production run
     7) Create output tarball 
-
     '''
 
+
     def __init__(self, replicas, rootdir):
-        
+
         self.name        = esmacs
         self.replicas    = replicas
         self.rootdir     = rootdir
@@ -37,7 +37,7 @@ class esmacs(object):
             for file in files:
                 my_list.append(os.path.join(subdir, file))
 
-        def generate_pipeline(num_tasks):
+        def generate_pipeline(self):
 
             # Create a Pipeline object
             p = Pipeline()
@@ -56,7 +56,8 @@ class esmacs(object):
                 t1.name = 'untar'
                 t1.executable = ["/bin/bash"]
                 t1.arguments = ['-l', '-c', 'tar zxvf {input1} -C ./'.format(input1=rootdir + ".tgz")]
-                t1.cores = 1
+                t1.cpu_reqs = self.cpu_reqs
+                t1.pre_exec = self.pre_exec
                 t1.copy_input_data = ["$SHARED/" + rootdir + ".tgz > " + rootdir + ".tgz"]
 
                 stage_1_ref.append("$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s1.uid, t1.uid))
@@ -82,8 +83,8 @@ class esmacs(object):
                 t2.arguments = ['-l', '-c',
                                 'find -L {input1} -type f -print0 | xargs -0 sed -i \'s/REPX/{input2}/g\' ; mkdir -p {input1}/replicas/rep{input2}/equilibration; touch {input1}/replicas/rep{input2}/equilibration/holder; mkdir -p {input1}/replicas/rep{input2}/simulation; touch {input1}/replicas/rep{input2}/simulation/holder'.format(
                                     input1=rootdir, input2=replica_ind)]
-                t2.cores = 1
-
+                t2.cpu_reqs = self.cpu_reqs
+                t2.pre_exec = self.pre_exec
                 t2.copy_input_data = []
 
                 for f in my_list:
@@ -106,10 +107,10 @@ class esmacs(object):
             for replica_ind in range(num_tasks):
                 t3 = Task()
                 t3.name = 'stage3_namd'
-                t3.executable = ['/u/sciteam/jphillip/NAMD_build.latest/NAMD_2.12_CRAY-XE-MPI-BlueWaters/namd2']
+                t3.executable = self.executable
+                t3.cpu_reqs = self.cpu_reqs
+                t3.pre_exec = self.pre_exec
                 t3.arguments = ["%s/mineq_confs/eq0.conf" % rootdir]
-                t3.cores = coresp
-                t3.mpi = True
 
                 t3.copy_input_data = [
                     '{stage2}/{input1}/replicas/rep{input2}/equilibration/holder > {input1}/replicas/rep{input2}/equilibration/holder'.format(
@@ -136,10 +137,11 @@ class esmacs(object):
             for replica_ind in range(num_tasks):
                 t4 = Task()
                 t4.name = 'stage4_namd'
-                t4.executable = ['/u/sciteam/jphillip/NAMD_build.latest/NAMD_2.12_CRAY-XE-MPI-BlueWaters/namd2']
+                t4.executable = self.executable
                 t4.arguments = ["%s/mineq_confs/eq1.conf" % rootdir]
-                t4.cores = coresp
-                t4.mpi = True
+                t4.cpu_reqs = self.cpu_reqs
+                t4.pre_exec = self.pre_exec
+                
 
                 t4.copy_input_data = [
                     '{stage3}/{input1}/replicas/rep{input2}/equilibration/eq0.coor > {input1}/replicas/rep{input2}/equilibration/eq0.coor'.format(
@@ -171,10 +173,10 @@ class esmacs(object):
             for replica_ind in range(num_tasks):
                 t5 = Task()
                 t5.name = 'stage5_namd'
-                t5.executable = ['/u/sciteam/jphillip/NAMD_build.latest/NAMD_2.12_CRAY-XE-MPI-BlueWaters/namd2']
+                t5.executable = self.executable
                 t5.arguments = ["%s/mineq_confs/eq2.conf" % rootdir]
-                t5.cores = coresp
-                t5.mpi = True
+                t5.cpu_reqs = self.cpu_reqs
+                t5.pre_exec = self.pre_exec                
 
                 t5.copy_input_data = [
                     '{stage4}/{input1}/replicas/rep{input2}/equilibration/eq0.coor > {input1}/replicas/rep{input2}/equilibration/eq0.coor'.format(
@@ -211,10 +213,10 @@ class esmacs(object):
             for replica_ind in range(num_tasks):
                 t6 = Task()
                 t6.name = 'stage6_namd'
-                t6.executable = ['/u/sciteam/jphillip/NAMD_build.latest/NAMD_2.12_CRAY-XE-MPI-BlueWaters/namd2']
+                t6.executable = self.executable
                 t6.arguments = ["%s/sim_confs/sim1.conf" % rootdir]
-                t6.cores = coresp
-                t6.mpi = True
+                t6.cpu_reqs = self.cpu_reqs
+                t6.pre_exec = self.pre_exec
 
                 t6.copy_input_data = [
                     '{stage2}/{input1}/replicas/rep{input2}/simulation/holder > {input1}/replicas/rep{input2}/simulation/holder'.format(
@@ -263,7 +265,8 @@ class esmacs(object):
                 t7.arguments = ['-l', '-c',
                                 'tar -hczf {input1}.tgz -C {input2}/replicas .'.format(input1='rep%s' % replica_ind,
                                                                                        input2=rootdir)]
-                t7.cores = 1
+                t7.cpu_reqs = self.cpu_reqs
+                t7.pre_exec = self.pre_exec
                 t7.copy_input_data = [
                     '{stage6}/{input1}/replicas/rep{input2}/equilibration/eq0.coor > {input1}/replicas/rep{input2}/equilibration/eq0.coor'.format(
                         stage6=stage_6_ref[replica_ind], input1=rootdir, input2=replica_ind),

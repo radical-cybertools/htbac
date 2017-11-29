@@ -42,7 +42,7 @@ class ties(object):
 
         # Generate pipelines
 
-        def generate_pipelines():
+        def generate_pipelines(self):
 
             for replica in range(self.replicas):
                 for ld in lambdas:
@@ -54,7 +54,10 @@ class ties(object):
                         s = Stage()
                         t = Task()
                         t.name = step 
-                        t.arguments = ['+ppn','30','+pemap', '0-29', '+commap', '30','replica_{}/lambda_{}/{}.conf'.format(replica, ld, step), '&>', 'replica_{}/lambda_{}/{}.log'.format(replica, ld, step)]
+                        t.executable = self.executable
+                        t.pre_exec   = self.pre_exec
+                        t.cpu_reqs   = self.cpu_reqs
+                        t.arguments  = ['+ppn','30','+pemap', '0-29', '+commap', '30','replica_{}/lambda_{}/{}.conf'.format(replica, ld, step), '&>', 'replica_{}/lambda_{}/{}.log'.format(replica, ld, step)]
                         task_ref.append("$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s.uid, t.uid))
                         s.add_tasks(t)
                         for task_paths in stage_ref:
@@ -74,6 +77,8 @@ class ties(object):
                         p.add_stages(s)
 
                     pipelines.add(p)
+
+            return pipelines 
 
 
         
