@@ -13,17 +13,16 @@ import os
 
 
 
-class Runner():
+class Runner(object):
 
     def __init__(self):
 
-        self.name = htbac
-        self.cores = cores
-        self.protocols = list()
+        self._cores = 0
+        self._protocols = list()
 
     def add_protocol(self, protocol):
 
-        self.protocols.append(protocol)
+        self._protocols.append(protocol)
 
     @property
     def cores(self):
@@ -48,7 +47,7 @@ class Runner():
     def run():
 
         pipelines = set()
-        for p in self.protocols:
+        for p in self._protocols:
             pipelines.add(p.generate_pipeline())
 
         res_dict = {
