@@ -9,12 +9,10 @@ class Ties(object):
 
     def __init__(self, replicas, lambda_initial, lambda_final, lambda_delta, rootdir, workflow):
 
-
-        self.name             = esmacs
         self.replicas         = replicas
         self.lambda_initial   = lambda_initial
-        self.lambda_final     = lambda_final
-        self.lambda_delta     = lambda_delta
+        self.lambda_final     = lambda_final*100
+        self.lambda_delta     = int(lambda_delta*100)
         self.rootdir          = rootdir
         self.executable       = ['/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-ugni-smp-BlueWaters/namd2']
         self.pre_exec         = ['export OMP_NUM_THREADS=1']
@@ -35,7 +33,7 @@ class Ties(object):
 
 
 
-        lambdas = [i/100.0 for i in range(self.lambda_initial, self.lambda_final, self.lambda_delta)]
+        lambdas = [i/100.0 for i in range(self.lambda_initial, self.lambda_final*100, self.lambda_delta*100)]
 
         # Generate pipelines
 

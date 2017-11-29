@@ -20,7 +20,6 @@ class Esmacs(object):
 
     def __init__(self, replicas, rootdir):
 
-        self.name        = esmacs
         self.replicas    = replicas
         self.rootdir     = rootdir
         self.executable  = ['/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-ugni-smp-BlueWaters/namd2']

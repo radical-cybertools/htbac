@@ -11,11 +11,11 @@ import radical.htbac as htbac
 if __name__ == '__main__':
 
     ht = htbac.Runner()
-    protocol_1 = htbac.Esmacs(25, sample_esmacs_data.tgz)
-    protocol_2 = htbac.Esmacs(25, sample_esmacs_data.tgz)
-    protocol_3 = htbac.Ties(65, 0, 1, 0.05, bace1_b01, ['min', 'eq1', 'eq2', 'prod'])
+    protocol_1 = htbac.Esmacs(25, 'sample_esmacs_data.tgz')
+    protocol_2 = htbac.Esmacs(25, 'sample_esmacs_data.tgz')
+    protocol_3 = htbac.Ties(65, 0, 1, 0.05, 'bace1_b01', ['min', 'eq1', 'eq2', 'prod'])
     ht.add_protocol(protocol_1)
     ht.add_protocol(protocol_2)
     ht.add_protocol(protocol_3)
-    ht.cores(256)
+    ht.cores = 256
     ht.run
