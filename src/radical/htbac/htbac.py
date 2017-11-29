@@ -14,7 +14,7 @@ from radical.entk import pipeline
 from radical.entk import appman
 
 
-class htbac_runner():
+class Runner():
 
     def __init__(self):
 

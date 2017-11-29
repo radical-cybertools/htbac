@@ -6,7 +6,7 @@ from radical.entk import appman
 import os
 
 
-class esmacs(object):
+class Esmacs(object):
     
     '''
     esmacs protocol consists of 7 stages: 

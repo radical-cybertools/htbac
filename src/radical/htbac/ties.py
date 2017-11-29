@@ -6,7 +6,7 @@ from radical.entk import appman
 import os
 
 
-class ties(object):
+class Ties(object):
 
    # class NamdTask(Task):
 
