@@ -194,6 +194,7 @@ setup_args = {
 
     'package_data'      :  {'': ['*.sh', '*.json', 'VERSION', 'VERSION.git']},
 
+    # the install_requires names are not the actual branches, just aliases
     'install_requires'  :  ['radical.utils==devel',
                             'saga-python==devel',
                             'radical.pilot==devel',
