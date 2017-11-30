@@ -1,7 +1,7 @@
 
 # High Throughput Binding Affinity Calculator 
 
-Framework supporting UCL ESMACS/TIES protocols 
+Framework supporting UCL ESMACS/TIES protocols \
 See examples for how to run
 
 ## Installation: 
