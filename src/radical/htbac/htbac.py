@@ -20,6 +20,12 @@ class Runner(object):
         self._cores = 0
         self._protocols = list()
 
+        #profiler for Runner
+        self._uid = ru.generate_id('radical.htbac.workflow_runner')
+        self._logger = ru.get_logger('radical.htbac.workflow_runner')
+        self._prof = ru.Profiler(name = self._uid) 
+        self._prof.prof('create wkflw_runner obj', uid=self._uid)
+
     def add_protocol(self, protocol):
 
         self._protocols.append(protocol)
@@ -46,6 +52,7 @@ class Runner(object):
 
     def run():
 
+
         pipelines = set()
         for p in self._protocols:
             pipelines.add(p.generate_pipeline())
@@ -59,6 +66,7 @@ class Runner(object):
             'access_schema': 'gsissh'}
 
         # Create Resource Manager object with the above resource description
+        
         rman = ResourceManager(res_dict)
         rman.shared_data = [rootdir + '.tgz']
         # Create Application Manager
@@ -71,6 +79,7 @@ class Runner(object):
         appman.assign_workflow(pipelines)
 
         # Run the Application Manager
+        self._prof.prof('execution_run')
         appman.run()
 
 

@@ -19,6 +19,13 @@ class Ties(object):
         self.cpu_reqs         = {'processes': 1, 'process_type': 'MPI', 'threads_per_process': 31, 'thread_type': None}
         self.workflow         = workflow
 
+        #profiler for ESMACS PoE
+
+        self._uid = ru.generate_id('radical.htbac.ties')
+        self._logger = ru.get_logger('radical.htbac.ties')
+        self._prof = ru.Profiler(name = self._uid) 
+        self._prof.prof('create ties instance', uid=self._uid)
+
         my_list = []
             
         for subdir, dirs, files in os.walk(self.rootdir):
@@ -39,14 +46,19 @@ class Ties(object):
 
         def generate_pipelines(self):
 
-            for replica in range(self.replicas):
-                for ld in lambdas:
-                    p = Pipeline()
-                    stage_ref = []
-                    for step in workflow:
+        '''
+        Here we create 1 pipeline with n_stages where n is the number of steps in the workflow
+        In each stage we generate x_tasks where x is the lambdas* replicas
+        '''  
 
+            p = Pipeline()
+            stage_ref = []
+
+            for step in workflow:
+                s = Stage()
+                for replica in range(self.replicas):
+                    for ld in lambdas:
                         task_ref = []
-                        s = Stage()
                         t = Task()
                         t.name = step 
                         t.executable = self.executable
@@ -68,10 +80,9 @@ class Ties(object):
                     
                     	stage_ref.append(task_ref)
                         
-                        p.add_stages(s)
+                p.add_stages(s)
 
-                    pipelines.add(p)
-
+            pipelines.add(p)
             return pipelines 
 
 

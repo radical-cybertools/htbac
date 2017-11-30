@@ -26,6 +26,14 @@ class Esmacs(object):
         self.pre_exec    = ['export OMP_NUM_THREADS=1']
         self.cpu_reqs    = {'processes': 1, 'process_type': 'MPI', 'threads_per_process': 31, 'thread_type': None}
         
+        #profiler for ESMACS PoE
+
+        self._uid = ru.generate_id('radical.htbac.esmacs')
+        self._logger = ru.get_logger('radical.htbac.esmacs')
+        self._prof = ru.Profiler(name = self._uid) 
+        self._prof.prof('create esmacs instance', uid=self._uid)
+
+
         mylist = []
 
         for subdir, dirs, files in os.walk(rootdir):
