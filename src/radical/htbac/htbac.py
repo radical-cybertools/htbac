@@ -62,10 +62,12 @@ class Runner(object):
             pipelines.add(p.generate_pipeline())
             self._root_directories.append(p.input_data)
 
-        res_dict = {'resource': 'local.localhost',
+        res_dict = {'resource': 'ncsa.bw_aprun',
                    'walltime': 1440,
                    'cores': self._cores,
-                   'project': ''}
+                   'project': 'bamm',
+                   'queue': 'high',
+                   'access_schema': 'gsissh'}
 
         # Create Resource Manager object with the above resource description
         
@@ -85,11 +87,11 @@ class Runner(object):
         appman.run()
 
 '''
-        res_dict = {'resource': 'ncsa.bw_aprun',
+
+
+        res_dict = {'resource': 'local.localhost',
                    'walltime': 1440,
                    'cores': self._cores,
-                   'project': '',
-                   'queue': 'high',
-                   'access_schema': 'gsissh'}
+                   'project': ''}
 '''
 
