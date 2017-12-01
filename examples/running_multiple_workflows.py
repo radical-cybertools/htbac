@@ -1,6 +1,8 @@
 #running two esmacs and 1 ties instances:
 '''
 
+0) Run setup.sh 
+
 1) Define esmacs protocol: esmacs(number_of_replicas, root_directory_of_system)
    Define ties protocol: ties(number_of_replicas, lambda_initial, lambda_final, lambda_delta, root_directory_of_system, workflow_steps)
 
@@ -10,7 +12,7 @@
 
 4) Specify resource configuration and rabbitMQ hostname/port
 
-4) Run
+4) Run!
 
 '''
 
