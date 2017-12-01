@@ -1,7 +1,7 @@
 ## How to run multiple instances of ESMACS and TIES protocols
 
 0) Run setup.sh 
-1) Define esmacs protocol: `esmacs(number_of_replicas, root_directory_of_system)`
+1) Define esmacs protocol: `esmacs(number_of_replicas, root_directory_of_system)`\
    Define ties protocol: `ties(number_of_replicas, lambda_initial, lambda_final, lambda_delta, root_directory_of_system, workflow_steps)`
 2) Append protocols
 3) Add the total number of cores required by all protocols
