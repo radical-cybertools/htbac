@@ -62,19 +62,17 @@ class Runner(object):
             pipelines.add(p.generate_pipeline())
             self._root_directories.append(p.input_data)
 
-        res_dict = {'resource': 'ncsa.bw_aprun',
+        res_dict = {'resource': 'local.localhost',
                    'walltime': 1440,
-                   'cores': 256,
-                   'project': '',
-                   'queue': 'high',
-                   'access_schema': 'gsissh'}
+                   'cores': self._cores,
+                   'project': ''}
 
         # Create Resource Manager object with the above resource description
         
         rman = ResourceManager(res_dict)
         rman.shared_data = self._root_directories
         # Create Application Manager
-        appman = AppManager(hostname = self._hostname, port=self._port)
+        appman = AppManager(hostname = 'two.radical-project.org', port = 32775)
 
         # Assign resource manager to the Application Manager
         appman.resource_manager = rman
@@ -86,4 +84,12 @@ class Runner(object):
         self._prof.prof('execution_run')
         appman.run()
 
+'''
+        res_dict = {'resource': 'ncsa.bw_aprun',
+                   'walltime': 1440,
+                   'cores': self._cores,
+                   'project': '',
+                   'queue': 'high',
+                   'access_schema': 'gsissh'}
+'''
 

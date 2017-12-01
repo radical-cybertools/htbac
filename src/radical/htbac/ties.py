@@ -68,12 +68,7 @@ class Ties(object):
                     t.arguments  = ['+ppn','30','+pemap', '0-29', '+commap', '30','replica_{}/lambda_{}/{}.conf'.format(replica, ld, step), '&>', 'replica_{}/lambda_{}/{}.log'.format(replica, ld, step)]
                     task_ref.append("$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s.uid, t.uid))
                     s.add_tasks(t)
-                    for task_paths in stage_ref:
-                        for task_path in task_paths:
-                            t.copy_input_data.append(task_path+'replica_{0}/lambda_{1}/{2}.coor'.format(replica,ld,self.workflow[stage_ref.index(task_paths)]))
-                            t.copy_input_data.append(task_path+'replica_{0}/lambda_{1}/{2}.xsc'.format(replica,ld,self.workflow[stage_ref.index(task_paths)]))
-                            t.copy_input_data.append(task_path+'replica_{0}/lambda_{1}/{2}.vel'.format(replica,ld,self.workflow[stage_ref.index(task_paths)]))
-
+        
                     # print t.copy_input_data
 
                     for f in self.my_list:

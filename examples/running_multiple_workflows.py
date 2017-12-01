@@ -16,7 +16,7 @@
 
 '''
 
-from radical.htbac import htbac, Esmacs, Ties
+from radical.htbac import htbac, Esmacs, Ties, Ties_EoP
 
 
 if __name__ == '__main__':
@@ -49,5 +49,5 @@ if __name__ == '__main__':
     
     #define hostname and port for running rabbitmq
     
-    ht.rabbitmq_config(hostname = 'two.radical-project.org', port = 32775)
+    #ht.rabbitmq_config(hostname = 'two.radical-project.org', port = 32775)
     ht.run()

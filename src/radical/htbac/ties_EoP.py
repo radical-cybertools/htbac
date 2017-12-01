@@ -3,7 +3,7 @@ from radical.entk import Pipeline, Stage, Task, AppManager, ResourceManager
 import os
 
 
-class Ties(object):
+class Ties_EoP(object):
 
    # class NamdTask(Task):
 
@@ -69,7 +69,7 @@ class Ties(object):
                             t.copy_input_data.append(task_path+'replica_{0}/lambda_{1}/{2}.xsc'.format(replica,ld,self.workflow[stage_ref.index(task_paths)]))
                             t.copy_input_data.append(task_path+'replica_{0}/lambda_{1}/{2}.vel'.format(replica,ld,self.workflow[stage_ref.index(task_paths)]))
 
-                    # print t.copy_input_data
+                    #print t.copy_input_data
 
                     for f in self.my_list:
                         t.copy_input_data.append("{}/".format(replica)+f+" > "+f)
