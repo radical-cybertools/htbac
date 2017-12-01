@@ -1,21 +1,51 @@
-#running two esmacs instances:
+#running two esmacs and 1 ties instances:
+'''
 
-#define protocol_1 = esmacs(number_of_replicas, data_dir)
-#define protocol_2 = esmacs(number_of_replicas, data_dir)
-#define protocol_3 = ties(number_of_replicas, lambda_initial, lambda_final, lambda_delta, data_dir, workflow_steps)
-#add the total number of cores required by all protocols
+1) Define esmacs protocol: esmacs(number_of_replicas, root_directory_of_system)
+   Define ties protocol: ties(number_of_replicas, lambda_initial, lambda_final, lambda_delta, root_directory_of_system, workflow_steps)
 
-import radical.htbac as htbac
+2) Append protocols
+
+3) Add the total number of cores required by all protocols
+
+4) Specify resource configuration and rabbitMQ hostname/port
+
+4) Run
+
+'''
+
+from radical.htbac import htbac, Esmacs, Ties
 
 
 if __name__ == '__main__':
 
     ht = htbac.Runner()
-    protocol_1 = htbac.Esmacs(25, 'sample_esmacs_data.tgz')
-    protocol_2 = htbac.Esmacs(25, 'sample_esmacs_data.tgz')
-    protocol_3 = htbac.Ties(65, 0, 1, 0.05, 'bace1_b01', ['min', 'eq1', 'eq2', 'prod'])
-    ht.add_protocol(protocol_1)
-    ht.add_protocol(protocol_2)
-    ht.add_protocol(protocol_3)
-    ht.cores = 256
-    ht.run
+
+    protocol_esmacs_instance_1 = Esmacs(replicas = 25, 
+    			        				rootdir = 'sample_esmacs_data_system1.tgz')
+    
+    protocol_esmacs_instance_2 = Esmacs(replicas = 25, 
+    									rootdir = 'sample_esmacs_data_system2.tgz')
+    
+    protocol_ties_instance_1   = Ties(replicas = 65, 
+    				  		          lambda_initial = 0, 
+    				   				  lambda_final = 1, 
+    				  				  lambda_delta = 0.05, 
+    				  				  rootdir = 'bace1_b01', 
+    				  				  workflow = ['min', 'eq1', 'eq2', 'prod'])
+
+    #future: decouple steps in the workload, provide additional pertubations to the user for TIES
+
+    ht.add_protocol(protocol_esmacs_instance_1)
+    ht.add_protocol(protocol_esmacs_instance_2)
+    ht.add_protocol(protocol_ties_instance_1)
+
+    #define total number of cores as required by all protocol instances
+    #future: add another argument for cores to each protocol
+
+    ht.cores = 256 
+    
+    #define hostname and port for running rabbitmq
+    
+    ht.rabbitmq_config(hostname = 'two.radical-project.org', port = 32775)
+    ht.run()
