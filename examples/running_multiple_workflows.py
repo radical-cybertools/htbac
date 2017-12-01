@@ -22,17 +22,17 @@ if __name__ == '__main__':
     ht = htbac.Runner()
 
     protocol_esmacs_instance_1 = Esmacs(replicas = 25, 
-    			        				rootdir = 'sample_esmacs_data_system1.tgz')
+                                        rootdir = 'sample_esmacs_data_system1.tgz')
     
     protocol_esmacs_instance_2 = Esmacs(replicas = 25, 
-    									rootdir = 'sample_esmacs_data_system2.tgz')
+                                        rootdir = 'sample_esmacs_data_system2.tgz')
     
     protocol_ties_instance_1   = Ties(replicas = 65, 
-    				  		          lambda_initial = 0, 
-    				   				  lambda_final = 1, 
-    				  				  lambda_delta = 0.05, 
-    				  				  rootdir = 'bace1_b01', 
-    				  				  workflow = ['min', 'eq1', 'eq2', 'prod'])
+                                      lambda_initial = 0, 
+                                      lambda_final = 1, 
+                                      lambda_delta = 0.05, 
+                                      rootdir = 'bace1_b01', 
+                                      workflow = ['min', 'eq1', 'eq2', 'prod'])
 
     #future: decouple steps in the workload, provide additional pertubations to the user for TIES
 
