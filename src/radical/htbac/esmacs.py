@@ -69,8 +69,8 @@ class Esmacs(object):
             t.executable = self.executable
             t.cpu_reqs = self.cpu_reqs
             t.pre_exec = ['export OMP_NUM_THREADS=1', 
-                          "sed -i 's/REPX/{input2}/g' {input1}/*.conf".format(input1 = self.rootdir, 
-                                                                                input2 = replica)]
+                          "sed -i 's/REPX/{input2}/g' {input1}/mineq_confs/*.conf".format(input1 = self.rootdir, 
+                                                                               input2 = replica)]
             
             # We create a list of all the NAMD flags required by the executable
             # and pass the path where the executable argument lies
@@ -95,7 +95,7 @@ class Esmacs(object):
             t.executable = self.executable
             t.cpu_reqs = self.cpu_reqs
             t.pre_exec = ['export OMP_NUM_THREADS=1', 
-                          "sed -i 's/REPX/{input2}/g' {input1}/*.conf".format(input1 = self.rootdir, 
+                          "sed -i 's/REPX/{input2}/g' {input1}/mineq_confs/*.conf".format(input1 = self.rootdir, 
                                                                                 input2 = replica)]
 
             #change the output in eq1 to have /replicas/rep{input1}/equilibration/{input2}.coor
@@ -136,7 +136,7 @@ class Esmacs(object):
             t.executable = self.executable
             t.cpu_reqs = self.cpu_reqs
             t.pre_exec = ['export OMP_NUM_THREADS=1', 
-                          "sed -i 's/REPX/{input2}/g' {input1}/*.conf".format(input1 = self.rootdir, 
+                          "sed -i 's/REPX/{input2}/g' {input1}/mineq_confs/*.conf".format(input1 = self.rootdir, 
                                                                                 input2 = replica)]
 
             #change the output in eq2 to have /replicas/rep{input1}/eq/{input2}.coor
@@ -176,7 +176,7 @@ class Esmacs(object):
             t.executable = self.executable
             t.cpu_reqs = self.cpu_reqs
             t.pre_exec = ['export OMP_NUM_THREADS=1', 
-                          "sed -i 's/REPX/{input2}/g' {input1}/*.conf".format(input1 = self.rootdir, 
+                          "sed -i 's/REPX/{input2}/g' {input1}/mineq_confs/*.conf".format(input1 = self.rootdir, 
                                                                                 input2 = replica)]
 
             #change the output in eq1 to have /replicas/rep{input1}/equilibration/{input2}.coor
