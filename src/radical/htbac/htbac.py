@@ -3,6 +3,7 @@ __author__      = "Jumana Dakka <jumanadakka@gmail.com>"
 __license__     = "MIT"
 
 import esmacs
+import esmacs_7_stages
 import ties
 import exceptions
 import radical.utils as ru
@@ -64,10 +65,12 @@ class Runner(object):
 
         res_dict = {'resource': 'ncsa.bw_aprun',
                    'walltime': 1440,
-                   'cores': self._cores,
+                   'cpus': self._cores,
                    'project': 'bamm',
                    'queue': 'high',
                    'access_schema': 'gsissh'}
+
+
 
         # Create Resource Manager object with the above resource description
         
@@ -87,11 +90,11 @@ class Runner(object):
         appman.run()
 
 '''
-
-
         res_dict = {'resource': 'local.localhost',
                    'walltime': 1440,
-                   'cores': self._cores,
+                   'cpus': self._cores,
                    'project': ''}
+
+        
 '''
 

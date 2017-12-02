@@ -80,8 +80,8 @@ class Esmacs(object):
                            '%s/mineq_confs/eq0.conf' % self.rootdir 
                           ]  
             
-            s1.add_tasks(t)
             s1_ref["replica_{0}_step_{1}".format(replica, self.workflow[count])]="$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s1.uid, t.uid)
+            s1.add_tasks(t)
 
         p.add_stages(s1)
 
@@ -108,16 +108,20 @@ class Esmacs(object):
             # copy_input_data allows the current replica to stage output data from the same replica in a previous step
 
             t.copy_input_data =[task_path+'/replicas/rep{input1}/equilibration/{input2}.coor > {input3}/replicas/rep{input1}/{input4}/{input2}.coor'.format(input1 = replica, 
-                                                 input2 = self.workflow[count-1], 
-                                                 input3 = self.rootdir,
-                                                 input4 = self.workflow[count]),
-            task_path + '/replicas/rep{input1}/equilibration/{input2}.vel > {input3}/replicas/rep{input1}/{input4}/{input2}.vel'.format(input1 = replica,
-                             input2 = self.workflow[count-1],
-                             input3 = self.rootdir,
-                             input4 = self.workflow[count])]
-
-            s2.add_tasks(t)                      
+                                                        input2 = self.workflow[count-1], 
+                                                        input3 = self.rootdir, 
+                                                        input4 = self.workflow[count]),
+                            task_path + '/replicas/rep{input1}/equilibration/{input2}.vel > {input3}/replicas/rep{input1}/{input4}/{input2}.vel'.format(input1 = replica,
+                                                                input2 = self.workflow[count-1],
+                                                                input3 = self.rootdir,
+                                                                input4 = self.workflow[count]),
+                            task_path+'/replicas/rep{input1}/equilibration/{input2}.xsc > {input3}/replicas/rep{input1}/{input4}/{input2}.xsc'.format(input1 = replica,
+                                                                input2 = self.workflow[count-1],
+                                                                input3 = self.rootdir,
+                                                                input4 = self.workflow[count])]
+                 
             s2_ref["replica_{0}_step_{1}".format(replica, self.workflow[count])]="$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s2.uid, t.uid)
+            s2.add_tasks(t)     
 
         p.add_stages(s2)
 
@@ -151,10 +155,14 @@ class Esmacs(object):
             task_path + '/replicas/rep{input1}/equilibration/{input2}.vel > {input3}/replicas/rep{input1}/{input4}/{input2}.vel'.format(input1 = replica,
                              input2 = self.workflow[count-1],
                              input3 = self.rootdir,
-                             input4 = self.workflow[count])]
-
-            s3.add_tasks(t)                      
+                             input4 = self.workflow[count]),
+            task_path + '/replicas/rep{input1}/equilibration/{input2}.xsc > {input3}/replicas/rep{input1}/{input4}/{input2}.xsc'.format(input1 = replica,
+                                    input2 = self.workflow[count-1],
+                                    input3 = self.rootdir,
+                                    input4 = self.workflow[count])]
+                    
             s3_ref["replica_{0}_step_{1}".format(replica, self.workflow[count])]="$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s3.uid, t.uid)
+            s3.add_tasks(t)  
 
         p.add_stages(s3)
 
@@ -184,13 +192,17 @@ class Esmacs(object):
                                                  input2 = self.workflow[count-1], 
                                                  input3 = self.rootdir,
                                                  input4 = self.workflow[count]),
-            task_path + '/replicas/rep{input1}/equilibration/{input2}.vel > {input3}/replicas/rep{input1}/{input4}/{input2}.vel'.format(input1 = replica,
+            task_path+'/replicas/rep{input1}/equilibration/{input2}.vel > {input3}/replicas/rep{input1}/{input4}/{input2}.vel'.format(input1 = replica,
                              input2 = self.workflow[count-1],
                              input3 = self.rootdir,
-                             input4 = self.workflow[count])]
-
-            s4.add_tasks(t)                      
+                             input4 = self.workflow[count]),
+            task_path + '/replicas/rep{input1}/equilibration/{input2}.xsc > {input3}/replicas/rep{input1}/{input4}/{input2}.xsc'.format(input1 = replica,
+                                    input2 = self.workflow[count-1],
+                                    input3 = self.rootdir,
+                                    input4 = self.workflow[count])]
+                     
             s4_ref["replica_{0}_step_{1}".format(replica, self.workflow[count])]="$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s4.uid, t.uid)
+            s4.add_tasks(t) 
 
         p.add_stages(s4)
 

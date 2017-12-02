@@ -1,0 +1,54 @@
+Info) VMD for LINUXAMD64, version 1.9.1 (February 1, 2012)
+Info) http://www.ks.uiuc.edu/Research/vmd/                         
+Info) Email questions and bug reports to vmd@ks.uiuc.edu           
+Info) Please include this reference in published work using VMD:   
+Info)    Humphrey, W., Dalke, A. and Schulten, K., `VMD - Visual   
+Info)    Molecular Dynamics', J. Molec. Graphics 1996, 14.1, 33-38.
+Info) -------------------------------------------------------------
+Info) Multithreading available, 8 CPUs detected.
+Info) Free system memory: 10844MB (67%)
+Info) Creating CUDA device pool and initializing hardware...
+CUDA error: invalid device symbol, CUDAClearDevice.cu line 62
+Info) Detected 1 available CUDA accelerator:
+Info) [0] GeForce GTX 745     3 SM_5.0 @ 1.03 GHz, 3.9GB RAM, KTO, OIO, ZCP
+Info) Dynamically loaded 2 plugins in directory:
+Info) /home/dave/lib/vmd-1.9.1/plugins/LINUXAMD64/molfile
+/home/dave/lib/vmd-1.9.1/scripts/tcl8.5 /home/dave/lib/vmd-1.9.1/scripts /home/dave/lib/lib /Projects/johns/tcl/8.5.6/lib_LINUXAMD64/lib /home/dave/lib/vmd-1.9.1/scripts/vmd /home/dave/lib/vmd-1.9.1/plugins/LINUXAMD64/tcl /home/dave/lib/vmd-1.9.1/plugins/noarch/tcl /net/tesla/srv/home/dave/apps/VolArea
+/home/dave/lib/vmd-1.9.1/scripts/tcl8.5 /home/dave/lib/vmd-1.9.1/scripts /home/dave/lib/lib /Projects/johns/tcl/8.5.6/lib_LINUXAMD64/lib /home/dave/lib/vmd-1.9.1/scripts/vmd /home/dave/lib/vmd-1.9.1/plugins/LINUXAMD64/tcl /home/dave/lib/vmd-1.9.1/plugins/noarch/tcl /net/tesla/srv/home/dave/apps/VolArea /net/tesla/srv/home/dave/apps/VolArea/Routines/Lib
+/home/dave/lib/vmd-1.9.1/scripts/tcl8.5 /home/dave/lib/vmd-1.9.1/scripts /home/dave/lib/lib /Projects/johns/tcl/8.5.6/lib_LINUXAMD64/lib /home/dave/lib/vmd-1.9.1/scripts/vmd /home/dave/lib/vmd-1.9.1/plugins/LINUXAMD64/tcl /home/dave/lib/vmd-1.9.1/plugins/noarch/tcl /net/tesla/srv/home/dave/apps/VolArea /net/tesla/srv/home/dave/apps/VolArea/Routines/Lib /net/tesla/srv/home/dave/apps/VolArea/Routines/Other
+/home/dave/lib/vmd-1.9.1/scripts/tcl8.5 /home/dave/lib/vmd-1.9.1/scripts /home/dave/lib/lib /Projects/johns/tcl/8.5.6/lib_LINUXAMD64/lib /home/dave/lib/vmd-1.9.1/scripts/vmd /home/dave/lib/vmd-1.9.1/plugins/LINUXAMD64/tcl /home/dave/lib/vmd-1.9.1/plugins/noarch/tcl /net/tesla/srv/home/dave/apps/VolArea /net/tesla/srv/home/dave/apps/VolArea/Routines/Lib /net/tesla/srv/home/dave/apps/VolArea/Routines/Other /net/tesla/srv/home/dave/apps/VolArea/Routines/Other/graph
+Slice
+Gypsum
+Smog
+Info) Using plugin pdb for structure file /home/dave/tmp/bac-store/default/egfr-a698g/com/drug/aee/2j6m-a698g/build/complex.pdb
+Info) Using plugin pdb for coordinates from file /home/dave/tmp/bac-store/default/egfr-a698g/com/drug/aee/2j6m-a698g/build/complex.pdb
+Info) Determining bond structure from distance search ...
+Info) Finished with coordinate file /home/dave/tmp/bac-store/default/egfr-a698g/com/drug/aee/2j6m-a698g/build/complex.pdb.
+Info) Analyzing structure ...
+Info)    Atoms: 49394
+Info)    Bonds: 34564
+Info)    Angles: 0  Dihedrals: 0  Impropers: 0  Cross-terms: 0
+Info)    Bondtypes: 0  Angletypes: 0  Dihedraltypes: 0  Impropertypes: 0
+Info)    Residues: 15179
+Info)    Waters: 14889
+Warning) Unusual bond between residues:  108 (protein) and 289 (none)
+Info)    Segments: 1
+Info)    Fragments: 14891   Protein: 1   Nucleic: 0
+Info) In any publication of scientific results based in part or
+Info) completely on the use of the program STRIDE, please reference:
+Info)  Frishman,D & Argos,P. (1995) Knowledge-based secondary structure
+Info)  assignment. Proteins: structure, function and genetics, 23, 566-579.
+0
+atomselect0
+file19
+{-36.415000915527344 -46.681999206542969 -39.580001831054688} {36.034000396728516 46.564998626708984 39.604999542236328}
+72.449001312255859 93.246997833251953 79.185001373291016
+-0.24783429503440857 -0.15558618307113647 -0.046912692487239838
+atomselect1
+atomselect2
+atomselect3
+Info) Opened coordinate file /home/dave/tmp/bac-store/default/egfr-a698g/com/drug/aee/2j6m-a698g/constraint/f4.pdb for writing.
+Info) Finished with coordinate file /home/dave/tmp/bac-store/default/egfr-a698g/com/drug/aee/2j6m-a698g/constraint/f4.pdb.
+Info) VMD for LINUXAMD64, version 1.9.1 (February 1, 2012)
+Info) Exiting normally.
+vmd > 

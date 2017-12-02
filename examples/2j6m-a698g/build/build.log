@@ -1,0 +1,143 @@
+Info) VMD for LINUXAMD64, version 1.9.1 (February 1, 2012)
+Info) http://www.ks.uiuc.edu/Research/vmd/                         
+Info) Email questions and bug reports to vmd@ks.uiuc.edu           
+Info) Please include this reference in published work using VMD:   
+Info)    Humphrey, W., Dalke, A. and Schulten, K., `VMD - Visual   
+Info)    Molecular Dynamics', J. Molec. Graphics 1996, 14.1, 33-38.
+Info) -------------------------------------------------------------
+Info) Multithreading available, 8 CPUs detected.
+Info) Free system memory: 10848MB (67%)
+Info) Creating CUDA device pool and initializing hardware...
+CUDA error: invalid device symbol, CUDAClearDevice.cu line 62
+Info) Detected 1 available CUDA accelerator:
+Info) [0] GeForce GTX 745     3 SM_5.0 @ 1.03 GHz, 3.9GB RAM, KTO, OIO, ZCP
+Info) Dynamically loaded 2 plugins in directory:
+Info) /home/dave/lib/vmd-1.9.1/plugins/LINUXAMD64/molfile
+/home/dave/lib/vmd-1.9.1/scripts/tcl8.5 /home/dave/lib/vmd-1.9.1/scripts /home/dave/lib/lib /Projects/johns/tcl/8.5.6/lib_LINUXAMD64/lib /home/dave/lib/vmd-1.9.1/scripts/vmd /home/dave/lib/vmd-1.9.1/plugins/LINUXAMD64/tcl /home/dave/lib/vmd-1.9.1/plugins/noarch/tcl /net/tesla/srv/home/dave/apps/VolArea
+/home/dave/lib/vmd-1.9.1/scripts/tcl8.5 /home/dave/lib/vmd-1.9.1/scripts /home/dave/lib/lib /Projects/johns/tcl/8.5.6/lib_LINUXAMD64/lib /home/dave/lib/vmd-1.9.1/scripts/vmd /home/dave/lib/vmd-1.9.1/plugins/LINUXAMD64/tcl /home/dave/lib/vmd-1.9.1/plugins/noarch/tcl /net/tesla/srv/home/dave/apps/VolArea /net/tesla/srv/home/dave/apps/VolArea/Routines/Lib
+/home/dave/lib/vmd-1.9.1/scripts/tcl8.5 /home/dave/lib/vmd-1.9.1/scripts /home/dave/lib/lib /Projects/johns/tcl/8.5.6/lib_LINUXAMD64/lib /home/dave/lib/vmd-1.9.1/scripts/vmd /home/dave/lib/vmd-1.9.1/plugins/LINUXAMD64/tcl /home/dave/lib/vmd-1.9.1/plugins/noarch/tcl /net/tesla/srv/home/dave/apps/VolArea /net/tesla/srv/home/dave/apps/VolArea/Routines/Lib /net/tesla/srv/home/dave/apps/VolArea/Routines/Other
+/home/dave/lib/vmd-1.9.1/scripts/tcl8.5 /home/dave/lib/vmd-1.9.1/scripts /home/dave/lib/lib /Projects/johns/tcl/8.5.6/lib_LINUXAMD64/lib /home/dave/lib/vmd-1.9.1/scripts/vmd /home/dave/lib/vmd-1.9.1/plugins/LINUXAMD64/tcl /home/dave/lib/vmd-1.9.1/plugins/noarch/tcl /net/tesla/srv/home/dave/apps/VolArea /net/tesla/srv/home/dave/apps/VolArea/Routines/Lib /net/tesla/srv/home/dave/apps/VolArea/Routines/Other /net/tesla/srv/home/dave/apps/VolArea/Routines/Other/graph
+Slice
+Gypsum
+Smog
+1.6
+psfgen) reading topology file /home/dave/dev/BacBuilder/charmm_toppar/top_all27_prot_lipid.inp
+
+psfgen) >>>>>> Combined CHARMM All-Hydrogen Topology File for <<<<<<<<<
+psfgen) >>>>>>>>> CHARMM22 Proteins and CHARMM27 Lipids <<<<<<<<<<
+psfgen) from
+psfgen) >>>>>>>>CHARMM22 All-Hydrogen Topology File for Proteins <<<<<<
+psfgen) >>>>>>>>>>>>>>>>>>>>> August 1999 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+psfgen) >>>>>>> Direct comments to Alexander D. MacKerell Jr. <<<<<<<<<
+psfgen) >>>>>> 410-706-7442 or email: alex,mmiris.ab.umd.edu  <<<<<<<<<
+psfgen) and
+psfgen)   \\\\\\\ CHARMM27 All-Hydrogen Lipid Topology File ///////
+psfgen)   \\\\\\\\\\\\\\\\\\ Developmental /////////////////////////
+psfgen)               Alexander D. MacKerell Jr.
+psfgen)                      August 1999
+psfgen)  All comments to ADM jr.  email: alex,mmiris.ab.umd.edu
+psfgen)               telephone: 410-706-7442
+psfgen) 
+psfgen) Created by CHARMM version 27 1
+psfgen) aliasing residue ABA to CYS
+psfgen) aliasing residue HIS to HSE
+psfgen) aliasing residue HOH to TIP3
+psfgen) aliasing residue HOH atom O to OH2
+psfgen) aliasing residue ILE atom CD1 to CD
+psfgen) aliasing residue NLE to MET
+psfgen) building segment A
+psfgen) reading residues from pdb file chainA.pdb
+psfgen) extracted 288 residues from pdb file
+psfgen) mutating residue 698 from ALA to GLY
+psfgen) Info: generating structure...psfgen) Info: skipping improper N-C-CA-HN at beginning of segment.
+psfgen) Info: skipping conformation C-N-CA-C at beginning of segment.
+psfgen) Info: skipping conformation C-CA-N-HN at beginning of segment.
+psfgen) Info: skipping bond C-N at end of segment.
+psfgen) Info: skipping improper C-CA-N-O at end of segment.
+psfgen) Info: skipping conformation CA-C-N-CA at end of segment.
+psfgen) Info: skipping conformation N-CA-C-O at end of segment.
+psfgen) Info: skipping conformation N-CA-C-N at end of segment.
+segment complete.
+psfgen) reading coordinates from pdb file chainA.pdb for segment A
+psfgen) Warning: failed to set coordinate for atom CB	 ALA:698	  A
+psfgen) Warning: failed to set coordinate for atom O	 ASP:984	  A
+psfgen) Info: guessing coordinates for 2368 atoms (9 non-hydrogen)
+psfgen) Warning: poorly guessed coordinates for 42 atoms (2 non-hydrogen):
+psfgen) Warning: poorly guessed coordinate for atom HT1	 GLU:697	  A
+psfgen) Warning: poorly guessed coordinate for atom HT2	 GLU:697	  A
+psfgen) Warning: poorly guessed coordinate for atom HT3	 GLU:697	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:703	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:704	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:707	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:718	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:730	  A
+psfgen) Warning: poorly guessed coordinate for atom HG2	 PRO:741	  A
+psfgen) Warning: poorly guessed coordinate for atom HB1	 PRO:753	  A
+psfgen) Warning: poorly guessed coordinate for atom HG2	 PRO:753	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:760	  A
+psfgen) Warning: poorly guessed coordinate for atom HG2	 PRO:772	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:777	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:778	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:782	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:788	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:792	  A
+psfgen) Warning: poorly guessed coordinate for atom HG2	 PRO:794	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:798	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:799	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:814	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:815	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:828	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:833	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:838	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:844	  A
+psfgen) Warning: poorly guessed coordinate for atom HG2	 PRO:848	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:858	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:861	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:862	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:883	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:887	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:907	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:927	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:933	  A
+psfgen) Warning: poorly guessed coordinate for atom HG2	 PRO:936	  A
+psfgen) Warning: poorly guessed coordinate for atom HG2	 PRO:959	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:964	  A
+psfgen) Warning: poorly guessed coordinate for atom HG	 LEU:979	  A
+psfgen) Warning: poorly guessed coordinate for atom OT1	 ASP:984	  A
+psfgen) Warning: poorly guessed coordinate for atom OT2	 ASP:984	  A
+psfgen) Info: writing pdb file tmp_mut.pdb
+psfgen) Info: Atoms with guessed coordinates will have occupancy of 0.0.
+psfgen) Info: pdb file complete.
+psfgen) Info: writing psf file tmp_mut.psf
+psfgen) total of 4661 atoms
+psfgen) total of 4712 bonds
+psfgen) total of 8576 angles
+psfgen) total of 12561 dihedrals
+psfgen) total of 735 impropers
+psfgen) total of 0 cross-terms
+psfgen) Info: psf file complete.
+A:697 
+A:984 
+Info) Using plugin psf for structure file tmp_mut.psf
+psfplugin) no cross-terms defined in PSF file.
+Info) Analyzing structure ...
+Info)    Atoms: 4661
+Info)    Bonds: 4712
+Info)    Angles: 8576  Dihedrals: 12561  Impropers: 735  Cross-terms: 0
+Info)    Bondtypes: 0  Angletypes: 0  Dihedraltypes: 0  Impropertypes: 0
+Info)    Residues: 288
+Info)    Waters: 0
+Info)    Segments: 1
+Info)    Fragments: 1   Protein: 1   Nucleic: 0
+Info) Using plugin pdb for coordinates from file tmp_mut.pdb
+Info) Finished with coordinate file tmp_mut.pdb.
+Info) In any publication of scientific results based in part or
+Info) completely on the use of the program STRIDE, please reference:
+Info)  Frishman,D & Argos,P. (1995) Knowledge-based secondary structure
+Info)  assignment. Proteins: structure, function and genetics, 23, 566-579.
+0
+Info) Opened coordinate file chainA.pdb for writing.
+Info) Finished with coordinate file chainA.pdb.
+Info) VMD for LINUXAMD64, version 1.9.1 (February 1, 2012)
+Info) Exiting normally.
+vmd > 

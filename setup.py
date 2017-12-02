@@ -196,7 +196,7 @@ setup_args = {
 
     # the install_requires names are not the actual branches, just aliases
 
- '''   
+   
     'install_requires'  :  ['radical.utils==devel',
                             'saga-python==devel',
                             'radical.pilot==devel',
@@ -207,9 +207,9 @@ setup_args = {
     'dependency_links': ['git+https://github.com/radical-cybertools/radical.utils.git@devel#egg=radical.utils-devel', 
                          'git+https://github.com/radical-cybertools/saga-python.git@feature/gpu#egg=saga-python-devel',
                          'git+https://github.com/radical-cybertools/radical.pilot.git@feature/gpu#egg=radical.pilot-devel',
-                         'git+https://github.com/vivek-bala/radical.entk.git@experiment/jdakka#egg=radical.entk-devel'],
+                         'git+https://github.com/vivek-bala/radical.entk.git@feature/gpu#egg=radical.entk-devel'],
     
-'''
+
     'zip_safe'          : False,
     # This copies the contents of the examples/ dir under
     # sys.prefix/share/radical.pilot.

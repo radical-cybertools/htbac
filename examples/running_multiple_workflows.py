@@ -45,7 +45,7 @@ if __name__ == '__main__':
     #define total number of cores as required by all protocol instances
     #future: add another argument for cores to each protocol
 
-    ht.cores = 256 
+    ht.cores = 1
     
     #define hostname and port for running rabbitmq
     

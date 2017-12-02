@@ -55,27 +55,37 @@ class Ties(object):
         p = Pipeline()
         stage_ref = []
 
-        for step in self.workflow:
+        for index, step in enumerate(self.workflow):
             s = Stage()
+            stage_ref = dict()
             for replica in range(self.replicas):
                 for ld in self.lambdas:
-                    task_ref = []
                     t = Task()
-                    t.name = step 
+                    t.name = "replica_{0}_lambda_{1}_step_{2}".format(replica,ld,step) 
                     t.executable = self.executable
                     t.pre_exec   = self.pre_exec
                     t.cpu_reqs   = self.cpu_reqs
-                    t.arguments  = ['+ppn','30','+pemap', '0-29', '+commap', '30','replica_{}/lambda_{}/{}.conf'.format(replica, ld, step), '&>', 'replica_{}/lambda_{}/{}.log'.format(replica, ld, step)]
-                    task_ref.append("$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s.uid, t.uid))
-                    s.add_tasks(t)
-        
-                    # print t.copy_input_data
+                    t.arguments  = ['+ppn','30','+pemap', '0-29', '+commap', '30',
+                                    'replica_{}/lambda_{}/{}.conf'.format(replica, ld, step), 
+                                    '&>', 
+                                    'replica_{}/lambda_{}/{}.log'.format(replica, ld, step)]
 
-                    for f in self.my_list:
-                        t.copy_input_data.append("{}/".format(replica)+f+" > "+f)
+                    # obtain the task path of the previous step for current replica+lambda combination for any stage after stage 1 
+                    if index != 0: 
+                        task_path = s_ref["replica_{0}_step_{1}".format(replica, self.workflow[index-1])]
+                        t.copy_input_data =[task_path+'replica_{input1}/lambda_{input2}/{input3}.xsc > replica_{input1}/lambda_{input2}/{input4}.xsc'.format(input1 = replica, 
+                                                     input2 = ld, 
+                                                     input3 = self.workflow[index-1],
+                                                     input4 = self.workflow[index]),
+                                            task_path+'replica_{input1}/lambda_{input2}/{input3}.vel > replica_{input1}/lambda_{input2}/{input4}.vel'.format(input1 = replica, 
+                                                     input2 = ld, 
+                                                     input3 = self.workflow[index-1],
+                                                     input4 = self.workflow[index])]
+
+                    task_ref = ["$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s.uid, t.uid)]
+                    stage_ref["replica_{0}_lambda_{1}_step_{2}".format(replica,ld,step)]="$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s.uid, t.uid)
+                    s.add_tasks(t)
                 
-                	stage_ref.append(task_ref)
-                    
             p.add_stages(s)
         return p
 
