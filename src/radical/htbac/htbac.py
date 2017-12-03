@@ -71,12 +71,6 @@ class Runner(object):
                 for file in files:
                     print os.path.join(subdir, file)
 
-        res_dict = {'resource': 'local.localhost',
-                   'walltime': 1440,
-                   'cpus': self._cores,
-                   'project': ''}
-        
-        '''    
 
         res_dict = {'resource': 'ncsa.bw_aprun',
                    'walltime': 1440,
@@ -85,7 +79,7 @@ class Runner(object):
                    'queue': 'high',
                    'access_schema': 'gsissh'}
 
-        '''
+        
 
         # Create Resource Manager object with the above resource description
         
