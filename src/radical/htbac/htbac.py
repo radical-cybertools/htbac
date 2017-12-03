@@ -63,9 +63,10 @@ class Runner(object):
             pipelines.add(p.generate_pipeline())
             self._root_directories.append(p.input_data)
 
-        print self._root_directories
+        self.input_tgzs = list()
 
         for directory in self._root_directories:
+            self.input_tgzs.append(directory+ '.tgz')   #if .tgz is available it will use .tgz
             for subdir, dirs, files in os.walk(directory):
                 for file in files:
                     print os.path.join(subdir, file)
@@ -89,7 +90,7 @@ class Runner(object):
         # Create Resource Manager object with the above resource description
         
         rman = ResourceManager(res_dict)
-        rman.shared_data = self._root_directories
+        rman.shared_data = self.input_tgzs
         # Create Application Manager
         appman = AppManager(hostname = 'two.radical-project.org', port = 32775)
 

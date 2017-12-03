@@ -62,17 +62,18 @@ class Esmacs(object):
         s1 = Stage()
         s1_ref = dict()
         count = 0 
+        print self.rootdir
 
         for replica in range(self.replicas):
             t = Task()
             t.name = "replica_{0}_step_{1}".format(replica,self.workflow[count]) 
+        
             t.copy_input_data = ["$SHARED/" + self.rootdir + ".tgz > " + self.rootdir + ".tgz"]
 
             #t.copy_input_data = ["$SHARED/" + self.rootdir + ".tgz > " + self.rootdir + ".tgz"]
-            t.pre_exec = ['tar zxvf {input1}'.format(input1=self.rootdir + ".tgz")]
-                        
-
-            #'export OMP_NUM_THREADS=1', "sed -i 's/REPX/{input2}/g' {input1}/mineq_confs/*.conf".format(input1 = self.rootdir, input2 = replica)]
+            t.pre_exec = ['ls -ltrh ./ > /Users/JumanaDakka/Desktop/ls_out.txt', 'tar zxvf {input1}'.format(input1=self.rootdir + ".tgz"),
+            'export OMP_NUM_THREADS=1', 
+            "sed -i 's/REPX/{input2}/g' {input1}/mineq_confs/*.conf".format(input1 = self.rootdir, input2 = replica)]
             
 
             # We create a list of all the NAMD flags required by the executable
