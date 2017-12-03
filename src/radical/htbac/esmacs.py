@@ -70,10 +70,12 @@ class Esmacs(object):
         
             t.copy_input_data = ["$SHARED/" + self.rootdir + ".tgz > " + self.rootdir + ".tgz"]
 
-            #t.copy_input_data = ["$SHARED/" + self.rootdir + ".tgz > " + self.rootdir + ".tgz"]
+            
             t.pre_exec = ['tar zxvf {input1}'.format(input1=self.rootdir + ".tgz"),
             'export OMP_NUM_THREADS=1', 
-            "sed -i 's/REPX/{input2}/g' {input1}/mineq_confs/*.conf".format(input1 = self.rootdir, input2 = replica)]
+            "sed -i 's/REPX/{input2}/g' {input1}/*_confs/*.conf".format(input1 = self.rootdir, input2 = replica),
+            'mkdir -p {input1}/replicas/rep{input2}/equilibration; touch {input1}/replicas/rep{input2}/equilibration/holder; mkdir -p {input1}/replicas/rep{input2}/simulation; touch {input1}/replicas/rep{input2}/simulation/holder'.format(
+                                input1=self.rootdir, input2=replica)]]
             
 
             # We create a list of all the NAMD flags required by the executable
@@ -168,7 +170,7 @@ class Esmacs(object):
                              input2 = self.workflow[count-1],
                              input3 = self.rootdir,
                              input4 = self.workflow[count]))
-            t.copy_input_data.append(task_path + '/replicas/rep{input1}/equilibration/{input2}.xsc > {input3}/replicas/rep{input1}/{input4}/{input2}.xsc'.format(input1 = replica,
+            t.copy_input_data.append(task_path+'/replicas/rep{input1}/equilibration/{input2}.xsc > {input3}/replicas/rep{input1}/{input4}/{input2}.xsc'.format(input1 = replica,
                                     input2 = self.workflow[count-1],
                                     input3 = self.rootdir,
                                     input4 = self.workflow[count]))
