@@ -70,9 +70,8 @@ class Esmacs(object):
             t.cpu_reqs = self.cpu_reqs
 
             t.copy_input_data = ["$SHARED/" + self.rootdir + "> " + self.rootdir]
-            t.pre_exec = ['export OMP_NUM_THREADS=1', 
-                          "sed -i 's/REPX/{input2}/g' {input1}/mineq_confs/*.conf".format(input1 = self.rootdir, 
-                                                                               input2 = replica)]
+            t.pre_exec = ['export OMP_NUM_THREADS=1']
+            #"sed -i 's/REPX/{input2}/g' {input1}/mineq_confs/*.conf".format(input1 = self.rootdir, input2 = replica)
 
                           
             
