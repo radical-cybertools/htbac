@@ -75,7 +75,7 @@ class Esmacs(object):
             'export OMP_NUM_THREADS=1', 
             "sed -i 's/REPX/{input2}/g' {input1}/*_confs/*.conf".format(input1 = self.rootdir, input2 = replica),
             'mkdir -p {input1}/replicas/rep{input2}/equilibration; touch {input1}/replicas/rep{input2}/equilibration/holder; mkdir -p {input1}/replicas/rep{input2}/simulation; touch {input1}/replicas/rep{input2}/simulation/holder'.format(
-                                input1=self.rootdir, input2=replica)]]
+                                input1=self.rootdir, input2=replica)]
             
 
             # We create a list of all the NAMD flags required by the executable
