@@ -52,6 +52,7 @@ class Runner(object):
 
         return self._res_dict
 
+    @property
     def rabbitmq_config(self, hostname, port):
 
         return self._hostname
