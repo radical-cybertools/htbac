@@ -2,10 +2,6 @@ __copyright__   = "Copyright 2017-2018, http://radical.rutgers.edu"
 __author__      = "Jumana Dakka <jumanadakka@gmail.com>"
 __license__     = "MIT"
 
-import esmacs
-import esmacs_7_stages
-import ties
-import exceptions
 import radical.utils as ru
 from radical.entk import Pipeline, Stage, Task, AppManager, ResourceManager
 import os
@@ -75,12 +71,10 @@ class Runner(object):
                 for file in files:
                     print os.path.join(subdir, file)
 
-        res_dict = {'resource': 'ncsa.bw_aprun',
+        res_dict = {'resource': 'local.localhost',
                    'walltime': 1440,
-                   'cpus': self._cores*self.total_replicas,
-                   'project': 'bamm',
-                   'queue': 'high',
-                   'access_schema': 'gsissh'}
+                   'cores': self._cores*self.total_replicas,
+                   'project': ''}
 
 
 
