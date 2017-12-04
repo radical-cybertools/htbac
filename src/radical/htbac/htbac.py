@@ -66,7 +66,7 @@ class Runner(object):
             self._root_directories.append(p.input_data)
             self.total_replicas+=p.replicas
 
-       '''
+    '''
         new function:
 
         self.input_root_directory = list()
@@ -77,7 +77,7 @@ class Runner(object):
                     self.input_root_directory.append(os.path.join(subdir, file))
 
         # don't forget to pass self.input_root_directory to shared_data
-        '''
+    '''
 
         self.input_tgzs = list()
         for directory in self._root_directories:
