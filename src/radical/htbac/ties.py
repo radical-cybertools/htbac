@@ -47,7 +47,7 @@ class Ties(object):
 
     @property
     def replicas(self):
-        return self._replicas*self.lambdas
+        return self._replicas*len(self.lambdas)
 
     # Generate pipelines
     def generate_pipeline(self):
