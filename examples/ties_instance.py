@@ -4,15 +4,18 @@ from radical.htbac import htbac, Esmacs, Ties, Ties_EoP, Esmacs_7_stages
 if __name__ == '__main__':
 
     ht = htbac.Runner()
-
-    protocol_ties_instance_1 = Ties(replicas = 65, 
-                                        rootdir = 'bace1_b01',
-                                        workflow = ['eq0', 'eq1', 'eq2', 'prod'])
     
+    protocol_ties_instance_1   = Ties(replicas = 5, 
+                                      lambda_initial = 0, 
+                                      lambda_final = 1, 
+                                      lambda_delta = 0.05, 
+                                      rootdir = 'bace1_b01', 
+                                      workflow = ['min', 'eq1', 'eq2', 'prod'])
+
     ht.add_protocol(protocol_ties_instance_1)
     
 
-    #define total number of cores as required by all protocol instances
+    #define number of cores as required by each task 
     #future: add another argument for cores to each protocol
 
     ht.cores = 32

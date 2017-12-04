@@ -9,14 +9,14 @@ class Ties(object):
 
     def __init__(self, replicas = 0, lambda_initial = 0, lambda_final = 0, lambda_delta = 0, rootdir = None, workflow = None):
 
-        self.replicas         = replicas
-        self.lambda_initial   = lambda_initial
-        self.lambda_final     = lambda_final*100
-        self.lambda_delta     = int(lambda_delta*100)
+        self._replicas         = replicas
+        self._lambda_initial   = lambda_initial
+        self._lambda_final     = lambda_final*100
+        self._lambda_delta     = int(lambda_delta*100)
         self.rootdir          = rootdir
-        self.executable       = ['/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-ugni-smp-BlueWaters/namd2']
-        self.pre_exec         = ['export OMP_NUM_THREADS=1']
-        self.cpu_reqs         = {'processes': 1, 'process_type': 'MPI', 'threads_per_process': 31, 'thread_type': None}
+        self.executable       = ['/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2']
+        
+        self.cores            = 32      
         self.workflow         = workflow
 
         #profiler for TIES PoE
@@ -33,11 +33,11 @@ class Ties(object):
                 #print os.path.join(subdir, file)
                 self.my_list.append(os.path.join(subdir, file))
 
-        self.lambdas = list()
-        self.lambdas = [0.0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 1.0]
-        #workflow = ['min', 'eq1', 'eq2', 'prod']
+        self._lambdas = list()
+        self._lambdas = [0.0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 1.0]
         
-        #self.lambdas = [i/100.0 for i in range(self.lambda_initial, self.lambda_final*100, self.lambda_delta*100)]
+        
+        #self.lambdas = [i/100.0 for i in range(self._lambda_initial, self._lambda_final*100, self._lambda_delta*100)]
 
 
 
@@ -45,6 +45,10 @@ class Ties(object):
     def input_data(self):
 
         return self.rootdir
+
+    @property
+    def replicas(self):
+        return self._replicas*self._lambdas
 
     # Generate pipelines
     def generate_pipeline(self):
@@ -59,19 +63,18 @@ class Ties(object):
         for index, step in enumerate(self.workflow):
             s = Stage()
             for replica in range(self.replicas):
-                for ld in self.lambdas:
+                for ld in self._lambdas:
                     
                     
                     if index == 0:
 
                         t = Task()
                         t.name = "replica_{0}_lambda_{1}_step_{2}".format(replica,ld,step) 
-                        self.pre_exec.append('tar zxvf {input1}'.format(input1=self.rootdir + ".tgz")) 
-                        t.pre_exec = self.pre_exec
+                        t.pre_exec = 'tar zxvf {input1}'.format(input1=self.rootdir + ".tgz")
                         t.copy_input_data = ["$SHARED/" + self.rootdir + ".tgz > " + self.rootdir + ".tgz"]
+                        t.cores   = self.cores
                         t.executable = self.executable
-                        t.arguments  = ['+ppn','30','+pemap', '0-29', '+commap', '30',
-                                    'replica_{}/lambda_{}/{}.conf'.format(replica, ld, step), 
+                        t.arguments  = ['replica_{}/lambda_{}/{}.conf'.format(replica, ld, step), 
                                     '&>', 
                                     'replica_{}/lambda_{}/{}.log'.format(replica, ld, step)]
 
@@ -103,17 +106,14 @@ class Ties(object):
                             t.copy_input_data.append("{stage}/".format(stage=task_path) + f + " > " + f)
 
 
-                        t.pre_exec   = self.pre_exec
                         t.executable = self.executable
-                        t.cpu_reqs   = self.cpu_reqs
-                        t.arguments  = ['+ppn','30','+pemap', '0-29', '+commap', '30',
-                                        'replica_{}/lambda_{}/{}.conf'.format(replica, ld, step), 
+                        t.cores   = self.cores
+                        t.arguments  = ['replica_{}/lambda_{}/{}.conf'.format(replica, ld, step), 
                                         '&>', 
                                         'replica_{}/lambda_{}/{}.log'.format(replica, ld, step)]
 
                         # obtain the task path of the previous step for current replica+lambda combination for any stage after stage 1 
                         
-                        #task_ref = ["$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s.uid, t.uid)]
                         stage_ref["replica_{0}_lambda_{1}_step_{2}".format(replica,ld,step)]="$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s.uid, t.uid)
                         s.add_tasks(t)
                 
