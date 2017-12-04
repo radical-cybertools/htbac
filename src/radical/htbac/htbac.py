@@ -62,7 +62,7 @@ class Runner(object):
             pipelines.add(p.generate_pipeline())
             self._root_directories.append(p.input_data)
             self.total_replicas+=p.replicas
-            
+
 
 
         self.input_tgzs = list()
@@ -75,7 +75,7 @@ class Runner(object):
         
         res_dict = {'resource': 'ncsa.bw_aprun',
                    'walltime': 1440,
-                   'cpus': self._cores*self.total_replicas,
+                   'cores': self._cores*self.total_replicas,
                    'project': 'bamm',
                    'queue': 'high',
                    'access_schema': 'gsissh'}
