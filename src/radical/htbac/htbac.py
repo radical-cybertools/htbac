@@ -86,7 +86,6 @@ class Runner(object):
 
 
         # Create Resource Manager object with the above resource description
-        
         rman = ResourceManager(res_dict)
         rman.shared_data = self.input_tgzs
         # Create Application Manager

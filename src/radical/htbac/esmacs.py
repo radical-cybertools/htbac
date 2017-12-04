@@ -104,6 +104,7 @@ class Esmacs(object):
         for replica in range(self._replicas):
             t = Task()
             t.name = "replica_{0}_step_{1}".format(replica,self.workflow[count])
+            task_ref = "$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s2.uid, t.uid)
 
             task_path = s1_ref["replica_{0}_step_{1}".format(replica, self.workflow[count-1])]
             print task_path
@@ -135,12 +136,12 @@ class Esmacs(object):
 
 
             #change the output in eq1 to have /_replicas/rep{input1}/equilibration/{input2}.coor
-            t.arguments = ["%s/mineq_confs/eq1.conf" % self.rootdir]   
+            t.arguments = ['+ppn','30','+pemap', '0-29', '+commap', '30', '%s/mineq_confs/eq1.conf' % self.rootdir]   
 
             #we obtain the task path of the previous step for current replica
             
                  
-            s2_ref["replica_{0}_step_{1}".format(replica, self.workflow[count])]="$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s2.uid, t.uid)
+            s2_ref["replica_{0}_step_{1}".format(replica, self.workflow[count])] = task_ref
             s2.add_tasks(t)     
 
         p.add_stages(s2)
@@ -153,12 +154,14 @@ class Esmacs(object):
         for replica in range(self._replicas):
             t = Task()
             t.name = "replica_{0}_step_{1}".format(replica,self.workflow[count])
+            task_ref = "$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s3.uid, t.uid)
+
             t.executable = self.executable
             t.cpu_reqs = self.cpu_reqs
             t.pre_exec = ['export OMP_NUM_THREADS=1']
 
             #change the output in eq2 to have /_replicas/rep{input1}/eq/{input2}.coor
-            t.arguments = ["%s/mineq_confs/eq2.conf" % self.rootdir]   
+            t.arguments = ['+ppn','30','+pemap', '0-29', '+commap', '30', '%s/mineq_confs/eq2.conf' % self.rootdir]   
 
             #we obtain the task path of the previous step for current replica
             task_path = s2_ref["replica_{0}_step_{1}".format(replica, self.workflow[count-1])]
@@ -182,7 +185,7 @@ class Esmacs(object):
             for f in self.my_list:
                 t.copy_input_data.append("{stage2}/".format(stage2=task_path) + f + " > " + f)
 
-            s3_ref["replica_{0}_step_{1}".format(replica, self.workflow[count])]="$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s3.uid, t.uid)
+            s3_ref["replica_{0}_step_{1}".format(replica, self.workflow[count])] = task_ref
             s3.add_tasks(t)  
 
         p.add_stages(s3)
@@ -194,6 +197,7 @@ class Esmacs(object):
         for replica in range(self._replicas):
             t = Task()
             t.name = "replica_{0}_step_{1}".format(replica,self.workflow[count])
+            task_ref = "$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s4.uid, t.uid)
             task_path = s3_ref["replica_{0}_step_{1}".format(replica, self.workflow[count-1])]
         
 
@@ -222,11 +226,11 @@ class Esmacs(object):
             
 
             #change the output in eq1 to have /_replicas/rep{input1}/equilibration/{input2}.coor
-            t.arguments = ["%s/sim_conf/sim1.conf" % self.rootdir]   
+            t.arguments = ['+ppn','30','+pemap', '0-29', '+commap', '30', '%s/sim_conf/sim1.conf' % self.rootdir]   
             
             #we obtain the task path of the previous step for current replica
             
-            s4_ref["replica_{0}_step_{1}".format(replica, self.workflow[count])]="$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s4.uid, t.uid)
+            s4_ref["replica_{0}_step_{1}".format(replica, self.workflow[count])] = task_ref
             s4.add_tasks(t) 
 
         p.add_stages(s4)
