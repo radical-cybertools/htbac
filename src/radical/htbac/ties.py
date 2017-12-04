@@ -92,14 +92,12 @@ class Ties(object):
                         #obtain task_path of current replica from previous workflow step 
                         task_path = stage_ref["replica_{0}_lambda_{1}_step_{2}".format(replica,ld,self.workflow[index-1])]
                         
-                        t.copy_input_data =[task_path+'replica_{input1}/lambda_{input2}/{input3}.xsc > replica_{input1}/lambda_{input2}/{input4}.xsc'.format(input1 = replica, 
+                        t.copy_input_data =[task_path+'replica_{input1}/lambda_{input2}/{input3}.xsc > replica_{input1}/lambda_{input2}/{input3}.xsc'.format(input1 = replica, 
                                                      input2 = ld, 
-                                                     input3 = self.workflow[index-1],
-                                                     input4 = self.workflow[index]),
-                                            task_path+'replica_{input1}/lambda_{input2}/{input3}.vel > replica_{input1}/lambda_{input2}/{input4}.vel'.format(input1 = replica, 
+                                                     input3 = self.workflow[index-1]),
+                                            task_path+'replica_{input1}/lambda_{input2}/{input3}.vel > replica_{input1}/lambda_{input2}/{input3}.vel'.format(input1 = replica, 
                                                      input2 = ld, 
-                                                     input3 = self.workflow[index-1],
-                                                     input4 = self.workflow[index])]
+                                                     input3 = self.workflow[index-1])]
 
                         for f in self.my_list:
                             t.copy_input_data.append("{stage}/".format(stage=task_path) + f + " > " + f)
