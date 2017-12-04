@@ -5,9 +5,9 @@ if __name__ == '__main__':
 
     ht = htbac.Runner()
 
-    protocol_ties_instance_1 = Ties(replicas = 5, 
+    protocol_ties_instance_1 = Ties(replicas = 65, 
                                         rootdir = 'bace1_b01',
-                                        workflow = ['min', 'eq1', 'eq2', 'prod'])
+                                        workflow = ['eq0', 'eq1', 'eq2', 'prod'])
     
     ht.add_protocol(protocol_ties_instance_1)
     
