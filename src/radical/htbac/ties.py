@@ -9,10 +9,10 @@ class Ties(object):
 
     def __init__(self, replicas = 0, lambda_initial = 0, lambda_final = 0, lambda_delta = 0, rootdir = None, workflow = None):
 
-        self._replicas         = replicas
-        self._lambda_initial   = lambda_initial
-        self._lambda_final     = lambda_final*100
-        self._lambda_delta     = int(lambda_delta*100)
+        self.replicas         = replicas
+        self.lambda_initial   = lambda_initial
+        self.lambda_final     = lambda_final*100
+        self.lambda_delta     = int(lambda_delta*100)
         self.rootdir          = rootdir
         self.executable       = ['/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2']
         
@@ -30,11 +30,10 @@ class Ties(object):
             
         for subdir, dirs, files in os.walk(self.rootdir):
             for file in files:
-                #print os.path.join(subdir, file)
                 self.my_list.append(os.path.join(subdir, file))
 
-        self._lambdas = list()
-        self._lambdas = [0.0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 1.0]
+        self.lambdas = list()
+        self.lambdas = [0.0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 1.0]
         
         
         #self.lambdas = [i/100.0 for i in range(self._lambda_initial, self._lambda_final*100, self._lambda_delta*100)]
@@ -48,7 +47,7 @@ class Ties(object):
 
     @property
     def replicas(self):
-        return self._replicas*self._lambdas
+        return self.replicas*self.lambdas
 
     # Generate pipelines
     def generate_pipeline(self):
@@ -63,7 +62,7 @@ class Ties(object):
         for index, step in enumerate(self.workflow):
             s = Stage()
             for replica in range(self.replicas):
-                for ld in self._lambdas:
+                for ld in self.lambdas:
                     
                     
                     if index == 0:
