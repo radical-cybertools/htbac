@@ -72,6 +72,7 @@ class Ties(object):
                         t.copy_input_data = ["$SHARED/" + self.rootdir + ".tgz > " + self.rootdir + ".tgz"]
                         t.pre_exec = ['tar zxvf {input1}'.format(input1=self.rootdir + ".tgz")]
                         t.cores   = self.cores
+                        t.mpi = True 
                         t.executable = self.executable
                         t.arguments  = ['replica_{}/lambda_{}/{}.conf'.format(replica, ld, step), 
                                     '&>', 
@@ -107,6 +108,7 @@ class Ties(object):
 
                         t.executable = self.executable
                         t.cores   = self.cores
+                        t.mpi = True
                         t.arguments  = ['replica_{}/lambda_{}/{}.conf'.format(replica, ld, step), 
                                         '&>', 
                                         'replica_{}/lambda_{}/{}.log'.format(replica, ld, step)]
