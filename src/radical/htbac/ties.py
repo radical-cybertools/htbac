@@ -67,7 +67,7 @@ class Ties(object):
 
                         t = Task()
                         t.name = "replica_{0}_lambda_{1}_step_{2}".format(replica,ld,step) 
-                        self.pre_exec.append('tar zxvf {input1}'.format(input1=self.rootdir + ".tgz") 
+                        self.pre_exec.append('tar zxvf {input1}'.format(input1=self.rootdir + ".tgz")) 
                         t.pre_exec = self.pre_exec
                         t.copy_input_data = ["$SHARED/" + self.rootdir + ".tgz > " + self.rootdir + ".tgz"]
                         t.executable = self.executable
