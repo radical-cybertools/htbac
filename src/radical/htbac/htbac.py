@@ -63,7 +63,7 @@ class Runner(object):
         for p in self._protocols:
             pipelines.add(p.generate_pipeline())
             self._root_directories.append(p.input_data)
-            self.total_replicas+=p.replicas_instance
+            self.total_replicas+=p.replicas
 
         '''
         new function:
