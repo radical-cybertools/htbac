@@ -9,7 +9,7 @@ class Ties(object):
 
     def __init__(self, replicas = 0, lambda_initial = 0, lambda_final = 0, lambda_delta = 0, rootdir = None, workflow = None):
 
-        self.replicas         = replicas
+        self._replicas         = replicas
         self.lambda_initial   = lambda_initial
         self.lambda_final     = lambda_final*100
         self.lambda_delta     = int(lambda_delta*100)
@@ -47,7 +47,7 @@ class Ties(object):
 
     @property
     def replicas(self):
-        return self.replicas*self.lambdas
+        return self._replicas*self.lambdas
 
     # Generate pipelines
     def generate_pipeline(self):
@@ -61,7 +61,7 @@ class Ties(object):
 
         for index, step in enumerate(self.workflow):
             s = Stage()
-            for replica in range(self.replicas):
+            for replica in range(self._replicas):
                 for ld in self.lambdas:
                     
                     
