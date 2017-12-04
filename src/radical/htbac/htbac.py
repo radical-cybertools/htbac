@@ -61,23 +61,12 @@ class Runner(object):
     def run(self):
 
         pipelines = set()
+
         for p in self._protocols:
             pipelines.add(p.generate_pipeline())
             self._root_directories.append(p.input_data)
             self.total_replicas+=p.replicas
 
-    '''
-        new function:
-
-        self.input_root_directory = list()
-
-        for directory in self._root_directories: 
-            for subdir, dirs, files in os.walk(directory):
-                for file in files:
-                    self.input_root_directory.append(os.path.join(subdir, file))
-
-        # don't forget to pass self.input_root_directory to shared_data
-    '''
 
         self.input_tgzs = list()
         for directory in self._root_directories:
@@ -118,6 +107,19 @@ class Runner(object):
                    'walltime': 1440,
                    'cpus': self._cores,
                    'project': ''}
+
+
+        new function:
+
+        self.input_root_directory = list()
+
+        for directory in self._root_directories: 
+            for subdir, dirs, files in os.walk(directory):
+                for file in files:
+                    self.input_root_directory.append(os.path.join(subdir, file))
+
+        # don't forget to pass self.input_root_directory to shared_data
+
 
         
 '''
