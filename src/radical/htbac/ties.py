@@ -63,7 +63,7 @@ class Ties(object):
                 for ld in self.lambdas:
                     
                     
-                    if index = 0:
+                    if index == 0:
 
                         t = Task()
                         t.name = "replica_{0}_lambda_{1}_step_{2}".format(replica,ld,step) 
