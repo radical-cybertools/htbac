@@ -54,11 +54,10 @@ class Ties(object):
     # In each stage we generate x_tasks where x is the lambdas* replicas
 
         p = Pipeline()
-        stage_ref = []
+        stage_ref = dict()
 
         for index, step in enumerate(self.workflow):
             s = Stage()
-            stage_ref = dict()
             for replica in range(self.replicas):
                 for ld in self.lambdas:
                     
@@ -80,6 +79,7 @@ class Ties(object):
                     
                         #task_ref = ["$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s.uid, t.uid)]
                         stage_ref["replica_{0}_lambda_{1}_step_{2}".format(replica,ld,step)]="$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s.uid, t.uid)
+
                         s.add_tasks(t)
 
 
@@ -91,7 +91,7 @@ class Ties(object):
 
                         #obtain task_path of current replica from previous workflow step 
                         task_path = stage_ref["replica_{0}_lambda_{1}_step_{2}".format(replica,ld,self.workflow[index-1])]
-            
+                        
                         t.copy_input_data =[task_path+'replica_{input1}/lambda_{input2}/{input3}.xsc > replica_{input1}/lambda_{input2}/{input4}.xsc'.format(input1 = replica, 
                                                      input2 = ld, 
                                                      input3 = self.workflow[index-1],

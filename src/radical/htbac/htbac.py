@@ -75,7 +75,6 @@ class Runner(object):
                 for file in files:
                     print os.path.join(subdir, file)
 
-
         res_dict = {'resource': 'ncsa.bw_aprun',
                    'walltime': 1440,
                    'cpus': self._cores*self.total_replicas,
@@ -83,7 +82,8 @@ class Runner(object):
                    'queue': 'high',
                    'access_schema': 'gsissh'}
 
-        
+
+
 
         # Create Resource Manager object with the above resource description
         
@@ -108,6 +108,12 @@ class Runner(object):
                    'cpus': self._cores,
                    'project': ''}
 
+        res_dict = {'resource': 'ncsa.bw_aprun',
+                   'walltime': 1440,
+                   'cpus': self._cores*self.total_replicas,
+                   'project': 'bamm',
+                   'queue': 'high',
+                   'access_schema': 'gsissh'}
 
         new function:
 
