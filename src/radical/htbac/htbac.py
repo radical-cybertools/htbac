@@ -65,7 +65,7 @@ class Runner(object):
             self._root_directories.append(p.input_data)
             self.total_replicas+=p.replicas
 
-        '''
+       '''
         new function:
 
         self.input_root_directory = list()
@@ -88,7 +88,7 @@ class Runner(object):
 
         res_dict = {'resource': 'ncsa.bw_aprun',
                    'walltime': 1440,
-                   'cpus': 32*self.total_replicas,
+                   'cpus': self._cores*self.total_replicas,
                    'project': 'bamm',
                    'queue': 'high',
                    'access_schema': 'gsissh'}
@@ -100,7 +100,7 @@ class Runner(object):
         rman = ResourceManager(res_dict)
         rman.shared_data = self.input_tgzs
         # Create Application Manager
-        appman = AppManager(hostname = 'two.radical-project.org', port = 32775)
+        appman = AppManager(hostname = self._hostname, port = self._port)
 
         # Assign resource manager to the Application Manager
         appman.resource_manager = rman
