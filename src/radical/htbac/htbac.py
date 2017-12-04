@@ -19,6 +19,7 @@ class Runner(object):
         self._res_dict = None
         self._hostname = None
         self._port = None
+        self.total_replicas = 0
 
         #profiler for Runner
         self._uid = ru.generate_id('radical.htbac.workflow_runner')
@@ -62,9 +63,22 @@ class Runner(object):
         for p in self._protocols:
             pipelines.add(p.generate_pipeline())
             self._root_directories.append(p.input_data)
+            self.total_replicas+=p.replicas_instance
+
+        '''
+        new function:
+
+        self.input_root_directory = list()
+
+        for directory in self._root_directories: 
+            for subdir, dirs, files in os.walk(directory):
+                for file in files:
+                    self.input_root_directory.append(os.path.join(subdir, file))
+
+        # don't forget to pass self.input_root_directory to shared_data
+        '''
 
         self.input_tgzs = list()
-
         for directory in self._root_directories:
             self.input_tgzs.append(directory+ '.tgz')   #if .tgz is available it will use .tgz
             for subdir, dirs, files in os.walk(directory):
@@ -74,7 +88,7 @@ class Runner(object):
 
         res_dict = {'resource': 'ncsa.bw_aprun',
                    'walltime': 1440,
-                   'cpus': self._cores,
+                   'cpus': self._cores*self.total_replicas,
                    'project': 'bamm',
                    'queue': 'high',
                    'access_schema': 'gsissh'}

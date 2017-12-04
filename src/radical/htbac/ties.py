@@ -62,15 +62,10 @@ class Ties(object):
                 for ld in self.lambdas:
                     t = Task()
                     t.name = "replica_{0}_lambda_{1}_step_{2}".format(replica,ld,step) 
-                    t.executable = self.executable
-                    t.pre_exec   = self.pre_exec
-                    t.cpu_reqs   = self.cpu_reqs
-                    t.arguments  = ['+ppn','30','+pemap', '0-29', '+commap', '30',
-                                    'replica_{}/lambda_{}/{}.conf'.format(replica, ld, step), 
-                                    '&>', 
-                                    'replica_{}/lambda_{}/{}.log'.format(replica, ld, step)]
 
-                    # obtain the task path of the previous step for current replica+lambda combination for any stage after stage 1 
+                    for f in self.my_list:
+                        t.copy_input_data.append("{stage3}/".format(stage3=task_path) + f + " > " + f)
+
                     if index != 0: 
                         task_path = s_ref["replica_{0}_step_{1}".format(replica, self.workflow[index-1])]
                         t.copy_input_data =[task_path+'replica_{input1}/lambda_{input2}/{input3}.xsc > replica_{input1}/lambda_{input2}/{input4}.xsc'.format(input1 = replica, 
@@ -82,6 +77,17 @@ class Ties(object):
                                                      input3 = self.workflow[index-1],
                                                      input4 = self.workflow[index])]
 
+
+                    t.executable = self.executable
+                    t.pre_exec   = self.pre_exec
+                    t.cpu_reqs   = self.cpu_reqs
+                    t.arguments  = ['+ppn','30','+pemap', '0-29', '+commap', '30',
+                                    'replica_{}/lambda_{}/{}.conf'.format(replica, ld, step), 
+                                    '&>', 
+                                    'replica_{}/lambda_{}/{}.log'.format(replica, ld, step)]
+
+                    # obtain the task path of the previous step for current replica+lambda combination for any stage after stage 1 
+                    
                     task_ref = ["$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s.uid, t.uid)]
                     stage_ref["replica_{0}_lambda_{1}_step_{2}".format(replica,ld,step)]="$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s.uid, t.uid)
                     s.add_tasks(t)
