@@ -88,7 +88,7 @@ class Runner(object):
 
         res_dict = {'resource': 'ncsa.bw_aprun',
                    'walltime': 1440,
-                   'cpus': self._cores*self.total_replicas,
+                   'cpus': 32*self.total_replicas,
                    'project': 'bamm',
                    'queue': 'high',
                    'access_schema': 'gsissh'}
