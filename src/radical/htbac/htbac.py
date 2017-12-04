@@ -55,8 +55,8 @@ class Runner(object):
     
     def rabbitmq_config(self, hostname = 'localhost', port = 5672):
 
-        return self._hostname = hostname
-        return self._port = port
+        self._hostname = hostname
+        self._port = port
 
     def run(self):
 
