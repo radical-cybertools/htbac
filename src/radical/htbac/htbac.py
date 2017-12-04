@@ -81,7 +81,7 @@ class Runner(object):
                    'access_schema': 'gsissh'}
 
 
-
+        print self._cores
 
         # Create Resource Manager object with the above resource description
         rman = ResourceManager(res_dict)
