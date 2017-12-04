@@ -9,7 +9,7 @@ class Ties(object):
 
     def __init__(self, replicas = 0, lambda_initial = 0, lambda_final = 0, lambda_delta = 0, rootdir = None, workflow = None):
 
-        self._replicas         = replicas
+        self._replicas        = replicas
         self.lambda_initial   = lambda_initial
         self.lambda_final     = lambda_final*100
         self.lambda_delta     = int(lambda_delta*100)
@@ -54,7 +54,7 @@ class Ties(object):
 
 
     # Here we create 1 pipeline with n_stages where n is the number of steps in the workflow
-    # In each stage we generate x_tasks where x is the lambdas* replicas
+    # In each stage we generate x_tasks where x = lambdas*replicas
 
         p = Pipeline()
         stage_ref = dict()
@@ -69,8 +69,8 @@ class Ties(object):
 
                         t = Task()
                         t.name = "replica_{0}_lambda_{1}_step_{2}".format(replica,ld,step) 
-                        t.pre_exec = 'tar zxvf {input1}'.format(input1=self.rootdir + ".tgz")
                         t.copy_input_data = ["$SHARED/" + self.rootdir + ".tgz > " + self.rootdir + ".tgz"]
+                        t.pre_exec = ['tar zxvf {input1}'.format(input1=self.rootdir + ".tgz")]
                         t.cores   = self.cores
                         t.executable = self.executable
                         t.arguments  = ['replica_{}/lambda_{}/{}.conf'.format(replica, ld, step), 
