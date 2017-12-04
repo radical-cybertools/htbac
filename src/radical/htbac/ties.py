@@ -31,7 +31,7 @@ class Ties(object):
         for subdir, dirs, files in os.walk(self.rootdir):
             for file in files:
                 #print os.path.join(subdir, file)
-                self.my_list.append(os.path.join(subdir, file)
+                self.my_list.append(os.path.join(subdir, file))
 
         self.lambdas = list()
         self.lambdas = [0.0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 1.0]
