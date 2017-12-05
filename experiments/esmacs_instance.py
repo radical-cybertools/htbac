@@ -1,15 +1,15 @@
-from radical.htbac import Ties, Runner2
+from radical.htbac import Esmacs, Runner2
 
 
 def main():
 
     ht = Runner2()
 
-    ties = Ties(number_of_replicas=3, number_of_windows=5,
-                workflow=['min', 'eq1', 'eq2', 'prod'],
-                system='brd4-gsk3-1')
+    esmacs = Esmacs(number_of_replicas=5,
+                    system='brd4-gsk3',
+                    workflow=['eq0', 'eq1', 'eq2', 'sim1'])
 
-    ht.add_protocol(ties)
+    ht.add_protocol(esmacs)
     ht.cores = 32
     ht.rabbitmq_config()
     ht.run()

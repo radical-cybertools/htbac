@@ -1,245 +1,86 @@
-import radical.utils as ru
-from radical.entk import Pipeline, Stage, Task, AppManager, ResourceManager
-import os
+import parmed as pmd
 
-if os.environ.get('RADICAL_ENTK_VERBOSE') == None:
-    os.environ['RADICAL_ENTK_VERBOSE'] = 'INFO'
+import radical.utils as ru
+from radical.entk import Pipeline, Stage, Task
+
+
+NAMD2 = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
+NAMD_MMPBSA_ANALYSIS = "WHERE IS IT?"
+_simulation_file_suffixes = ['.coor', '.xsc', '.vel']
 
 
 class Esmacs(object):
-    
-    '''
-    esmacs protocol consists of 4 stages: 
+    def __init__(self, number_of_replicas, system, workflow):
 
-    1) Minimization
-    2) Equilibration step 1 (heating and restraint relaxation)
-    3) Equilibration step 1 (300K unrestrained NPT)
-    4) Production run
-   
-    shared_data will have provide access to folders inside rootdir:
-        build, constraints, mineq_confs, MMPBSA, and sim_conf folders
+        self.number_of_replicas = number_of_replicas
+        self.system = system
+        self.box = pmd.amber.AmberAsciiRestart('esmacs/{}/build/complex.crd'.format(system)).box
 
-    '''
-
-    def __init__(self, replicas=0, rootdir=None, workflow=None):
-
-        self._replicas   = replicas
-        self.rootdir     = rootdir  # this will ensure that this instance only looks at its rootdir in shared_data
-        self.executable  = ['/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-ugni-smp-BlueWaters/namd2']
-
-        self.cpu_reqs    = {'processes': 1, 'process_type': 'MPI', 'threads_per_process': 31, 'thread_type': None}
-        self.workflow    = workflow
+        self.workflow = workflow
         
-        #profiler for ESMACS PoE
+        # Profiler for ESMACS PoE
 
         self._uid = ru.generate_id('radical.htbac.esmacs')
         self._logger = ru.get_logger('radical.htbac.esmacs')
-        self._prof = ru.Profiler(name = self._uid) 
+        self._prof = ru.Profiler(name=self._uid)
         self._prof.prof('create esmacs instance', uid=self._uid)
 
+    # Generate a new pipeline
+    def generate_pipeline(self):
 
-        self.my_list = list()
+        pipeline = Pipeline()
 
-        for subdir, dirs, files in os.walk(self.rootdir):
+        # Simulation stages
+        # =================
+        for step in self.workflow:
+            stage = Stage()
+            stage.name = step
 
-            for file in files:
-                self.my_list.append(os.path.join(subdir, file))
+            for replica in range(self.number_of_replicas):
 
+                task = Task()
+                task.name = 'replica_{}'.format(replica)
+
+                task.arguments += ['{}.conf'.format(stage.name)]
+                task.copy_input_data = ['$SHARED/{}.conf'.format(stage.name)]
+                task.executable = [NAMD2]
+
+                task.mpi = True
+                task.cores = 32
+
+                links = []
+                links += ['$SHARED/complex.top', '$SHARED/cons.pdb']
+
+                if self.workflow.index(step):
+                    previous_stage = pipeline.stages[-1]
+                    previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
+                    path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.uid, previous_stage.uid,
+                                                                   previous_task.uid)
+                    links += [path + previous_stage.name + suffix for suffix in _simulation_file_suffixes]
+                else:
+                    links += ['$SHARED/complex.pdb']
+
+                task.link_input_data = links
+
+                task.pre_exec += ["sed -i 's/BOX_X/{}/g' *.conf".format(self.box[0]),
+                                  "sed -i 's/BOX_Y/{}/g' *.conf".format(self.box[1]),
+                                  "sed -i 's/BOX_Z/{}/g' *.conf".format(self.box[2])]
+
+                stage.add_tasks(task)
+
+            pipeline.add_stages(stage)
+
+        return pipeline
+
+    # Input data
     @property
     def input_data(self):
-
-        return self.rootdir
+        files = []
+        files += ['default_configs/esmacs/{}.conf'.format(step) for step in self.workflow]
+        files += ['esmacs/{}/build/{}'.format(self.system, desc) for desc in ['complex.pdb', 'complex.top']]
+        files += ['esmacs/{}/constraint/cons.pdb'.format(self.system)]
+        return files
 
     @property
     def replicas(self):
-        return self._replicas
-    
-
-    def generate_pipeline(self):
-
-        # Create a single Pipeline
-
-        p = Pipeline()
-
-        # Create a new stage for every step in the workflow 
-
-        s1 = Stage()
-        s1_ref = dict()
-        count = 0 
-        print self.rootdir
-
-        for replica in range(self._replicas):
-            t = Task()
-            t.name = "replica_{0}_step_{1}".format(replica,self.workflow[count]) 
-            task_ref = "$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s1.uid, t.uid)
-        
-            t.copy_input_data = ["$SHARED/" + self.rootdir + ".tgz > " + self.rootdir + ".tgz"]
-
-            
-            t.pre_exec = ['tar zxvf {input1}'.format(input1=self.rootdir + ".tgz"),
-            'export OMP_NUM_THREADS=1', 
-            "sed -i 's/REPX/{input2}/g' {input1}/*_confs/*.conf".format(input1 = self.rootdir, input2 = replica),
-            'mkdir -p {input1}/replicas/rep{input2}/equilibration; touch {input1}/replicas/rep{input2}/equilibration/holder; mkdir -p {input1}/replicas/rep{input2}/simulation; touch {input1}/replicas/rep{input2}/simulation/holder'.format(
-                                input1=self.rootdir, input2=replica)]
-            
-
-            # We create a list of all the NAMD flags required by the executable
-            # and pass the path where the executable argument lies
-            # and pass arg from pre-exec to the *.conf to replace REPX with the replica index
-
-            t.arguments = ['+ppn','30','+pemap', '0-29', '+commap', '30',
-                           '%s/mineq_confs/eq0.conf' % self.rootdir]
-
-            t.executable = self.executable 
-            t.cpu_reqs = self.cpu_reqs
-            s1_ref["replica_{0}_step_{1}".format(replica, self.workflow[count])] = task_ref
-            s1.add_tasks(t)
-
-        p.add_stages(s1)
-
-        count += 1
-        s2 = Stage()
-        s2_ref = dict()
-
-        for replica in range(self._replicas):
-            t = Task()
-            t.name = "replica_{0}_step_{1}".format(replica,self.workflow[count])
-            task_ref = "$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s2.uid, t.uid)
-
-            task_path = s1_ref["replica_{0}_step_{1}".format(replica, self.workflow[count-1])]
-            print task_path
-
-            
-            #copy_input_data allows the current replica to stage output data from the same replica that were generated by a previous step
-
-            t.copy_input_data = [task_path+'/replicas/rep{input1}/equilibration/{input2}.coor > {input3}/replicas/rep{input1}/equilibration/{input2}.coor'.format(input1 = replica, 
-                                                 input2 = self.workflow[count-1], 
-                                                 input3 = self.rootdir,
-                                                 input4 = self.workflow[count]),
-            task_path+'/replicas/rep{input1}/equilibration/{input2}.vel > {input3}/replicas/rep{input1}/equilibration/{input2}.vel'.format(input1 = replica,
-                             input2 = self.workflow[count-1],
-                             input3 = self.rootdir,
-                             input4 = self.workflow[count]),
-            task_path+'/replicas/rep{input1}/equilibration/{input2}.xsc > {input3}/replicas/rep{input1}/equilibration/{input2}.xsc'.format(input1 = replica,
-                                    input2 = self.workflow[count-1],
-                                    input3 = self.rootdir,
-                                    input4 = self.workflow[count])]
-
-
-            #this is the original root directory 
-            for f in self.my_list:
-                t.copy_input_data.append("{stage1}/".format(stage1=task_path) + f + " > " + f)
-
-            t.executable = self.executable
-            t.cpu_reqs = self.cpu_reqs
-            t.pre_exec = ['export OMP_NUM_THREADS=1']
-
-
-            #change the output in eq1 to have /_replicas/rep{input1}/equilibration/{input2}.coor
-            t.arguments = ['+ppn','30','+pemap', '0-29', '+commap', '30', '%s/mineq_confs/eq1.conf' % self.rootdir]   
-
-            #we obtain the task path of the previous step for current replica
-            
-                 
-            s2_ref["replica_{0}_step_{1}".format(replica, self.workflow[count])] = task_ref
-            s2.add_tasks(t)     
-
-        p.add_stages(s2)
-
-        count += 1
-
-        s3 = Stage()
-        s3_ref = dict()
-
-        for replica in range(self._replicas):
-            t = Task()
-            t.name = "replica_{0}_step_{1}".format(replica,self.workflow[count])
-            task_ref = "$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s3.uid, t.uid)
-
-            t.executable = self.executable
-            t.cpu_reqs = self.cpu_reqs
-            t.pre_exec = ['export OMP_NUM_THREADS=1']
-
-            #change the output in eq2 to have /_replicas/rep{input1}/eq/{input2}.coor
-            t.arguments = ['+ppn','30','+pemap', '0-29', '+commap', '30', '%s/mineq_confs/eq2.conf' % self.rootdir]   
-
-            #we obtain the task path of the previous step for current replica
-            task_path = s2_ref["replica_{0}_step_{1}".format(replica, self.workflow[count-1])]
-            
-
-            # copy_input_data allows the current replica to stage output data from the same replica in a previous step
-
-            t.copy_input_data = [task_path+'/replicas/rep{input1}/equilibration/{input2}.coor > {input3}/replicas/rep{input1}/equilibration/{input2}.coor'.format(input1 = replica, 
-                                                 input2 = self.workflow[count-1], 
-                                                 input3 = self.rootdir,
-                                                 input4 = self.workflow[count]),
-            task_path+'/replicas/rep{input1}/equilibration/{input2}.vel > {input3}/replicas/rep{input1}/equilibration/{input2}.vel'.format(input1 = replica,
-                             input2 = self.workflow[count-1],
-                             input3 = self.rootdir,
-                             input4 = self.workflow[count]),
-            task_path+'/replicas/rep{input1}/equilibration/{input2}.xsc > {input3}/replicas/rep{input1}/equilibration/{input2}.xsc'.format(input1 = replica,
-                                    input2 = self.workflow[count-1],
-                                    input3 = self.rootdir,
-                                    input4 = self.workflow[count])]
-
-            
-            for f in self.my_list:
-                t.copy_input_data.append("{stage2}/".format(stage2=task_path) + f + " > " + f)
-
-            s3_ref["replica_{0}_step_{1}".format(replica, self.workflow[count])] = task_ref
-            s3.add_tasks(t)  
-
-        p.add_stages(s3)
-
-        count += 1
-        s4 = Stage()
-        s4_ref = dict()
-
-        for replica in range(self._replicas):
-            t = Task()
-            t.name = "replica_{0}_step_{1}".format(replica,self.workflow[count])
-            task_ref = "$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s4.uid, t.uid)
-            task_path = s3_ref["replica_{0}_step_{1}".format(replica, self.workflow[count-1])]
-        
-
-
-            # copy_input_data allows the current replica to stage output data from the same replica in a previous step
-
-            t.copy_input_data = [task_path+'/replicas/rep{input1}/equilibration/{input2}.coor > {input3}/replicas/rep{input1}/equilibration/{input2}.coor'.format(input1 = replica, 
-                                                 input2 = self.workflow[count-1], 
-                                                 input3 = self.rootdir,
-                                                 input4 = self.workflow[count]),
-            task_path+'/replicas/rep{input1}/equilibration/{input2}.vel > {input3}/replicas/rep{input1}/equilibration/{input2}.vel'.format(input1 = replica,
-                             input2 = self.workflow[count-1],
-                             input3 = self.rootdir,
-                             input4 = self.workflow[count]),
-            task_path+'/replicas/rep{input1}/equilibration/{input2}.xsc > {input3}/replicas/rep{input1}/equilibration/{input2}.xsc'.format(input1 = replica,
-                                    input2 = self.workflow[count-1],
-                                    input3 = self.rootdir,
-                                    input4 = self.workflow[count])]
-
-            for f in self.my_list:
-                t.copy_input_data.append("{stage3}/".format(stage3=task_path) + f + " > " + f)
-            
-            t.pre_exec = ['export OMP_NUM_THREADS=1']         
-            t.executable = self.executable
-            t.cpu_reqs = self.cpu_reqs
-            
-
-            #change the output in eq1 to have /_replicas/rep{input1}/equilibration/{input2}.coor
-            t.arguments = ['+ppn','30','+pemap', '0-29', '+commap', '30', '%s/sim_conf/sim1.conf' % self.rootdir]   
-            
-            #we obtain the task path of the previous step for current replica
-            
-            s4_ref["replica_{0}_step_{1}".format(replica, self.workflow[count])] = task_ref
-            s4.add_tasks(t) 
-
-        p.add_stages(s4)
-
-        return p
-
-
-
-
-
-
+        return self.number_of_replicas
