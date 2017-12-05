@@ -228,7 +228,7 @@ class Esmacs_MPI(object):
             t.mpi = True
 
             #change the output in eq1 to have /_replicas/rep{input1}/equilibration/{input2}.coor
-            t.arguments = ['%s/sim_conf/sim1.conf' % self.rootdir]   
+            t.arguments = ['%s/sim_confs/sim1.conf' % self.rootdir]   
             
             #we obtain the task path of the previous step for current replica
             
