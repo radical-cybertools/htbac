@@ -167,7 +167,7 @@ class Runner2(object):
         self._hostname = hostname
         self._port = port
 
-    def run(self):
+    def run(self, walltime=60):
         pipelines = set()
         input_data = list()
 
@@ -180,7 +180,7 @@ class Runner2(object):
         print 'Running on', self._cores, 'cores.'
 
         res_dict = {'resource': 'ncsa.bw_aprun',
-                    'walltime': 1440,
+                    'walltime': walltime,
                     'cores': self._cores,
                     'project': 'bamm',
                     'queue': 'high',
