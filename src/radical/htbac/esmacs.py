@@ -14,7 +14,7 @@ class Esmacs(object):
 
         self.number_of_replicas = number_of_replicas
         self.system = system
-        self.box = pmd.amber.AmberAsciiRestart('esmacs/{}/build/complex.crd'.format(system)).box
+        self.box = pmd.amber.AmberAsciiRestart('systems/esmacs/{}/build/complex.crd'.format(system)).box
 
         self.workflow = workflow
         
@@ -77,8 +77,8 @@ class Esmacs(object):
     def input_data(self):
         files = []
         files += ['default_configs/esmacs/{}.conf'.format(step) for step in self.workflow]
-        files += ['esmacs/{}/build/{}'.format(self.system, desc) for desc in ['complex.pdb', 'complex.top']]
-        files += ['esmacs/{}/constraint/cons.pdb'.format(self.system)]
+        files += ['systems/esmacs/{}/build/{}'.format(self.system, desc) for desc in ['complex.pdb', 'complex.top']]
+        files += ['systems/esmacs/{}/constraint/cons.pdb'.format(self.system)]
         return files
 
     @property

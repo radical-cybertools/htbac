@@ -16,7 +16,7 @@ class Ties(object):
         self.number_of_replicas = number_of_replicas
         self.lambdas = np.linspace(0.0, 1.0, number_of_windows, endpoint=True)
         self.system = system
-        self.box = pmd.amber.AmberAsciiRestart('ties/{}/build/complex.crd'.format(system)).box
+        self.box = pmd.amber.AmberAsciiRestart('systems/ties/{}/build/complex.crd'.format(system)).box
 
         self.workflow = workflow
 
@@ -131,7 +131,7 @@ class Ties(object):
     def input_data(self):
         files = []
         files += ['default_configs/ties/{}.conf'.format(step) for step in self.workflow]
-        files += ['ties/{}/build/{}'.format(self.system, desc) for desc in ['complex.pdb', 'complex.top', 'tags.pdb']]
+        files += ['systems/ties/{}/build/{}'.format(self.system, desc) for desc in ['complex.pdb', 'complex.top', 'tags.pdb']]
         return files
 
     @property
