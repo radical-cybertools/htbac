@@ -80,21 +80,21 @@ class Ties(object):
         analysis.name = 'analysis'
 
         for replica in range(self.number_of_replicas):
-            task = Task()
-            task.name = 'replica_{}'.format(replica)
+            analysis_task = Task()
+            analysis_task.name = 'replica_{}'.format(replica)
 
-            task.arguments += ['-d', '*ti.out', '>', 'dg_{}.out'.format(task.name)]
-            task.executable = [NAMD_TI_ANALYSIS]
+            analysis_task.arguments += ['-d', '*ti.out', '>', 'dg_{}.out'.format(analysis_task.name)]
+            analysis_task.executable = [NAMD_TI_ANALYSIS]
 
-            task.mpi = False
-            task.cores = 1
+            analysis_task.mpi = False
+            analysis_task.cores = 1
 
             production_stage = pipeline.stages[-1]
-            production_tasks = [t for t in production_stage.tasks if task.name in t.name]
-            links = ['alch_{}_ti.out'.format(task.name.split('_lambda_')[-1]) for task in production_tasks]
-            task.link_input_data = links
+            production_tasks = [t for t in production_stage.tasks if analysis_task.name in t.name]
+            links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_ti.out'.format(pipeline.uid, production_stage.uid, t.uid, t.name.split('_lambda_')[-1]) for t in production_tasks]
+            analysis_task.link_input_data = links
 
-            analysis.add_tasks(task)
+            analysis.add_tasks(analysis_task)
 
         pipeline.add_stages(analysis)
 
@@ -103,25 +103,26 @@ class Ties(object):
         average = Stage()
         average.name = 'average'
 
-        task = Task()
-        task.name = 'average_dg'
+        average_task = Task()
+        average_task.name = 'average_dg'
         # Change this to the actual averaging. How? Does the python come with np?
-        task.arguments = ['average']
-        task.executable = ['echo']
+        average_task.arguments = ['average']
+        average_task.executable = ['echo']
 
-        task.mpi = False
-        task.cores = 1
+        average_task.mpi = False
+        average_task.cores = 1
 
         previous_stage = pipeline.stages[-1]
         previous_tasks = previous_stage.tasks
 
-        links = ['dg_{}.out'.format(t.name) for t in previous_tasks]
-        task._link_input_data = links
+        links = ['$Pipeline_{}_Stage_{}_Task_{}/dg_{}.out'.format(pipeline.uid, previous_stage.uid, t.uid,
+                                                                  t.name) for t in previous_tasks]
+        average_task._link_input_data = links
 
-        average.add_tasks(task)
+        average.add_tasks(average_task)
         pipeline.add_stages(average)
 
-        print 'Pipeline has', len(pipeline.stages), 'stages.'
+        print 'Pipeline has', len(pipeline.stages), 'stages. Tasks', [len(s.tasks) for s in pipeline.stages], '.'
 
         return pipeline
 
