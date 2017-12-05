@@ -1,3 +1,4 @@
+import numpy as np
 import parmed as pmd
 
 import radical.utils as ru
@@ -10,12 +11,10 @@ _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
 
 
 class Ties(object):
-    def __init__(self, number_of_replicas, lambda_delta, system, workflow):
+    def __init__(self, number_of_replicas, number_of_windows, system, workflow):
 
         self.number_of_replicas = number_of_replicas
-        self.lambda_delta = lambda_delta
-        self.lambdas = [0.0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 1.0]
-
+        self.lambdas = np.linspace(0.0, 1.0, number_of_windows, endpoint=True)
         self.system = system
         self.box = pmd.amber.AmberAsciiRestart('ties/{}/build/complex.crd'.format(system)).box
 

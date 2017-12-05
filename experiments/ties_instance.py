@@ -5,7 +5,7 @@ def main():
 
     ht = Runner2()
 
-    ties = Ties(number_of_replicas=5, lambda_delta=0.1,
+    ties = Ties(number_of_replicas=3, number_of_windows=5,
                 workflow=['min', 'eq1', 'eq2', 'prod'],
                 system='brd4-gsk3-1')
 
@@ -18,7 +18,7 @@ def main():
 if __name__ == '__main__':
     import os
 
-    os.environ['RADICAL_ENTK_VERBOSE'] = 'DEBUG'
+    os.environ['RADICAL_ENTK_VERBOSE'] = 'INFO'
     os.environ['RADICAL_PILOT_DBURL'] = 'mongodb://radical:fg*2GT3^eB@crick.chem.ucl.ac.uk:27017/admin'
     os.environ['RP_ENABLE_OLD_DEFINES'] = 'True'
     os.environ['SAGA_PTY_SSH_TIMEOUT'] = '2000'
