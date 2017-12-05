@@ -1,26 +1,31 @@
-from radical.htbac import htbac, Esmacs, Ties, Ties_EoP, Esmacs_7_stages
+from radical.htbac import Ties, Runner2
+
+
+def main():
+
+    ht = Runner2()
+
+    ties = Ties(number_of_replicas=5,
+                workflow=['min', 'eq1', 'eq2', 'prod'],
+                system='complex',
+                box=[5, 5, 5],
+                lambda_delta=0.1)
+
+    ht.add_protocol(ties)
+    ht.cores = 32
+    ht.rabbitmq_config()
+    ht.run()
 
 
 if __name__ == '__main__':
+    import os
 
-    ht = htbac.Runner()
-    
-    protocol_ties_instance_1   = Ties(replicas = 5, 
-                                      lambda_initial = 0, 
-                                      lambda_final = 1, 
-                                      lambda_delta = 0.05, 
-                                      rootdir = 'bace1_b01', 
-                                      workflow = ['min', 'eq1', 'eq2', 'prod'])
+    os.environ['RADICAL_ENTK_VERBOSE'] = 'DEBUG'
+    os.environ['RADICAL_PILOT_DBURL'] = 'mongodb://radical:fg*2GT3^eB@crick.chem.ucl.ac.uk:27017/admin'
+    os.environ['RP_ENABLE_OLD_DEFINES'] = 'True'
+    os.environ['SAGA_PTY_SSH_TIMEOUT'] = '2000'
+    os.environ['RADICAL_PILOT_PROFILE'] = 'True'
+    os.environ['RADICAL_ENMD_PROFILE'] = 'True'
+    os.environ['RADICAL_ENMD_PROFILING'] = '1'
 
-    ht.add_protocol(protocol_ties_instance_1)
-    
-
-    #define number of cores as required by each task 
-    #future: add another argument for cores to each protocol
-
-    ht.cores = 32
-    
-    #define hostname and port for running rabbitmq
-    
-    ht.rabbitmq_config(hostname = 'two.radical-project.org', port = 32800)
-    ht.run()
+    main()
