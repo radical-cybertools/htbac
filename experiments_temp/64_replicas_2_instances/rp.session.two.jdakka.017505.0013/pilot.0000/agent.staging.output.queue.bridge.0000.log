@@ -1,0 +1,53 @@
+2017-12-04 23:15:42,045: agent.staging.output.queue.bridge.0000: MainProcess                     : MainThread     : INFO    : python.interpreter   version: 2.7.11 (default, Sep 7 2016, 20:43:03) [GCC 4.9.3 20150626 (Cray Inc.)]
+2017-12-04 23:15:42,051: agent.staging.output.queue.bridge.0000: MainProcess                     : MainThread     : INFO    :                      pid: 17082
+2017-12-04 23:15:42,051: agent.staging.output.queue.bridge.0000: MainProcess                     : MainThread     : INFO    :                      tid: MainThread
+2017-12-04 23:15:42,052: agent.staging.output.queue.bridge.0000: MainProcess                     : MainThread     : INFO    : radical.pilot        version: 0.47-v0.46.2-183-g2c92e513@rc-v0.46.3
+2017-12-04 23:15:42,052: agent.staging.output.queue.bridge.0000: MainProcess                     : MainThread     : INFO    : create agent_staging_output_queue - bridge - tcp://*:*
+2017-12-04 23:15:42,052: agent.staging.output.queue.bridge.0000: MainProcess                     : MainThread     : DEBUG   : start process
+2017-12-04 23:15:42,062: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000: MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:15:42,076: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: MainThread     : INFO    : child (me) initializing
+2017-12-04 23:15:42,076: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: MainThread     : DEBUG   : parent name: agent.staging.output.queue.bridge.0000.child.watch
+2017-12-04 23:15:42,076: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: MainThread     : DEBUG   : start thread
+2017-12-04 23:15:42,077: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: agent.staging.output.queue.bridge.0000.child.watch: DEBUG   : child name: agent.staging.output.queue.bridge.0000.child.watch.thread
+2017-12-04 23:15:42,077: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: agent.staging.output.queue.bridge.0000.child.watch: INFO    : child (me) initializing
+2017-12-04 23:15:42,077: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: agent.staging.output.queue.bridge.0000.child.watch: DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:15:42,077: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: agent.staging.output.queue.bridge.0000.child.watch: DEBUG   : ru_initialize_child (NOOP)
+2017-12-04 23:15:42,078: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: agent.staging.output.queue.bridge.0000.child.watch: INFO    : send alive
+2017-12-04 23:15:42,078: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: agent.staging.output.queue.bridge.0000.child.watch: INFO    : put message: [agent.staging.output.queue.bridge.0000.child.watch.thread] alive
+2017-12-04 23:15:42,078: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: MainThread     : INFO    : get msg: alive
+2017-12-04 23:15:42,079: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:15:42,079: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-04 23:15:42,079: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: MainThread     : DEBUG   : child thread agent.staging.output.queue.bridge.0000.child.watch started
+2017-12-04 23:15:42,079: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: MainThread     : INFO    : child (me) is alive
+2017-12-04 23:15:42,079: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: MainThread     : INFO    : send alive
+2017-12-04 23:15:42,079: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: MainThread     : INFO    : send message: [agent.staging.output.queue.bridge.0000.child] alive
+2017-12-04 23:15:42,080: agent.staging.output.queue.bridge.0000: MainProcess                     : MainThread     : INFO    : recv message: alive
+2017-12-04 23:15:42,080: agent.staging.output.queue.bridge.0000: MainProcess                     : MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:15:42,080: agent.staging.output.queue.bridge.0000: MainProcess                     : MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-04 23:15:42,081: agent.staging.output.queue.bridge.0000: MainProcess                     : MainThread     : DEBUG   : parent name: agent.staging.output.queue.bridge.0000.watch
+2017-12-04 23:15:42,081: agent.staging.output.queue.bridge.0000: MainProcess                     : MainThread     : DEBUG   : start thread
+2017-12-04 23:15:42,081: agent.staging.output.queue.bridge.0000: MainProcess                     : agent.staging.output.queue.bridge.0000.watch: DEBUG   : child name: agent.staging.output.queue.bridge.0000.watch.thread
+2017-12-04 23:15:42,082: agent.staging.output.queue.bridge.0000: MainProcess                     : agent.staging.output.queue.bridge.0000.watch: INFO    : child (me) initializing
+2017-12-04 23:15:42,082: agent.staging.output.queue.bridge.0000: MainProcess                     : agent.staging.output.queue.bridge.0000.watch: DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:15:42,082: agent.staging.output.queue.bridge.0000: MainProcess                     : agent.staging.output.queue.bridge.0000.watch: DEBUG   : ru_initialize_child (NOOP)
+2017-12-04 23:15:42,082: agent.staging.output.queue.bridge.0000: MainProcess                     : agent.staging.output.queue.bridge.0000.watch: INFO    : send alive
+2017-12-04 23:15:42,082: agent.staging.output.queue.bridge.0000: MainProcess                     : agent.staging.output.queue.bridge.0000.watch: INFO    : put message: [agent.staging.output.queue.bridge.0000.watch.thread] alive
+2017-12-04 23:15:42,083: agent.staging.output.queue.bridge.0000: MainProcess                     : MainThread     : INFO    : get msg: alive
+2017-12-04 23:15:42,083: agent.staging.output.queue.bridge.0000: MainProcess                     : MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:15:42,083: agent.staging.output.queue.bridge.0000: MainProcess                     : MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-04 23:15:42,083: agent.staging.output.queue.bridge.0000: MainProcess                     : MainThread     : DEBUG   : child thread agent.staging.output.queue.bridge.0000.watch started
+2017-12-04 23:15:42,084: agent.staging.output.queue.bridge.0000: MainProcess                     : MainThread     : INFO    : child is alive
+2017-12-04 23:15:42,084: agent.staging.output.queue.bridge.0000: MainProcess                     : MainThread     : DEBUG   : process class started child
+2017-12-04 23:58:22,475: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: agent.staging.output.queue.bridge.0000.child.watch: INFO    : recv message: 
+2017-12-04 23:58:24,228: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: agent.staging.output.queue.bridge.0000.child.watch: INFO    : message received: 
+2017-12-04 23:58:24,228: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: agent.staging.output.queue.bridge.0000.child.watch: WARNING : message received is an empty string, assuming parent closed endpoint
+2017-12-04 23:58:24,228: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: agent.staging.output.queue.bridge.0000.child.watch: INFO    : watcher closes
+2017-12-04 23:58:24,228: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: agent.staging.output.queue.bridge.0000.child.watch: INFO    : put message: [agent.staging.output.queue.bridge.0000.child.watch.thread] work finished
+2017-12-04 23:58:24,229: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: agent.staging.output.queue.bridge.0000.child.watch: DEBUG   : ru_finalize_child (NOOP)
+2017-12-04 23:58:24,229: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: agent.staging.output.queue.bridge.0000.child.watch: DEBUG   : ru_finalize_common (NOOP)
+2017-12-04 23:58:24,229: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: agent.staging.output.queue.bridge.0000.child.watch: INFO    : put message: [agent.staging.output.queue.bridge.0000.child.watch.thread] terminating
+2017-12-04 23:58:24,979: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: MainThread     : INFO    : send message: [agent.staging.output.queue.bridge.0000.child] work finished
+2017-12-04 23:58:24,979: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: MainThread     : WARNING : send failed ([Errno 9] Bad file descriptor) - terminate
+2017-12-04 23:58:24,979: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: MainThread     : DEBUG   : ru_finalize_child (NOOP)
+2017-12-04 23:58:24,980: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: MainThread     : INFO    : send message: [agent.staging.output.queue.bridge.0000.child] terminating
+2017-12-04 23:58:24,980: agent.staging.output.queue.bridge.0000: agent.staging.output.queue.bridge.0000.child: MainThread     : WARNING : send failed ([Errno 9] Bad file descriptor) - terminate

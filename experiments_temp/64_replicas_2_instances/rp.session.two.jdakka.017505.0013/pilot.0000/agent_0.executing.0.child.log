@@ -1,0 +1,691 @@
+2017-12-04 23:16:01,101: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : python.interpreter   version: 2.7.11 (default, Sep 7 2016, 20:43:03) [GCC 4.9.3 20150626 (Cray Inc.)]
+2017-12-04 23:16:01,108: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    :                      pid: 17319
+2017-12-04 23:16:01,108: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    :                      tid: MainThread
+2017-12-04 23:16:01,108: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : radical.pilot        version: 0.47-v0.46.2-183-g2c92e513@rc-v0.46.3
+2017-12-04 23:16:05,145: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : initialize agent_0.executing.0.child
+2017-12-04 23:16:05,163: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : cfg: {'agent_launch_method': 'APRUN',
+ 'agent_name': 'agent_0',
+ 'agents': {},
+ 'bridges': {'agent_executing_queue': {'addr_in': 'tcp://10.128.100.25:58415',
+                                       'addr_out': 'tcp://10.128.100.25:39752',
+                                       'bulk_size': 0,
+                                       'log_level': 'debug',
+                                       'stall_hwm': 1},
+             'agent_reschedule_pubsub': {'addr_in': 'tcp://10.128.100.25:33421',
+                                         'addr_out': 'tcp://10.128.100.25:49010',
+                                         'bulk_size': 0,
+                                         'log_level': 'debug',
+                                         'stall_hwm': 1},
+             'agent_scheduling_queue': {'addr_in': 'tcp://10.128.100.25:42251',
+                                        'addr_out': 'tcp://10.128.100.25:36428',
+                                        'bulk_size': 0,
+                                        'log_level': 'debug',
+                                        'stall_hwm': 1},
+             'agent_staging_input_queue': {'addr_in': 'tcp://10.128.100.25:59093',
+                                           'addr_out': 'tcp://10.128.100.25:46578',
+                                           'bulk_size': 0,
+                                           'log_level': 'debug',
+                                           'stall_hwm': 1},
+             'agent_staging_output_queue': {'addr_in': 'tcp://10.128.100.25:36923',
+                                            'addr_out': 'tcp://10.128.100.25:47153',
+                                            'bulk_size': 0,
+                                            'log_level': 'debug',
+                                            'stall_hwm': 1},
+             'agent_unschedule_pubsub': {'addr_in': 'tcp://10.128.100.25:46252',
+                                         'addr_out': 'tcp://10.128.100.25:44658',
+                                         'bulk_size': 0,
+                                         'log_level': 'debug',
+                                         'stall_hwm': 1},
+             'control_pubsub': {'addr_in': 'tcp://10.128.100.25:41730',
+                                'addr_out': 'tcp://10.128.100.25:33366',
+                                'bulk_size': 0,
+                                'log_level': 'debug',
+                                'stall_hwm': 1},
+             'log_pubsub': {'addr_in': 'tcp://10.128.100.25:43949',
+                            'addr_out': 'tcp://10.128.100.25:39502',
+                            'bulk_size': 0,
+                            'log_level': 'debug',
+                            'stall_hwm': 1},
+             'state_pubsub': {'addr_in': 'tcp://10.128.100.25:47678',
+                              'addr_out': 'tcp://10.128.100.25:55407',
+                              'bulk_size': 0,
+                              'log_level': 'debug',
+                              'stall_hwm': 1}},
+ 'bulk_collection_size': 100,
+ 'bulk_collection_time': 1.0,
+ 'cname': 'AgentExecutingComponent',
+ 'components': {},
+ 'cores': 512,
+ 'cores_per_node': 0,
+ 'count': 1,
+ 'cu_post_exec': None,
+ 'cu_pre_exec': None,
+ 'cu_tmp': None,
+ 'db_poll_sleeptime': 1.0,
+ 'dburl': 'mongodb://jdakka:mongo@ds231715.mlab.com:31715/new_htbac',
+ 'debug': 10,
+ 'export_to_cu': None,
+ 'logdir': '.',
+ 'lrms': 'TORQUE',
+ 'lrms_info': {'agent_nodes': {},
+               'cores_per_node': 32,
+               'lm_info': {},
+               'name': 'Torque',
+               'node_list': ['20340',
+                             '20341',
+                             '20338',
+                             '20339',
+                             '18826',
+                             '18827',
+                             '18828',
+                             '18829',
+                             '20266',
+                             '20267',
+                             '20268',
+                             '20269',
+                             '18900',
+                             '18901',
+                             '18898',
+                             '18899']},
+ 'max_io_loglength': 1024,
+ 'mode': 'shared',
+ 'mpi_launch_method': 'APRUN',
+ 'number': 0,
+ 'owner': 'agent_0',
+ 'pilot_id': 'pilot.0000',
+ 'pilot_sandbox': '/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/',
+ 'resource_cfg': {'agent_launch_method': 'APRUN',
+                  'agent_scheduler': 'CONTINUOUS',
+                  'agent_spawner': 'POPEN',
+                  'default_queue': 'normal',
+                  'default_remote_workdir': '/scratch/sciteam/$USER',
+                  'description': 'The NCSA Blue Waters Cray XE6/XK7 system (https://bluewaters.ncsa.illinois.edu/)',
+                  'filesystem_endpoint': 'gsisftp://bw.ncsa.illinois.edu/',
+                  'gsissh': {'filesystem_endpoint': 'gsisftp://bw.ncsa.illinois.edu/',
+                             'job_manager_endpoint': 'torque+gsissh://bw.ncsa.illinois.edu'},
+                  'job_manager_endpoint': 'torque+gsissh://bw.ncsa.illinois.edu',
+                  'label': 'ncsa.bw_aprun',
+                  'lrms': 'TORQUE',
+                  'mpi_launch_method': 'APRUN',
+                  'notes': "Running 'touch .hushlogin' on the login node will reduce the likelihood of prompt detection issues.",
+                  'pre_bootstrap_1': ['module switch PrgEnv-cray PrgEnv-gnu',
+                                      'module load bwpy'],
+                  'python_dist': 'default',
+                  'rp_version': 'local',
+                  'schemas': ['gsissh'],
+                  'stage_cacerts': 'True',
+                  'task_launch_method': 'APRUN',
+                  'valid_roots': ['/scratch/sciteam'],
+                  'virtenv_mode': 'create'},
+ 'resource_sandbox': '/scratch/sciteam/dakka/radical.pilot.sandbox',
+ 'runtime': 1440,
+ 'scheduler': 'CONTINUOUS',
+ 'session_id': 'rp.session.two.jdakka.017505.0013',
+ 'session_sandbox': '/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013',
+ 'spawner': 'POPEN',
+ 'staging_area': 'staging_area',
+ 'staging_schema': 'staging',
+ 'target': 'local',
+ 'task_launch_method': 'APRUN',
+ 'uid': 'agent_0',
+ 'workdir': '/mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000'}
+2017-12-04 23:16:05,164: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : start components: {}
+2017-12-04 23:16:05,164: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : alive check in term
+2017-12-04 23:16:05,164: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : START: agent_0.executing.0.child register publisher log_pubsub
+2017-12-04 23:16:05,164: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : using addr tcp://10.128.100.25:43949 for pubsub log_pubsub
+2017-12-04 23:16:05,177: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : registered publisher : log_pubsub : log.pubsub.pub.0004
+2017-12-04 23:16:05,178: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : alive check in term
+2017-12-04 23:16:05,178: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : START: agent_0.executing.0.child register publisher state_pubsub
+2017-12-04 23:16:05,178: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : using addr tcp://10.128.100.25:47678 for pubsub state_pubsub
+2017-12-04 23:16:05,189: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : registered publisher : state_pubsub : state.pubsub.pub.0004
+2017-12-04 23:16:05,189: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : alive check in term
+2017-12-04 23:16:05,189: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : START: agent_0.executing.0.child register publisher control_pubsub
+2017-12-04 23:16:05,190: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : using addr tcp://10.128.100.25:41730 for pubsub control_pubsub
+2017-12-04 23:16:05,200: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : registered publisher : control_pubsub : control.pubsub.pub.0004
+2017-12-04 23:16:05,202: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : alive check in term
+2017-12-04 23:16:05,202: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : START: agent_0.executing.0.child register subscriber agent_0.executing.0.child.subscriber._cancel_monitor_cb
+2017-12-04 23:16:05,202: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : using addr tcp://10.128.100.25:33366 for pubsub control_pubsub
+2017-12-04 23:16:05,214: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : parent name: agent_0.executing.0.child.subscriber._cancel_monitor_cb
+2017-12-04 23:16:05,214: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : start thread
+2017-12-04 23:16:05,215: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: DEBUG   : child name: agent_0.executing.0.child.subscriber._cancel_monitor_cb.thread
+2017-12-04 23:16:05,215: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: INFO    : child (me) initializing
+2017-12-04 23:16:05,215: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:16:05,216: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: DEBUG   : ru_initialize_child (NOOP)
+2017-12-04 23:16:05,216: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: INFO    : send alive
+2017-12-04 23:16:05,216: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: INFO    : put message: [agent_0.executing.0.child.subscriber._cancel_monitor_cb.thread] alive
+2017-12-04 23:16:05,216: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : get msg: alive
+2017-12-04 23:16:05,217: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:16:05,217: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-04 23:16:05,217: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : child thread agent_0.executing.0.child.subscriber._cancel_monitor_cb started
+2017-12-04 23:16:05,217: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : agent_0.executing.0.child registered control_pubsub subscriber agent_0.executing.0.child.subscriber._cancel_monitor_cb
+2017-12-04 23:16:05,217: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : alive check in term
+2017-12-04 23:16:05,218: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : using addr tcp://10.128.100.25:39752 for input agent_executing_queue
+2017-12-04 23:16:05,228: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : registered input agent_0.executing.0.child.work.AGENT_EXECUTING_PENDING
+2017-12-04 23:16:05,228: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : START: agent_0.executing.0.child register input AGENT_EXECUTING_PENDING: agent_0.executing.0.child.work.AGENT_EXECUTING_PENDING
+2017-12-04 23:16:05,229: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : registered worker work [AGENT_EXECUTING_PENDING]
+2017-12-04 23:16:05,229: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : alive check in term
+2017-12-04 23:16:05,229: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : START: agent_0.executing.0.child register output AGENT_STAGING_OUTPUT_PENDING
+2017-12-04 23:16:05,229: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : using addr tcp://10.128.100.25:36923 for output agent_staging_output_queue
+2017-12-04 23:16:05,239: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : registered output    : AGENT_STAGING_OUTPUT_PENDING : agent_staging_output_queue : agent.staging.output.queue.input.0000
+2017-12-04 23:16:05,240: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : alive check in term
+2017-12-04 23:16:05,240: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : START: agent_0.executing.0.child register publisher agent_unschedule_pubsub
+2017-12-04 23:16:05,240: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : using addr tcp://10.128.100.25:46252 for pubsub agent_unschedule_pubsub
+2017-12-04 23:16:05,250: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : registered publisher : agent_unschedule_pubsub : agent.unschedule.pubsub.pub.0000
+2017-12-04 23:16:05,251: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : alive check in term
+2017-12-04 23:16:05,251: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : START: agent_0.executing.0.child register subscriber agent_0.executing.0.child.subscriber.command_cb
+2017-12-04 23:16:05,251: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : using addr tcp://10.128.100.25:33366 for pubsub control_pubsub
+2017-12-04 23:16:05,261: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : parent name: agent_0.executing.0.child.subscriber.command_cb
+2017-12-04 23:16:05,262: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : start thread
+2017-12-04 23:16:05,262: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber.command_cb: DEBUG   : child name: agent_0.executing.0.child.subscriber.command_cb.thread
+2017-12-04 23:16:05,262: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber.command_cb: INFO    : child (me) initializing
+2017-12-04 23:16:05,262: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber.command_cb: DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:16:05,263: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber.command_cb: DEBUG   : ru_initialize_child (NOOP)
+2017-12-04 23:16:05,263: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber.command_cb: INFO    : send alive
+2017-12-04 23:16:05,263: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber.command_cb: INFO    : put message: [agent_0.executing.0.child.subscriber.command_cb.thread] alive
+2017-12-04 23:16:05,263: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : get msg: alive
+2017-12-04 23:16:05,264: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:16:05,264: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-04 23:16:05,264: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : child thread agent_0.executing.0.child.subscriber.command_cb started
+2017-12-04 23:16:05,264: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : agent_0.executing.0.child registered control_pubsub subscriber agent_0.executing.0.child.subscriber.command_cb
+2017-12-04 23:16:05,311: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : child (me) initializing
+2017-12-04 23:16:05,312: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : parent name: agent_0.executing.0.child.watch
+2017-12-04 23:16:05,312: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : start thread
+2017-12-04 23:16:05,312: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.watch: DEBUG   : child name: agent_0.executing.0.child.watch.thread
+2017-12-04 23:16:05,312: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.watch: INFO    : child (me) initializing
+2017-12-04 23:16:05,313: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.watch: DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:16:05,313: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.watch: DEBUG   : ru_initialize_child (NOOP)
+2017-12-04 23:16:05,313: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.watch: INFO    : send alive
+2017-12-04 23:16:05,313: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.watch: INFO    : put message: [agent_0.executing.0.child.watch.thread] alive
+2017-12-04 23:16:05,314: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : get msg: alive
+2017-12-04 23:16:05,314: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:16:05,314: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-04 23:16:05,314: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : child thread agent_0.executing.0.child.watch started
+2017-12-04 23:16:05,314: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : child (me) is alive
+2017-12-04 23:16:05,314: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : send alive
+2017-12-04 23:16:05,315: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : send message: [agent_0.executing.0.child] alive
+2017-12-04 23:16:08,742: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000000)
+2017-12-04 23:16:08,742: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:16:08,743: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:16:08,748: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000000 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000000/unit.000000.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000000
+2017-12-04 23:16:08,787: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000001)
+2017-12-04 23:16:08,787: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:16:08,788: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:16:08,793: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000001 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000001/unit.000001.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000001
+2017-12-04 23:16:08,832: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000002)
+2017-12-04 23:16:08,833: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:16:08,833: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:16:08,840: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000002 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000002/unit.000002.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000002
+2017-12-04 23:16:08,879: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000003)
+2017-12-04 23:16:08,880: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:16:08,880: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:16:08,891: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000003 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000003/unit.000003.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000003
+2017-12-04 23:16:08,931: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000004)
+2017-12-04 23:16:08,931: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:16:08,932: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:16:08,937: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000004 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000004/unit.000004.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000004
+2017-12-04 23:16:08,977: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000005)
+2017-12-04 23:16:08,977: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:16:08,977: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:16:08,982: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000005 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000005/unit.000005.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000005
+2017-12-04 23:16:09,022: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000006)
+2017-12-04 23:16:09,022: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:16:09,023: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:16:09,029: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000006 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000006/unit.000006.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000006
+2017-12-04 23:16:09,069: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000007)
+2017-12-04 23:16:09,069: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:16:09,069: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:16:09,091: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000007 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000007/unit.000007.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000007
+2017-12-04 23:16:09,135: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000008)
+2017-12-04 23:16:09,136: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:16:09,136: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:16:09,143: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000008 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000008/unit.000008.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000008
+2017-12-04 23:16:10,792: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000009)
+2017-12-04 23:16:10,793: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:16:10,793: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:16:10,799: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000009 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000009/unit.000009.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000009
+2017-12-04 23:16:10,839: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000010)
+2017-12-04 23:16:10,839: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:16:10,840: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:16:10,845: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000010 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000010/unit.000010.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000010
+2017-12-04 23:16:10,887: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000011)
+2017-12-04 23:16:10,887: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:16:10,888: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:16:10,893: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000011 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000011/unit.000011.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000011
+2017-12-04 23:16:10,932: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000012)
+2017-12-04 23:16:10,932: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:16:10,933: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:16:10,938: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000012 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000012/unit.000012.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000012
+2017-12-04 23:16:10,982: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000013)
+2017-12-04 23:16:10,983: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:16:10,983: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:16:10,993: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000013 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000013/unit.000013.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000013
+2017-12-04 23:16:11,032: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000014)
+2017-12-04 23:16:11,033: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:16:11,033: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:16:11,039: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000014 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000014/unit.000014.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000014
+2017-12-04 23:16:11,080: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000015)
+2017-12-04 23:16:11,080: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:16:11,081: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:16:11,093: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000015 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000015/unit.000015.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000015
+2017-12-04 23:19:58,319: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000005 has return code 0.
+2017-12-04 23:19:58,320: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:19:58,320: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:19:58,521: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000003 has return code 0.
+2017-12-04 23:19:58,522: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:19:58,522: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:19:58,522: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000006 has return code 0.
+2017-12-04 23:19:58,523: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:19:58,523: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:19:58,524: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000008 has return code 0.
+2017-12-04 23:19:58,524: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:19:58,524: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:19:58,525: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000014 has return code 0.
+2017-12-04 23:19:58,525: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:19:58,525: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:19:58,526: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000000 has return code 0.
+2017-12-04 23:19:58,526: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:19:58,526: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:19:58,527: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000002 has return code 0.
+2017-12-04 23:19:58,527: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:19:58,527: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:19:58,528: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000007 has return code 0.
+2017-12-04 23:19:58,528: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:19:58,529: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:19:58,529: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000010 has return code 0.
+2017-12-04 23:19:58,529: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:19:58,530: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:19:58,530: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000012 has return code 0.
+2017-12-04 23:19:58,531: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:19:58,531: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:19:58,531: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000015 has return code 0.
+2017-12-04 23:19:58,532: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:19:58,532: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:19:58,532: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000001 has return code 0.
+2017-12-04 23:19:58,533: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:19:58,533: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:19:58,534: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000009 has return code 0.
+2017-12-04 23:19:58,534: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:19:58,534: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:19:58,535: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000013 has return code 0.
+2017-12-04 23:19:58,535: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:19:58,535: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:19:58,536: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000004 has return code 0.
+2017-12-04 23:19:58,536: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:19:58,536: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:19:58,537: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000011 has return code 0.
+2017-12-04 23:19:58,537: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:19:58,538: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:20:03,760: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000016)
+2017-12-04 23:20:03,760: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:20:03,760: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:20:03,765: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000016 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000016/unit.000016.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000016
+2017-12-04 23:20:05,550: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000017)
+2017-12-04 23:20:05,550: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:20:05,550: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:20:05,559: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000017 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000017/unit.000017.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000017
+2017-12-04 23:20:06,106: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000018)
+2017-12-04 23:20:06,107: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:20:06,107: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:20:06,112: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000018 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000018/unit.000018.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000018
+2017-12-04 23:20:06,761: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000019)
+2017-12-04 23:20:06,762: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:20:06,762: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:20:06,767: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000019 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000019/unit.000019.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000019
+2017-12-04 23:20:07,338: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000020)
+2017-12-04 23:20:07,338: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:20:07,339: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:20:07,343: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000020 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000020/unit.000020.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000020
+2017-12-04 23:20:07,856: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000021)
+2017-12-04 23:20:07,857: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:20:07,857: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:20:07,877: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000021 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000021/unit.000021.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000021
+2017-12-04 23:20:08,420: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000022)
+2017-12-04 23:20:08,420: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:20:08,420: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:20:08,425: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000022 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000022/unit.000022.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000022
+2017-12-04 23:20:09,042: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000023)
+2017-12-04 23:20:09,042: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:20:09,042: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:20:09,047: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000023 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000023/unit.000023.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000023
+2017-12-04 23:20:09,546: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000024)
+2017-12-04 23:20:09,546: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:20:09,547: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:20:09,802: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000024 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000024/unit.000024.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000024
+2017-12-04 23:20:10,358: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000025)
+2017-12-04 23:20:10,358: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:20:10,359: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:20:10,371: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000025 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000025/unit.000025.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000025
+2017-12-04 23:20:10,937: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000026)
+2017-12-04 23:20:10,937: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:20:10,937: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:20:10,942: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000026 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000026/unit.000026.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000026
+2017-12-04 23:20:11,449: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000027)
+2017-12-04 23:20:11,450: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:20:11,450: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:20:11,455: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000027 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000027/unit.000027.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000027
+2017-12-04 23:20:12,023: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000028)
+2017-12-04 23:20:12,023: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:20:12,023: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:20:12,028: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000028 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000028/unit.000028.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000028
+2017-12-04 23:20:12,549: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000029)
+2017-12-04 23:20:12,549: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:20:12,550: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:20:12,554: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000029 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000029/unit.000029.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000029
+2017-12-04 23:20:13,084: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000030)
+2017-12-04 23:20:13,085: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:20:13,085: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:20:13,089: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000030 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000030/unit.000030.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000030
+2017-12-04 23:20:13,653: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000031)
+2017-12-04 23:20:13,653: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:20:13,654: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:20:13,658: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000031 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000031/unit.000031.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000031
+2017-12-04 23:22:55,154: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000016 has return code 0.
+2017-12-04 23:22:55,155: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:22:55,155: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:22:55,156: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000019 has return code 0.
+2017-12-04 23:22:55,157: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:22:55,157: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:22:55,158: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000020 has return code 0.
+2017-12-04 23:22:55,159: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:22:55,159: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:22:55,260: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000018 has return code 0.
+2017-12-04 23:22:55,261: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:22:55,262: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:22:55,363: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000017 has return code 0.
+2017-12-04 23:22:55,363: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:22:55,364: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:22:55,364: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000022 has return code 0.
+2017-12-04 23:22:55,365: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:22:55,365: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:22:55,466: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000021 has return code 0.
+2017-12-04 23:22:55,467: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:22:55,467: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:22:59,076: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000023 has return code 0.
+2017-12-04 23:22:59,076: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:22:59,077: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:22:59,077: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000025 has return code 0.
+2017-12-04 23:22:59,078: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:22:59,078: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:22:59,079: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000027 has return code 0.
+2017-12-04 23:22:59,079: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:22:59,080: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:22:59,080: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000029 has return code 0.
+2017-12-04 23:22:59,081: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:22:59,081: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:22:59,082: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000031 has return code 0.
+2017-12-04 23:22:59,082: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:22:59,082: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:22:59,083: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000024 has return code 0.
+2017-12-04 23:22:59,083: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:22:59,084: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:22:59,084: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000028 has return code 0.
+2017-12-04 23:22:59,085: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:22:59,085: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:22:59,086: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000026 has return code 0.
+2017-12-04 23:22:59,086: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:22:59,086: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:22:59,087: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000030 has return code 0.
+2017-12-04 23:22:59,087: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:22:59,088: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:23:04,366: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000032)
+2017-12-04 23:23:04,367: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:23:04,367: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:23:04,371: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000032 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000032/unit.000032.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000032
+2017-12-04 23:23:04,835: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000033)
+2017-12-04 23:23:04,835: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:23:04,836: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:23:04,840: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000033 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000033/unit.000033.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000033
+2017-12-04 23:23:05,327: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000034)
+2017-12-04 23:23:05,327: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:23:05,328: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:23:05,332: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000034 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000034/unit.000034.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000034
+2017-12-04 23:23:05,863: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000035)
+2017-12-04 23:23:05,863: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:23:05,864: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:23:05,870: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000035 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000035/unit.000035.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000035
+2017-12-04 23:23:06,370: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000036)
+2017-12-04 23:23:06,371: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:23:06,371: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:23:06,376: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000036 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000036/unit.000036.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000036
+2017-12-04 23:23:09,393: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000037)
+2017-12-04 23:23:09,393: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:23:09,394: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:23:09,398: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000037 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000037/unit.000037.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000037
+2017-12-04 23:23:09,941: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000038)
+2017-12-04 23:23:09,941: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:23:09,942: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:23:09,946: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000038 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000038/unit.000038.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000038
+2017-12-04 23:23:10,409: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000039)
+2017-12-04 23:23:10,409: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:23:10,410: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:23:10,414: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000039 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000039/unit.000039.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000039
+2017-12-04 23:23:10,894: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000040)
+2017-12-04 23:23:10,894: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:23:10,895: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:23:10,899: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000040 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000040/unit.000040.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000040
+2017-12-04 23:23:11,360: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000041)
+2017-12-04 23:23:11,360: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:23:11,360: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:23:11,365: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000041 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000041/unit.000041.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000041
+2017-12-04 23:23:13,105: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000042)
+2017-12-04 23:23:13,106: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:23:13,106: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:23:13,111: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000042 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000042/unit.000042.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000042
+2017-12-04 23:23:13,628: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000043)
+2017-12-04 23:23:13,629: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:23:13,629: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:23:13,634: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000043 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000043/unit.000043.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000043
+2017-12-04 23:23:14,082: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000044)
+2017-12-04 23:23:14,083: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:23:14,083: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:23:14,091: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000044 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000044/unit.000044.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000044
+2017-12-04 23:23:14,533: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000045)
+2017-12-04 23:23:14,533: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:23:14,533: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:23:14,538: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000045 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000045/unit.000045.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000045
+2017-12-04 23:23:15,094: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000046)
+2017-12-04 23:23:15,094: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:23:15,095: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:23:15,099: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000046 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000046/unit.000046.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000046
+2017-12-04 23:23:15,590: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000047)
+2017-12-04 23:23:15,590: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:23:15,590: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:23:15,595: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000047 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000047/unit.000047.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000047
+2017-12-04 23:53:31,107: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000036 has return code 0.
+2017-12-04 23:53:31,109: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:53:31,109: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:53:31,110: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000041 has return code 0.
+2017-12-04 23:53:31,110: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:53:31,111: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:53:31,111: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000047 has return code 0.
+2017-12-04 23:53:31,112: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:53:31,112: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:53:31,113: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000033 has return code 0.
+2017-12-04 23:53:31,113: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:53:31,113: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:53:31,214: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000032 has return code 0.
+2017-12-04 23:53:31,215: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:53:31,215: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:53:31,216: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000035 has return code 0.
+2017-12-04 23:53:31,216: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:53:31,217: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:53:31,217: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000038 has return code 0.
+2017-12-04 23:53:31,218: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:53:31,218: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:53:31,219: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000037 has return code 0.
+2017-12-04 23:53:31,219: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:53:31,220: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:53:31,220: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000039 has return code 0.
+2017-12-04 23:53:31,221: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:53:31,221: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:53:31,322: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000040 has return code 0.
+2017-12-04 23:53:31,323: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:53:31,323: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:53:31,324: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000046 has return code 0.
+2017-12-04 23:53:31,324: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:53:31,325: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:53:31,325: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000042 has return code 0.
+2017-12-04 23:53:31,326: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:53:31,326: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:53:54,467: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000034 has return code 0.
+2017-12-04 23:53:54,468: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:53:54,468: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:53:54,469: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000044 has return code 0.
+2017-12-04 23:53:54,469: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:53:54,469: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:53:54,470: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000043 has return code 0.
+2017-12-04 23:53:54,470: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:53:54,471: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:53:54,471: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000045 has return code 0.
+2017-12-04 23:53:54,472: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:53:54,472: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:54:04,967: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000048)
+2017-12-04 23:54:04,967: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:54:04,967: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:54:06,435: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000048 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000048/unit.000048.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000048
+2017-12-04 23:54:08,614: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000049)
+2017-12-04 23:54:08,614: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:54:08,614: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:54:08,619: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000049 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000049/unit.000049.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000049
+2017-12-04 23:54:11,461: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000050)
+2017-12-04 23:54:11,461: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:54:11,462: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:54:11,466: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000050 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000050/unit.000050.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000050
+2017-12-04 23:54:16,302: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000051)
+2017-12-04 23:54:16,302: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:54:16,303: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:54:16,311: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000051 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000051/unit.000051.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000051
+2017-12-04 23:54:33,169: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000052)
+2017-12-04 23:54:33,170: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:54:33,170: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:54:33,200: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000052 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000052/unit.000052.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000052
+2017-12-04 23:54:33,700: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000053)
+2017-12-04 23:54:33,701: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:54:33,701: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:54:38,508: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000053 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000053/unit.000053.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000053
+2017-12-04 23:54:41,996: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000054)
+2017-12-04 23:54:41,996: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:54:41,996: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:54:42,042: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000054 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000054/unit.000054.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000054
+2017-12-04 23:54:42,547: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000055)
+2017-12-04 23:54:42,547: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:54:42,548: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:54:42,552: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000055 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000055/unit.000055.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000055
+2017-12-04 23:54:43,088: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000056)
+2017-12-04 23:54:43,089: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:54:43,089: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:54:43,094: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000056 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000056/unit.000056.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000056
+2017-12-04 23:54:43,607: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000057)
+2017-12-04 23:54:43,607: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:54:43,607: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:54:43,612: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000057 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000057/unit.000057.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000057
+2017-12-04 23:54:44,136: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000058)
+2017-12-04 23:54:44,136: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:54:44,136: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:54:44,141: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000058 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000058/unit.000058.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000058
+2017-12-04 23:54:44,844: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000059)
+2017-12-04 23:54:44,844: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:54:44,845: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:54:44,849: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000059 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000059/unit.000059.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000059
+2017-12-04 23:54:45,378: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000060)
+2017-12-04 23:54:45,378: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:54:45,379: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:54:49,952: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000060 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000060/unit.000060.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000060
+2017-12-04 23:54:52,048: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000061)
+2017-12-04 23:54:52,049: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:54:52,049: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:54:52,054: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000061 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000061/unit.000061.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000061
+2017-12-04 23:54:52,707: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000062)
+2017-12-04 23:54:52,708: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:54:52,708: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:54:52,713: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000062 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000062/unit.000062.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000062
+2017-12-04 23:54:53,254: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : got unit (unit.000063)
+2017-12-04 23:54:53,254: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-04 23:54:53,255: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : Launching unit with APRun (/opt/xalt/0.7.6/sles11.3/bin/aprun).
+2017-12-04 23:54:53,259: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : Launching unit unit.000063 via /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000063/unit.000063.sh in /mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/unit.000063
+2017-12-04 23:57:37,586: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000048 has return code 0.
+2017-12-04 23:57:37,587: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:57:37,587: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:57:37,588: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000049 has return code 0.
+2017-12-04 23:57:37,588: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:57:37,588: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:57:39,694: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000050 has return code 0.
+2017-12-04 23:57:39,695: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:57:39,695: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:57:39,696: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000052 has return code 0.
+2017-12-04 23:57:39,696: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:57:39,697: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:57:40,800: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000051 has return code 0.
+2017-12-04 23:57:40,800: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:57:40,801: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:57:41,002: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000053 has return code 0.
+2017-12-04 23:57:41,002: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:57:41,003: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:57:46,816: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000054 has return code 0.
+2017-12-04 23:57:46,816: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:57:46,817: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:57:46,918: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000055 has return code 0.
+2017-12-04 23:57:46,918: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:57:46,919: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:57:46,919: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000057 has return code 0.
+2017-12-04 23:57:46,920: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:57:46,920: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:57:47,021: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000056 has return code 0.
+2017-12-04 23:57:47,022: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:57:47,022: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:57:47,023: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000058 has return code 0.
+2017-12-04 23:57:47,023: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:57:47,024: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:57:48,127: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000059 has return code 0.
+2017-12-04 23:57:48,127: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:57:48,128: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:57:54,339: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000060 has return code 0.
+2017-12-04 23:57:54,340: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:57:54,340: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:57:54,341: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000063 has return code 0.
+2017-12-04 23:57:54,341: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:57:54,342: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:57:54,342: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000061 has return code 0.
+2017-12-04 23:57:54,343: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:57:54,343: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:57:55,946: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : INFO    : Unit unit.000062 has return code 0.
+2017-12-04 23:57:55,947: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : advance bulk size: 1 [True, True]
+2017-12-04 23:57:55,947: agent_0.executing.0.child: agent_0.executing.0             : Watcher        : DEBUG   : put bulk AGENT_STAGING_OUTPUT_PENDING: 1
+2017-12-04 23:58:18,848: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber.command_cb: INFO    : command_cb [control_pubsub]: {'cmd': 'terminate', 'arg': None}
+2017-12-04 23:58:18,849: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: INFO    : got termination command
+2017-12-04 23:58:20,101: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: INFO    : stop agent_0.executing.0.child (17319 : 17319 : agent_0.executing.0.child.subscriber._cancel_monitor_cb) [radical.pilot.utils.component.Popen._cancel_monitor_cb]
+2017-12-04 23:58:20,138: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: INFO    : parent stops child  17319 -> 17319 [agent_0.executing.0.child]
+2017-12-04 23:58:20,139: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: INFO    : send message: [agent_0.executing.0.child] STOP
+2017-12-04 23:58:20,139: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: DEBUG   : ru_finalize_common()
+2017-12-04 23:58:20,139: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: DEBUG   : TERM : agent_0.executing.0.child unregister publisher log_pubsub
+2017-12-04 23:58:20,140: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: DEBUG   : unregistered publisher log_pubsub
+2017-12-04 23:58:20,140: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: DEBUG   : TERM : agent_0.executing.0.child unregister publisher state_pubsub
+2017-12-04 23:58:20,141: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: DEBUG   : unregistered publisher state_pubsub
+2017-12-04 23:58:20,141: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: DEBUG   : TERM : agent_0.executing.0.child unregister publisher control_pubsub
+2017-12-04 23:58:20,142: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: DEBUG   : unregistered publisher control_pubsub
+2017-12-04 23:58:20,142: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: DEBUG   : agent_0.executing.0.child close prof
+2017-12-04 23:58:20,168: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: INFO    : signal stop for agent_0.executing.0.child.subscriber._cancel_monitor_cb - do not join
+2017-12-04 23:58:20,168: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: INFO    : child calls stop()
+2017-12-04 23:58:20,168: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: INFO    : signal stop for agent_0.executing.0.child.subscriber._cancel_monitor_cb - do not join
+2017-12-04 23:58:20,168: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: INFO    : signal stop for agent_0.executing.0.child.subscriber._cancel_monitor_cb - do not join
+2017-12-04 23:58:20,169: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: DEBUG   : ru_finalize_child (NOOP)
+2017-12-04 23:58:20,169: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber._cancel_monitor_cb: INFO    : put message: [agent_0.executing.0.child.subscriber._cancel_monitor_cb.thread] terminating
+2017-12-04 23:58:20,228: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.watch: WARNING : %s died
+2017-12-04 23:58:20,228: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.watch: INFO    : watcher closes
+2017-12-04 23:58:20,228: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.watch: INFO    : put message: [agent_0.executing.0.child.watch.thread] work finished
+2017-12-04 23:58:20,228: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.watch: DEBUG   : ru_finalize_child (NOOP)
+2017-12-04 23:58:20,229: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.watch: DEBUG   : ru_finalize_common (NOOP)
+2017-12-04 23:58:20,229: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.watch: INFO    : put message: [agent_0.executing.0.child.watch.thread] terminating
+2017-12-04 23:58:20,351: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber.command_cb: DEBUG   : ru_finalize_child (NOOP)
+2017-12-04 23:58:20,351: agent_0.executing.0.child: agent_0.executing.0             : agent_0.executing.0.child.subscriber.command_cb: INFO    : put message: [agent_0.executing.0.child.subscriber.command_cb.thread] terminating
+2017-12-04 23:58:20,525: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : ru_finalize_common()
+2017-12-04 23:58:20,525: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : WARNING : publisher log_pubsub is not registered
+2017-12-04 23:58:20,525: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : WARNING : publisher state_pubsub is not registered
+2017-12-04 23:58:20,526: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : WARNING : publisher control_pubsub is not registered
+2017-12-04 23:58:20,526: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : agent_0.executing.0.child close prof
+2017-12-04 23:58:20,526: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : send message: [agent_0.executing.0.child] terminating
+2017-12-04 23:58:20,526: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : WARNING : send failed ([Errno 9] Bad file descriptor) - terminate
+2017-12-04 23:58:20,526: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : parent stops child
+2017-12-04 23:58:20,527: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : ru_finalize_parent (NOOP)
+2017-12-04 23:58:20,527: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : INFO    : parent stops child
+2017-12-04 23:58:20,527: agent_0.executing.0.child: agent_0.executing.0             : MainThread     : DEBUG   : ru_finalize_parent (NOOP)

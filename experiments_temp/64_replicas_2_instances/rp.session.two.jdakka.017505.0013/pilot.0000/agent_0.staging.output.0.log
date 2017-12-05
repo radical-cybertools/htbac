@@ -1,0 +1,160 @@
+2017-12-04 23:15:42,462: agent_0.staging.output.0: MainProcess                     : MainThread     : INFO    : python.interpreter   version: 2.7.11 (default, Sep 7 2016, 20:43:03) [GCC 4.9.3 20150626 (Cray Inc.)]
+2017-12-04 23:15:42,469: agent_0.staging.output.0: MainProcess                     : MainThread     : INFO    :                      pid: 17082
+2017-12-04 23:15:42,469: agent_0.staging.output.0: MainProcess                     : MainThread     : INFO    :                      tid: MainThread
+2017-12-04 23:15:42,470: agent_0.staging.output.0: MainProcess                     : MainThread     : INFO    : radical.pilot        version: 0.47-v0.46.2-183-g2c92e513@rc-v0.46.3
+2017-12-04 23:15:42,499: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : alive check in term
+2017-12-04 23:15:42,499: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : start process
+2017-12-04 23:15:43,134: agent_0.staging.output.0: MainProcess                     : MainThread     : INFO    : recv message: alive
+2017-12-04 23:15:43,135: agent_0.staging.output.0: MainProcess                     : MainThread     : INFO    : initialize agent_0.staging.output.0
+2017-12-04 23:15:43,154: agent_0.staging.output.0: MainProcess                     : MainThread     : INFO    : cfg: {'agent_launch_method': 'APRUN',
+ 'agent_name': 'agent_0',
+ 'agents': {},
+ 'bridges': {'agent_executing_queue': {'addr_in': 'tcp://10.128.100.25:58415',
+                                       'addr_out': 'tcp://10.128.100.25:39752',
+                                       'bulk_size': 0,
+                                       'log_level': 'debug',
+                                       'stall_hwm': 1},
+             'agent_reschedule_pubsub': {'addr_in': 'tcp://10.128.100.25:33421',
+                                         'addr_out': 'tcp://10.128.100.25:49010',
+                                         'bulk_size': 0,
+                                         'log_level': 'debug',
+                                         'stall_hwm': 1},
+             'agent_scheduling_queue': {'addr_in': 'tcp://10.128.100.25:42251',
+                                        'addr_out': 'tcp://10.128.100.25:36428',
+                                        'bulk_size': 0,
+                                        'log_level': 'debug',
+                                        'stall_hwm': 1},
+             'agent_staging_input_queue': {'addr_in': 'tcp://10.128.100.25:59093',
+                                           'addr_out': 'tcp://10.128.100.25:46578',
+                                           'bulk_size': 0,
+                                           'log_level': 'debug',
+                                           'stall_hwm': 1},
+             'agent_staging_output_queue': {'addr_in': 'tcp://10.128.100.25:36923',
+                                            'addr_out': 'tcp://10.128.100.25:47153',
+                                            'bulk_size': 0,
+                                            'log_level': 'debug',
+                                            'stall_hwm': 1},
+             'agent_unschedule_pubsub': {'addr_in': 'tcp://10.128.100.25:46252',
+                                         'addr_out': 'tcp://10.128.100.25:44658',
+                                         'bulk_size': 0,
+                                         'log_level': 'debug',
+                                         'stall_hwm': 1},
+             'control_pubsub': {'addr_in': 'tcp://10.128.100.25:41730',
+                                'addr_out': 'tcp://10.128.100.25:33366',
+                                'bulk_size': 0,
+                                'log_level': 'debug',
+                                'stall_hwm': 1},
+             'log_pubsub': {'addr_in': 'tcp://10.128.100.25:43949',
+                            'addr_out': 'tcp://10.128.100.25:39502',
+                            'bulk_size': 0,
+                            'log_level': 'debug',
+                            'stall_hwm': 1},
+             'state_pubsub': {'addr_in': 'tcp://10.128.100.25:47678',
+                              'addr_out': 'tcp://10.128.100.25:55407',
+                              'bulk_size': 0,
+                              'log_level': 'debug',
+                              'stall_hwm': 1}},
+ 'bulk_collection_size': 100,
+ 'bulk_collection_time': 1.0,
+ 'cname': 'AgentStagingOutputComponent',
+ 'components': {},
+ 'cores': 512,
+ 'cores_per_node': 0,
+ 'count': 1,
+ 'cu_post_exec': None,
+ 'cu_pre_exec': None,
+ 'cu_tmp': None,
+ 'db_poll_sleeptime': 1.0,
+ 'dburl': 'mongodb://jdakka:mongo@ds231715.mlab.com:31715/new_htbac',
+ 'debug': 10,
+ 'export_to_cu': None,
+ 'logdir': '.',
+ 'lrms': 'TORQUE',
+ 'lrms_info': {'agent_nodes': {},
+               'cores_per_node': 32,
+               'lm_info': {},
+               'name': 'Torque',
+               'node_list': ['20340',
+                             '20341',
+                             '20338',
+                             '20339',
+                             '18826',
+                             '18827',
+                             '18828',
+                             '18829',
+                             '20266',
+                             '20267',
+                             '20268',
+                             '20269',
+                             '18900',
+                             '18901',
+                             '18898',
+                             '18899']},
+ 'max_io_loglength': 1024,
+ 'mode': 'shared',
+ 'mpi_launch_method': 'APRUN',
+ 'number': 0,
+ 'owner': 'agent_0',
+ 'pilot_id': 'pilot.0000',
+ 'pilot_sandbox': '/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/',
+ 'resource_cfg': {'agent_launch_method': 'APRUN',
+                  'agent_scheduler': 'CONTINUOUS',
+                  'agent_spawner': 'POPEN',
+                  'default_queue': 'normal',
+                  'default_remote_workdir': '/scratch/sciteam/$USER',
+                  'description': 'The NCSA Blue Waters Cray XE6/XK7 system (https://bluewaters.ncsa.illinois.edu/)',
+                  'filesystem_endpoint': 'gsisftp://bw.ncsa.illinois.edu/',
+                  'gsissh': {'filesystem_endpoint': 'gsisftp://bw.ncsa.illinois.edu/',
+                             'job_manager_endpoint': 'torque+gsissh://bw.ncsa.illinois.edu'},
+                  'job_manager_endpoint': 'torque+gsissh://bw.ncsa.illinois.edu',
+                  'label': 'ncsa.bw_aprun',
+                  'lrms': 'TORQUE',
+                  'mpi_launch_method': 'APRUN',
+                  'notes': "Running 'touch .hushlogin' on the login node will reduce the likelihood of prompt detection issues.",
+                  'pre_bootstrap_1': ['module switch PrgEnv-cray PrgEnv-gnu',
+                                      'module load bwpy'],
+                  'python_dist': 'default',
+                  'rp_version': 'local',
+                  'schemas': ['gsissh'],
+                  'stage_cacerts': 'True',
+                  'task_launch_method': 'APRUN',
+                  'valid_roots': ['/scratch/sciteam'],
+                  'virtenv_mode': 'create'},
+ 'resource_sandbox': '/scratch/sciteam/dakka/radical.pilot.sandbox',
+ 'runtime': 1440,
+ 'scheduler': 'CONTINUOUS',
+ 'session_id': 'rp.session.two.jdakka.017505.0013',
+ 'session_sandbox': '/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013',
+ 'spawner': 'POPEN',
+ 'staging_area': 'staging_area',
+ 'staging_schema': 'staging',
+ 'target': 'local',
+ 'task_launch_method': 'APRUN',
+ 'uid': 'agent_0',
+ 'workdir': '/mnt/c/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000'}
+2017-12-04 23:15:43,155: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : alive check in term
+2017-12-04 23:15:43,155: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : START: agent_0.staging.output.0 register publisher log_pubsub
+2017-12-04 23:15:43,155: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : using addr tcp://10.128.100.25:43949 for pubsub log_pubsub
+2017-12-04 23:15:43,168: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : registered publisher : log_pubsub : log.pubsub.pub.0000
+2017-12-04 23:15:43,168: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : alive check in term
+2017-12-04 23:15:43,168: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : START: agent_0.staging.output.0 register publisher state_pubsub
+2017-12-04 23:15:43,169: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : using addr tcp://10.128.100.25:47678 for pubsub state_pubsub
+2017-12-04 23:15:43,179: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : registered publisher : state_pubsub : state.pubsub.pub.0000
+2017-12-04 23:15:43,179: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : alive check in term
+2017-12-04 23:15:43,179: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : START: agent_0.staging.output.0 register publisher control_pubsub
+2017-12-04 23:15:43,180: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : using addr tcp://10.128.100.25:41730 for pubsub control_pubsub
+2017-12-04 23:15:43,191: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : registered publisher : control_pubsub : control.pubsub.pub.0000
+2017-12-04 23:15:43,191: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : parent name: agent_0.staging.output.0.watch
+2017-12-04 23:15:43,192: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : start thread
+2017-12-04 23:15:43,192: agent_0.staging.output.0: MainProcess                     : agent_0.staging.output.0.watch: DEBUG   : child name: agent_0.staging.output.0.watch.thread
+2017-12-04 23:15:43,192: agent_0.staging.output.0: MainProcess                     : agent_0.staging.output.0.watch: INFO    : child (me) initializing
+2017-12-04 23:15:43,192: agent_0.staging.output.0: MainProcess                     : agent_0.staging.output.0.watch: DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:15:43,193: agent_0.staging.output.0: MainProcess                     : agent_0.staging.output.0.watch: DEBUG   : ru_initialize_child (NOOP)
+2017-12-04 23:15:43,193: agent_0.staging.output.0: MainProcess                     : agent_0.staging.output.0.watch: INFO    : send alive
+2017-12-04 23:15:43,193: agent_0.staging.output.0: MainProcess                     : agent_0.staging.output.0.watch: INFO    : put message: [agent_0.staging.output.0.watch.thread] alive
+2017-12-04 23:15:43,193: agent_0.staging.output.0: MainProcess                     : MainThread     : INFO    : get msg: alive
+2017-12-04 23:15:43,194: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:15:43,194: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-04 23:15:43,194: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : child thread agent_0.staging.output.0.watch started
+2017-12-04 23:15:43,194: agent_0.staging.output.0: MainProcess                     : MainThread     : INFO    : child is alive
+2017-12-04 23:15:43,194: agent_0.staging.output.0: MainProcess                     : MainThread     : DEBUG   : process class started child

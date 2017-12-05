@@ -1,0 +1,9 @@
+2017-12-04 23:15:43,983: agent.scheduling.queue.output.0000: agent_0.scheduling.0            : MainThread     : INFO    : python.interpreter   version: 2.7.11 (default, Sep 7 2016, 20:43:03) [GCC 4.9.3 20150626 (Cray Inc.)]
+2017-12-04 23:15:43,989: agent.scheduling.queue.output.0000: agent_0.scheduling.0            : MainThread     : INFO    :                      pid: 17207
+2017-12-04 23:15:43,989: agent.scheduling.queue.output.0000: agent_0.scheduling.0            : MainThread     : INFO    :                      tid: MainThread
+2017-12-04 23:15:43,990: agent.scheduling.queue.output.0000: agent_0.scheduling.0            : MainThread     : INFO    : radical.pilot        version: 0.47-v0.46.2-183-g2c92e513@rc-v0.46.3
+2017-12-04 23:15:43,990: agent.scheduling.queue.output.0000: agent_0.scheduling.0            : MainThread     : INFO    : create agent_scheduling_queue - output - tcp://10.128.100.25:36428
+2017-12-04 23:15:43,990: agent.scheduling.queue.output.0000: agent_0.scheduling.0            : MainThread     : DEBUG   : start process
+2017-12-04 23:15:43,991: agent.scheduling.queue.output.0000: agent_0.scheduling.0            : MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:15:43,991: agent.scheduling.queue.output.0000: agent_0.scheduling.0            : MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-04 23:15:43,991: agent.scheduling.queue.output.0000: agent_0.scheduling.0            : MainThread     : DEBUG   : process class started (no child)

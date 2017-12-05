@@ -1,0 +1,20 @@
+2017-12-04 23:16:00,747: log.pubsub.pub.0003 : update.0                        : MainThread     : INFO    : python.interpreter   version: 2.7.11 (default, Sep 7 2016, 20:43:03) [GCC 4.9.3 20150626 (Cray Inc.)]
+2017-12-04 23:16:00,770: log.pubsub.pub.0003 : update.0                        : MainThread     : INFO    :                      pid: 17260
+2017-12-04 23:16:00,770: log.pubsub.pub.0003 : update.0                        : MainThread     : INFO    :                      tid: MainThread
+2017-12-04 23:16:00,770: log.pubsub.pub.0003 : update.0                        : MainThread     : INFO    : radical.pilot        version: 0.47-v0.46.2-183-g2c92e513@rc-v0.46.3
+2017-12-04 23:16:00,770: log.pubsub.pub.0003 : update.0                        : MainThread     : INFO    : create log_pubsub - pub - tcp://10.128.100.25:43949
+2017-12-04 23:16:00,772: log.pubsub.pub.0003 : update.0                        : MainThread     : DEBUG   : start process
+2017-12-04 23:16:00,772: log.pubsub.pub.0003 : update.0                        : MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:16:00,773: log.pubsub.pub.0003 : update.0                        : MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-04 23:16:00,773: log.pubsub.pub.0003 : update.0                        : MainThread     : DEBUG   : process class started (no child)
+2017-12-04 23:16:00,997: log.pubsub.pub.0003 : MainProcess                     : MainThread     : INFO    : python.interpreter   version: 2.7.11 (default, Sep 7 2016, 20:43:03) [GCC 4.9.3 20150626 (Cray Inc.)]
+2017-12-04 23:16:01,004: log.pubsub.pub.0003 : MainProcess                     : MainThread     : INFO    :                      pid: 17082
+2017-12-04 23:16:01,004: log.pubsub.pub.0003 : MainProcess                     : MainThread     : INFO    :                      tid: MainThread
+2017-12-04 23:16:01,005: log.pubsub.pub.0003 : MainProcess                     : MainThread     : INFO    : radical.pilot        version: 0.47-v0.46.2-183-g2c92e513@rc-v0.46.3
+2017-12-04 23:16:01,005: log.pubsub.pub.0003 : MainProcess                     : MainThread     : INFO    : create log_pubsub - pub - tcp://10.128.100.25:43949
+2017-12-04 23:16:01,005: log.pubsub.pub.0003 : MainProcess                     : MainThread     : DEBUG   : start process
+2017-12-04 23:16:01,006: log.pubsub.pub.0003 : MainProcess                     : MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:16:01,006: log.pubsub.pub.0003 : MainProcess                     : MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-04 23:16:01,006: log.pubsub.pub.0003 : MainProcess                     : MainThread     : DEBUG   : process class started (no child)
+2017-12-04 23:58:20,133: log.pubsub.pub.0003 : update.0                        : update.0.child.subscriber._cancel_monitor_cb: INFO    : parent stops child  17260 -> None [log.pubsub.pub.0003]
+2017-12-04 23:58:20,133: log.pubsub.pub.0003 : update.0                        : update.0.child.subscriber._cancel_monitor_cb: DEBUG   : ru_finalize_parent (NOOP)

@@ -1,0 +1,9 @@
+2017-12-05 06:16:06,373: umgr.staging.input.queue.input.0000: umgr.0000.scheduling.0          : MainThread     : INFO    : python.interpreter   version: 2.7.12 (default, Nov 19 2016, 06:48:10) [GCC 5.4.0 20160609]
+2017-12-05 06:16:06,373: umgr.staging.input.queue.input.0000: umgr.0000.scheduling.0          : MainThread     : INFO    :                      pid: 32538
+2017-12-05 06:16:06,373: umgr.staging.input.queue.input.0000: umgr.0000.scheduling.0          : MainThread     : INFO    :                      tid: MainThread
+2017-12-05 06:16:06,373: umgr.staging.input.queue.input.0000: umgr.0000.scheduling.0          : MainThread     : INFO    : radical.pilot        version: 0.47-v0.46.2-183-g2c92e513@rc-v0.46.3
+2017-12-05 06:16:06,373: umgr.staging.input.queue.input.0000: umgr.0000.scheduling.0          : MainThread     : INFO    : create umgr_staging_input_queue - input - tcp://138.201.86.166:33226
+2017-12-05 06:16:06,374: umgr.staging.input.queue.input.0000: umgr.0000.scheduling.0          : MainThread     : DEBUG   : start process
+2017-12-05 06:16:06,374: umgr.staging.input.queue.input.0000: umgr.0000.scheduling.0          : MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-05 06:16:06,374: umgr.staging.input.queue.input.0000: umgr.0000.scheduling.0          : MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-05 06:16:06,374: umgr.staging.input.queue.input.0000: umgr.0000.scheduling.0          : MainThread     : DEBUG   : process class started (no child)

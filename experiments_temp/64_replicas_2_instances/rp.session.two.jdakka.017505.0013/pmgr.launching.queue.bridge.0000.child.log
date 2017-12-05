@@ -1,0 +1,8 @@
+2017-12-05 06:12:43,069: pmgr.launching.queue.bridge.0000.child: pmgr.launching.queue.bridge.0000.child: MainThread     : INFO    : python.interpreter   version: 2.7.12 (default, Nov 19 2016, 06:48:10) [GCC 5.4.0 20160609]
+2017-12-05 06:12:43,069: pmgr.launching.queue.bridge.0000.child: pmgr.launching.queue.bridge.0000.child: MainThread     : INFO    :                      pid: 24127
+2017-12-05 06:12:43,069: pmgr.launching.queue.bridge.0000.child: pmgr.launching.queue.bridge.0000.child: MainThread     : INFO    :                      tid: MainThread
+2017-12-05 06:12:43,070: pmgr.launching.queue.bridge.0000.child: pmgr.launching.queue.bridge.0000.child: MainThread     : INFO    : radical.pilot        version: 0.47-v0.46.2-183-g2c92e513@rc-v0.46.3
+2017-12-05 06:12:43,070: pmgr.launching.queue.bridge.0000.child: pmgr.launching.queue.bridge.0000.child: MainThread     : INFO    : start bridge pmgr.launching.queue.bridge.0000.child on tcp://*:*
+2017-12-05 06:12:43,071: pmgr.launching.queue.bridge.0000.child: pmgr.launching.queue.bridge.0000.child: MainThread     : INFO    : bound bridge pmgr.launching.queue.bridge.0000.child to tcp://0.0.0.0:39516 : tcp://0.0.0.0:34069
+2017-12-05 06:12:49,285: pmgr.launching.queue.bridge.0000.child: pmgr.launching.queue.bridge.0000.child: MainThread     : DEBUG   : sent  1 [hwm: 1]
+2017-12-05 06:58:35,254: pmgr.launching.queue.bridge.0000.child: pmgr.launching.queue.bridge.0000.child: MainThread     : WARNING : not alive anymore?

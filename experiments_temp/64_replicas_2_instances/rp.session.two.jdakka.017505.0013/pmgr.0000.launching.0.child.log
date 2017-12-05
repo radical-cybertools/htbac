@@ -1,0 +1,826 @@
+2017-12-05 06:12:43,108: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : python.interpreter   version: 2.7.12 (default, Nov 19 2016, 06:48:10) [GCC 5.4.0 20160609]
+2017-12-05 06:12:43,109: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    :                      pid: 24135
+2017-12-05 06:12:43,109: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    :                      tid: MainThread
+2017-12-05 06:12:43,109: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : radical.pilot        version: 0.47-v0.46.2-183-g2c92e513@rc-v0.46.3
+2017-12-05 06:12:43,194: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : initialize pmgr.0000.launching.0.child
+2017-12-05 06:12:43,199: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : cfg: {'agents': {},
+ u'bridges': {u'control_pubsub': {'addr_in': 'tcp://138.201.86.166:34723',
+                                  'addr_out': 'tcp://138.201.86.166:42592',
+                                  u'bulk_size': 0,
+                                  u'log_level': u'debug',
+                                  u'stall_hwm': 1},
+              u'log_pubsub': {'addr_in': 'tcp://138.201.86.166:35793',
+                              'addr_out': 'tcp://138.201.86.166:45716',
+                              u'bulk_size': 0,
+                              u'log_level': u'debug',
+                              u'stall_hwm': 1},
+              u'pmgr_launching_queue': {'addr_in': 'tcp://138.201.86.166:39516',
+                                        'addr_out': 'tcp://138.201.86.166:34069',
+                                        u'bulk_size': 0,
+                                        u'log_level': u'debug',
+                                        u'stall_hwm': 1},
+              u'state_pubsub': {'addr_in': 'tcp://138.201.86.166:36400',
+                                'addr_out': 'tcp://138.201.86.166:33605',
+                                u'bulk_size': 0,
+                                u'log_level': u'debug',
+                                u'stall_hwm': 1}},
+ 'cname': u'PMGRLaunchingComponent',
+ u'components': {},
+ u'count': 1,
+ u'db_poll_sleeptime': 1.0,
+ 'number': 0,
+ 'owner': 'pmgr.0000',
+ 'uid': 'pmgr.0000'}
+2017-12-05 06:12:43,199: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : start components: {}
+2017-12-05 06:12:43,199: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : alive check in term
+2017-12-05 06:12:43,200: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : START: pmgr.0000.launching.0.child register publisher log_pubsub
+2017-12-05 06:12:43,200: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : using addr tcp://138.201.86.166:35793 for pubsub log_pubsub
+2017-12-05 06:12:43,204: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : registered publisher : log_pubsub : log.pubsub.pub.0001
+2017-12-05 06:12:43,204: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : alive check in term
+2017-12-05 06:12:43,204: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : START: pmgr.0000.launching.0.child register publisher state_pubsub
+2017-12-05 06:12:43,204: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : using addr tcp://138.201.86.166:36400 for pubsub state_pubsub
+2017-12-05 06:12:43,208: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : registered publisher : state_pubsub : state.pubsub.pub.0001
+2017-12-05 06:12:43,208: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : alive check in term
+2017-12-05 06:12:43,208: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : START: pmgr.0000.launching.0.child register publisher control_pubsub
+2017-12-05 06:12:43,208: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : using addr tcp://138.201.86.166:34723 for pubsub control_pubsub
+2017-12-05 06:12:43,211: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : registered publisher : control_pubsub : control.pubsub.pub.0001
+2017-12-05 06:12:43,211: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : alive check in term
+2017-12-05 06:12:43,212: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : START: pmgr.0000.launching.0.child register subscriber pmgr.0000.launching.0.child.subscriber._cancel_monitor_cb
+2017-12-05 06:12:43,212: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : using addr tcp://138.201.86.166:42592 for pubsub control_pubsub
+2017-12-05 06:12:43,228: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : parent name: pmgr.0000.launching.0.child.subscriber._cancel_monitor_cb
+2017-12-05 06:12:43,228: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : start thread
+2017-12-05 06:12:43,228: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._cancel_monitor_cb: DEBUG   : child name: pmgr.0000.launching.0.child.subscriber._cancel_monitor_cb.thread
+2017-12-05 06:12:43,229: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._cancel_monitor_cb: INFO    : child (me) initializing
+2017-12-05 06:12:43,229: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._cancel_monitor_cb: DEBUG   : ru_initialize_common (NOOP)
+2017-12-05 06:12:43,229: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._cancel_monitor_cb: DEBUG   : ru_initialize_child (NOOP)
+2017-12-05 06:12:43,229: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._cancel_monitor_cb: INFO    : send alive
+2017-12-05 06:12:43,229: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._cancel_monitor_cb: INFO    : put message: [pmgr.0000.launching.0.child.subscriber._cancel_monitor_cb.thread] alive
+2017-12-05 06:12:43,230: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : get msg: alive
+2017-12-05 06:12:43,230: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-05 06:12:43,230: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-05 06:12:43,230: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : child thread pmgr.0000.launching.0.child.subscriber._cancel_monitor_cb started
+2017-12-05 06:12:43,231: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : pmgr.0000.launching.0.child registered control_pubsub subscriber pmgr.0000.launching.0.child.subscriber._cancel_monitor_cb
+2017-12-05 06:12:43,231: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : alive check in term
+2017-12-05 06:12:43,231: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : using addr tcp://138.201.86.166:34069 for input pmgr_launching_queue
+2017-12-05 06:12:43,234: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : registered input pmgr.0000.launching.0.child.work.PMGR_LAUNCHING_PENDING
+2017-12-05 06:12:43,234: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : START: pmgr.0000.launching.0.child register input PMGR_LAUNCHING_PENDING: pmgr.0000.launching.0.child.work.PMGR_LAUNCHING_PENDING
+2017-12-05 06:12:43,234: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : registered worker work [PMGR_LAUNCHING_PENDING]
+2017-12-05 06:12:43,234: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : alive check in term
+2017-12-05 06:12:43,234: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : START: pmgr.0000.launching.0.child register idler pmgr.0000.launching.0.child.idler._pilot_watcher_cb
+2017-12-05 06:12:43,235: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : parent name: pmgr.0000.launching.0.child.idler._pilot_watcher_cb
+2017-12-05 06:12:43,235: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : start thread
+2017-12-05 06:12:43,236: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : child name: pmgr.0000.launching.0.child.idler._pilot_watcher_cb.thread
+2017-12-05 06:12:43,236: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: INFO    : child (me) initializing
+2017-12-05 06:12:43,236: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : ru_initialize_common (NOOP)
+2017-12-05 06:12:43,236: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : ru_initialize_child (NOOP)
+2017-12-05 06:12:43,236: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: INFO    : send alive
+2017-12-05 06:12:43,237: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: INFO    : put message: [pmgr.0000.launching.0.child.idler._pilot_watcher_cb.thread] alive
+2017-12-05 06:12:43,237: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : get msg: alive
+2017-12-05 06:12:43,238: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-05 06:12:43,238: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-05 06:12:43,238: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : child thread pmgr.0000.launching.0.child.idler._pilot_watcher_cb started
+2017-12-05 06:12:43,238: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : pmgr.0000.launching.0.child registered idler pmgr.0000.launching.0.child.idler._pilot_watcher_cb
+2017-12-05 06:12:43,238: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : alive check in term
+2017-12-05 06:12:43,238: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : START: pmgr.0000.launching.0.child register subscriber pmgr.0000.launching.0.child.subscriber._pmgr_control_cb
+2017-12-05 06:12:43,239: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : using addr tcp://138.201.86.166:42592 for pubsub control_pubsub
+2017-12-05 06:12:43,245: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : parent name: pmgr.0000.launching.0.child.subscriber._pmgr_control_cb
+2017-12-05 06:12:43,245: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : start thread
+2017-12-05 06:12:43,246: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : child name: pmgr.0000.launching.0.child.subscriber._pmgr_control_cb.thread
+2017-12-05 06:12:43,247: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: INFO    : child (me) initializing
+2017-12-05 06:12:43,247: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : ru_initialize_common (NOOP)
+2017-12-05 06:12:43,247: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : ru_initialize_child (NOOP)
+2017-12-05 06:12:43,247: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: INFO    : send alive
+2017-12-05 06:12:43,248: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: INFO    : put message: [pmgr.0000.launching.0.child.subscriber._pmgr_control_cb.thread] alive
+2017-12-05 06:12:43,248: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : get msg: alive
+2017-12-05 06:12:43,248: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-05 06:12:43,248: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-05 06:12:43,249: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : child thread pmgr.0000.launching.0.child.subscriber._pmgr_control_cb started
+2017-12-05 06:12:43,251: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: []
+2017-12-05 06:12:43,252: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : pmgr.0000.launching.0.child registered control_pubsub subscriber pmgr.0000.launching.0.child.subscriber._pmgr_control_cb
+2017-12-05 06:12:43,254: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : ('0.47', '0.47-v0.46.2-183-g2c92e513@rc-v0.46.3', '-v0.46.2', '@rc-v0.46.3', 'radical.pilot-0.47-v0.46.2-183-g2c92e513-rc-v0.46.3.tar.gz', '/home/jdakka/UCL/rc_stack/venv/local/lib/python2.7/site-packages/radical/pilot/pmgr/launching/../..//radical.pilot-0.47-v0.46.2-183-g2c92e513-rc-v0.46.3.tar.gz')
+2017-12-05 06:12:43,254: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : child (me) initializing
+2017-12-05 06:12:43,254: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : parent name: pmgr.0000.launching.0.child.watch
+2017-12-05 06:12:43,255: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : start thread
+2017-12-05 06:12:43,255: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.watch: DEBUG   : child name: pmgr.0000.launching.0.child.watch.thread
+2017-12-05 06:12:43,255: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.watch: INFO    : child (me) initializing
+2017-12-05 06:12:43,255: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.watch: DEBUG   : ru_initialize_common (NOOP)
+2017-12-05 06:12:43,255: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.watch: DEBUG   : ru_initialize_child (NOOP)
+2017-12-05 06:12:43,256: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.watch: INFO    : send alive
+2017-12-05 06:12:43,256: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.watch: INFO    : put message: [pmgr.0000.launching.0.child.watch.thread] alive
+2017-12-05 06:12:43,256: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : get msg: alive
+2017-12-05 06:12:43,257: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-05 06:12:43,257: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-05 06:12:43,257: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : child thread pmgr.0000.launching.0.child.watch started
+2017-12-05 06:12:43,257: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : child (me) is alive
+2017-12-05 06:12:43,257: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : send alive
+2017-12-05 06:12:43,257: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : send message: [pmgr.0000.launching.0.child] alive
+2017-12-05 06:12:49,285: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : got pilot (pilot.0000)
+2017-12-05 06:12:49,286: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-05 06:12:49,286: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : Launching pilots on ncsa.bw_aprun: ['pilot.0000']
+2017-12-05 06:12:54,774: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : Read agent config file: /home/jdakka/UCL/rc_stack/venv/local/lib/python2.7/site-packages/radical/pilot/pmgr/launching/../..//configs/agent_default.json
+2017-12-05 06:12:54,776: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : Write agent cfg to '/tmp/rp.agent_cfg.nvKFJH'.
+2017-12-05 06:12:54,785: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : {'agent_launch_method': 'APRUN',
+ u'bridges': {u'agent_executing_queue': {u'bulk_size': 0,
+                                         u'log_level': u'debug',
+                                         u'stall_hwm': 1},
+              u'agent_reschedule_pubsub': {u'bulk_size': 0,
+                                           u'log_level': u'debug',
+                                           u'stall_hwm': 1},
+              u'agent_scheduling_queue': {u'bulk_size': 0,
+                                          u'log_level': u'debug',
+                                          u'stall_hwm': 1},
+              u'agent_staging_input_queue': {u'bulk_size': 0,
+                                             u'log_level': u'debug',
+                                             u'stall_hwm': 1},
+              u'agent_staging_output_queue': {u'bulk_size': 0,
+                                              u'log_level': u'debug',
+                                              u'stall_hwm': 1},
+              u'agent_unschedule_pubsub': {u'bulk_size': 0,
+                                           u'log_level': u'debug',
+                                           u'stall_hwm': 1},
+              u'control_pubsub': {u'bulk_size': 0,
+                                  u'log_level': u'debug',
+                                  u'stall_hwm': 1},
+              u'log_pubsub': {u'bulk_size': 0,
+                              u'log_level': u'debug',
+                              u'stall_hwm': 1},
+              u'state_pubsub': {u'bulk_size': 0,
+                                u'log_level': u'debug',
+                                u'stall_hwm': 1}},
+ u'bulk_collection_size': 100,
+ u'bulk_collection_time': 1.0,
+ u'components': {u'AgentExecutingComponent': {u'count': 1},
+                 u'AgentSchedulingComponent': {u'count': 1},
+                 u'AgentStagingInputComponent': {u'count': 1},
+                 u'AgentStagingOutputComponent': {u'count': 1},
+                 u'UpdateWorker': {u'count': 1}},
+ 'cores': 512,
+ 'cores_per_node': 0,
+ 'cu_post_exec': None,
+ 'cu_pre_exec': None,
+ 'cu_tmp': None,
+ u'db_poll_sleeptime': 1.0,
+ 'dburl': 'mongodb://jdakka:mongo@ds231715.mlab.com:31715/new_htbac',
+ 'debug': 10,
+ 'export_to_cu': None,
+ 'logdir': '.',
+ 'lrms': 'TORQUE',
+ u'max_io_loglength': 1024,
+ u'mode': u'shared',
+ 'mpi_launch_method': 'APRUN',
+ 'owner': 'agent_0',
+ 'pilot_id': 'pilot.0000',
+ 'pilot_sandbox': '/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/',
+ 'resource_cfg': {'agent_launch_method': 'APRUN',
+                  'agent_scheduler': 'CONTINUOUS',
+                  'agent_spawner': 'POPEN',
+                  'default_queue': 'normal',
+                  'default_remote_workdir': '/scratch/sciteam/$USER',
+                  'description': 'The NCSA Blue Waters Cray XE6/XK7 system (https://bluewaters.ncsa.illinois.edu/)',
+                  'filesystem_endpoint': 'gsisftp://bw.ncsa.illinois.edu/',
+                  'gsissh': {'filesystem_endpoint': 'gsisftp://bw.ncsa.illinois.edu/',
+                             'job_manager_endpoint': 'torque+gsissh://bw.ncsa.illinois.edu'},
+                  'job_manager_endpoint': 'torque+gsissh://bw.ncsa.illinois.edu',
+                  'label': 'ncsa.bw_aprun',
+                  'lrms': 'TORQUE',
+                  'mpi_launch_method': 'APRUN',
+                  'notes': "Running 'touch .hushlogin' on the login node will reduce the likelihood of prompt detection issues.",
+                  'pre_bootstrap_1': ['module switch PrgEnv-cray PrgEnv-gnu',
+                                      'module load bwpy'],
+                  'python_dist': 'default',
+                  'rp_version': 'local',
+                  'schemas': ['gsissh'],
+                  'stage_cacerts': 'True',
+                  'task_launch_method': 'APRUN',
+                  'valid_roots': ['/scratch/sciteam'],
+                  'virtenv_mode': 'create'},
+ 'resource_sandbox': '/scratch/sciteam/dakka/radical.pilot.sandbox',
+ 'runtime': 1440,
+ 'scheduler': 'CONTINUOUS',
+ 'session_id': 'rp.session.two.jdakka.017505.0013',
+ 'session_sandbox': '/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013',
+ 'spawner': 'POPEN',
+ u'staging_area': u'staging_area',
+ u'staging_schema': u'staging',
+ u'target': u'local',
+ 'task_launch_method': 'APRUN'}
+2017-12-05 06:12:54,820: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : use bootstrapper /home/jdakka/UCL/rc_stack/venv/local/lib/python2.7/site-packages/radical/pilot/agent/bootstrap_1.sh
+2017-12-05 06:12:54,821: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : use CAs /home/jdakka/UCL/rc_stack/venv/local/lib/python2.7/site-packages/radical/pilot/agent/cacert.pem.gz
+2017-12-05 06:12:54,823: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : Bootstrap command line: /bin/bash ['-l /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/bootstrap_1.sh', " -d 'radical.utils-0.47-v0.46-75-g4ac5fd5-rc-v0.46.3.tar.gz:saga-python-0.47-v0.46-32-ga2f9dedc-rc-v0.46.3.tar.gz:radical.pilot-0.47-v0.46.2-183-g2c92e513-rc-v0.46.3.tar.gz' -p 'pilot.0000' -s 'rp.session.two.jdakka.017505.0013' -m 'create' -r 'local' -b 'default' -g 'default' -v '/scratch/sciteam/dakka/radical.pilot.sandbox/ve.ncsa.bw_aprun.0.47' -y '1440' -e 'module switch PrgEnv-cray PrgEnv-gnu' -e 'module load bwpy'"]
+2017-12-05 06:12:54,825: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : cmd: cd /tmp/rp_agent_tar_dir3frKzj && tar zchf /tmp/rp_agent_tar_dir3frKzj/rp.session.two.jdakka.017505.0013.pmgr.0000.launching.0.child.tgz *
+2017-12-05 06:12:54,902: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : out: 
+2017-12-05 06:12:54,903: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : rs.file.Directory ('gsisftp://bw.ncsa.illinois.edu/')
+2017-12-05 06:13:20,615: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : tar cmd : tar zmxvf /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/rp.session.two.jdakka.017505.0013.pmgr.0000.launching.0.child.tgz -C /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013
+2017-12-05 06:13:21,058: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : tar done: Done, bootstrap_1.sh
+cacert.pem.gz
+pilot.0000/
+pilot.0000/agent_0.cfg
+pilot.0000/pilot.0000.prof.tgz
+pilot.0000/pilot.0000.log.tgz
+radical.pilot-0.47-v0.46.2-183-g2c92e513-rc-v0.46.3.tar.gz
+radical.utils-0.47-v0.46-75-g4ac5fd5-rc-v0.46.3.tar.gz
+saga-python-0.47-v0.46-32-ga2f9dedc-rc-v0.46.3.tar.gz
+, 
+2017-12-05 06:13:27,176: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : jd: {'Arguments': ['-l /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/bootstrap_1.sh',
+               " -d 'radical.utils-0.47-v0.46-75-g4ac5fd5-rc-v0.46.3.tar.gz:saga-python-0.47-v0.46-32-ga2f9dedc-rc-v0.46.3.tar.gz:radical.pilot-0.47-v0.46.2-183-g2c92e513-rc-v0.46.3.tar.gz' -p 'pilot.0000' -s 'rp.session.two.jdakka.017505.0013' -m 'create' -r 'local' -b 'default' -g 'default' -v '/scratch/sciteam/dakka/radical.pilot.sandbox/ve.ncsa.bw_aprun.0.47' -y '1440' -e 'module switch PrgEnv-cray PrgEnv-gnu' -e 'module load bwpy'"],
+ 'CandidateHosts': None,
+ 'Environment': {'RADICAL_PILOT_PROFILE': 'TRUE'},
+ 'Error': 'bootstrap_1.err',
+ 'Executable': '/bin/bash',
+ 'FileTransfer': [],
+ 'Name': 'pilot.0000',
+ 'Output': 'bootstrap_1.out',
+ 'ProcessesPerHost': 0,
+ 'Project': 'bamm',
+ 'Queue': 'high',
+ 'SPMDVariation': None,
+ 'TotalCPUCount': 512,
+ 'TotalPhysicalMemory': None,
+ 'WallTimeLimit': 1440,
+ 'WorkingDirectory': '/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/'}
+2017-12-05 06:13:29,071: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : pilot job: pilot.0000 : [torque+gsissh://bw.ncsa.illinois.edu]-[7904784] : pilot.0000 : Pending
+2017-12-05 06:13:29,072: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : advance bulk size: 1 [False, True]
+2017-12-05 06:13:29,075: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['P', 'e', 'n', 'd', 'i', 'n', 'g']
+2017-12-05 06:13:29,076: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Pending
+2017-12-05 06:13:39,103: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['P', 'e', 'n', 'd', 'i', 'n', 'g']
+2017-12-05 06:13:39,103: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Pending
+2017-12-05 06:13:49,130: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['P', 'e', 'n', 'd', 'i', 'n', 'g']
+2017-12-05 06:13:49,131: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Pending
+2017-12-05 06:13:59,159: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['P', 'e', 'n', 'd', 'i', 'n', 'g']
+2017-12-05 06:13:59,160: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Pending
+2017-12-05 06:14:09,188: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['P', 'e', 'n', 'd', 'i', 'n', 'g']
+2017-12-05 06:14:09,189: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Pending
+2017-12-05 06:14:19,218: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['P', 'e', 'n', 'd', 'i', 'n', 'g']
+2017-12-05 06:14:19,218: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Pending
+2017-12-05 06:14:29,245: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['P', 'e', 'n', 'd', 'i', 'n', 'g']
+2017-12-05 06:14:29,246: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Pending
+2017-12-05 06:14:39,273: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['P', 'e', 'n', 'd', 'i', 'n', 'g']
+2017-12-05 06:14:39,273: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Pending
+2017-12-05 06:14:49,301: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['P', 'e', 'n', 'd', 'i', 'n', 'g']
+2017-12-05 06:14:49,302: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Pending
+2017-12-05 06:14:59,329: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['P', 'e', 'n', 'd', 'i', 'n', 'g']
+2017-12-05 06:14:59,329: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Pending
+2017-12-05 06:15:09,354: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['P', 'e', 'n', 'd', 'i', 'n', 'g']
+2017-12-05 06:15:09,354: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Pending
+2017-12-05 06:15:19,379: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['P', 'e', 'n', 'd', 'i', 'n', 'g']
+2017-12-05 06:15:19,379: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Pending
+2017-12-05 06:15:29,408: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:15:29,409: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:15:39,435: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:15:39,436: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:15:49,464: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:15:49,465: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:15:59,492: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:15:59,492: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:16:07,112: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._cancel_monitor_cb: DEBUG   : command ignored: add_pilots
+2017-12-05 06:16:07,112: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : launcher got {'cmd': 'add_pilots', 'arg': {'pilots': [{'resource_sandbox': 'gsisftp://bw.ncsa.illinois.edu/scratch/sciteam/dakka/radical.pilot.sandbox', 'resource_details': {'lm_detail': None, 'lm_info': None}, 'resource': 'ncsa.bw_aprun', 'uid': 'pilot.0000', 'pmgr': 'pmgr.0000', 'stdout': None, 'js_url': 'torque+gsissh://bw.ncsa.illinois.edu', 'state': 'PMGR_ACTIVE', 'session': 'rp.session.two.jdakka.017505.0013', 'log': None, 'stderr': None, 'js_hop': 'torque+gsissh://bw.ncsa.illinois.edu', 'client_sandbox': '/home/jdakka/radical_htbac/esmacs_2_instances/radical.htbac/examples', 'type': 'pilot', 'pilot_sandbox': 'gsisftp://bw.ncsa.illinois.edu/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017505.0013/pilot.0000/', 'description': {'queue': 'high', 'resource': 'ncsa.bw_aprun', 'exit_on_error': False, 'candidate_hosts': None, 'project': 'bamm', 'sandbox': None, 'cleanup': None, 'access_schema': 'gsissh', 'memory': None, 'cores': 512, 'runtime': 1440}}], 'umgr': 'umgr.0000'}}
+2017-12-05 06:16:09,513: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:16:09,513: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:16:19,525: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:16:19,525: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:16:29,538: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:16:29,538: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:16:39,550: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:16:39,550: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:16:49,563: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:16:49,563: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:16:59,575: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:16:59,575: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:17:09,587: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:17:09,587: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:17:19,600: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:17:19,600: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:17:29,612: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:17:29,612: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:17:39,625: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:17:39,625: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:17:49,637: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:17:49,637: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:17:59,649: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:17:59,650: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:18:09,662: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:18:09,662: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:18:19,675: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:18:19,675: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:18:29,687: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:18:29,687: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:18:39,699: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:18:39,700: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:18:49,712: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:18:49,712: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:18:59,725: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:18:59,749: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:19:09,761: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:19:09,761: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:19:19,773: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:19:19,773: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:19:29,786: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:19:29,786: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:19:39,797: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:19:39,798: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:19:49,811: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:19:49,811: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:19:59,823: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:19:59,824: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:20:09,838: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:20:09,839: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:20:19,851: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:20:19,851: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:20:29,863: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:20:29,863: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:20:39,875: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:20:39,875: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:20:49,887: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:20:49,887: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:20:59,900: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:20:59,900: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:21:09,939: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:21:09,939: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:21:19,952: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:21:19,952: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:21:29,965: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:21:29,965: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:21:39,977: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:21:39,977: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:21:49,989: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:21:49,989: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:22:00,001: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:22:00,001: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:22:10,014: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:22:10,014: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:22:20,026: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:22:20,026: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:22:30,038: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:22:30,039: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:22:40,051: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:22:40,051: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:22:50,063: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:22:50,063: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:23:00,075: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:23:00,075: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:23:10,087: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:23:10,088: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:23:20,100: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:23:20,100: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:23:30,112: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:23:30,112: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:23:40,125: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:23:40,125: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:23:50,137: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:23:50,137: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:24:00,150: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:24:00,150: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:24:10,163: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:24:10,163: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:24:20,175: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:24:20,175: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:24:30,210: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:24:30,210: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:24:40,223: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:24:40,223: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:24:50,236: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:24:50,236: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:25:00,249: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:25:00,249: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:25:10,261: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:25:10,261: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:25:20,274: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:25:20,274: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:25:30,287: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:25:30,287: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:25:40,299: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:25:40,299: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:25:50,312: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:25:50,312: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:26:00,324: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:26:00,359: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:26:10,372: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:26:10,372: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:26:20,384: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:26:20,384: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:26:30,397: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:26:30,397: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:26:40,409: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:26:40,409: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:26:50,421: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:26:50,421: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:27:00,433: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:27:00,434: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:27:10,446: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:27:10,446: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:27:20,458: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:27:20,459: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:27:30,473: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:27:30,473: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:27:40,486: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:27:40,486: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:27:50,498: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:27:50,499: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:28:00,511: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:28:00,511: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:28:10,522: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:28:10,523: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:28:20,535: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:28:20,535: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:28:30,548: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:28:30,548: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:28:40,560: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:28:40,560: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:28:50,573: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:28:50,573: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:29:00,586: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:29:00,586: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:29:10,598: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:29:10,598: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:29:20,611: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:29:20,611: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:29:30,623: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:29:30,623: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:29:40,635: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:29:40,636: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:29:50,647: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:29:50,647: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:30:00,660: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:30:00,660: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:30:10,674: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:30:10,674: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:30:20,686: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:30:20,686: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:30:30,699: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:30:30,699: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:30:40,711: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:30:40,712: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:30:50,724: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:30:50,724: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:31:00,737: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:31:00,737: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:31:10,749: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:31:10,749: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:31:20,762: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:31:20,762: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:31:30,774: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:31:30,774: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:31:40,786: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:31:40,786: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:31:50,799: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:31:50,799: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:32:00,810: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:32:00,810: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:32:10,822: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:32:10,822: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:32:20,834: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:32:20,834: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:32:30,847: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:32:30,847: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:32:40,859: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:32:40,859: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:32:50,872: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:32:50,872: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:33:00,884: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:33:00,884: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:33:10,896: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:33:10,896: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:33:20,908: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:33:20,909: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:33:30,921: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:33:30,921: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:33:40,934: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:33:40,968: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:33:50,980: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:33:50,980: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:34:00,993: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:34:00,993: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:34:11,005: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:34:11,005: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:34:21,017: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:34:21,017: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:34:31,066: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:34:31,066: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:34:41,078: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:34:41,079: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:34:51,090: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:34:51,091: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:35:01,103: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:35:01,103: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:35:11,115: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:35:11,115: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:35:21,127: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:35:21,127: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:35:31,139: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:35:31,140: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:35:41,193: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:35:41,193: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:35:51,206: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:35:51,206: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:36:01,219: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:36:01,219: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:36:11,233: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:36:11,233: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:36:21,245: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:36:21,245: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:36:31,258: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:36:31,258: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:36:41,270: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:36:41,270: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:36:51,283: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:36:51,283: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:37:01,296: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:37:01,296: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:37:11,308: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:37:11,309: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:37:21,322: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:37:21,322: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:37:31,340: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:37:31,341: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:37:41,355: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:37:41,397: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:37:51,410: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:37:51,410: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:38:01,423: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:38:01,423: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:38:11,438: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:38:11,438: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:38:21,452: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:38:21,452: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:38:31,472: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:38:31,472: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:38:41,484: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:38:41,484: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:38:51,500: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:38:51,500: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:39:01,512: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:39:01,513: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:39:11,526: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:39:11,526: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:39:21,538: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:39:21,539: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:39:31,550: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:39:31,550: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:39:41,562: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:39:41,562: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:39:51,574: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:39:51,575: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:40:01,587: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:40:01,587: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:40:11,599: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:40:11,600: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:40:21,612: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:40:21,612: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:40:31,624: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:40:31,624: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:40:41,636: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:40:41,636: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:40:51,648: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:40:51,648: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:41:01,660: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:41:01,660: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:41:11,672: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:41:11,672: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:41:21,684: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:41:21,684: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:41:31,696: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:41:31,696: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:41:41,709: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:41:41,709: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:41:51,721: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:41:51,721: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:42:01,733: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:42:01,733: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:42:11,746: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:42:11,746: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:42:21,757: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:42:21,757: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:42:31,770: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:42:31,770: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:42:41,809: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:42:41,809: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:42:51,822: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:42:51,822: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:43:01,834: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:43:01,834: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:43:11,846: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:43:11,846: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:43:21,895: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:43:21,895: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:43:31,907: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:43:31,907: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:43:41,919: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:43:41,949: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:43:51,961: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:43:51,962: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:44:01,974: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:44:01,974: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:44:11,986: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:44:11,986: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:44:21,998: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:44:21,998: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:44:32,048: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:44:32,048: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:44:42,060: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:44:42,060: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:44:52,073: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:44:52,108: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:45:02,120: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:45:02,120: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:45:12,133: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:45:12,133: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:45:22,145: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:45:22,145: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:45:32,158: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:45:32,158: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:45:42,170: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:45:42,170: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:45:52,183: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:45:52,183: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:46:02,195: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:46:02,196: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:46:12,208: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:46:12,208: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:46:22,220: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:46:22,220: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:46:32,232: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:46:32,232: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:46:42,245: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:46:42,245: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:46:52,257: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:46:52,257: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:47:02,270: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:47:02,270: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:47:12,282: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:47:12,282: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:47:22,295: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:47:22,295: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:47:32,307: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:47:32,307: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:47:42,320: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:47:42,320: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:47:52,333: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:47:52,333: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:48:02,346: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:48:02,346: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:48:12,358: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:48:12,358: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:48:22,370: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:48:22,370: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:48:32,382: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:48:32,382: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:48:42,394: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:48:42,395: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:48:52,407: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:48:52,407: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:49:02,420: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:49:02,421: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:49:12,433: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:49:12,433: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:49:22,445: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:49:22,445: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:49:32,457: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:49:32,458: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:49:42,470: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:49:42,470: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:49:52,483: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:49:52,483: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:50:02,495: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:50:02,495: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:50:12,508: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:50:12,508: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:50:22,520: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:50:22,520: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:50:32,532: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:50:32,532: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:50:42,544: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:50:42,545: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:50:52,557: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:50:52,557: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:51:02,569: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:51:02,569: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:51:12,581: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:51:12,581: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:51:22,593: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:51:22,593: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:51:32,605: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:51:32,605: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:51:42,618: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:51:42,618: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:51:52,630: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:51:52,630: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:52:02,643: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:52:02,643: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:52:12,655: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:52:12,655: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:52:22,667: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:52:22,667: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:52:32,679: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:52:32,680: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:52:42,692: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:52:42,692: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:52:52,704: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:52:52,704: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:53:02,717: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:53:02,717: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:53:12,729: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:53:12,729: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:53:22,747: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:53:22,747: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:53:32,772: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:53:32,772: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:53:42,786: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:53:42,786: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:53:52,800: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:53:52,800: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:54:02,813: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:54:02,813: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:54:12,828: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:54:12,828: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:54:22,842: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:54:22,842: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:54:32,855: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:54:32,855: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:54:42,868: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:54:42,868: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:54:52,884: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:54:52,884: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:55:02,896: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:55:02,896: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:55:12,912: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:55:12,912: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:55:22,931: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:55:22,931: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:55:32,947: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:55:32,947: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:55:42,962: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:55:42,962: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:55:52,974: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:55:52,975: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:56:02,990: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:56:02,990: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:56:13,005: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:56:13,005: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:56:23,021: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:56:23,021: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:56:33,034: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:56:33,034: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:56:43,047: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:56:43,047: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:56:53,059: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:56:53,059: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:57:03,071: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:57:03,071: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:57:13,083: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:57:13,084: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:57:23,096: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:57:23,096: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:57:33,110: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:57:33,111: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:57:43,123: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:57:43,123: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:57:53,136: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:57:53,136: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:58:03,155: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:58:03,156: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:58:13,183: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:58:13,183: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:58:18,302: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._cancel_monitor_cb: DEBUG   : command ignored: cancel_pilots
+2017-12-05 06:58:18,303: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : launcher got {'cmd': 'cancel_pilots', 'arg': {'uids': ['pilot.0000'], 'pmgr': 'pmgr.0000'}}
+2017-12-05 06:58:18,303: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: INFO    : received pilot_cancel command (['pilot.0000'])
+2017-12-05 06:58:18,834: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : pilot(s).need(s) cancellation ['pilot.0000']
+2017-12-05 06:58:18,835: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   :  ==== update cancel req: pilot.0000 1512453498.84
+2017-12-05 06:58:23,209: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : bulk states: ['R', 'u', 'n', 'n', 'i', 'n', 'g']
+2017-12-05 06:58:23,210: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : === saga job state: pilot.0000 Running
+2017-12-05 06:58:32,848: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._cancel_monitor_cb: DEBUG   : command ignored: cancel_pilots
+2017-12-05 06:58:32,848: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : launcher got {'cmd': 'cancel_pilots', 'arg': {'uids': ['pilot.0000'], 'pmgr': 'pmgr.0000'}}
+2017-12-05 06:58:32,849: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: INFO    : received pilot_cancel command (['pilot.0000'])
+2017-12-05 06:58:32,947: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : pilot(s).need(s) cancellation ['pilot.0000']
+2017-12-05 06:58:32,948: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   :  ==== update cancel req: pilot.0000 1512453512.95
+2017-12-05 06:58:33,050: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.watch: INFO    : recv message: STOP
+2017-12-05 06:58:33,051: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.watch: INFO    : message received: STOP
+2017-12-05 06:58:33,051: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.watch: INFO    : STOP received: STOP
+2017-12-05 06:58:33,051: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.watch: INFO    : watcher closes
+2017-12-05 06:58:33,051: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.watch: INFO    : put message: [pmgr.0000.launching.0.child.watch.thread] work finished
+2017-12-05 06:58:33,052: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.watch: DEBUG   : ru_finalize_child (NOOP)
+2017-12-05 06:58:33,052: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.watch: DEBUG   : ru_finalize_common (NOOP)
+2017-12-05 06:58:33,052: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.watch: INFO    : put message: [pmgr.0000.launching.0.child.watch.thread] terminating
+2017-12-05 06:58:33,096: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : WARNING : alive check: proc invalid - stop [False - True]
+2017-12-05 06:58:33,144: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : stop pmgr.0000.launching.0.child (24135 : 24135 : MainThread) [radical.utils.process.Default.is_valid]
+2017-12-05 06:58:33,179: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : parent stops child  24135 -> 24135 [pmgr.0000.launching.0.child]
+2017-12-05 06:58:33,180: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : send message: [pmgr.0000.launching.0.child] STOP
+2017-12-05 06:58:33,180: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : WARNING : send failed ([Errno 9] Bad file descriptor) - terminate
+2017-12-05 06:58:33,180: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : TERM : pmgr.0000.launching.0.child unregister idler pmgr.0000.launching.0.child.idler._pilot_watcher_cb
+2017-12-05 06:58:33,180: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : INFO    : parent stops child
+2017-12-05 06:58:33,180: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : ru_finalize_parent (NOOP)
+2017-12-05 06:58:33,180: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : ru_finalize_common (NOOP)
+2017-12-05 06:58:33,234: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : ru_finalize_child (NOOP)
+2017-12-05 06:58:33,235: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: DEBUG   : ru_finalize_common (NOOP)
+2017-12-05 06:58:33,235: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : pmgr.0000.launching.0.child.idler._pilot_watcher_cb: INFO    : put message: [pmgr.0000.launching.0.child.idler._pilot_watcher_cb.thread] terminating
+2017-12-05 06:58:33,244: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : TERM : pmgr.0000.launching.0.child unregistered idler pmgr.0000.launching.0.child.idler._pilot_watcher_cb
+2017-12-05 06:58:33,244: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : TERM : pmgr.0000.launching.0.child unregister subscriber pmgr.0000.launching.0.child.subscriber._pmgr_control_cb
+2017-12-05 06:58:33,245: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : unregistered subscriber pmgr.0000.launching.0.child.subscriber._pmgr_control_cb
+2017-12-05 06:58:33,343: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   : pilot(s).need(s) cancellation ['pilot.0000']
+2017-12-05 06:58:33,344: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   :  ==== update cancel req: pilot.0000 1512453513.34
+2017-12-05 06:58:33,344: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   :  === killing pilots: ['pilot.0000']
+2017-12-05 06:58:33,344: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   :  === killing pilots: [1512453513.344166]
+2017-12-05 06:58:33,344: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   :  === killing pilots: last cancel: 1512453513.34
+2017-12-05 06:58:33,344: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   :  === killing pilots: check 1512453513.34 < 1512453513.34 + 120
+2017-12-05 06:58:33,345: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   :  === killing pilots: alive pilot.0000
+2017-12-05 06:58:34,346: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   :  === killing pilots: check 1512453514.35 < 1512453513.34 + 120
+2017-12-05 06:58:34,346: pmgr.0000.launching.0.child: pmgr.0000.launching.0           : MainThread     : DEBUG   :  === killing pilots: alive pilot.0000

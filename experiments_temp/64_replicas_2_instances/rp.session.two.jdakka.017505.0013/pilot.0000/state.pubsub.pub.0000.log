@@ -1,0 +1,20 @@
+2017-12-04 23:15:43,084: state.pubsub.pub.0000: agent_0.staging.output.0        : MainThread     : INFO    : python.interpreter   version: 2.7.11 (default, Sep 7 2016, 20:43:03) [GCC 4.9.3 20150626 (Cray Inc.)]
+2017-12-04 23:15:43,089: state.pubsub.pub.0000: agent_0.staging.output.0        : MainThread     : INFO    :                      pid: 17187
+2017-12-04 23:15:43,090: state.pubsub.pub.0000: agent_0.staging.output.0        : MainThread     : INFO    :                      tid: MainThread
+2017-12-04 23:15:43,090: state.pubsub.pub.0000: agent_0.staging.output.0        : MainThread     : INFO    : radical.pilot        version: 0.47-v0.46.2-183-g2c92e513@rc-v0.46.3
+2017-12-04 23:15:43,090: state.pubsub.pub.0000: agent_0.staging.output.0        : MainThread     : INFO    : create state_pubsub - pub - tcp://10.128.100.25:47678
+2017-12-04 23:15:43,091: state.pubsub.pub.0000: agent_0.staging.output.0        : MainThread     : DEBUG   : start process
+2017-12-04 23:15:43,091: state.pubsub.pub.0000: agent_0.staging.output.0        : MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:15:43,091: state.pubsub.pub.0000: agent_0.staging.output.0        : MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-04 23:15:43,091: state.pubsub.pub.0000: agent_0.staging.output.0        : MainThread     : DEBUG   : process class started (no child)
+2017-12-04 23:15:43,172: state.pubsub.pub.0000: MainProcess                     : MainThread     : INFO    : python.interpreter   version: 2.7.11 (default, Sep 7 2016, 20:43:03) [GCC 4.9.3 20150626 (Cray Inc.)]
+2017-12-04 23:15:43,177: state.pubsub.pub.0000: MainProcess                     : MainThread     : INFO    :                      pid: 17082
+2017-12-04 23:15:43,177: state.pubsub.pub.0000: MainProcess                     : MainThread     : INFO    :                      tid: MainThread
+2017-12-04 23:15:43,178: state.pubsub.pub.0000: MainProcess                     : MainThread     : INFO    : radical.pilot        version: 0.47-v0.46.2-183-g2c92e513@rc-v0.46.3
+2017-12-04 23:15:43,178: state.pubsub.pub.0000: MainProcess                     : MainThread     : INFO    : create state_pubsub - pub - tcp://10.128.100.25:47678
+2017-12-04 23:15:43,178: state.pubsub.pub.0000: MainProcess                     : MainThread     : DEBUG   : start process
+2017-12-04 23:15:43,179: state.pubsub.pub.0000: MainProcess                     : MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:15:43,179: state.pubsub.pub.0000: MainProcess                     : MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-04 23:15:43,179: state.pubsub.pub.0000: MainProcess                     : MainThread     : DEBUG   : process class started (no child)
+2017-12-04 23:58:20,177: state.pubsub.pub.0000: agent_0.staging.output.0        : agent_0.staging.output.0.child.subscriber._cancel_monitor_cb: INFO    : parent stops child  17187 -> None [state.pubsub.pub.0000]
+2017-12-04 23:58:20,178: state.pubsub.pub.0000: agent_0.staging.output.0        : agent_0.staging.output.0.child.subscriber._cancel_monitor_cb: DEBUG   : ru_finalize_parent (NOOP)

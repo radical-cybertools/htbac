@@ -1,0 +1,11 @@
+2017-12-04 23:16:00,954: state.pubsub.sub.0000: update.0                        : MainThread     : INFO    : python.interpreter   version: 2.7.11 (default, Sep 7 2016, 20:43:03) [GCC 4.9.3 20150626 (Cray Inc.)]
+2017-12-04 23:16:00,960: state.pubsub.sub.0000: update.0                        : MainThread     : INFO    :                      pid: 17260
+2017-12-04 23:16:00,961: state.pubsub.sub.0000: update.0                        : MainThread     : INFO    :                      tid: MainThread
+2017-12-04 23:16:00,961: state.pubsub.sub.0000: update.0                        : MainThread     : INFO    : radical.pilot        version: 0.47-v0.46.2-183-g2c92e513@rc-v0.46.3
+2017-12-04 23:16:00,961: state.pubsub.sub.0000: update.0                        : MainThread     : INFO    : create state_pubsub - sub - tcp://10.128.100.25:55407
+2017-12-04 23:16:00,962: state.pubsub.sub.0000: update.0                        : MainThread     : DEBUG   : start process
+2017-12-04 23:16:00,962: state.pubsub.sub.0000: update.0                        : MainThread     : DEBUG   : ru_initialize_common (NOOP)
+2017-12-04 23:16:00,962: state.pubsub.sub.0000: update.0                        : MainThread     : DEBUG   : ru_initialize_parent (NOOP)
+2017-12-04 23:16:00,962: state.pubsub.sub.0000: update.0                        : MainThread     : DEBUG   : process class started (no child)
+2017-12-04 23:58:20,366: state.pubsub.sub.0000: update.0                        : MainThread     : INFO    : parent stops child  17260 -> None [state.pubsub.sub.0000]
+2017-12-04 23:58:20,366: state.pubsub.sub.0000: update.0                        : MainThread     : DEBUG   : ru_finalize_parent (NOOP)
