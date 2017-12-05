@@ -98,31 +98,31 @@ class Ties(object):
 
         pipeline.add_stages(analysis)
 
-        # # Averaging stage
-        # # ===============
-        # average = Stage()
-        # average.name = 'average'
-        #
-        # average_task = Task()
-        # average_task.name = 'average_dg'
-        # # Change this to the actual averaging. How? Does the python come with np?
-        # average_task.arguments = ['average']
-        # average_task.executable = ['echo']
-        #
-        # average_task.mpi = False
-        # average_task.cores = 1
-        #
-        # previous_stage = pipeline.stages[-1]
-        # previous_tasks = previous_stage.tasks
-        #
-        # links = ['$Pipeline_{}_Stage_{}_Task_{}/dg_{}.out'.format(pipeline.uid, previous_stage.uid, t.uid,
-        #                                                           t.name) for t in previous_tasks]
-        # average_task._link_input_data = links
-        #
-        # average.add_tasks(average_task)
-        # pipeline.add_stages(average)
+        # Averaging stage
+        # ===============
+        average = Stage()
+        average.name = 'average'
 
-        print 'Pipeline has', len(pipeline.stages), 'stages. Tasks counts:', [len(s.tasks) for s in pipeline.stages],
+        average_task = Task()
+        average_task.name = 'average_dg'
+        # Change this to the actual averaging. How?
+        average_task.arguments = ['average']
+        average_task.executable = ['echo']
+
+        average_task.mpi = False
+        average_task.cores = 1
+
+        previous_stage = pipeline.stages[-1]
+        previous_tasks = previous_stage.tasks
+
+        links = ['$Pipeline_{}_Stage_{}_Task_{}/dg_{}.out'.format(pipeline.uid, previous_stage.uid, t.uid,
+                                                                  t.name) for t in previous_tasks]
+        average_task.link_input_data = links
+
+        average.add_tasks(average_task)
+        pipeline.add_stages(average)
+
+        print 'Pipeline has', len(pipeline.stages), 'stages. Tasks counts:', [len(s.tasks) for s in pipeline.stages]
 
         return pipeline
 
