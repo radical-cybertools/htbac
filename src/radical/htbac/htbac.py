@@ -173,7 +173,7 @@ class Runner2(object):
 
         for protocol in self._protocols:
             pipelines.add(protocol.generate_pipeline())
-            input_data.append(protocol.input_data)
+            input_data.extend(protocol.input_data)
             self.total_replicas += protocol.replicas
 
         self._cores = self._cores * self.total_replicas
