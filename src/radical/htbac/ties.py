@@ -74,30 +74,30 @@ class Ties(object):
 
             pipeline.add_stages(stage)
 
-        # # Analysis stage
-        # # ==============
-        # analysis = Stage()
-        # analysis.name = 'analysis'
-        #
-        # for replica in range(self.number_of_replicas):
-        #     analysis_task = Task()
-        #     analysis_task.name = 'replica_{}'.format(replica)
-        #
-        #     analysis_task.arguments += ['-d', '*ti.out', '>', 'dg_{}.out'.format(analysis_task.name)]
-        #     analysis_task.executable = [NAMD_TI_ANALYSIS]
-        #
-        #     analysis_task.mpi = False
-        #     analysis_task.cores = 1
-        #
-        #     production_stage = pipeline.stages[-1]
-        #     production_tasks = [t for t in production_stage.tasks if analysis_task.name in t.name]
-        #     links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_ti.out'.format(pipeline.uid, production_stage.uid, t.uid, t.name.split('_lambda_')[-1]) for t in production_tasks]
-        #     analysis_task.link_input_data = links
-        #
-        #     analysis.add_tasks(analysis_task)
-        #
-        # pipeline.add_stages(analysis)
-        #
+        # Analysis stage
+        # ==============
+        analysis = Stage()
+        analysis.name = 'analysis'
+
+        for replica in range(self.number_of_replicas):
+            analysis_task = Task()
+            analysis_task.name = 'replica_{}'.format(replica)
+
+            analysis_task.arguments += ['-d', '*ti.out', '>', 'dg_{}.out'.format(analysis_task.name)]
+            analysis_task.executable = [NAMD_TI_ANALYSIS]
+
+            analysis_task.mpi = False
+            analysis_task.cores = 1
+
+            production_stage = pipeline.stages[-1]
+            production_tasks = [t for t in production_stage.tasks if analysis_task.name in t.name]
+            links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_ti.out'.format(pipeline.uid, production_stage.uid, t.uid, t.name.split('_lambda_')[-1]) for t in production_tasks]
+            analysis_task.link_input_data = links
+
+            analysis.add_tasks(analysis_task)
+
+        pipeline.add_stages(analysis)
+
         # # Averaging stage
         # # ===============
         # average = Stage()
@@ -122,7 +122,7 @@ class Ties(object):
         # average.add_tasks(average_task)
         # pipeline.add_stages(average)
 
-        print 'Pipeline has', len(pipeline.stages), 'stages. Tasks', [len(s.tasks) for s in pipeline.stages], '.'
+        print 'Pipeline has', len(pipeline.stages), 'stages. Tasks counts:', [len(s.tasks) for s in pipeline.stages],
 
         return pipeline
 
