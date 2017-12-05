@@ -121,6 +121,8 @@ class Ties(object):
         average.add_tasks(task)
         pipeline.add_stages(average)
 
+        print 'Pipeline has', len(pipeline.stages), 'stages.'
+
         return pipeline
 
     # Input data
