@@ -71,6 +71,8 @@ class Esmacs(object):
 
             pipeline.add_stages(stage)
 
+        print 'ESM pipeline has', len(pipeline.stages), 'stages. Tasks counts:', [len(s.tasks) for s in pipeline.stages]
+
         return pipeline
 
     # Input data
