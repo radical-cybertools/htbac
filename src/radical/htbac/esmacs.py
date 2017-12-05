@@ -14,7 +14,7 @@ class Esmacs(object):
 
         self.number_of_replicas = number_of_replicas
         self.system = system
-        self.box = pmd.amber.AmberAsciiRestart('systems/esmacs/{}/build/complex.crd'.format(system)).box
+        self.box = pmd.amber.AmberAsciiRestart('systems/esmacs/{s}/build/{s}-complex.crd'.format(s=system)).box
 
         self.workflow = workflow
         
@@ -41,15 +41,15 @@ class Esmacs(object):
                 task = Task()
                 task.name = 'replica_{}'.format(replica)
 
-                task.arguments += ['{}.conf'.format(stage.name)]
-                task.copy_input_data = ['$SHARED/{}.conf'.format(stage.name)]
+                task.arguments += ['esmacs-{}.conf'.format(stage.name)]
+                task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(stage.name)]
                 task.executable = [NAMD2]
 
                 task.mpi = True
                 task.cores = 32
 
                 links = []
-                links += ['$SHARED/complex.top', '$SHARED/cons.pdb']
+                links += ['$SHARED/{}-complex.top'.format(self.system), '$SHARED/{}-cons.pdb'.format(self.system)]
 
                 if self.workflow.index(step):
                     previous_stage = pipeline.stages[-1]
@@ -58,13 +58,14 @@ class Esmacs(object):
                                                                    previous_task.uid)
                     links += [path + previous_stage.name + suffix for suffix in _simulation_file_suffixes]
                 else:
-                    links += ['$SHARED/complex.pdb']
+                    links += ['$SHARED/{}-complex.pdb'.format(self.system)]
 
                 task.link_input_data = links
 
                 task.pre_exec += ["sed -i 's/BOX_X/{}/g' *.conf".format(self.box[0]),
                                   "sed -i 's/BOX_Y/{}/g' *.conf".format(self.box[1]),
-                                  "sed -i 's/BOX_Z/{}/g' *.conf".format(self.box[2])]
+                                  "sed -i 's/BOX_Z/{}/g' *.conf".format(self.box[2]),
+                                  "sed -i 's/SYSTEM/{}/g' *.conf".format(self.system)]
 
                 stage.add_tasks(task)
 
@@ -76,9 +77,10 @@ class Esmacs(object):
     @property
     def input_data(self):
         files = []
-        files += ['default_configs/esmacs/{}.conf'.format(step) for step in self.workflow]
-        files += ['systems/esmacs/{}/build/{}'.format(self.system, desc) for desc in ['complex.pdb', 'complex.top']]
-        files += ['systems/esmacs/{}/constraint/cons.pdb'.format(self.system)]
+        files += ['default_configs/esmacs-{}.conf'.format(step) for step in self.workflow]
+        files += ['systems/esmacs/{s}/build/{s}-complex.pdb'.format(s=self.system)]
+        files += ['systems/esmacs/{s}/build/{s}-complex.top'.format(s=self.system)]
+        files += ['systems/esmacs/{s}/constraint/{s}-cons.pdb'.format(s=self.system)]
         return files
 
     @property

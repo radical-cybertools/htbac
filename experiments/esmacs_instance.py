@@ -1,9 +1,9 @@
-from radical.htbac import Esmacs, Runner2
+from radical.htbac import Esmacs, Runner
 
 
 def main():
 
-    ht = Runner2()
+    ht = Runner()
 
     esmacs = Esmacs(number_of_replicas=5,
                     system='brd4-gsk3',

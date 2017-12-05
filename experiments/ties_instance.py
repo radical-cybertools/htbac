@@ -1,9 +1,9 @@
-from radical.htbac import Ties, Runner2
+from radical.htbac import Ties, Runner
 
 
 def main():
 
-    ht = Runner2()
+    ht = Runner()
 
     ties = Ties(number_of_replicas=3, number_of_windows=5,
                 workflow=['min', 'eq1', 'eq2', 'prod'],
