@@ -198,17 +198,18 @@ setup_args = {
 
     '''
   
-    'install_requires'  :  ['radical.utils==devel',
-                            'saga-python==devel',
-                            'radical.pilot==devel',
-                            'radical.entk==devel',
+    'install_requires'  :  ['radical.utils==rc',
+                            'saga-python==rc',
+                            'radical.pilot==rc',
+                            'radical.entk==jdakka',
                             'setuptools>=1', 
                             'pika'],
     
-    'dependency_links': ['git+https://github.com/radical-cybertools/radical.utils.git@devel#egg=radical.utils-devel', 
-                         'git+https://github.com/radical-cybertools/saga-python.git@feature/gpu#egg=saga-python-devel',
-                         'git+https://github.com/radical-cybertools/radical.pilot.git@feature/gpu#egg=radical.pilot-devel',
-                         'git+https://github.com/vivek-bala/radical.entk.git@feature/gpu#egg=radical.entk-devel'],
+
+    'dependency_links': ['git+https://github.com/radical-cybertools/radical.utils.git@rc/v0.46.3#egg=radical.utils-rc', 
+                         'git+https://github.com/radical-cybertools/saga-python.git@rc/v0.46.3#egg=saga-python-rc',
+                         'git+https://github.com/radical-cybertools/radical.pilot.git@rc/v0.46.3#egg=radical.pilot-rc',
+                         'git+https://github.com/vivek-bala/radical.entk.git@experiment/jdakka#egg=radical.entk-jdakka'],
     '''
 
     'zip_safe'          : False,
