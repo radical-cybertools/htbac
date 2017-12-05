@@ -1,7 +1,0 @@
-#time,comp,uid,state,event,msg
-1512450763.1006,sync_abs,pmgr.0000.launching.0,MainThread,,,localhost.localdomain:138.201.86.166:1512450763.09:1512450763.09:ntp
-1512450763.1306,END,pmgr.0000.launching.0,MainThread,,,
-1512450763.2737,component_init,pmgr.0000.launching.0,MainThread,,,
-1512453512.9914,flush,pmgr.0000.launching.0,MainThread,,,
-1512453513.0270,component_final,pmgr.0000.launching.0,MainThread,,,
-1512453513.0270,END,pmgr.0000.launching.0,MainThread,,,
