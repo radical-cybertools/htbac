@@ -24,11 +24,11 @@ if __name__ == '__main__':
     ht = htbac.Runner()
 
     protocol_esmacs_instance_1 = Esmacs_MPI(replicas = 8, 
-                                        rootdir = '2j6m-a698',
+                                        rootdir = '2j6m-a698g',
                                         workflow = ['eq0', 'eq1', 'eq2', 'prod'])
 
     protocol_esmacs_instance_2 = Esmacs_MPI(replicas = 8, 
-                                        rootdir = '2j6m-a698_2',
+                                        rootdir = '2j6m-a698g_2',
                                         workflow = ['eq0', 'eq1', 'eq2', 'prod'])
     
     ht.add_protocol(protocol_esmacs_instance_1)
