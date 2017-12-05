@@ -223,6 +223,8 @@ class Esmacs_MPI(object):
             for f in self.my_list:
                 t.copy_input_data.append("{stage3}/".format(stage3=task_path) + f + " > " + f)
             
+
+            t.pre_exec = ['mkdir -p {input1}/replicas/rep{input2}/simulation; touch {input1}/replicas/rep{input2}/simulation/holder'.format(input1=self.rootdir, input2=replica)]
             t.executable = self.executable
             t.cores = self.cores
             t.mpi = True
