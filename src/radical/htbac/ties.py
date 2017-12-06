@@ -17,6 +17,8 @@ class Ties(object):
 
         self.number_of_replicas = number_of_replicas
         self.lambdas = np.linspace(0.0, 1.0, number_of_windows, endpoint=True)
+        self.lambdas = np.append(self.lambdas, [0.05, 0.95])
+
         self.system = system
         self.box = pmd.amber.AmberAsciiRestart('systems/ties/{s}/build/{s}-complex.crd'.format(s=system)).box
 
