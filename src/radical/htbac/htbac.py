@@ -68,6 +68,7 @@ class Runner(object):
         app_manager.assign_workflow(pipelines)
 
         self._prof.prof('execution_run')
+        print 'Running...'
         app_manager.run()
 
 
