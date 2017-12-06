@@ -39,7 +39,7 @@ class Runner(object):
         self._hostname = hostname
         self._port = port
 
-    def run(self, walltime=60):
+    def run(self, walltime=1440):
         pipelines = set()
         input_data = list()
 
