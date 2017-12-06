@@ -7,6 +7,8 @@ from radical.entk import Pipeline, Stage, Task
 NAMD2 = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
 NAMD_MMPBSA_ANALYSIS = "WHERE IS IT?"
 _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
+_reduced_steps = dict(eq0=1000, eq1=30000, eq2=92000, sim1=200000)
+_full_steps = dict(eq0=1000, eq1=30000, eq2=970000, sim1=2000000)
 
 
 class Esmacs(object):
@@ -66,6 +68,8 @@ class Esmacs(object):
                                   "sed -i 's/BOX_Y/{}/g' *.conf".format(self.box[1]),
                                   "sed -i 's/BOX_Z/{}/g' *.conf".format(self.box[2]),
                                   "sed -i 's/SYSTEM/{}/g' *.conf".format(self.system)]
+
+                task.pre_exec += ["sed -i 's/STEP/{}/g' *.conf".format(_reduced_steps[step])]
 
                 stage.add_tasks(task)
 
