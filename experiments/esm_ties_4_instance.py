@@ -17,8 +17,8 @@ def main():
                    workflow=['min', 'eq1', 'eq2', 'prod'],
                    system='brd4-gsk3-4')
 
-    esmacs3 = Esmacs(number_of_replicas=25,
-                     system='brd4-gsk3',
+    esmacs2 = Esmacs(number_of_replicas=25,
+                     system='brd4-gsk2',
                      workflow=['eq0', 'eq1', 'eq2', 'sim1'])
 
     ties3_7 = Ties(number_of_replicas=5, number_of_windows=11,
@@ -29,15 +29,25 @@ def main():
                      system='brd4-gsk4',
                      workflow=['eq0', 'eq1', 'eq2', 'sim1'])
 
+    ties2_3 = Ties(number_of_replicas=5, number_of_windows=11,
+                   workflow=['min', 'eq1', 'eq2', 'prod'],
+                   system='brd4-gsk2-3')
+
+    esmacs3 = Esmacs(number_of_replicas=25,
+                     system='brd4-gsk3',
+                     workflow=['eq0', 'eq1', 'eq2', 'sim1'])
+
     ht.add_protocol(ties3_1)
     ht.add_protocol(esmacs1)
     ht.add_protocol(ties3_4)
     ht.add_protocol(esmacs3)
     ht.add_protocol(ties3_7)
     ht.add_protocol(esmacs4)
+    ht.add_protocol(ties2_3)
+    ht.add_protocol(esmacs2)
 
     ht.cores = 32
-    ht.rabbitmq_config()
+    ht.rabbitmq_config(hostname='two.radical-project.org', port=32804)
     ht.run()
 
 
