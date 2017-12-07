@@ -13,14 +13,15 @@ _full_steps = dict(min=1000, eq1=30000, eq2=970000, prod=2000000)
 
 
 class Ties(object):
-    def __init__(self, number_of_replicas, number_of_windows, system, workflow):
+    def __init__(self, number_of_replicas, number_of_windows, system, workflow, ligand=False):
 
         self.number_of_replicas = number_of_replicas
         self.lambdas = np.linspace(0.0, 1.0, number_of_windows, endpoint=True)
         self.lambdas = np.append(self.lambdas, [0.05, 0.95])
+        self.ligand = '-ligands' if ligand else ''
 
         self.system = system
-        self.box = pmd.amber.AmberAsciiRestart('systems/ties/{s}/build/{s}-complex.crd'.format(s=system)).box
+        self.box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
 
         self.workflow = workflow
 
@@ -138,9 +139,9 @@ class Ties(object):
     def input_data(self):
         files = []
         files += ['default_configs/ties-{}.conf'.format(step) for step in self.workflow]
-        files += ['systems/ties/{s}/build/{s}-complex.pdb'.format(s=self.system)]
-        files += ['systems/ties/{s}/build/{s}-complex.top'.format(s=self.system)]
-        files += ['systems/ties/{s}/build/{s}-tags.pdb'.format(s=self.system)]
+        files += ['systems/ties{lig}/{s}/build/{s}-complex.pdb'.format(lig=self.ligand, s=self.system)]
+        files += ['systems/ties{lig}/{s}/build/{s}-complex.top'.format(lig=self.ligand, s=self.system)]
+        files += ['systems/ties{lig}/{s}/build/{s}-tags.pdb'.format(lig=self.ligand, s=self.system)]
         return files
 
     @property

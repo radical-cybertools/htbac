@@ -11,13 +11,13 @@ def main():
 
     ties2 = Ties(number_of_replicas=5, number_of_windows=11,
                  workflow=['min', 'eq1', 'eq2', 'prod'],
-                 system='brd4-gsk3-4')
+                 system='brd4-gsk3-1', ligand=True)
 
     ht.add_protocol(ties1)
     ht.add_protocol(ties2)
     ht.cores = 32
     ht.rabbitmq_config()
-    ht.run(walltime=600)
+    ht.run(walltime=240, strong_scaled=0.5)
 
 
 if __name__ == '__main__':

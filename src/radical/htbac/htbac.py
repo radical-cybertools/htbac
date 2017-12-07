@@ -39,7 +39,7 @@ class Runner(object):
         self._hostname = hostname
         self._port = port
 
-    def run(self, walltime=1440):
+    def run(self, walltime=1440, strong_scaled=1):
         pipelines = set()
         input_data = list()
 
@@ -53,7 +53,7 @@ class Runner(object):
 
         res_dict = {'resource': 'ncsa.bw_aprun',
                     'walltime': walltime,
-                    'cores': self._cores,
+                    'cores': int(self._cores*strong_scaled),
                     'project': 'bamm',
                     'queue': 'high',
                     'access_schema': 'gsissh'}
