@@ -17,7 +17,7 @@ def main():
     ht.add_protocol(ties2)
     ht.cores = 32
     ht.rabbitmq_config()
-    ht.run(walltime=600)
+    ht.run()
 
 
 if __name__ == '__main__':

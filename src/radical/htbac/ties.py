@@ -13,12 +13,13 @@ _full_steps = dict(min=1000, eq1=30000, eq2=970000, prod=2000000)
 
 
 class Ties(object):
-    def __init__(self, number_of_replicas, number_of_windows, system, workflow, ligand=False):
+    def __init__(self, number_of_replicas, number_of_windows, system, workflow, ligand=False, full=False):
 
         self.number_of_replicas = number_of_replicas
         self.lambdas = np.linspace(0.0, 1.0, number_of_windows, endpoint=True)
         self.lambdas = np.append(self.lambdas, [0.05, 0.95])
         self.ligand = '-ligands' if ligand else ''
+        self.step_count = _full_steps if full else _reduced_steps
 
         self.system = system
         self.box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
@@ -74,7 +75,7 @@ class Ties(object):
                                       "sed -i 's/BOX_Z/{}/g' *.conf".format(self.box[2]),
                                       "sed -i 's/SYSTEM/{}/g' *.conf".format(self.system)]
 
-                    task.pre_exec += ["sed -i 's/STEP/{}/g' *.conf".format(_reduced_steps[step])]
+                    task.pre_exec += ["sed -i 's/STEP/{}/g' *.conf".format(self.step_count[step])]
 
                     task.pre_exec += ["sed -i 's/LAMBDA/{}/g' *.conf".format(ld)]
 

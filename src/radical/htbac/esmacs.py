@@ -12,11 +12,12 @@ _full_steps = dict(eq0=1000, eq1=30000, eq2=970000, sim1=2000000)
 
 
 class Esmacs(object):
-    def __init__(self, number_of_replicas, system, workflow):
+    def __init__(self, number_of_replicas, system, workflow, full=False):
 
         self.number_of_replicas = number_of_replicas
         self.system = system
         self.box = pmd.amber.AmberAsciiRestart('systems/esmacs/{s}/build/{s}-complex.crd'.format(s=system)).box
+        self.step_count = _full_steps if full else _reduced_steps
 
         self.workflow = workflow
         
@@ -69,7 +70,7 @@ class Esmacs(object):
                                   "sed -i 's/BOX_Z/{}/g' *.conf".format(self.box[2]),
                                   "sed -i 's/SYSTEM/{}/g' *.conf".format(self.system)]
 
-                task.pre_exec += ["sed -i 's/STEP/{}/g' *.conf".format(_reduced_steps[step])]
+                task.pre_exec += ["sed -i 's/STEP/{}/g' *.conf".format(self.step_count[step])]
 
                 stage.add_tasks(task)
 
