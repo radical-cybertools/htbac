@@ -13,7 +13,7 @@ _full_steps = dict(min=1000, eq1=30000, eq2=970000, prod=2000000)
 
 
 class Ties(object):
-    def __init__(self, number_of_replicas, number_of_windows, system, workflow, ligand=False, full=False):
+    def __init__(self, number_of_replicas, number_of_windows, system, workflow, cores=32, ligand=False, full=False):
 
         self.number_of_replicas = number_of_replicas
         self.lambdas = np.linspace(0.0, 1.0, number_of_windows, endpoint=True)
@@ -23,6 +23,7 @@ class Ties(object):
 
         self.system = system
         self.box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
+        self.cores = cores
 
         self.workflow = workflow
 
@@ -55,7 +56,7 @@ class Ties(object):
                     task.executable = [NAMD2]
 
                     task.mpi = True
-                    task.cores = 32
+                    task.cores = self.cores
 
                     links = []
                     links += ['$SHARED/{}-complex.top'.format(self.system), '$SHARED/{}-tags.pdb'.format(self.system)]

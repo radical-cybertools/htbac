@@ -12,11 +12,12 @@ _full_steps = dict(eq0=1000, eq1=30000, eq2=970000, sim1=2000000)
 
 
 class Esmacs(object):
-    def __init__(self, number_of_replicas, system, workflow, full=False):
+    def __init__(self, number_of_replicas, system, workflow, cores=32, full=False):
 
         self.number_of_replicas = number_of_replicas
         self.system = system
         self.box = pmd.amber.AmberAsciiRestart('systems/esmacs/{s}/build/{s}-complex.crd'.format(s=system)).box
+        self.cores = cores
         self.step_count = _full_steps if full else _reduced_steps
 
         self.workflow = workflow
@@ -49,7 +50,7 @@ class Esmacs(object):
                 task.executable = [NAMD2]
 
                 task.mpi = True
-                task.cores = 32
+                task.cores = self.cores
 
                 links = []
                 links += ['$SHARED/{}-complex.top'.format(self.system), '$SHARED/{}-cons.pdb'.format(self.system)]
