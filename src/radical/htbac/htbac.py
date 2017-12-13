@@ -42,12 +42,6 @@ class Runner(object):
         self._port = port
 
     def run(self, walltime=1440, strong_scaled=1):
-        try:
-            os.symlink('../systems', 'systems')
-            os.symlink('../default_configs', 'default_configs')
-        except OSError:
-            pass
-
         pipelines = set()
         input_data = list()
 
