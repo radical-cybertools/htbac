@@ -2,6 +2,8 @@ __copyright__   = "Copyright 2017-2018, http://radical.rutgers.edu"
 __author__      = "Jumana Dakka <jumanadakka@gmail.com>, Kristof Farkas-Pall <kristofarkas@gmail.com>"
 __license__     = "MIT"
 
+import os
+
 import radical.utils as ru
 from radical.entk import AppManager, ResourceManager
 
@@ -40,6 +42,12 @@ class Runner(object):
         self._port = port
 
     def run(self, walltime=1440, strong_scaled=1):
+        try:
+            os.symlink('../systems', 'systems')
+            os.symlink('../default_configs', 'default_configs')
+        except OSError:
+            pass
+
         pipelines = set()
         input_data = list()
 
