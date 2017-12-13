@@ -2,6 +2,8 @@ __copyright__   = "Copyright 2017-2018, http://radical.rutgers.edu"
 __author__      = "Jumana Dakka <jumanadakka@gmail.com>, Kristof Farkas-Pall <kristofarkas@gmail.com>"
 __license__     = "MIT"
 
+import os
+
 import radical.utils as ru
 from radical.entk import AppManager, ResourceManager
 
