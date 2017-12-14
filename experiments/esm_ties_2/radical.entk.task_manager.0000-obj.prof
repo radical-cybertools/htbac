@@ -1,0 +1,13 @@
+#time,event,comp,thread,uid,state,msg
+1513247808.9601,sync_abs,radical.entk.task_manager.0000-obj,MainThread,,,julian.chem.ucl.ac.uk:127.0.0.1:1513247808.96:1513247808.96:sys
+1513247808.9605,create tmgr obj,radical.entk.task_manager.0000-obj,MainThread,radical.entk.task_manager.0000,,
+1513247808.9607,tmgr obj created,radical.entk.task_manager.0000-obj,MainThread,radical.entk.task_manager.0000,,
+1513247808.9609,creating tmgr process,radical.entk.task_manager.0000-obj,MainThread,radical.entk.task_manager.0000,,
+1513247808.9616,starting tmgr process,radical.entk.task_manager.0000-obj,MainThread,radical.entk.task_manager.0000,,
+1513247808.9675,creating heartbeat thread,radical.entk.task_manager.0000-obj,MainThread,radical.entk.task_manager.0000,,
+1513247808.9680,starting heartbeat thread,radical.entk.task_manager.0000-obj,MainThread,radical.entk.task_manager.0000,,
+1513247808.9693,heartbeat thread started,radical.entk.task_manager.0000-obj,heartbeat,radical.entk.task_manager.0000,,
+1513247819.1405,terminating hearbeat thread,radical.entk.task_manager.0000-obj,heartbeat,radical.entk.task_manager.0000,,
+1513247835.2898,tmgr process terminated,radical.entk.task_manager.0000-obj,MainThread,radical.entk.task_manager.0000,,
+1513247835.2905,hearbeat thread terminated,radical.entk.task_manager.0000-obj,MainThread,radical.entk.task_manager.0000,,
+1513247835.2906,END,radical.entk.task_manager.0000-obj,MainThread,,,

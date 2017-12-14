@@ -1,0 +1,1576 @@
+2017-12-13 17:09:28,333: radical.entk.resource_manager: MainProcess                     : MainThread     : INFO    : python.interpreter   version: 2.7.14 |Anaconda, Inc.| (default, Oct 5 2017, 02:28:52) [GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)]
+2017-12-13 17:09:28,334: radical.entk.resource_manager: MainProcess                     : MainThread     : INFO    :                      pid: 84259
+2017-12-13 17:09:28,334: radical.entk.resource_manager: MainProcess                     : MainThread     : INFO    :                      tid: MainThread
+2017-12-13 17:09:28,338: radical.entk.resource_manager: MainProcess                     : MainThread     : INFO    : Resource Manager initialized
+2017-12-13 17:09:28,338: radical.entk.resource_manager: MainProcess                     : MainThread     : INFO    : Resource description validated
+2017-12-13 17:09:28,339: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    : python.interpreter   version: 2.7.14 |Anaconda, Inc.| (default, Oct 5 2017, 02:28:52) [GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)]
+2017-12-13 17:09:28,339: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    :                      pid: 84259
+2017-12-13 17:09:28,339: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    :                      tid: MainThread
+2017-12-13 17:09:28,343: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    : Application Manager initialized
+2017-12-13 17:09:28,343: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    : Workflow assigned to Application Manager
+2017-12-13 17:09:28,343: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    : Setting up RabbitMQ system
+2017-12-13 17:09:29,051: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    : Starting resource request submission
+TIES pipeline has 6 stages. Tasks counts: [65, 65, 65, 65, 5, 1]
+ESM pipeline has 4 stages. Tasks counts: [25, 25, 25, 25]
+TIES pipeline has 6 stages. Tasks counts: [65, 65, 65, 65, 5, 1]
+ESM pipeline has 4 stages. Tasks counts: [25, 25, 25, 25]
+Running on 11520 cores.
+Running...
+[94mnew session: [39m[0m[rp.session.julian.chem.ucl.ac.uk.kristof.farkas-pall.017513.0001][39m[0m[94m\
+database   : [39m[0m[mongodb://htbac-user:password@ds131826.mlab.com:31826/htbac-isc-experiments][39m[0m[92m
+        ok
+[39m[0m[94mcreate pilot manager[39m[0m[92m                                                          ok
+[39m[0m[94msubmit 1 pilot(s)
+        [39m[0m.[39m[0m2017-12-13 17:09:39,005: radical.entk.resource_manager: MainProcess                     : MainThread     : INFO    : Pilot pilot.0000 state: PMGR_LAUNCHING_PENDING
+[92m                                                                     ok
+[39m[0m2017-12-13 17:09:39,016: radical.entk.resource_manager: MainProcess                     : pmgr.0000.subscriber._state_sub_cb: INFO    : Pilot pilot.0000 state: PMGR_LAUNCHING
+2017-12-13 17:10:21,458: radical.entk.resource_manager: MainProcess                     : pmgr.0000.subscriber._state_sub_cb: INFO    : Pilot pilot.0000 state: PMGR_ACTIVE_PENDING
+2017-12-13 17:10:21,936: radical.entk.resource_manager: MainProcess                     : MainThread     : INFO    : Resource request submission successful.. waiting for pilot to go Active
+2017-12-14 10:36:47,846: radical.entk.resource_manager: MainProcess                     : pmgr.0000.idler._state_pull_cb: INFO    : Pilot pilot.0000 state: PMGR_ACTIVE
+2017-12-14 10:36:47,863: radical.entk.resource_manager: MainProcess                     : MainThread     : INFO    : Pilot is now active
+2017-12-14 10:36:47,863: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    : Starting synchronizer thread
+2017-12-14 10:36:47,864: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : synchronizer thread started
+2017-12-14 10:36:47,868: radical.entk.wfprocessor: MainProcess                     : MainThread     : INFO    : python.interpreter   version: 2.7.14 |Anaconda, Inc.| (default, Oct 5 2017, 02:28:52) [GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)]
+2017-12-14 10:36:47,884: radical.entk.wfprocessor: MainProcess                     : MainThread     : INFO    :                      pid: 84259
+2017-12-14 10:36:47,884: radical.entk.wfprocessor: MainProcess                     : MainThread     : INFO    :                      tid: MainThread
+2017-12-14 10:36:47,940: radical.entk.wfprocessor: MainProcess                     : MainThread     : INFO    : Created WFProcessor object: radical.entk.wfprocessor.0000
+2017-12-14 10:36:47,940: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    : Starting WFProcessor process from AppManager
+2017-12-14 10:36:47,941: radical.entk.wfprocessor: MainProcess                     : MainThread     : INFO    : Starting WFprocessor process
+True
+2017-12-14 10:36:47,948: radical.entk.task_manager: MainProcess                     : MainThread     : INFO    : python.interpreter   version: 2.7.14 |Anaconda, Inc.| (default, Oct 5 2017, 02:28:52) [GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)]
+2017-12-14 10:36:47,949: radical.entk.task_manager: MainProcess                     : MainThread     : INFO    :                      pid: 84259
+2017-12-14 10:36:47,949: radical.entk.task_manager: MainProcess                     : MainThread     : INFO    :                      tid: MainThread
+2017-12-14 10:36:48,960: radical.entk.task_manager: MainProcess                     : MainThread     : INFO    : Created task manager object: radical.entk.task_manager.0000
+2017-12-14 10:36:48,960: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    : Starting task manager process from AppManager
+2017-12-14 10:36:48,961: radical.entk.task_manager: MainProcess                     : MainThread     : INFO    : Starting task manager process
+2017-12-14 10:36:48,961: radical.entk.wfprocessor: wfprocessor                     : MainThread     : INFO    : WFprocessor started
+2017-12-14 10:36:48,961: radical.entk.wfprocessor: wfprocessor                     : MainThread     : INFO    : Starting dequeue-thread
+2017-12-14 10:36:48,962: radical.entk.wfprocessor: wfprocessor                     : dequeue-thread : INFO    : Dequeue thread started
+2017-12-14 10:36:48,963: radical.entk.wfprocessor: wfprocessor                     : MainThread     : INFO    : Starting enqueue-thread
+2017-12-14 10:36:48,966: radical.entk.task_manager: MainProcess                     : MainThread     : INFO    : Starting hearbeat thread
+2017-12-14 10:36:48,969: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : enqueue-thread started
+2017-12-14 10:36:49,115: radical.entk.task_manager: MainProcess                     : heartbeat      : INFO    : Sent heartbeat request
+2017-12-14 10:36:49,125: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.pipeline.0001 with state SCHEDULING
+2017-12-14 10:36:49,126: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Found pipeline radical.entk.pipeline.0001, state SCHEDULING, completed False
+2017-12-14 10:36:49,147: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.pipeline.0001 to new state SCHEDULING successful
+2017-12-14 10:36:49,201: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.stage.0006 with state SCHEDULING
+2017-12-14 10:36:49,202: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Found parent pipeline: radical.entk.pipeline.0001
+2017-12-14 10:36:49,222: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.stage.0006 to new state SCHEDULING successful
+2017-12-14 10:36:49,279: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0272 with state SCHEDULING
+2017-12-14 10:36:49,314: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0272 to new state SCHEDULING successful
+2017-12-14 10:36:49,355: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0272 with state SCHEDULED
+2017-12-14 10:36:49,389: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0272 to new state SCHEDULED successful
+2017-12-14 10:36:49,431: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0276 with state SCHEDULING
+2017-12-14 10:36:49,467: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0276 to new state SCHEDULING successful
+2017-12-14 10:36:49,506: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0276 with state SCHEDULED
+2017-12-14 10:36:49,542: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0276 to new state SCHEDULED successful
+2017-12-14 10:36:49,580: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0278 with state SCHEDULING
+2017-12-14 10:36:49,616: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0278 to new state SCHEDULING successful
+2017-12-14 10:36:49,658: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0278 with state SCHEDULED
+2017-12-14 10:36:49,694: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0278 to new state SCHEDULED successful
+2017-12-14 10:36:49,733: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0287 with state SCHEDULING
+2017-12-14 10:36:49,770: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0287 to new state SCHEDULING successful
+2017-12-14 10:36:49,809: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0287 with state SCHEDULED
+2017-12-14 10:36:49,830: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0287 to new state SCHEDULED successful
+2017-12-14 10:36:49,884: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0284 with state SCHEDULING
+2017-12-14 10:36:49,903: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0284 to new state SCHEDULING successful
+2017-12-14 10:36:49,959: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0284 with state SCHEDULED
+2017-12-14 10:36:49,979: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0284 to new state SCHEDULED successful
+2017-12-14 10:36:49,981: radical.entk.task_manager: task-manager                    : MainThread     : INFO    : Task Manager process started
+2017-12-14 10:36:50,035: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0268 with state SCHEDULING
+2017-12-14 10:36:50,072: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0268 to new state SCHEDULING successful
+2017-12-14 10:36:50,185: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0268 with state SCHEDULED
+2017-12-14 10:36:50,206: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0268 to new state SCHEDULED successful
+2017-12-14 10:36:50,261: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0288 with state SCHEDULING
+2017-12-14 10:36:50,285: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0288 to new state SCHEDULING successful
+2017-12-14 10:36:50,339: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0288 with state SCHEDULED
+2017-12-14 10:36:50,376: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0288 to new state SCHEDULED successful
+2017-12-14 10:36:50,414: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0290 with state SCHEDULING
+2017-12-14 10:36:50,438: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0290 to new state SCHEDULING successful
+2017-12-14 10:36:50,491: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0290 with state SCHEDULED
+2017-12-14 10:36:50,522: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0290 to new state SCHEDULED successful
+2017-12-14 10:36:50,564: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0280 with state SCHEDULING
+2017-12-14 10:36:50,599: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0280 to new state SCHEDULING successful
+2017-12-14 10:36:50,644: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0280 with state SCHEDULED
+2017-12-14 10:36:50,679: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0280 to new state SCHEDULED successful
+2017-12-14 10:36:50,724: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0286 with state SCHEDULING
+2017-12-14 10:36:50,756: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0286 to new state SCHEDULING successful
+2017-12-14 10:36:50,799: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0286 with state SCHEDULED
+2017-12-14 10:36:50,830: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0286 to new state SCHEDULED successful
+2017-12-14 10:36:50,871: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0275 with state SCHEDULING
+2017-12-14 10:36:50,905: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0275 to new state SCHEDULING successful
+2017-12-14 10:36:50,952: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0275 with state SCHEDULED
+2017-12-14 10:36:50,989: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0275 to new state SCHEDULED successful
+2017-12-14 10:36:51,031: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0273 with state SCHEDULING
+2017-12-14 10:36:51,063: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0273 to new state SCHEDULING successful
+2017-12-14 10:36:51,103: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0273 with state SCHEDULED
+2017-12-14 10:36:51,139: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0273 to new state SCHEDULED successful
+2017-12-14 10:36:51,185: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0285 with state SCHEDULING
+2017-12-14 10:36:51,213: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0285 to new state SCHEDULING successful
+2017-12-14 10:36:51,261: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0285 with state SCHEDULED
+2017-12-14 10:36:51,298: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0285 to new state SCHEDULED successful
+2017-12-14 10:36:51,349: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0267 with state SCHEDULING
+2017-12-14 10:36:51,374: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0267 to new state SCHEDULING successful
+2017-12-14 10:36:51,426: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0267 with state SCHEDULED
+2017-12-14 10:36:51,448: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0267 to new state SCHEDULED successful
+2017-12-14 10:36:51,503: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0269 with state SCHEDULING
+2017-12-14 10:36:51,523: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0269 to new state SCHEDULING successful
+2017-12-14 10:36:51,577: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0269 with state SCHEDULED
+2017-12-14 10:36:51,599: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0269 to new state SCHEDULED successful
+2017-12-14 10:36:51,652: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0277 with state SCHEDULING
+2017-12-14 10:36:51,675: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0277 to new state SCHEDULING successful
+2017-12-14 10:36:51,726: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0277 with state SCHEDULED
+2017-12-14 10:36:51,752: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0277 to new state SCHEDULED successful
+2017-12-14 10:36:51,801: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0281 with state SCHEDULING
+2017-12-14 10:36:51,835: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0281 to new state SCHEDULING successful
+2017-12-14 10:36:51,884: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0281 with state SCHEDULED
+2017-12-14 10:36:51,913: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0281 to new state SCHEDULED successful
+2017-12-14 10:36:51,960: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0274 with state SCHEDULING
+2017-12-14 10:36:51,987: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0274 to new state SCHEDULING successful
+2017-12-14 10:36:52,033: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0274 with state SCHEDULED
+Active pipes:  4
+WFP complete:  True
+Syncing task radical.entk.task.0272 with state SCHEDULING
+Synced task radical.entk.task.0272 with state SCHEDULING
+Syncing task radical.entk.task.0272 with state SCHEDULED
+Synced task radical.entk.task.0272 with state SCHEDULED
+Syncing task radical.entk.task.0276 with state SCHEDULING
+Synced task radical.entk.task.0276 with state SCHEDULING
+Syncing task radical.entk.task.0276 with state SCHEDULED
+Synced task radical.entk.task.0276 with state SCHEDULED
+Syncing task radical.entk.task.0278 with state SCHEDULING
+Synced task radical.entk.task.0278 with state SCHEDULING
+Syncing task radical.entk.task.0278 with state SCHEDULED
+Synced task radical.entk.task.0278 with state SCHEDULED
+Syncing task radical.entk.task.0287 with state SCHEDULING
+Synced task radical.entk.task.0287 with state SCHEDULING
+Syncing task radical.entk.task.0287 with state SCHEDULED
+Synced task radical.entk.task.0287 with state SCHEDULED
+Syncing task radical.entk.task.0284 with state SCHEDULING
+Synced task radical.entk.task.0284 with state SCHEDULING
+Syncing task radical.entk.task.0284 with state SCHEDULED
+Synced task radical.entk.task.0284 with state SCHEDULED
+Syncing task radical.entk.task.0268 with state SCHEDULING
+Synced task radical.entk.task.0268 with state SCHEDULING
+Syncing task radical.entk.task.0268 with state SCHEDULED
+Synced task radical.entk.task.0268 with state SCHEDULED
+Syncing task radical.entk.task.0288 with state SCHEDULING
+Synced task radical.entk.task.0288 with state SCHEDULING
+Syncing task radical.entk.task.0288 with state SCHEDULED
+Synced task radical.entk.task.0288 with state SCHEDULED
+Syncing task radical.entk.task.0290 with state SCHEDULING
+Synced task radical.entk.task.0290 with state SCHEDULING
+Syncing task radical.entk.task.0290 with state SCHEDULED
+Synced task radical.entk.task.0290 with state SCHEDULED
+Syncing task radical.entk.task.0280 with state SCHEDULING
+Synced task radical.entk.task.0280 with state SCHEDULING
+Syncing task radical.entk.task.0280 with state SCHEDULED
+Synced task radical.entk.task.0280 with state SCHEDULED
+Syncing task radical.entk.task.0286 with state SCHEDULING
+Synced task radical.entk.task.0286 with state SCHEDULING
+Syncing task radical.entk.task.0286 with state SCHEDULED
+Synced task radical.entk.task.0286 with state SCHEDULED
+Syncing task radical.entk.task.0275 with state SCHEDULING
+Synced task radical.entk.task.0275 with state SCHEDULING
+Syncing task radical.entk.task.0275 with state SCHEDULED
+Synced task radical.entk.task.0275 with state SCHEDULED
+Syncing task radical.entk.task.0273 with state SCHEDULING
+Synced task radical.entk.task.0273 with state SCHEDULING
+Syncing task radical.entk.task.0273 with state SCHEDULED
+Synced task radical.entk.task.0273 with state SCHEDULED
+Syncing task radical.entk.task.0285 with state SCHEDULING
+Synced task radical.entk.task.0285 with state SCHEDULING
+Syncing task radical.entk.task.0285 with state SCHEDULED
+Synced task radical.entk.task.0285 with state SCHEDULED
+Syncing task radical.entk.task.0267 with state SCHEDULING
+Synced task radical.entk.task.0267 with state SCHEDULING
+Syncing task radical.entk.task.0267 with state SCHEDULED
+Synced task radical.entk.task.0267 with state SCHEDULED
+Syncing task radical.entk.task.0269 with state SCHEDULING
+Synced task radical.entk.task.0269 with state SCHEDULING
+Syncing task radical.entk.task.0269 with state SCHEDULED
+Synced task radical.entk.task.0269 with state SCHEDULED
+Syncing task radical.entk.task.0277 with state SCHEDULING
+Synced task radical.entk.task.0277 with state SCHEDULING
+Syncing task radical.entk.task.0277 with state SCHEDULED
+Synced task radical.entk.task.0277 with state SCHEDULED
+Syncing task radical.entk.task.0281 with state SCHEDULING
+Synced task radical.entk.task.0281 with state SCHEDULING
+Syncing task radical.entk.task.0281 with state SCHEDULED
+Synced task radical.entk.task.0281 with state SCHEDULED
+Syncing task radical.entk.task.0274 with state SCHEDULING
+Synced task radical.entk.task.0274 with state SCHEDULING
+Syncing task radical.entk.task.0274 with state SCHEDULED
+Synced task2017-12-14 10:36:52,062: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0274 to new state SCHEDULED successful
+2017-12-14 10:36:52,106: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0289 with state SCHEDULING
+2017-12-14 10:36:52,134: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0289 to new state SCHEDULING successful
+2017-12-14 10:36:52,179: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0289 with state SCHEDULED
+2017-12-14 10:36:52,208: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0289 to new state SCHEDULED successful
+2017-12-14 10:36:52,252: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0282 with state SCHEDULING
+2017-12-14 10:36:52,281: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0282 to new state SCHEDULING successful
+2017-12-14 10:36:52,325: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0282 with state SCHEDULED
+2017-12-14 10:36:52,356: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0282 to new state SCHEDULED successful
+2017-12-14 10:36:52,401: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0283 with state SCHEDULING
+2017-12-14 10:36:52,432: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0283 to new state SCHEDULING successful
+2017-12-14 10:36:52,474: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0283 with state SCHEDULED
+2017-12-14 10:36:52,508: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0283 to new state SCHEDULED successful
+2017-12-14 10:36:52,555: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0270 with state SCHEDULING
+2017-12-14 10:36:52,583: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0270 to new state SCHEDULING successful
+2017-12-14 10:36:52,629: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0270 with state SCHEDULED
+2017-12-14 10:36:52,662: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0270 to new state SCHEDULED successful
+2017-12-14 10:36:52,703: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0271 with state SCHEDULING
+2017-12-14 10:36:52,740: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0271 to new state SCHEDULING successful
+2017-12-14 10:36:52,780: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0271 with state SCHEDULED
+2017-12-14 10:36:52,813: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0271 to new state SCHEDULED successful
+2017-12-14 10:36:52,858: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0279 with state SCHEDULING
+2017-12-14 10:36:52,887: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0279 to new state SCHEDULING successful
+2017-12-14 10:36:52,935: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0279 with state SCHEDULED
+2017-12-14 10:36:52,970: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0279 to new state SCHEDULED successful
+2017-12-14 10:36:53,010: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0266 with state SCHEDULING
+2017-12-14 10:36:53,051: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0266 to new state SCHEDULING successful
+2017-12-14 10:36:53,089: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0266 with state SCHEDULED
+2017-12-14 10:36:53,108: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0266 to new state SCHEDULED successful
+2017-12-14 10:36:53,162: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.stage.0006 with state SCHEDULED
+2017-12-14 10:36:53,162: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Found parent pipeline: radical.entk.pipeline.0001
+2017-12-14 10:36:53,183: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.stage.0006 to new state SCHEDULED successful
+2017-12-14 10:36:53,237: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.pipeline.0003 with state SCHEDULING
+2017-12-14 10:36:53,238: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Found pipeline radical.entk.pipeline.0003, state SCHEDULING, completed False
+2017-12-14 10:36:53,267: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.pipeline.0003 to new state SCHEDULING successful
+2017-12-14 10:36:53,315: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.stage.0016 with state SCHEDULING
+2017-12-14 10:36:53,316: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Found parent pipeline: radical.entk.pipeline.0003
+2017-12-14 10:36:53,351: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.stage.0016 to new state SCHEDULING successful
+2017-12-14 10:36:53,400: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0647 with state SCHEDULING
+2017-12-14 10:36:53,425: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0647 to new state SCHEDULING successful
+2017-12-14 10:36:53,477: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0647 with state SCHEDULED
+2017-12-14 10:36:53,500: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0647 to new state SCHEDULED successful
+2017-12-14 10:36:53,554: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0649 with state SCHEDULING
+2017-12-14 10:36:53,577: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0649 to new state SCHEDULING successful
+2017-12-14 10:36:53,634: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0649 with state SCHEDULED
+2017-12-14 10:36:53,661: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0649 to new state SCHEDULED successful
+2017-12-14 10:36:53,718: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0642 with state SCHEDULING
+2017-12-14 10:36:53,756: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0642 to new state SCHEDULING successful
+2017-12-14 10:36:53,792: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0642 with state SCHEDULED
+2017-12-14 10:36:53,816: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0642 to new state SCHEDULED successful
+2017-12-14 10:36:53,867: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0650 with state SCHEDULING
+2017-12-14 10:36:53,893: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0650 to new state SCHEDULING successful
+2017-12-14 10:36:53,942: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0650 with state SCHEDULED
+2017-12-14 10:36:53,966: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0650 to new state SCHEDULED successful
+2017-12-14 10:36:54,016: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0654 with state SCHEDULING
+2017-12-14 10:36:54,042: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0654 to new state SCHEDULING successful
+2017-12-14 10:36:54,089: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0654 with state SCHEDULED
+2017-12-14 10:36:54,117: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0654 to new state SCHEDULED successful
+2017-12-14 10:36:54,169: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0637 with state SCHEDULING
+2017-12-14 10:36:54,192: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0637 to new state SCHEDULING successful
+2017-12-14 10:36:54,247: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0637 with state SCHEDULED
+2017-12-14 10:36:54,282: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0637 to new state SCHEDULED successful
+2017-12-14 10:36:54,329: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0643 with state SCHEDULING
+2017-12-14 10:36:54,359: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0643 to new state SCHEDULING successful
+2017-12-14 10:36:54,404: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0643 with state SCHEDULED
+2017-12-14 10:36:54,436: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0643 to new state SCHEDULED successful
+2017-12-14 10:36:54,480: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0634 with state SCHEDULING
+2017-12-14 10:36:54,511: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0634 to new state SCHEDULING successful
+2017-12-14 10:36:54,553: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0634 with state SCHEDULED
+2017-12-14 10:36:54,586: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0634 to new state SCHEDULED successful
+2017-12-14 10:36:54,627: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0651 with state SCHEDULING
+2017-12-14 10:36:54,661: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0651 to new state SCHEDULING successful
+2017-12-14 10:36:54,707: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0651 with state SCHEDULED
+2017-12-14 10:36:54,736: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0651 to new state SCHEDULED successful
+2017-12-14 10:36:54,781: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0638 with state SCHEDULING
+2017-12-14 10:36:54,811: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0638 to new state SCHEDULING successful
+2017-12-14 10:36:54,855: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0638 with state SCHEDULED
+2017-12-14 10:36:54,888: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0638 to new state SCHEDULED successful
+2017-12-14 10:36:54,929: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0640 with state SCHEDULING
+2017-12-14 10:36:54,949: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0640 to new state SCHEDULING successful
+2017-12-14 10:36:55,009: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0640 with state SCHEDULED
+ radical.entk.task.0274 with state SCHEDULED
+Syncing task radical.entk.task.0289 with state SCHEDULING
+Synced task radical.entk.task.0289 with state SCHEDULING
+Syncing task radical.entk.task.0289 with state SCHEDULED
+Synced task radical.entk.task.0289 with state SCHEDULED
+Syncing task radical.entk.task.0282 with state SCHEDULING
+Synced task radical.entk.task.0282 with state SCHEDULING
+Syncing task radical.entk.task.0282 with state SCHEDULED
+Synced task radical.entk.task.0282 with state SCHEDULED
+Syncing task radical.entk.task.0283 with state SCHEDULING
+Synced task radical.entk.task.0283 with state SCHEDULING
+Syncing task radical.entk.task.0283 with state SCHEDULED
+Synced task radical.entk.task.0283 with state SCHEDULED
+Syncing task radical.entk.task.0270 with state SCHEDULING
+Synced task radical.entk.task.0270 with state SCHEDULING
+Syncing task radical.entk.task.0270 with state SCHEDULED
+Synced task radical.entk.task.0270 with state SCHEDULED
+Syncing task radical.entk.task.0271 with state SCHEDULING
+Synced task radical.entk.task.0271 with state SCHEDULING
+Syncing task radical.entk.task.0271 with state SCHEDULED
+Synced task radical.entk.task.0271 with state SCHEDULED
+Syncing task radical.entk.task.0279 with state SCHEDULING
+Synced task radical.entk.task.0279 with state SCHEDULING
+Syncing task radical.entk.task.0279 with state SCHEDULED
+Synced task radical.entk.task.0279 with state SCHEDULED
+Syncing task radical.entk.task.0266 with state SCHEDULING
+Synced task radical.entk.task.0266 with state SCHEDULING
+Syncing task radical.entk.task.0266 with state SCHEDULED
+Synced task radical.entk.task.0266 with state SCHEDULED
+Syncing task radical.entk.task.0647 with state SCHEDULING
+Synced task radical.entk.task.0647 with state SCHEDULING
+Syncing task radical.entk.task.0647 with state SCHEDULED
+Synced task radical.entk.task.0647 with state SCHEDULED
+Syncing task radical.entk.task.0649 with state SCHEDULING
+Synced task radical.entk.task.0649 with state SCHEDULING
+Syncing task radical.entk.task.0649 with state SCHEDULED
+Synced task radical.entk.task.0649 with state SCHEDULED
+Syncing task radical.entk.task.0642 with state SCHEDULING
+Synced task radical.entk.task.0642 with state SCHEDULING
+Syncing task radical.entk.task.0642 with state SCHEDULED
+Synced task radical.entk.task.0642 with state SCHEDULED
+Syncing task radical.entk.task.0650 with state SCHEDULING
+Synced task radical.entk.task.0650 with state SCHEDULING
+Syncing task radical.entk.task.0650 with state SCHEDULED
+Synced task radical.entk.task.0650 with state SCHEDULED
+Syncing task radical.entk.task.0654 with state SCHEDULING
+Synced task radical.entk.task.0654 with state SCHEDULING
+Syncing task radical.entk.task.0654 with state SCHEDULED
+Synced task radical.entk.task.0654 with state SCHEDULED
+Syncing task radical.entk.task.0637 with state SCHEDULING
+Synced task radical.entk.task.0637 with state SCHEDULING
+Syncing task radical.entk.task.0637 with state SCHEDULED
+Synced task radical.entk.task.0637 with state SCHEDULED
+Syncing task radical.entk.task.0643 with state SCHEDULING
+Synced task radical.entk.task.0643 with state SCHEDULING
+Syncing task radical.entk.task.0643 with state SCHEDULED
+Synced task radical.entk.task.0643 with state SCHEDULED
+Syncing task radical.entk.task.0634 with state SCHEDULING
+Synced task radical.entk.task.0634 with state SCHEDULING
+Syncing task radical.entk.task.0634 with state SCHEDULED
+Synced task radical.entk.task.0634 with state SCHEDULED
+Syncing task radical.entk.task.0651 with state SCHEDULING
+Synced task radical.entk.task.0651 with state SCHEDULING
+Syncing task radical.entk.task.0651 with state SCHEDULED
+Synced task radical.entk.task.0651 with state SCHEDULED
+Syncing task radical.entk.task.0638 with state SCHEDULING
+Synced task radical.entk.task.0638 with state SCHEDULING
+Syncing task radical.entk.task.0638 with state SCHEDULED
+Synced task radical.entk.task.0638 with state SCHEDULED
+Syncing task radical.entk.task.0640 with state SCHEDULING
+Synced task radical.entk.task.0640 with state SCHEDULING
+Syncing task radical.entk.task.0640 with state SCHEDULED
+Syn2017-12-14 10:36:55,045: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0640 to new state SCHEDULED successful
+2017-12-14 10:36:55,084: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0646 with state SCHEDULING
+2017-12-14 10:36:55,120: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0646 to new state SCHEDULING successful
+2017-12-14 10:36:55,158: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0646 with state SCHEDULED
+2017-12-14 10:36:55,179: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0646 to new state SCHEDULED successful
+2017-12-14 10:36:55,233: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0632 with state SCHEDULING
+2017-12-14 10:36:55,256: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0632 to new state SCHEDULING successful
+2017-12-14 10:36:55,312: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0632 with state SCHEDULED
+2017-12-14 10:36:55,347: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0632 to new state SCHEDULED successful
+2017-12-14 10:36:55,387: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0644 with state SCHEDULING
+2017-12-14 10:36:55,422: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0644 to new state SCHEDULING successful
+2017-12-14 10:36:55,464: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0644 with state SCHEDULED
+2017-12-14 10:36:55,497: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0644 to new state SCHEDULED successful
+2017-12-14 10:36:55,536: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0652 with state SCHEDULING
+2017-12-14 10:36:55,573: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0652 to new state SCHEDULING successful
+2017-12-14 10:36:55,613: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0652 with state SCHEDULED
+2017-12-14 10:36:55,650: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0652 to new state SCHEDULED successful
+2017-12-14 10:36:55,688: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0636 with state SCHEDULING
+2017-12-14 10:36:55,728: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0636 to new state SCHEDULING successful
+2017-12-14 10:36:55,762: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0636 with state SCHEDULED
+2017-12-14 10:36:55,784: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0636 to new state SCHEDULED successful
+2017-12-14 10:36:55,837: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0655 with state SCHEDULING
+2017-12-14 10:36:55,859: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0655 to new state SCHEDULING successful
+2017-12-14 10:36:55,911: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0655 with state SCHEDULED
+2017-12-14 10:36:55,940: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0655 to new state SCHEDULED successful
+2017-12-14 10:36:55,985: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0633 with state SCHEDULING
+2017-12-14 10:36:56,014: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0633 to new state SCHEDULING successful
+2017-12-14 10:36:56,065: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0633 with state SCHEDULED
+2017-12-14 10:36:56,090: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0633 to new state SCHEDULED successful
+2017-12-14 10:36:56,142: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0648 with state SCHEDULING
+2017-12-14 10:36:56,166: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0648 to new state SCHEDULING successful
+2017-12-14 10:36:56,215: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0648 with state SCHEDULED
+2017-12-14 10:36:56,244: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0648 to new state SCHEDULED successful
+2017-12-14 10:36:56,293: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0645 with state SCHEDULING
+2017-12-14 10:36:56,319: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0645 to new state SCHEDULING successful
+2017-12-14 10:36:56,369: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0645 with state SCHEDULED
+2017-12-14 10:36:56,393: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0645 to new state SCHEDULED successful
+2017-12-14 10:36:56,442: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0656 with state SCHEDULING
+2017-12-14 10:36:56,467: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0656 to new state SCHEDULING successful
+2017-12-14 10:36:56,515: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0656 with state SCHEDULED
+2017-12-14 10:36:56,541: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0656 to new state SCHEDULED successful
+2017-12-14 10:36:56,589: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0635 with state SCHEDULING
+2017-12-14 10:36:56,614: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0635 to new state SCHEDULING successful
+2017-12-14 10:36:56,663: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0635 with state SCHEDULED
+2017-12-14 10:36:56,688: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0635 to new state SCHEDULED successful
+2017-12-14 10:36:56,740: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0653 with state SCHEDULING
+2017-12-14 10:36:56,761: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0653 to new state SCHEDULING successful
+2017-12-14 10:36:56,817: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0653 with state SCHEDULED
+2017-12-14 10:36:56,837: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0653 to new state SCHEDULED successful
+2017-12-14 10:36:56,891: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0639 with state SCHEDULING
+2017-12-14 10:36:56,913: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0639 to new state SCHEDULING successful
+2017-12-14 10:36:56,966: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0639 with state SCHEDULED
+2017-12-14 10:36:56,987: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0639 to new state SCHEDULED successful
+2017-12-14 10:36:57,044: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0641 with state SCHEDULING
+2017-12-14 10:36:57,080: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0641 to new state SCHEDULING successful
+2017-12-14 10:36:57,117: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0641 with state SCHEDULED
+2017-12-14 10:36:57,138: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0641 to new state SCHEDULED successful
+2017-12-14 10:36:57,195: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.stage.0016 with state SCHEDULED
+2017-12-14 10:36:57,196: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Found parent pipeline: radical.entk.pipeline.0003
+2017-12-14 10:36:57,231: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.stage.0016 to new state SCHEDULED successful
+2017-12-14 10:36:57,271: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.pipeline.0000 with state SCHEDULING
+2017-12-14 10:36:57,271: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Found pipeline radical.entk.pipeline.0000, state SCHEDULING, completed False
+2017-12-14 10:36:57,309: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.pipeline.0000 to new state SCHEDULING successful
+2017-12-14 10:36:57,346: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.stage.0000 with state SCHEDULING
+2017-12-14 10:36:57,347: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Found parent pipeline: radical.entk.pipeline.0000
+2017-12-14 10:36:57,382: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.stage.0000 to new state SCHEDULING successful
+2017-12-14 10:36:57,421: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0032 with state SCHEDULING
+2017-12-14 10:36:57,458: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0032 to new state SCHEDULING successful
+2017-12-14 10:36:57,495: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0032 with state SCHEDULED
+2017-12-14 10:36:57,522: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0032 to new state SCHEDULED successful
+2017-12-14 10:36:57,572: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0016 with state SCHEDULING
+2017-12-14 10:36:57,601: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0016 to new state SCHEDULING successful
+2017-12-14 10:36:57,647: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0016 with state SCHEDULED
+2017-12-14 10:36:57,675: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0016 to new state SCHEDULED successful
+2017-12-14 10:36:57,722: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0040 with state SCHEDULING
+2017-12-14 10:36:57,751: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0040 to new state SCHEDULING successful
+2017-12-14 10:36:57,798: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0040 with state SCHEDULED
+2017-12-14 10:36:57,832: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0040 to new state SCHEDULED successful
+2017-12-14 10:36:57,874: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0036 with state SCHEDULING
+2017-12-14 10:36:57,911: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0036 to new state SCHEDULING successful
+2017-12-14 10:36:57,951: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0036 with state SCHEDULED
+ced task radical.entk.task.0640 with state SCHEDULED
+Syncing task radical.entk.task.0646 with state SCHEDULING
+Synced task radical.entk.task.0646 with state SCHEDULING
+Syncing task radical.entk.task.0646 with state SCHEDULED
+Synced task radical.entk.task.0646 with state SCHEDULED
+Syncing task radical.entk.task.0632 with state SCHEDULING
+Synced task radical.entk.task.0632 with state SCHEDULING
+Syncing task radical.entk.task.0632 with state SCHEDULED
+Synced task radical.entk.task.0632 with state SCHEDULED
+Syncing task radical.entk.task.0644 with state SCHEDULING
+Synced task radical.entk.task.0644 with state SCHEDULING
+Syncing task radical.entk.task.0644 with state SCHEDULED
+Synced task radical.entk.task.0644 with state SCHEDULED
+Syncing task radical.entk.task.0652 with state SCHEDULING
+Synced task radical.entk.task.0652 with state SCHEDULING
+Syncing task radical.entk.task.0652 with state SCHEDULED
+Synced task radical.entk.task.0652 with state SCHEDULED
+Syncing task radical.entk.task.0636 with state SCHEDULING
+Synced task radical.entk.task.0636 with state SCHEDULING
+Syncing task radical.entk.task.0636 with state SCHEDULED
+Synced task radical.entk.task.0636 with state SCHEDULED
+Syncing task radical.entk.task.0655 with state SCHEDULING
+Synced task radical.entk.task.0655 with state SCHEDULING
+Syncing task radical.entk.task.0655 with state SCHEDULED
+Synced task radical.entk.task.0655 with state SCHEDULED
+Syncing task radical.entk.task.0633 with state SCHEDULING
+Synced task radical.entk.task.0633 with state SCHEDULING
+Syncing task radical.entk.task.0633 with state SCHEDULED
+Synced task radical.entk.task.0633 with state SCHEDULED
+Syncing task radical.entk.task.0648 with state SCHEDULING
+Synced task radical.entk.task.0648 with state SCHEDULING
+Syncing task radical.entk.task.0648 with state SCHEDULED
+Synced task radical.entk.task.0648 with state SCHEDULED
+Syncing task radical.entk.task.0645 with state SCHEDULING
+Synced task radical.entk.task.0645 with state SCHEDULING
+Syncing task radical.entk.task.0645 with state SCHEDULED
+Synced task radical.entk.task.0645 with state SCHEDULED
+Syncing task radical.entk.task.0656 with state SCHEDULING
+Synced task radical.entk.task.0656 with state SCHEDULING
+Syncing task radical.entk.task.0656 with state SCHEDULED
+Synced task radical.entk.task.0656 with state SCHEDULED
+Syncing task radical.entk.task.0635 with state SCHEDULING
+Synced task radical.entk.task.0635 with state SCHEDULING
+Syncing task radical.entk.task.0635 with state SCHEDULED
+Synced task radical.entk.task.0635 with state SCHEDULED
+Syncing task radical.entk.task.0653 with state SCHEDULING
+Synced task radical.entk.task.0653 with state SCHEDULING
+Syncing task radical.entk.task.0653 with state SCHEDULED
+Synced task radical.entk.task.0653 with state SCHEDULED
+Syncing task radical.entk.task.0639 with state SCHEDULING
+Synced task radical.entk.task.0639 with state SCHEDULING
+Syncing task radical.entk.task.0639 with state SCHEDULED
+Synced task radical.entk.task.0639 with state SCHEDULED
+Syncing task radical.entk.task.0641 with state SCHEDULING
+Synced task radical.entk.task.0641 with state SCHEDULING
+Syncing task radical.entk.task.0641 with state SCHEDULED
+Synced task radical.entk.task.0641 with state SCHEDULED
+Syncing task radical.entk.task.0032 with state SCHEDULING
+Synced task radical.entk.task.0032 with state SCHEDULING
+Syncing task radical.entk.task.0032 with state SCHEDULED
+Synced task radical.entk.task.0032 with state SCHEDULED
+Syncing task radical.entk.task.0016 with state SCHEDULING
+Synced task radical.entk.task.0016 with state SCHEDULING
+Syncing task radical.entk.task.0016 with state SCHEDULED
+Synced task radical.entk.task.0016 with state SCHEDULED
+Syncing task radical.entk.task.0040 with state SCHEDULING
+Synced task radical.entk.task.0040 with state SCHEDULING
+Syncing task radical.entk.task.0040 with state SCHEDULED
+Synced task radical.entk.task.0040 with state SCHEDULED
+Syncing task radical.entk.task.0036 with state SCHEDULING
+Synced task radical.entk.task.0036 with state SCHEDULING
+Syncing task radical.entk.task.0036 with state SCHED[94mcreate unit manager[39m[0m2017-12-14 10:36:57,990: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0036 to new state SCHEDULED successful
+2017-12-14 10:36:58,033: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0017 with state SCHEDULING
+2017-12-14 10:36:58,068: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0017 to new state SCHEDULING successful
+2017-12-14 10:36:58,117: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0017 with state SCHEDULED
+2017-12-14 10:36:58,142: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0017 to new state SCHEDULED successful
+2017-12-14 10:36:58,195: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0001 with state SCHEDULING
+2017-12-14 10:36:58,218: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0001 to new state SCHEDULING successful
+2017-12-14 10:36:58,269: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0001 with state SCHEDULED
+2017-12-14 10:36:58,295: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0001 to new state SCHEDULED successful
+2017-12-14 10:36:58,342: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0052 with state SCHEDULING
+2017-12-14 10:36:58,369: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0052 to new state SCHEDULING successful
+2017-12-14 10:36:58,426: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0052 with state SCHEDULED
+2017-12-14 10:36:58,464: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0052 to new state SCHEDULED successful
+2017-12-14 10:36:58,506: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0009 with state SCHEDULING
+2017-12-14 10:36:58,542: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0009 to new state SCHEDULING successful
+2017-12-14 10:36:58,581: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0009 with state SCHEDULED
+2017-12-14 10:36:58,619: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0009 to new state SCHEDULED successful
+2017-12-14 10:36:58,655: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0019 with state SCHEDULING
+2017-12-14 10:36:58,676: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0019 to new state SCHEDULING successful
+2017-12-14 10:36:58,732: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0019 with state SCHEDULED
+2017-12-14 10:36:58,769: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0019 to new state SCHEDULED successful
+2017-12-14 10:36:58,806: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0025 with state SCHEDULING
+2017-12-14 10:36:58,850: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0025 to new state SCHEDULING successful
+2017-12-14 10:36:58,883: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0025 with state SCHEDULED
+2017-12-14 10:36:58,915: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0025 to new state SCHEDULED successful
+2017-12-14 10:36:58,957: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0041 with state SCHEDULING
+2017-12-14 10:36:58,989: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0041 to new state SCHEDULING successful
+2017-12-14 10:36:59,031: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0041 with state SCHEDULED
+2017-12-14 10:36:59,066: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0041 to new state SCHEDULED successful
+[92m                                                           ok
+[39m[0m[94madd 1 pilot(s)[39m[0m[92m                                                                ok
+[39m[0m2017-12-14 10:36:59,105: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0061 with state SCHEDULING
+2017-12-14 10:36:59,140: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    : Terminating tmgr process from AppManager
+2017-12-14 10:36:59,141: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0061 to new state SCHEDULING successful
+2017-12-14 10:36:59,177: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0061 with state SCHEDULED
+2017-12-14 10:36:59,198: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0061 to new state SCHEDULED successful
+2017-12-14 10:36:59,250: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0057 with state SCHEDULING
+2017-12-14 10:36:59,273: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0057 to new state SCHEDULING successful
+2017-12-14 10:36:59,323: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0057 with state SCHEDULED
+2017-12-14 10:36:59,348: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0057 to new state SCHEDULED successful
+2017-12-14 10:36:59,395: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0002 with state SCHEDULING
+2017-12-14 10:36:59,424: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0002 to new state SCHEDULING successful
+2017-12-14 10:36:59,468: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0002 with state SCHEDULED
+2017-12-14 10:36:59,501: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0002 to new state SCHEDULED successful
+2017-12-14 10:36:59,540: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0010 with state SCHEDULING
+2017-12-14 10:36:59,576: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0010 to new state SCHEDULING successful
+2017-12-14 10:36:59,613: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0010 with state SCHEDULED
+2017-12-14 10:36:59,633: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0010 to new state SCHEDULED successful
+2017-12-14 10:36:59,685: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0048 with state SCHEDULING
+2017-12-14 10:36:59,707: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0048 to new state SCHEDULING successful
+2017-12-14 10:36:59,758: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0048 with state SCHEDULED
+2017-12-14 10:36:59,783: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0048 to new state SCHEDULED successful
+2017-12-14 10:36:59,830: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0034 with state SCHEDULING
+2017-12-14 10:36:59,857: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0034 to new state SCHEDULING successful
+2017-12-14 10:36:59,902: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0034 with state SCHEDULED
+2017-12-14 10:36:59,932: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0034 to new state SCHEDULED successful
+2017-12-14 10:36:59,974: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0042 with state SCHEDULING
+2017-12-14 10:37:00,007: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0042 to new state SCHEDULING successful
+2017-12-14 10:37:00,046: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0042 with state SCHEDULED
+2017-12-14 10:37:00,082: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0042 to new state SCHEDULED successful
+2017-12-14 10:37:00,119: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0015 with state SCHEDULING
+2017-12-14 10:37:00,156: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0015 to new state SCHEDULING successful
+2017-12-14 10:37:00,191: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0015 with state SCHEDULED
+2017-12-14 10:37:00,212: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0015 to new state SCHEDULED successful
+2017-12-14 10:37:00,263: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0003 with state SCHEDULING
+2017-12-14 10:37:00,289: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0003 to new state SCHEDULING successful
+2017-12-14 10:37:00,335: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0003 with state SCHEDULED
+2017-12-14 10:37:00,366: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0003 to new state SCHEDULED successful
+2017-12-14 10:37:00,407: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0055 with state SCHEDULING
+2017-12-14 10:37:00,441: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0055 to new state SCHEDULING successful
+2017-12-14 10:37:00,480: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0055 with state SCHEDULED
+2017-12-14 10:37:00,499: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0055 to new state SCHEDULED successful
+2017-12-14 10:37:00,552: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0011 with state SCHEDULING
+2017-12-14 10:37:00,573: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0011 to new state SCHEDULING successful
+2017-12-14 10:37:00,624: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0011 with state SCHEDULED
+ULED
+Synced task radical.entk.task.0036 with state SCHEDULED
+Syncing task radical.entk.task.0017 with state SCHEDULING
+Synced task radical.entk.task.0017 with state SCHEDULING
+Syncing task radical.entk.task.0017 with state SCHEDULED
+Synced task radical.entk.task.0017 with state SCHEDULED
+Syncing task radical.entk.task.0001 with state SCHEDULING
+Synced task radical.entk.task.0001 with state SCHEDULING
+Syncing task radical.entk.task.0001 with state SCHEDULED
+Synced task radical.entk.task.0001 with state SCHEDULED
+Syncing task radical.entk.task.0052 with state SCHEDULING
+Synced task radical.entk.task.0052 with state SCHEDULING
+Syncing task radical.entk.task.0052 with state SCHEDULED
+Synced task radical.entk.task.0052 with state SCHEDULED
+Syncing task radical.entk.task.0009 with state SCHEDULING
+Synced task radical.entk.task.0009 with state SCHEDULING
+Syncing task radical.entk.task.0009 with state SCHEDULED
+Synced task radical.entk.task.0009 with state SCHEDULED
+Syncing task radical.entk.task.0019 with state SCHEDULING
+Synced task radical.entk.task.0019 with state SCHEDULING
+Syncing task radical.entk.task.0019 with state SCHEDULED
+Synced task radical.entk.task.0019 with state SCHEDULED
+Syncing task radical.entk.task.0025 with state SCHEDULING
+Synced task radical.entk.task.0025 with state SCHEDULING
+Syncing task radical.entk.task.0025 with state SCHEDULED
+Synced task radical.entk.task.0025 with state SCHEDULED
+Syncing task radical.entk.task.0041 with state SCHEDULING
+Synced task radical.entk.task.0041 with state SCHEDULING
+Syncing task radical.entk.task.0041 with state SCHEDULED
+Synced task radical.entk.task.0041 with state SCHEDULED
+Syncing task radical.entk.task.0061 with state SCHEDULING
+Synced task radical.entk.task.0061 with state SCHEDULING
+Syncing task radical.entk.task.0061 with state SCHEDULED
+Synced task radical.entk.task.0061 with state SCHEDULED
+Syncing task radical.entk.task.0057 with state SCHEDULING
+Synced task radical.entk.task.0057 with state SCHEDULING
+Syncing task radical.entk.task.0057 with state SCHEDULED
+Synced task radical.entk.task.0057 with state SCHEDULED
+Syncing task radical.entk.task.0002 with state SCHEDULING
+Synced task radical.entk.task.0002 with state SCHEDULING
+Syncing task radical.entk.task.0002 with state SCHEDULED
+Synced task radical.entk.task.0002 with state SCHEDULED
+Syncing task radical.entk.task.0010 with state SCHEDULING
+Synced task radical.entk.task.0010 with state SCHEDULING
+Syncing task radical.entk.task.0010 with state SCHEDULED
+Synced task radical.entk.task.0010 with state SCHEDULED
+Syncing task radical.entk.task.0048 with state SCHEDULING
+Synced task radical.entk.task.0048 with state SCHEDULING
+Syncing task radical.entk.task.0048 with state SCHEDULED
+Synced task radical.entk.task.0048 with state SCHEDULED
+Syncing task radical.entk.task.0034 with state SCHEDULING
+Synced task radical.entk.task.0034 with state SCHEDULING
+Syncing task radical.entk.task.0034 with state SCHEDULED
+Synced task radical.entk.task.0034 with state SCHEDULED
+Syncing task radical.entk.task.0042 with state SCHEDULING
+Synced task radical.entk.task.0042 with state SCHEDULING
+Syncing task radical.entk.task.0042 with state SCHEDULED
+Synced task radical.entk.task.0042 with state SCHEDULED
+Syncing task radical.entk.task.0015 with state SCHEDULING
+Synced task radical.entk.task.0015 with state SCHEDULING
+Syncing task radical.entk.task.0015 with state SCHEDULED
+Synced task radical.entk.task.0015 with state SCHEDULED
+Syncing task radical.entk.task.0003 with state SCHEDULING
+Synced task radical.entk.task.0003 with state SCHEDULING
+Syncing task radical.entk.task.0003 with state SCHEDULED
+Synced task radical.entk.task.0003 with state SCHEDULED
+Syncing task radical.entk.task.0055 with state SCHEDULING
+Synced task radical.entk.task.0055 with state SCHEDULING
+Syncing task radical.entk.task.0055 with state SCHEDULED
+Synced task radical.entk.task.0055 with state SCHEDULED
+Syncing task radical.entk.task.0011 with state SCHEDULING
+Synced task radical.entk.task.0011 with state SCHEDULING
+Syncing task radical.entk.task.0011 with sta2017-12-14 10:37:00,649: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0011 to new state SCHEDULED successful
+2017-12-14 10:37:00,697: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0026 with state SCHEDULING
+2017-12-14 10:37:00,724: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0026 to new state SCHEDULING successful
+2017-12-14 10:37:00,769: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0026 with state SCHEDULED
+2017-12-14 10:37:00,803: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0026 to new state SCHEDULED successful
+2017-12-14 10:37:00,841: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0035 with state SCHEDULING
+2017-12-14 10:37:00,860: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0035 to new state SCHEDULING successful
+2017-12-14 10:37:00,914: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0035 with state SCHEDULED
+2017-12-14 10:37:00,936: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0035 to new state SCHEDULED successful
+2017-12-14 10:37:00,988: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0043 with state SCHEDULING
+2017-12-14 10:37:01,010: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0043 to new state SCHEDULING successful
+2017-12-14 10:37:01,060: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0043 with state SCHEDULED
+2017-12-14 10:37:01,086: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0043 to new state SCHEDULED successful
+2017-12-14 10:37:01,132: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0060 with state SCHEDULING
+2017-12-14 10:37:01,162: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0060 to new state SCHEDULING successful
+2017-12-14 10:37:01,205: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0060 with state SCHEDULED
+2017-12-14 10:37:01,237: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0060 to new state SCHEDULED successful
+2017-12-14 10:37:01,277: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0056 with state SCHEDULING
+2017-12-14 10:37:01,312: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0056 to new state SCHEDULING successful
+2017-12-14 10:37:01,350: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0056 with state SCHEDULED
+2017-12-14 10:37:01,370: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0056 to new state SCHEDULED successful
+2017-12-14 10:37:01,422: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0064 with state SCHEDULING
+2017-12-14 10:37:01,448: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0064 to new state SCHEDULING successful
+2017-12-14 10:37:01,495: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0064 with state SCHEDULED
+2017-12-14 10:37:01,524: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0064 to new state SCHEDULED successful
+2017-12-14 10:37:01,567: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0004 with state SCHEDULING
+2017-12-14 10:37:01,597: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0004 to new state SCHEDULING successful
+2017-12-14 10:37:01,639: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0004 with state SCHEDULED
+2017-12-14 10:37:01,673: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0004 to new state SCHEDULED successful
+2017-12-14 10:37:01,712: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0037 with state SCHEDULING
+2017-12-14 10:37:01,748: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0037 to new state SCHEDULING successful
+2017-12-14 10:37:01,784: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0037 with state SCHEDULED
+2017-12-14 10:37:01,805: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0037 to new state SCHEDULED successful
+2017-12-14 10:37:01,857: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0020 with state SCHEDULING
+2017-12-14 10:37:01,880: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0020 to new state SCHEDULING successful
+2017-12-14 10:37:01,929: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0020 with state SCHEDULED
+2017-12-14 10:37:01,958: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0020 to new state SCHEDULED successful
+2017-12-14 10:37:02,001: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0047 with state SCHEDULING
+2017-12-14 10:37:02,033: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0047 to new state SCHEDULING successful
+2017-12-14 10:37:02,074: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0047 with state SCHEDULED
+2017-12-14 10:37:02,107: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0047 to new state SCHEDULED successful
+2017-12-14 10:37:02,146: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0028 with state SCHEDULING
+2017-12-14 10:37:02,182: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0028 to new state SCHEDULING successful
+2017-12-14 10:37:02,218: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0028 with state SCHEDULED
+2017-12-14 10:37:02,239: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0028 to new state SCHEDULED successful
+2017-12-14 10:37:02,290: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0044 with state SCHEDULING
+2017-12-14 10:37:02,316: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0044 to new state SCHEDULING successful
+2017-12-14 10:37:02,362: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0044 with state SCHEDULED
+2017-12-14 10:37:02,400: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0044 to new state SCHEDULED successful
+2017-12-14 10:37:02,434: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0038 with state SCHEDULING
+2017-12-14 10:37:02,459: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0038 to new state SCHEDULING successful
+2017-12-14 10:37:02,509: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0038 with state SCHEDULED
+2017-12-14 10:37:02,535: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0038 to new state SCHEDULED successful
+2017-12-14 10:37:02,581: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0051 with state SCHEDULING
+2017-12-14 10:37:02,610: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0051 to new state SCHEDULING successful
+2017-12-14 10:37:02,655: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0051 with state SCHEDULED
+2017-12-14 10:37:02,687: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0051 to new state SCHEDULED successful
+2017-12-14 10:37:02,727: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0005 with state SCHEDULING
+2017-12-14 10:37:02,761: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0005 to new state SCHEDULING successful
+2017-12-14 10:37:02,799: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0005 with state SCHEDULED
+2017-12-14 10:37:02,836: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0005 to new state SCHEDULED successful
+2017-12-14 10:37:02,871: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0054 with state SCHEDULING
+2017-12-14 10:37:02,892: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0054 to new state SCHEDULING successful
+2017-12-14 10:37:02,944: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0054 with state SCHEDULED
+2017-12-14 10:37:02,967: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0054 to new state SCHEDULED successful
+2017-12-14 10:37:03,016: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0021 with state SCHEDULING
+2017-12-14 10:37:03,042: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0021 to new state SCHEDULING successful
+2017-12-14 10:37:03,088: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0021 with state SCHEDULED
+2017-12-14 10:37:03,116: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0021 to new state SCHEDULED successful
+2017-12-14 10:37:03,161: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0013 with state SCHEDULING
+2017-12-14 10:37:03,192: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0013 to new state SCHEDULING successful
+2017-12-14 10:37:03,233: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0013 with state SCHEDULED
+te SCHEDULED
+Synced task radical.entk.task.0011 with state SCHEDULED
+Syncing task radical.entk.task.0026 with state SCHEDULING
+Synced task radical.entk.task.0026 with state SCHEDULING
+Syncing task radical.entk.task.0026 with state SCHEDULED
+Synced task radical.entk.task.0026 with state SCHEDULED
+Syncing task radical.entk.task.0035 with state SCHEDULING
+Synced task radical.entk.task.0035 with state SCHEDULING
+Syncing task radical.entk.task.0035 with state SCHEDULED
+Synced task radical.entk.task.0035 with state SCHEDULED
+Syncing task radical.entk.task.0043 with state SCHEDULING
+Synced task radical.entk.task.0043 with state SCHEDULING
+Syncing task radical.entk.task.0043 with state SCHEDULED
+Synced task radical.entk.task.0043 with state SCHEDULED
+Syncing task radical.entk.task.0060 with state SCHEDULING
+Synced task radical.entk.task.0060 with state SCHEDULING
+Syncing task radical.entk.task.0060 with state SCHEDULED
+Synced task radical.entk.task.0060 with state SCHEDULED
+Syncing task radical.entk.task.0056 with state SCHEDULING
+Synced task radical.entk.task.0056 with state SCHEDULING
+Syncing task radical.entk.task.0056 with state SCHEDULED
+Synced task radical.entk.task.0056 with state SCHEDULED
+Syncing task radical.entk.task.0064 with state SCHEDULING
+Synced task radical.entk.task.0064 with state SCHEDULING
+Syncing task radical.entk.task.0064 with state SCHEDULED
+Synced task radical.entk.task.0064 with state SCHEDULED
+Syncing task radical.entk.task.0004 with state SCHEDULING
+Synced task radical.entk.task.0004 with state SCHEDULING
+Syncing task radical.entk.task.0004 with state SCHEDULED
+Synced task radical.entk.task.0004 with state SCHEDULED
+Syncing task radical.entk.task.0037 with state SCHEDULING
+Synced task radical.entk.task.0037 with state SCHEDULING
+Syncing task radical.entk.task.0037 with state SCHEDULED
+Synced task radical.entk.task.0037 with state SCHEDULED
+Syncing task radical.entk.task.0020 with state SCHEDULING
+Synced task radical.entk.task.0020 with state SCHEDULING
+Syncing task radical.entk.task.0020 with state SCHEDULED
+Synced task radical.entk.task.0020 with state SCHEDULED
+Syncing task radical.entk.task.0047 with state SCHEDULING
+Synced task radical.entk.task.0047 with state SCHEDULING
+Syncing task radical.entk.task.0047 with state SCHEDULED
+Synced task radical.entk.task.0047 with state SCHEDULED
+Syncing task radical.entk.task.0028 with state SCHEDULING
+Synced task radical.entk.task.0028 with state SCHEDULING
+Syncing task radical.entk.task.0028 with state SCHEDULED
+Synced task radical.entk.task.0028 with state SCHEDULED
+Syncing task radical.entk.task.0044 with state SCHEDULING
+Synced task radical.entk.task.0044 with state SCHEDULING
+Syncing task radical.entk.task.0044 with state SCHEDULED
+Synced task radical.entk.task.0044 with state SCHEDULED
+Syncing task radical.entk.task.0038 with state SCHEDULING
+Synced task radical.entk.task.0038 with state SCHEDULING
+Syncing task radical.entk.task.0038 with state SCHEDULED
+Synced task radical.entk.task.0038 with state SCHEDULED
+Syncing task radical.entk.task.0051 with state SCHEDULING
+Synced task radical.entk.task.0051 with state SCHEDULING
+Syncing task radical.entk.task.0051 with state SCHEDULED
+Synced task radical.entk.task.0051 with state SCHEDULED
+Syncing task radical.entk.task.0005 with state SCHEDULING
+Synced task radical.entk.task.0005 with state SCHEDULING
+Syncing task radical.entk.task.0005 with state SCHEDULED
+Synced task radical.entk.task.0005 with state SCHEDULED
+Syncing task radical.entk.task.0054 with state SCHEDULING
+Synced task radical.entk.task.0054 with state SCHEDULING
+Syncing task radical.entk.task.0054 with state SCHEDULED
+Synced task radical.entk.task.0054 with state SCHEDULED
+Syncing task radical.entk.task.0021 with state SCHEDULING
+Synced task radical.entk.task.0021 with state SCHEDULING
+Syncing task radical.entk.task.0021 with state SCHEDULED
+Synced task radical.entk.task.0021 with state SCHEDULED
+Syncing task radical.entk.task.0013 with state SCHEDULING
+Synced task radical.entk.task.0013 with state SCHEDULING
+Syncing task radical.entk.task.0013 2017-12-14 10:37:03,266: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0013 to new state SCHEDULED successful
+2017-12-14 10:37:03,305: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0063 with state SCHEDULING
+2017-12-14 10:37:03,341: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0063 to new state SCHEDULING successful
+2017-12-14 10:37:03,378: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0063 with state SCHEDULED
+2017-12-14 10:37:03,397: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0063 to new state SCHEDULED successful
+2017-12-14 10:37:03,449: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0029 with state SCHEDULING
+2017-12-14 10:37:03,472: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0029 to new state SCHEDULING successful
+2017-12-14 10:37:03,522: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0029 with state SCHEDULED
+2017-12-14 10:37:03,555: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0029 to new state SCHEDULED successful
+2017-12-14 10:37:03,594: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0045 with state SCHEDULING
+2017-12-14 10:37:03,630: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0045 to new state SCHEDULING successful
+2017-12-14 10:37:03,667: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0045 with state SCHEDULED
+2017-12-14 10:37:03,687: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0045 to new state SCHEDULED successful
+2017-12-14 10:37:03,739: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0000 with state SCHEDULING
+2017-12-14 10:37:03,762: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0000 to new state SCHEDULING successful
+2017-12-14 10:37:03,812: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0000 with state SCHEDULED
+2017-12-14 10:37:03,837: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0000 to new state SCHEDULED successful
+2017-12-14 10:37:03,884: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0006 with state SCHEDULING
+2017-12-14 10:37:03,912: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0006 to new state SCHEDULING successful
+2017-12-14 10:37:03,956: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0006 with state SCHEDULED
+2017-12-14 10:37:03,988: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0006 to new state SCHEDULED successful
+2017-12-14 10:37:04,028: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0053 with state SCHEDULING
+2017-12-14 10:37:04,062: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0053 to new state SCHEDULING successful
+2017-12-14 10:37:04,100: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0053 with state SCHEDULED
+2017-12-14 10:37:04,138: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0053 to new state SCHEDULED successful
+2017-12-14 10:37:04,176: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0014 with state SCHEDULING
+2017-12-14 10:37:04,196: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0014 to new state SCHEDULING successful
+2017-12-14 10:37:04,249: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0014 with state SCHEDULED
+2017-12-14 10:37:04,275: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0014 to new state SCHEDULED successful
+2017-12-14 10:37:04,321: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0050 with state SCHEDULING
+2017-12-14 10:37:04,349: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0050 to new state SCHEDULING successful
+2017-12-14 10:37:04,393: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0050 with state SCHEDULED
+2017-12-14 10:37:04,425: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0050 to new state SCHEDULED successful
+2017-12-14 10:37:04,465: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0030 with state SCHEDULING
+2017-12-14 10:37:04,499: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0030 to new state SCHEDULING successful
+2017-12-14 10:37:04,537: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0030 with state SCHEDULED
+2017-12-14 10:37:04,558: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0030 to new state SCHEDULED successful
+2017-12-14 10:37:04,610: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0046 with state SCHEDULING
+2017-12-14 10:37:04,632: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0046 to new state SCHEDULING successful
+2017-12-14 10:37:04,683: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0046 with state SCHEDULED
+2017-12-14 10:37:04,711: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0046 to new state SCHEDULED successful
+2017-12-14 10:37:04,755: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0033 with state SCHEDULING
+2017-12-14 10:37:04,786: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0033 to new state SCHEDULING successful
+2017-12-14 10:37:04,827: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0033 with state SCHEDULED
+2017-12-14 10:37:04,862: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0033 to new state SCHEDULED successful
+2017-12-14 10:37:04,899: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0018 with state SCHEDULING
+2017-12-14 10:37:04,937: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0018 to new state SCHEDULING successful
+2017-12-14 10:37:04,971: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0018 with state SCHEDULED
+2017-12-14 10:37:04,995: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0018 to new state SCHEDULED successful
+2017-12-14 10:37:05,044: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0007 with state SCHEDULING
+2017-12-14 10:37:05,069: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0007 to new state SCHEDULING successful
+2017-12-14 10:37:05,116: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0007 with state SCHEDULED
+2017-12-14 10:37:05,145: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0007 to new state SCHEDULED successful
+2017-12-14 10:37:05,188: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0022 with state SCHEDULING
+2017-12-14 10:37:05,224: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0022 to new state SCHEDULING successful
+2017-12-14 10:37:05,260: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0022 with state SCHEDULED
+2017-12-14 10:37:05,282: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0022 to new state SCHEDULED successful
+2017-12-14 10:37:05,332: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0023 with state SCHEDULING
+2017-12-14 10:37:05,357: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0023 to new state SCHEDULING successful
+2017-12-14 10:37:05,404: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0023 with state SCHEDULED
+2017-12-14 10:37:05,433: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0023 to new state SCHEDULED successful
+2017-12-14 10:37:05,476: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0012 with state SCHEDULING
+2017-12-14 10:37:05,508: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0012 to new state SCHEDULING successful
+2017-12-14 10:37:05,552: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0012 with state SCHEDULED
+2017-12-14 10:37:05,584: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0012 to new state SCHEDULED successful
+2017-12-14 10:37:05,624: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0062 with state SCHEDULING
+2017-12-14 10:37:05,657: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0062 to new state SCHEDULING successful
+2017-12-14 10:37:05,697: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0062 with state SCHEDULED
+2017-12-14 10:37:05,733: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0062 to new state SCHEDULED successful
+2017-12-14 10:37:05,769: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0031 with state SCHEDULING
+2017-12-14 10:37:05,788: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0031 to new state SCHEDULING successful
+2017-12-14 10:37:05,842: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0031 with state SCHEDULED
+with state SCHEDULED
+Synced task radical.entk.task.0013 with state SCHEDULED
+Syncing task radical.entk.task.0063 with state SCHEDULING
+Synced task radical.entk.task.0063 with state SCHEDULING
+Syncing task radical.entk.task.0063 with state SCHEDULED
+Synced task radical.entk.task.0063 with state SCHEDULED
+Syncing task radical.entk.task.0029 with state SCHEDULING
+Synced task radical.entk.task.0029 with state SCHEDULING
+Syncing task radical.entk.task.0029 with state SCHEDULED
+Synced task radical.entk.task.0029 with state SCHEDULED
+Syncing task radical.entk.task.0045 with state SCHEDULING
+Synced task radical.entk.task.0045 with state SCHEDULING
+Syncing task radical.entk.task.0045 with state SCHEDULED
+Synced task radical.entk.task.0045 with state SCHEDULED
+Syncing task radical.entk.task.0000 with state SCHEDULING
+Synced task radical.entk.task.0000 with state SCHEDULING
+Syncing task radical.entk.task.0000 with state SCHEDULED
+Synced task radical.entk.task.0000 with state SCHEDULED
+Syncing task radical.entk.task.0006 with state SCHEDULING
+Synced task radical.entk.task.0006 with state SCHEDULING
+Syncing task radical.entk.task.0006 with state SCHEDULED
+Synced task radical.entk.task.0006 with state SCHEDULED
+Syncing task radical.entk.task.0053 with state SCHEDULING
+Synced task radical.entk.task.0053 with state SCHEDULING
+Syncing task radical.entk.task.0053 with state SCHEDULED
+Synced task radical.entk.task.0053 with state SCHEDULED
+Syncing task radical.entk.task.0014 with state SCHEDULING
+Synced task radical.entk.task.0014 with state SCHEDULING
+Syncing task radical.entk.task.0014 with state SCHEDULED
+Synced task radical.entk.task.0014 with state SCHEDULED
+Syncing task radical.entk.task.0050 with state SCHEDULING
+Synced task radical.entk.task.0050 with state SCHEDULING
+Syncing task radical.entk.task.0050 with state SCHEDULED
+Synced task radical.entk.task.0050 with state SCHEDULED
+Syncing task radical.entk.task.0030 with state SCHEDULING
+Synced task radical.entk.task.0030 with state SCHEDULING
+Syncing task radical.entk.task.0030 with state SCHEDULED
+Synced task radical.entk.task.0030 with state SCHEDULED
+Syncing task radical.entk.task.0046 with state SCHEDULING
+Synced task radical.entk.task.0046 with state SCHEDULING
+Syncing task radical.entk.task.0046 with state SCHEDULED
+Synced task radical.entk.task.0046 with state SCHEDULED
+Syncing task radical.entk.task.0033 with state SCHEDULING
+Synced task radical.entk.task.0033 with state SCHEDULING
+Syncing task radical.entk.task.0033 with state SCHEDULED
+Synced task radical.entk.task.0033 with state SCHEDULED
+Syncing task radical.entk.task.0018 with state SCHEDULING
+Synced task radical.entk.task.0018 with state SCHEDULING
+Syncing task radical.entk.task.0018 with state SCHEDULED
+Synced task radical.entk.task.0018 with state SCHEDULED
+Syncing task radical.entk.task.0007 with state SCHEDULING
+Synced task radical.entk.task.0007 with state SCHEDULING
+Syncing task radical.entk.task.0007 with state SCHEDULED
+Synced task radical.entk.task.0007 with state SCHEDULED
+Syncing task radical.entk.task.0022 with state SCHEDULING
+Synced task radical.entk.task.0022 with state SCHEDULING
+Syncing task radical.entk.task.0022 with state SCHEDULED
+Synced task radical.entk.task.0022 with state SCHEDULED
+Syncing task radical.entk.task.0023 with state SCHEDULING
+Synced task radical.entk.task.0023 with state SCHEDULING
+Syncing task radical.entk.task.0023 with state SCHEDULED
+Synced task radical.entk.task.0023 with state SCHEDULED
+Syncing task radical.entk.task.0012 with state SCHEDULING
+Synced task radical.entk.task.0012 with state SCHEDULING
+Syncing task radical.entk.task.0012 with state SCHEDULED
+Synced task radical.entk.task.0012 with state SCHEDULED
+Syncing task radical.entk.task.0062 with state SCHEDULING
+Synced task radical.entk.task.0062 with state SCHEDULING
+Syncing task radical.entk.task.0062 with state SCHEDULED
+Synced task radical.entk.task.0062 with state SCHEDULED
+Syncing task radical.entk.task.0031 with state SCHEDULING
+Synced task radical.entk.task.0031 with state SCHEDULING
+Syncing task radical.entk.ta2017-12-14 10:37:05,865: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0031 to new state SCHEDULED successful
+2017-12-14 10:37:05,914: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0059 with state SCHEDULING
+2017-12-14 10:37:05,940: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0059 to new state SCHEDULING successful
+2017-12-14 10:37:05,986: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0059 with state SCHEDULED
+2017-12-14 10:37:06,016: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0059 to new state SCHEDULED successful
+2017-12-14 10:37:06,058: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0027 with state SCHEDULING
+2017-12-14 10:37:06,091: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0027 to new state SCHEDULING successful
+2017-12-14 10:37:06,131: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0027 with state SCHEDULED
+2017-12-14 10:37:06,151: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0027 to new state SCHEDULED successful
+2017-12-14 10:37:06,204: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0058 with state SCHEDULING
+2017-12-14 10:37:06,226: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0058 to new state SCHEDULING successful
+2017-12-14 10:37:06,276: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0058 with state SCHEDULED
+2017-12-14 10:37:06,302: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0058 to new state SCHEDULED successful
+2017-12-14 10:37:06,348: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0008 with state SCHEDULING
+2017-12-14 10:37:06,377: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0008 to new state SCHEDULING successful
+2017-12-14 10:37:06,421: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0008 with state SCHEDULED
+2017-12-14 10:37:06,453: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0008 to new state SCHEDULED successful
+2017-12-14 10:37:06,493: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0039 with state SCHEDULING
+2017-12-14 10:37:06,527: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0039 to new state SCHEDULING successful
+2017-12-14 10:37:06,565: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0039 with state SCHEDULED
+2017-12-14 10:37:06,589: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0039 to new state SCHEDULED successful
+2017-12-14 10:37:06,638: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0024 with state SCHEDULING
+2017-12-14 10:37:06,663: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0024 to new state SCHEDULING successful
+2017-12-14 10:37:06,710: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0024 with state SCHEDULED
+2017-12-14 10:37:06,738: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0024 to new state SCHEDULED successful
+2017-12-14 10:37:06,783: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0049 with state SCHEDULING
+2017-12-14 10:37:06,813: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0049 to new state SCHEDULING successful
+2017-12-14 10:37:06,855: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0049 with state SCHEDULED
+2017-12-14 10:37:06,889: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0049 to new state SCHEDULED successful
+2017-12-14 10:37:06,927: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.stage.0000 with state SCHEDULED
+2017-12-14 10:37:06,928: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Found parent pipeline: radical.entk.pipeline.0000
+2017-12-14 10:37:06,963: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.stage.0000 to new state SCHEDULED successful
+2017-12-14 10:37:07,000: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.pipeline.0002 with state SCHEDULING
+2017-12-14 10:37:07,000: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Found pipeline radical.entk.pipeline.0002, state SCHEDULING, completed False
+2017-12-14 10:37:07,037: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.pipeline.0002 to new state SCHEDULING successful
+2017-12-14 10:37:07,072: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.stage.0010 with state SCHEDULING
+2017-12-14 10:37:07,072: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Found parent pipeline: radical.entk.pipeline.0002
+2017-12-14 10:37:07,093: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.stage.0010 to new state SCHEDULING successful
+2017-12-14 10:37:07,144: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0406 with state SCHEDULING
+2017-12-14 10:37:07,168: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0406 to new state SCHEDULING successful
+2017-12-14 10:37:07,217: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0406 with state SCHEDULED
+2017-12-14 10:37:07,245: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0406 to new state SCHEDULED successful
+2017-12-14 10:37:07,289: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0424 with state SCHEDULING
+2017-12-14 10:37:07,321: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0424 to new state SCHEDULING successful
+2017-12-14 10:37:07,362: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0424 with state SCHEDULED
+2017-12-14 10:37:07,395: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0424 to new state SCHEDULED successful
+2017-12-14 10:37:07,434: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0384 with state SCHEDULING
+2017-12-14 10:37:07,452: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0384 to new state SCHEDULING successful
+2017-12-14 10:37:07,506: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0384 with state SCHEDULED
+2017-12-14 10:37:07,528: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0384 to new state SCHEDULED successful
+2017-12-14 10:37:07,578: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0414 with state SCHEDULING
+2017-12-14 10:37:07,602: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0414 to new state SCHEDULING successful
+2017-12-14 10:37:07,650: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0414 with state SCHEDULED
+2017-12-14 10:37:07,679: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0414 to new state SCHEDULED successful
+2017-12-14 10:37:07,726: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0410 with state SCHEDULING
+2017-12-14 10:37:07,754: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0410 to new state SCHEDULING successful
+2017-12-14 10:37:08,018: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0410 with state SCHEDULED
+2017-12-14 10:37:08,048: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0410 to new state SCHEDULED successful
+2017-12-14 10:37:08,094: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0375 with state SCHEDULING
+2017-12-14 10:37:08,123: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0375 to new state SCHEDULING successful
+2017-12-14 10:37:08,167: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0375 with state SCHEDULED
+2017-12-14 10:37:08,198: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0375 to new state SCHEDULED successful
+2017-12-14 10:37:08,239: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0383 with state SCHEDULING
+2017-12-14 10:37:08,273: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0383 to new state SCHEDULING successful
+2017-12-14 10:37:08,311: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0383 with state SCHEDULED
+2017-12-14 10:37:08,330: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0383 to new state SCHEDULED successful
+2017-12-14 10:37:08,383: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0397 with state SCHEDULING
+2017-12-14 10:37:08,404: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0397 to new state SCHEDULING successful
+2017-12-14 10:37:08,456: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0397 with state SCHEDULED
+2017-12-14 10:37:08,480: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0397 to new state SCHEDULED successful
+2017-12-14 10:37:08,528: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0407 with state SCHEDULING
+2017-12-14 10:37:08,554: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0407 to new state SCHEDULING successful
+2017-12-14 10:37:08,600: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0407 with state SCHEDULED
+2017-12-14 10:37:08,629: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0407 to new state SCHEDULED successful
+2017-12-14 10:37:08,673: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0427 with state SCHEDULING
+2017-12-14 10:37:08,704: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0427 to new state SCHEDULING successful
+2017-12-14 10:37:08,746: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0427 with state SCHEDULED
+2017-12-14 10:37:08,781: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0427 to new state SCHEDULED successful
+2017-12-14 10:37:08,819: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0382 with state SCHEDULING
+2017-12-14 10:37:08,838: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0382 to new state SCHEDULING successful
+2017-12-14 10:37:08,891: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0382 with state SCHEDULED
+sk.0031 with state SCHEDULED
+Synced task radical.entk.task.0031 with state SCHEDULED
+Syncing task radical.entk.task.0059 with state SCHEDULING
+Synced task radical.entk.task.0059 with state SCHEDULING
+Syncing task radical.entk.task.0059 with state SCHEDULED
+Synced task radical.entk.task.0059 with state SCHEDULED
+Syncing task radical.entk.task.0027 with state SCHEDULING
+Synced task radical.entk.task.0027 with state SCHEDULING
+Syncing task radical.entk.task.0027 with state SCHEDULED
+Synced task radical.entk.task.0027 with state SCHEDULED
+Syncing task radical.entk.task.0058 with state SCHEDULING
+Synced task radical.entk.task.0058 with state SCHEDULING
+Syncing task radical.entk.task.0058 with state SCHEDULED
+Synced task radical.entk.task.0058 with state SCHEDULED
+Syncing task radical.entk.task.0008 with state SCHEDULING
+Synced task radical.entk.task.0008 with state SCHEDULING
+Syncing task radical.entk.task.0008 with state SCHEDULED
+Synced task radical.entk.task.0008 with state SCHEDULED
+Syncing task radical.entk.task.0039 with state SCHEDULING
+Synced task radical.entk.task.0039 with state SCHEDULING
+Syncing task radical.entk.task.0039 with state SCHEDULED
+Synced task radical.entk.task.0039 with state SCHEDULED
+Syncing task radical.entk.task.0024 with state SCHEDULING
+Synced task radical.entk.task.0024 with state SCHEDULING
+Syncing task radical.entk.task.0024 with state SCHEDULED
+Synced task radical.entk.task.0024 with state SCHEDULED
+Syncing task radical.entk.task.0049 with state SCHEDULING
+Synced task radical.entk.task.0049 with state SCHEDULING
+Syncing task radical.entk.task.0049 with state SCHEDULED
+Synced task radical.entk.task.0049 with state SCHEDULED
+Syncing task radical.entk.task.0406 with state SCHEDULING
+Synced task radical.entk.task.0406 with state SCHEDULING
+Syncing task radical.entk.task.0406 with state SCHEDULED
+Synced task radical.entk.task.0406 with state SCHEDULED
+Syncing task radical.entk.task.0424 with state SCHEDULING
+Synced task radical.entk.task.0424 with state SCHEDULING
+Syncing task radical.entk.task.0424 with state SCHEDULED
+Synced task radical.entk.task.0424 with state SCHEDULED
+Syncing task radical.entk.task.0384 with state SCHEDULING
+Synced task radical.entk.task.0384 with state SCHEDULING
+Syncing task radical.entk.task.0384 with state SCHEDULED
+Synced task radical.entk.task.0384 with state SCHEDULED
+Syncing task radical.entk.task.0414 with state SCHEDULING
+Synced task radical.entk.task.0414 with state SCHEDULING
+Syncing task radical.entk.task.0414 with state SCHEDULED
+Synced task radical.entk.task.0414 with state SCHEDULED
+Syncing task radical.entk.task.0410 with state SCHEDULING
+Synced task radical.entk.task.0410 with state SCHEDULING
+Syncing task radical.entk.task.0410 with state SCHEDULED
+Synced task radical.entk.task.0410 with state SCHEDULED
+Syncing task radical.entk.task.0375 with state SCHEDULING
+Synced task radical.entk.task.0375 with state SCHEDULING
+Syncing task radical.entk.task.0375 with state SCHEDULED
+Synced task radical.entk.task.0375 with state SCHEDULED
+Syncing task radical.entk.task.0383 with state SCHEDULING
+Synced task radical.entk.task.0383 with state SCHEDULING
+Syncing task radical.entk.task.0383 with state SCHEDULED
+Synced task radical.entk.task.0383 with state SCHEDULED
+Syncing task radical.entk.task.0397 with state SCHEDULING
+Synced task radical.entk.task.0397 with state SCHEDULING
+Syncing task radical.entk.task.0397 with state SCHEDULED
+Synced task radical.entk.task.0397 with state SCHEDULED
+Syncing task radical.entk.task.0407 with state SCHEDULING
+Synced task radical.entk.task.0407 with state SCHEDULING
+Syncing task radical.entk.task.0407 with state SCHEDULED
+Synced task radical.entk.task.0407 with state SCHEDULED
+Syncing task radical.entk.task.0427 with state SCHEDULING
+Synced task radical.entk.task.0427 with state SCHEDULING
+Syncing task radical.entk.task.0427 with state SCHEDULED
+Synced task radical.entk.task.0427 with state SCHEDULED
+Syncing task radical.entk.task.0382 with state SCHEDULING
+Synced task radical.entk.task.0382 with state SCHEDULING
+Syncing task radical2017-12-14 10:37:08,914: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0382 to new state SCHEDULED successful
+2017-12-14 10:37:08,964: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0415 with state SCHEDULING
+2017-12-14 10:37:08,989: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0415 to new state SCHEDULING successful
+2017-12-14 10:37:09,037: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0415 with state SCHEDULED
+2017-12-14 10:37:09,065: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0415 to new state SCHEDULED successful
+2017-12-14 10:37:09,109: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0368 with state SCHEDULING
+2017-12-14 10:37:09,140: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0368 to new state SCHEDULING successful
+2017-12-14 10:37:09,181: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0368 with state SCHEDULED
+2017-12-14 10:37:09,214: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0368 to new state SCHEDULED successful
+2017-12-14 10:37:09,254: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0376 with state SCHEDULING
+2017-12-14 10:37:09,291: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0376 to new state SCHEDULING successful
+2017-12-14 10:37:09,326: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0376 with state SCHEDULED
+2017-12-14 10:37:09,346: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0376 to new state SCHEDULED successful
+2017-12-14 10:37:09,399: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0413 with state SCHEDULING
+2017-12-14 10:37:09,421: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0413 to new state SCHEDULING successful
+2017-12-14 10:37:09,471: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0413 with state SCHEDULED
+2017-12-14 10:37:09,497: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0413 to new state SCHEDULED successful
+2017-12-14 10:37:09,543: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0392 with state SCHEDULING
+2017-12-14 10:37:09,572: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0392 to new state SCHEDULING successful
+2017-12-14 10:37:09,615: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0392 with state SCHEDULED
+2017-12-14 10:37:09,647: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0392 to new state SCHEDULED successful
+2017-12-14 10:37:09,687: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0418 with state SCHEDULING
+2017-12-14 10:37:09,721: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0418 to new state SCHEDULING successful
+2017-12-14 10:37:09,759: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0418 with state SCHEDULED
+2017-12-14 10:37:09,795: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0418 to new state SCHEDULED successful
+2017-12-14 10:37:09,831: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0400 with state SCHEDULING
+2017-12-14 10:37:09,852: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0400 to new state SCHEDULING successful
+2017-12-14 10:37:09,906: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0400 with state SCHEDULED
+2017-12-14 10:37:09,928: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0400 to new state SCHEDULED successful
+2017-12-14 10:37:09,979: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0416 with state SCHEDULING
+2017-12-14 10:37:10,002: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0416 to new state SCHEDULING successful
+2017-12-14 10:37:10,058: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0416 with state SCHEDULED
+2017-12-14 10:37:10,080: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0416 to new state SCHEDULED successful
+2017-12-14 10:37:10,130: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0409 with state SCHEDULING
+2017-12-14 10:37:10,155: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0409 to new state SCHEDULING successful
+2017-12-14 10:37:10,203: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0409 with state SCHEDULED
+2017-12-14 10:37:10,231: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0409 to new state SCHEDULED successful
+2017-12-14 10:37:10,275: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0369 with state SCHEDULING
+2017-12-14 10:37:10,306: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0369 to new state SCHEDULING successful
+2017-12-14 10:37:10,347: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0369 with state SCHEDULED
+2017-12-14 10:37:10,382: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0369 to new state SCHEDULED successful
+2017-12-14 10:37:10,420: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0395 with state SCHEDULING
+2017-12-14 10:37:10,438: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0395 to new state SCHEDULING successful
+2017-12-14 10:37:10,492: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0395 with state SCHEDULED
+2017-12-14 10:37:10,513: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0395 to new state SCHEDULED successful
+2017-12-14 10:37:10,564: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0393 with state SCHEDULING
+2017-12-14 10:37:10,587: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0393 to new state SCHEDULING successful
+2017-12-14 10:37:10,637: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0393 with state SCHEDULED
+2017-12-14 10:37:10,664: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0393 to new state SCHEDULED successful
+2017-12-14 10:37:10,709: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0396 with state SCHEDULING
+2017-12-14 10:37:10,739: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0396 to new state SCHEDULING successful
+2017-12-14 10:37:10,782: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0396 with state SCHEDULED
+2017-12-14 10:37:10,817: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0396 to new state SCHEDULED successful
+2017-12-14 10:37:10,854: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0422 with state SCHEDULING
+2017-12-14 10:37:10,875: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0422 to new state SCHEDULING successful
+2017-12-14 10:37:10,926: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0422 with state SCHEDULED
+2017-12-14 10:37:10,951: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0422 to new state SCHEDULED successful
+2017-12-14 10:37:10,998: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0401 with state SCHEDULING
+2017-12-14 10:37:11,026: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0401 to new state SCHEDULING successful
+2017-12-14 10:37:11,070: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0401 with state SCHEDULED
+2017-12-14 10:37:11,105: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0401 to new state SCHEDULED successful
+2017-12-14 10:37:11,143: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0426 with state SCHEDULING
+2017-12-14 10:37:11,163: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0426 to new state SCHEDULING successful
+2017-12-14 10:37:11,215: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0426 with state SCHEDULED
+2017-12-14 10:37:11,237: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0426 to new state SCHEDULED successful
+2017-12-14 10:37:11,287: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0381 with state SCHEDULING
+2017-12-14 10:37:11,313: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0381 to new state SCHEDULING successful
+2017-12-14 10:37:11,360: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0381 with state SCHEDULED
+2017-12-14 10:37:11,389: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0381 to new state SCHEDULED successful
+2017-12-14 10:37:11,432: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0417 with state SCHEDULING
+2017-12-14 10:37:11,464: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0417 to new state SCHEDULING successful
+2017-12-14 10:37:11,504: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0417 with state SCHEDULED
+.entk.task.0382 with state SCHEDULED
+Synced task radical.entk.task.0382 with state SCHEDULED
+Syncing task radical.entk.task.0415 with state SCHEDULING
+Synced task radical.entk.task.0415 with state SCHEDULING
+Syncing task radical.entk.task.0415 with state SCHEDULED
+Synced task radical.entk.task.0415 with state SCHEDULED
+Syncing task radical.entk.task.0368 with state SCHEDULING
+Synced task radical.entk.task.0368 with state SCHEDULING
+Syncing task radical.entk.task.0368 with state SCHEDULED
+Synced task radical.entk.task.0368 with state SCHEDULED
+Syncing task radical.entk.task.0376 with state SCHEDULING
+Synced task radical.entk.task.0376 with state SCHEDULING
+Syncing task radical.entk.task.0376 with state SCHEDULED
+Synced task radical.entk.task.0376 with state SCHEDULED
+Syncing task radical.entk.task.0413 with state SCHEDULING
+Synced task radical.entk.task.0413 with state SCHEDULING
+Syncing task radical.entk.task.0413 with state SCHEDULED
+Synced task radical.entk.task.0413 with state SCHEDULED
+Syncing task radical.entk.task.0392 with state SCHEDULING
+Synced task radical.entk.task.0392 with state SCHEDULING
+Syncing task radical.entk.task.0392 with state SCHEDULED
+Synced task radical.entk.task.0392 with state SCHEDULED
+Syncing task radical.entk.task.0418 with state SCHEDULING
+Synced task radical.entk.task.0418 with state SCHEDULING
+Syncing task radical.entk.task.0418 with state SCHEDULED
+Synced task radical.entk.task.0418 with state SCHEDULED
+Syncing task radical.entk.task.0400 with state SCHEDULING
+Synced task radical.entk.task.0400 with state SCHEDULING
+Syncing task radical.entk.task.0400 with state SCHEDULED
+Synced task radical.entk.task.0400 with state SCHEDULED
+Syncing task radical.entk.task.0416 with state SCHEDULING
+Synced task radical.entk.task.0416 with state SCHEDULING
+Syncing task radical.entk.task.0416 with state SCHEDULED
+Synced task radical.entk.task.0416 with state SCHEDULED
+Syncing task radical.entk.task.0409 with state SCHEDULING
+Synced task radical.entk.task.0409 with state SCHEDULING
+Syncing task radical.entk.task.0409 with state SCHEDULED
+Synced task radical.entk.task.0409 with state SCHEDULED
+Syncing task radical.entk.task.0369 with state SCHEDULING
+Synced task radical.entk.task.0369 with state SCHEDULING
+Syncing task radical.entk.task.0369 with state SCHEDULED
+Synced task radical.entk.task.0369 with state SCHEDULED
+Syncing task radical.entk.task.0395 with state SCHEDULING
+Synced task radical.entk.task.0395 with state SCHEDULING
+Syncing task radical.entk.task.0395 with state SCHEDULED
+Synced task radical.entk.task.0395 with state SCHEDULED
+Syncing task radical.entk.task.0393 with state SCHEDULING
+Synced task radical.entk.task.0393 with state SCHEDULING
+Syncing task radical.entk.task.0393 with state SCHEDULED
+Synced task radical.entk.task.0393 with state SCHEDULED
+Syncing task radical.entk.task.0396 with state SCHEDULING
+Synced task radical.entk.task.0396 with state SCHEDULING
+Syncing task radical.entk.task.0396 with state SCHEDULED
+Synced task radical.entk.task.0396 with state SCHEDULED
+Syncing task radical.entk.task.0422 with state SCHEDULING
+Synced task radical.entk.task.0422 with state SCHEDULING
+Syncing task radical.entk.task.0422 with state SCHEDULED
+Synced task radical.entk.task.0422 with state SCHEDULED
+Syncing task radical.entk.task.0401 with state SCHEDULING
+Synced task radical.entk.task.0401 with state SCHEDULING
+Syncing task radical.entk.task.0401 with state SCHEDULED
+Synced task radical.entk.task.0401 with state SCHEDULED
+Syncing task radical.entk.task.0426 with state SCHEDULING
+Synced task radical.entk.task.0426 with state SCHEDULING
+Syncing task radical.entk.task.0426 with state SCHEDULED
+Synced task radical.entk.task.0426 with state SCHEDULED
+Syncing task radical.entk.task.0381 with state SCHEDULING
+Synced task radical.entk.task.0381 with state SCHEDULING
+Syncing task radical.entk.task.0381 with state SCHEDULED
+Synced task radical.entk.task.0381 with state SCHEDULED
+Syncing task radical.entk.task.0417 with state SCHEDULING
+Synced task radical.entk.task.0417 with state SCHEDULING
+Syncing task2017-12-14 10:37:11,541: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0417 to new state SCHEDULED successful
+2017-12-14 10:37:11,577: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0379 with state SCHEDULING
+2017-12-14 10:37:11,597: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0379 to new state SCHEDULING successful
+2017-12-14 10:37:11,649: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0379 with state SCHEDULED
+2017-12-14 10:37:11,670: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0379 to new state SCHEDULED successful
+2017-12-14 10:37:11,721: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0370 with state SCHEDULING
+2017-12-14 10:37:11,744: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0370 to new state SCHEDULING successful
+2017-12-14 10:37:11,794: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0370 with state SCHEDULED
+2017-12-14 10:37:11,820: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0370 to new state SCHEDULED successful
+2017-12-14 10:37:11,874: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0412 with state SCHEDULING
+2017-12-14 10:37:11,894: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0412 to new state SCHEDULING successful
+2017-12-14 10:37:11,948: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0412 with state SCHEDULED
+2017-12-14 10:37:11,974: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0412 to new state SCHEDULED successful
+2017-12-14 10:37:12,022: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0394 with state SCHEDULING
+2017-12-14 10:37:12,049: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0394 to new state SCHEDULING successful
+2017-12-14 10:37:12,095: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0394 with state SCHEDULED
+2017-12-14 10:37:12,124: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0394 to new state SCHEDULED successful
+2017-12-14 10:37:12,167: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0421 with state SCHEDULING
+2017-12-14 10:37:12,198: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0421 to new state SCHEDULING successful
+2017-12-14 10:37:12,240: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0421 with state SCHEDULED
+2017-12-14 10:37:12,272: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0421 to new state SCHEDULED successful
+2017-12-14 10:37:12,313: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0402 with state SCHEDULING
+2017-12-14 10:37:12,346: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0402 to new state SCHEDULING successful
+2017-12-14 10:37:12,385: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0402 with state SCHEDULED
+2017-12-14 10:37:12,422: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0402 to new state SCHEDULED successful
+2017-12-14 10:37:12,457: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0386 with state SCHEDULING
+2017-12-14 10:37:12,479: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0386 to new state SCHEDULING successful
+2017-12-14 10:37:12,530: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0386 with state SCHEDULED
+2017-12-14 10:37:12,555: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0386 to new state SCHEDULED successful
+2017-12-14 10:37:12,602: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0408 with state SCHEDULING
+2017-12-14 10:37:12,629: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0408 to new state SCHEDULING successful
+2017-12-14 10:37:12,674: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0408 with state SCHEDULED
+2017-12-14 10:37:12,705: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0408 to new state SCHEDULED successful
+2017-12-14 10:37:12,746: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0371 with state SCHEDULING
+2017-12-14 10:37:12,780: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0371 to new state SCHEDULING successful
+2017-12-14 10:37:12,818: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0371 with state SCHEDULED
+2017-12-14 10:37:12,838: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0371 to new state SCHEDULED successful
+2017-12-14 10:37:12,890: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0387 with state SCHEDULING
+2017-12-14 10:37:12,912: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0387 to new state SCHEDULING successful
+2017-12-14 10:37:12,962: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0387 with state SCHEDULED
+2017-12-14 10:37:12,989: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0387 to new state SCHEDULED successful
+2017-12-14 10:37:13,034: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0391 with state SCHEDULING
+2017-12-14 10:37:13,064: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0391 to new state SCHEDULING successful
+2017-12-14 10:37:13,106: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0391 with state SCHEDULED
+2017-12-14 10:37:13,140: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0391 to new state SCHEDULED successful
+2017-12-14 10:37:13,178: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0403 with state SCHEDULING
+2017-12-14 10:37:13,215: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0403 to new state SCHEDULING successful
+2017-12-14 10:37:13,251: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0403 with state SCHEDULED
+2017-12-14 10:37:13,273: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0403 to new state SCHEDULED successful
+2017-12-14 10:37:13,323: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0380 with state SCHEDULING
+2017-12-14 10:37:13,348: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0380 to new state SCHEDULING successful
+2017-12-14 10:37:13,395: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0380 with state SCHEDULED
+2017-12-14 10:37:13,423: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0380 to new state SCHEDULED successful
+2017-12-14 10:37:13,468: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0429 with state SCHEDULING
+2017-12-14 10:37:13,498: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0429 to new state SCHEDULING successful
+2017-12-14 10:37:13,540: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0429 with state SCHEDULED
+2017-12-14 10:37:13,574: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0429 to new state SCHEDULED successful
+2017-12-14 10:37:13,612: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0419 with state SCHEDULING
+2017-12-14 10:37:13,649: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0419 to new state SCHEDULING successful
+2017-12-14 10:37:13,685: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0419 with state SCHEDULED
+2017-12-14 10:37:13,706: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0419 to new state SCHEDULED successful
+2017-12-14 10:37:13,757: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0378 with state SCHEDULING
+2017-12-14 10:37:13,780: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0378 to new state SCHEDULING successful
+2017-12-14 10:37:13,830: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0378 with state SCHEDULED
+2017-12-14 10:37:13,856: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0378 to new state SCHEDULED successful
+2017-12-14 10:37:13,902: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0372 with state SCHEDULING
+2017-12-14 10:37:13,930: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0372 to new state SCHEDULING successful
+2017-12-14 10:37:13,975: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0372 with state SCHEDULED
+2017-12-14 10:37:14,006: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0372 to new state SCHEDULED successful
+2017-12-14 10:37:14,047: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0411 with state SCHEDULING
+2017-12-14 10:37:14,080: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0411 to new state SCHEDULING successful
+2017-12-14 10:37:14,119: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0411 with state SCHEDULED
+ radical.entk.task.0417 with state SCHEDULED
+Synced task radical.entk.task.0417 with state SCHEDULED
+Syncing task radical.entk.task.0379 with state SCHEDULING
+Synced task radical.entk.task.0379 with state SCHEDULING
+Syncing task radical.entk.task.0379 with state SCHEDULED
+Synced task radical.entk.task.0379 with state SCHEDULED
+Syncing task radical.entk.task.0370 with state SCHEDULING
+Synced task radical.entk.task.0370 with state SCHEDULING
+Syncing task radical.entk.task.0370 with state SCHEDULED
+Synced task radical.entk.task.0370 with state SCHEDULED
+Syncing task radical.entk.task.0412 with state SCHEDULING
+Synced task radical.entk.task.0412 with state SCHEDULING
+Syncing task radical.entk.task.0412 with state SCHEDULED
+Synced task radical.entk.task.0412 with state SCHEDULED
+Syncing task radical.entk.task.0394 with state SCHEDULING
+Synced task radical.entk.task.0394 with state SCHEDULING
+Syncing task radical.entk.task.0394 with state SCHEDULED
+Synced task radical.entk.task.0394 with state SCHEDULED
+Syncing task radical.entk.task.0421 with state SCHEDULING
+Synced task radical.entk.task.0421 with state SCHEDULING
+Syncing task radical.entk.task.0421 with state SCHEDULED
+Synced task radical.entk.task.0421 with state SCHEDULED
+Syncing task radical.entk.task.0402 with state SCHEDULING
+Synced task radical.entk.task.0402 with state SCHEDULING
+Syncing task radical.entk.task.0402 with state SCHEDULED
+Synced task radical.entk.task.0402 with state SCHEDULED
+Syncing task radical.entk.task.0386 with state SCHEDULING
+Synced task radical.entk.task.0386 with state SCHEDULING
+Syncing task radical.entk.task.0386 with state SCHEDULED
+Synced task radical.entk.task.0386 with state SCHEDULED
+Syncing task radical.entk.task.0408 with state SCHEDULING
+Synced task radical.entk.task.0408 with state SCHEDULING
+Syncing task radical.entk.task.0408 with state SCHEDULED
+Synced task radical.entk.task.0408 with state SCHEDULED
+Syncing task radical.entk.task.0371 with state SCHEDULING
+Synced task radical.entk.task.0371 with state SCHEDULING
+Syncing task radical.entk.task.0371 with state SCHEDULED
+Synced task radical.entk.task.0371 with state SCHEDULED
+Syncing task radical.entk.task.0387 with state SCHEDULING
+Synced task radical.entk.task.0387 with state SCHEDULING
+Syncing task radical.entk.task.0387 with state SCHEDULED
+Synced task radical.entk.task.0387 with state SCHEDULED
+Syncing task radical.entk.task.0391 with state SCHEDULING
+Synced task radical.entk.task.0391 with state SCHEDULING
+Syncing task radical.entk.task.0391 with state SCHEDULED
+Synced task radical.entk.task.0391 with state SCHEDULED
+Syncing task radical.entk.task.0403 with state SCHEDULING
+Synced task radical.entk.task.0403 with state SCHEDULING
+Syncing task radical.entk.task.0403 with state SCHEDULED
+Synced task radical.entk.task.0403 with state SCHEDULED
+Syncing task radical.entk.task.0380 with state SCHEDULING
+Synced task radical.entk.task.0380 with state SCHEDULING
+Syncing task radical.entk.task.0380 with state SCHEDULED
+Synced task radical.entk.task.0380 with state SCHEDULED
+Syncing task radical.entk.task.0429 with state SCHEDULING
+Synced task radical.entk.task.0429 with state SCHEDULING
+Syncing task radical.entk.task.0429 with state SCHEDULED
+Synced task radical.entk.task.0429 with state SCHEDULED
+Syncing task radical.entk.task.0419 with state SCHEDULING
+Synced task radical.entk.task.0419 with state SCHEDULING
+Syncing task radical.entk.task.0419 with state SCHEDULED
+Synced task radical.entk.task.0419 with state SCHEDULED
+Syncing task radical.entk.task.0378 with state SCHEDULING
+Synced task radical.entk.task.0378 with state SCHEDULING
+Syncing task radical.entk.task.0378 with state SCHEDULED
+Synced task radical.entk.task.0378 with state SCHEDULED
+Syncing task radical.entk.task.0372 with state SCHEDULING
+Synced task radical.entk.task.0372 with state SCHEDULING
+Syncing task radical.entk.task.0372 with state SCHEDULED
+Synced task radical.entk.task.0372 with state SCHEDULED
+Syncing task radical.entk.task.0411 with state SCHEDULING
+Synced task radical.entk.task.0411 with state SCHEDULING
+Sync2017-12-14 10:37:14,138: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0411 to new state SCHEDULED successful
+2017-12-14 10:37:14,191: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0388 with state SCHEDULING
+2017-12-14 10:37:14,212: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0388 to new state SCHEDULING successful
+2017-12-14 10:37:14,263: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0388 with state SCHEDULED
+2017-12-14 10:37:14,287: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0388 to new state SCHEDULED successful
+2017-12-14 10:37:14,335: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0420 with state SCHEDULING
+2017-12-14 10:37:14,362: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0420 to new state SCHEDULING successful
+2017-12-14 10:37:14,407: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0420 with state SCHEDULED
+2017-12-14 10:37:14,436: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0420 to new state SCHEDULED successful
+2017-12-14 10:37:14,480: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0404 with state SCHEDULING
+2017-12-14 10:37:14,511: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0404 to new state SCHEDULING successful
+2017-12-14 10:37:14,552: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0404 with state SCHEDULED
+2017-12-14 10:37:14,588: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0404 to new state SCHEDULED successful
+2017-12-14 10:37:14,624: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0425 with state SCHEDULING
+2017-12-14 10:37:14,643: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0425 to new state SCHEDULING successful
+2017-12-14 10:37:14,697: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0425 with state SCHEDULED
+2017-12-14 10:37:14,720: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0425 to new state SCHEDULED successful
+2017-12-14 10:37:14,769: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0430 with state SCHEDULING
+2017-12-14 10:37:14,795: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0430 to new state SCHEDULING successful
+2017-12-14 10:37:14,841: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0430 with state SCHEDULED
+2017-12-14 10:37:14,871: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0430 to new state SCHEDULED successful
+2017-12-14 10:37:14,913: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0385 with state SCHEDULING
+2017-12-14 10:37:14,946: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0385 to new state SCHEDULING successful
+2017-12-14 10:37:14,985: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0385 with state SCHEDULED
+2017-12-14 10:37:15,022: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0385 to new state SCHEDULED successful
+2017-12-14 10:37:15,057: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0399 with state SCHEDULING
+2017-12-14 10:37:15,078: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0399 to new state SCHEDULING successful
+2017-12-14 10:37:15,129: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0399 with state SCHEDULED
+2017-12-14 10:37:15,154: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0399 to new state SCHEDULED successful
+2017-12-14 10:37:15,202: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0373 with state SCHEDULING
+2017-12-14 10:37:15,229: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0373 to new state SCHEDULING successful
+2017-12-14 10:37:15,275: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0373 with state SCHEDULED
+2017-12-14 10:37:15,289: radical.entk.task_manager: MainProcess                     : MainThread     : INFO    : Task manager process closed
+2017-12-14 10:37:15,289: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    : Restarting task manager process from AppManager
+2017-12-14 10:37:15,290: radical.entk.task_manager: MainProcess                     : MainThread     : WARNING : tmgr process already running, but attempted to restart!
+2017-12-14 10:37:15,290: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    : Restarting heartbeat thread from AppManager
+2017-12-14 10:37:15,290: radical.entk.task_manager: MainProcess                     : MainThread     : WARNING : Heartbeat thread already running, but attempted to restart!
+2017-12-14 10:37:15,290: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    : Terminating heartbeat thread from AppManager
+2017-12-14 10:37:15,290: radical.entk.task_manager: MainProcess                     : MainThread     : INFO    : Hearbeat thread terminated
+2017-12-14 10:37:15,291: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    : Restarting task manager process from AppManager
+2017-12-14 10:37:15,291: radical.entk.task_manager: MainProcess                     : MainThread     : WARNING : tmgr process already running, but attempted to restart!
+2017-12-14 10:37:15,291: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    : Restarting heartbeat thread from AppManager
+2017-12-14 10:37:15,291: radical.entk.task_manager: MainProcess                     : MainThread     : WARNING : Heartbeat thread already running, but attempted to restart!
+2017-12-14 10:37:15,291: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    : Terminating tmgr process from AppManager
+2017-12-14 10:37:15,291: radical.entk.task_manager: MainProcess                     : MainThread     : INFO    : Task manager process closed
+2017-12-14 10:37:15,291: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    : Restarting task manager process from AppManager
+2017-12-14 10:37:15,291: radical.entk.task_manager: MainProcess                     : MainThread     : WARNING : tmgr process already running, but attempted to restart!
+2017-12-14 10:37:15,291: radical.entk.appmanager: MainProcess                     : MainThread     : INFO    : Restarting heartbeat thread from AppManager
+2017-12-14 10:37:15,292: radical.entk.task_manager: MainProcess                     : MainThread     : WARNING : Heartbeat thread already running, but attempted to restart!
+2017-12-14 10:37:15,305: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0373 to new state SCHEDULED successful
+2017-12-14 10:37:15,354: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0367 with state SCHEDULING
+2017-12-14 10:37:15,378: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0367 to new state SCHEDULING successful
+2017-12-14 10:37:15,433: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0367 with state SCHEDULED
+2017-12-14 10:37:15,460: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0367 to new state SCHEDULED successful
+2017-12-14 10:37:15,508: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0389 with state SCHEDULING
+2017-12-14 10:37:15,535: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0389 to new state SCHEDULING successful
+2017-12-14 10:37:15,589: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0389 with state SCHEDULED
+2017-12-14 10:37:15,621: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0389 to new state SCHEDULED successful
+2017-12-14 10:37:15,675: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0398 with state SCHEDULING
+2017-12-14 10:37:15,703: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0398 to new state SCHEDULING successful
+2017-12-14 10:37:15,757: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0398 with state SCHEDULED
+2017-12-14 10:37:15,791: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0398 to new state SCHEDULED successful
+2017-12-14 10:37:15,843: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0405 with state SCHEDULING
+2017-12-14 10:37:15,865: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0405 to new state SCHEDULING successful
+2017-12-14 10:37:15,919: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0405 with state SCHEDULED
+2017-12-14 10:37:15,940: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0405 to new state SCHEDULED successful
+2017-12-14 10:37:15,995: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0428 with state SCHEDULING
+2017-12-14 10:37:16,016: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0428 to new state SCHEDULING successful
+2017-12-14 10:37:16,072: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0428 with state SCHEDULED
+2017-12-14 10:37:16,108: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0428 to new state SCHEDULED successful
+2017-12-14 10:37:16,145: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0366 with state SCHEDULING
+2017-12-14 10:37:16,165: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0366 to new state SCHEDULING successful
+2017-12-14 10:37:16,219: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0366 with state SCHEDULED
+2017-12-14 10:37:16,238: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0366 to new state SCHEDULED successful
+2017-12-14 10:37:16,299: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0377 with state SCHEDULING
+2017-12-14 10:37:16,333: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0377 to new state SCHEDULING successful
+2017-12-14 10:37:16,375: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0377 with state SCHEDULED
+2017-12-14 10:37:16,407: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0377 to new state SCHEDULED successful
+2017-12-14 10:37:16,452: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0374 with state SCHEDULING
+2017-12-14 10:37:16,482: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0374 to new state SCHEDULING successful
+2017-12-14 10:37:16,526: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0374 with state SCHEDULED
+2017-12-14 10:37:16,558: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0374 to new state SCHEDULED successful
+2017-12-14 10:37:16,603: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0390 with state SCHEDULING
+2017-12-14 10:37:16,632: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0390 to new state SCHEDULING successful
+2017-12-14 10:37:16,682: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0390 with state SCHEDULED
+2017-12-14 10:37:16,712: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0390 to new state SCHEDULED successful
+2017-12-14 10:37:16,757: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0423 with state SCHEDULING
+ing task radical.entk.task.0411 with state SCHEDULED
+Synced task radical.entk.task.0411 with state SCHEDULED
+Syncing task radical.entk.task.0388 with state SCHEDULING
+Synced task radical.entk.task.0388 with state SCHEDULING
+Syncing task radical.entk.task.0388 with state SCHEDULED
+Synced task radical.entk.task.0388 with state SCHEDULED
+Syncing task radical.entk.task.0420 with state SCHEDULING
+Synced task radical.entk.task.0420 with state SCHEDULING
+Syncing task radical.entk.task.0420 with state SCHEDULED
+Synced task radical.entk.task.0420 with state SCHEDULED
+Syncing task radical.entk.task.0404 with state SCHEDULING
+Synced task radical.entk.task.0404 with state SCHEDULING
+Syncing task radical.entk.task.0404 with state SCHEDULED
+Synced task radical.entk.task.0404 with state SCHEDULED
+Syncing task radical.entk.task.0425 with state SCHEDULING
+Synced task radical.entk.task.0425 with state SCHEDULING
+Syncing task radical.entk.task.0425 with state SCHEDULED
+Synced task radical.entk.task.0425 with state SCHEDULED
+Syncing task radical.entk.task.0430 with state SCHEDULING
+Synced task radical.entk.task.0430 with state SCHEDULING
+Syncing task radical.entk.task.0430 with state SCHEDULED
+Synced task radical.entk.task.0430 with state SCHEDULED
+Syncing task radical.entk.task.0385 with state SCHEDULING
+Synced task radical.entk.task.0385 with state SCHEDULING
+Syncing task radical.entk.task.0385 with state SCHEDULED
+Synced task radical.entk.task.0385 with state SCHEDULED
+Syncing task radical.entk.task.0399 with state SCHEDULING
+Synced task radical.entk.task.0399 with state SCHEDULING
+Syncing task radical.entk.task.0399 with state SCHEDULED
+Synced task radical.entk.task.0399 with state SCHEDULED
+Syncing task radical.entk.task.0373 with state SCHEDULING
+Synced task radical.entk.task.0373 with state SCHEDULING
+Syncing task radical.entk.task.0373 with state SCHEDULED
+Synced task radical.entk.task.0373 with state SCHEDULED
+Syncing task radical.entk.task.0367 with state SCHEDULING
+Synced task radical.entk.task.0367 with state SCHEDULING
+Syncing task radical.entk.task.0367 with state SCHEDULED
+Synced task radical.entk.task.0367 with state SCHEDULED
+Syncing task radical.entk.task.0389 with state SCHEDULING
+Synced task radical.entk.task.0389 with state SCHEDULING
+Syncing task radical.entk.task.0389 with state SCHEDULED
+Synced task radical.entk.task.0389 with state SCHEDULED
+Syncing task radical.entk.task.0398 with state SCHEDULING
+Synced task radical.entk.task.0398 with state SCHEDULING
+Syncing task radical.entk.task.0398 with state SCHEDULED
+Synced task radical.entk.task.0398 with state SCHEDULED
+Syncing task radical.entk.task.0405 with state SCHEDULING
+Synced task radical.entk.task.0405 with state SCHEDULING
+Syncing task radical.entk.task.0405 with state SCHEDULED
+Synced task radical.entk.task.0405 with state SCHEDULED
+Syncing task radical.entk.task.0428 with state SCHEDULING
+Synced task radical.entk.task.0428 with state SCHEDULING
+Syncing task radical.entk.task.0428 with state SCHEDULED
+Synced task radical.entk.task.0428 with state SCHEDULED
+Syncing task radical.entk.task.0366 with state SCHEDULING
+Synced task radical.entk.task.0366 with state SCHEDULING
+Syncing task radical.entk.task.0366 with state SCHEDULED
+Synced task radical.entk.task.0366 with state SCHEDULED
+Syncing task radical.entk.task.0377 with state SCHEDULING
+Synced task radical.entk.task.0377 with state SCHEDULING
+Syncing task radical.entk.task.0377 with state SCHEDULED
+Synced task radical.entk.task.0377 with state SCHEDULED
+Syncing task radical.entk.task.0374 with state SCHEDULING
+Synced task radical.entk.task.0374 with state SCHEDULING
+Syncing task radical.entk.task.0374 with state SCHEDULED
+Synced task radical.entk.task.0374 with state SCHEDULED
+Syncing task radical.entk.task.0390 with state SCHEDULING
+Synced task radical.entk.task.0390 with state SCHEDULING
+Syncing task radical.entk.task.0390 with state SCHEDULED
+Synced task radical.entk.task.0390 with state SCHEDULED
+Syncing task radical.entk.task.0423 with state SCHEDULING
+Synced task radical.entk.task.0423 with state SCHEDUL2017-12-14 10:37:16,791: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0423 to new state SCHEDULING successful
+2017-12-14 10:37:16,840: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.task.0423 with state SCHEDULED
+2017-12-14 10:37:16,866: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.task.0423 to new state SCHEDULED successful
+2017-12-14 10:37:16,914: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Received radical.entk.stage.0010 with state SCHEDULED
+2017-12-14 10:37:16,914: radical.entk.appmanager: MainProcess                     : synchronizer-thread: INFO    : Found parent pipeline: radical.entk.pipeline.0002
+2017-12-14 10:37:16,941: radical.entk.wfprocessor: wfprocessor                     : enqueue-thread : INFO    : Transition of radical.entk.stage.0010 to new state SCHEDULED successful
+2017-12-14 12:47:04,543: radical.entk.resource_manager: MainProcess                     : pmgr.0000.subscriber._state_sub_cb: INFO    : Pilot pilot.0000 state: FAILED
+2017-12-14 12:47:04,544: radical.entk.resource_manager: MainProcess                     : pmgr.0000.subscriber._state_sub_cb: ERROR   : Pilot has failed
+2017-12-14 12:47:28,006: radical.entk.wfprocessor: wfprocessor                     : dequeue-thread : ERROR   : Unable to receive message from completed queue: (404, "NOT_FOUND - no queue 'completedq-1' in vhost '/'")
+2017-12-14 12:47:28,018: radical.entk.wfprocessor: wfprocessor                     : dequeue-thread : ERROR   : Error in dequeue-thread: (404, "NOT_FOUND - no queue 'completedq-1' in vhost '/'")
+Exception in thread dequeue-thread:
+Traceback (most recent call last):
+  File "/Users/kristof.farkas-pall/anaconda2/lib/python2.7/threading.py", line 801, in __bootstrap_inner
+    self.run()
+  File "/Users/kristof.farkas-pall/anaconda2/lib/python2.7/threading.py", line 754, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File "/Users/kristof.farkas-pall/anaconda2/lib/python2.7/site-packages/radical/entk/appman/wfprocessor.py", line 486, in _dequeue
+    raise Error(text=ex)
+Error: Error: (404, "NOT_FOUND - no queue 'completedq-1' in vhost '/'")
+
+2017-12-14 12:47:28,172: radical.entk.wfprocessor: wfprocessor                     : MainThread     : INFO    : Starting dequeue-thread
+2017-12-14 12:47:28,185: radical.entk.wfprocessor: wfprocessor                     : dequeue-thread : INFO    : Dequeue thread started
+2017-12-14 12:47:28,203: radical.entk.appmanager: MainProcess                     : synchronizer-thread: ERROR   : Unknown error in synchronizer: (404, "NOT_FOUND - no queue 'cb-to-sync' in vhost '/'"). 
+ Terminating thread
+Exception in thread synchronizer-thread:
+Traceback (most recent call last):
+  File "/Users/kristof.farkas-pall/anaconda2/lib/python2.7/threading.py", line 801, in __bootstrap_inner
+    self.run()
+  File "/Users/kristof.farkas-pall/anaconda2/lib/python2.7/threading.py", line 754, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File "/Users/kristof.farkas-pall/anaconda2/lib/python2.7/site-packages/radical/entk/appman/appmanager.py", line 869, in _synchronizer
+    raise Error(text=ex)
+Error: Error: (404, "NOT_FOUND - no queue 'cb-to-sync' in vhost '/'")
+

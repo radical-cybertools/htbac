@@ -1,0 +1,4 @@
+#time,event,comp,thread,uid,state,msg
+1513185488.5268,sync_abs,pmgr.0000.launching.0,MainThread,,,julian.chem.ucl.ac.uk:127.0.0.1:1513185488.52:1513185488.51:ntp
+1513185488.5596,END,pmgr.0000.launching.0,MainThread,,,
+1513185488.7035,component_init,pmgr.0000.launching.0,MainThread,,,

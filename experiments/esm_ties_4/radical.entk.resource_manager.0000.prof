@@ -1,0 +1,12 @@
+#time,event,comp,thread,uid,state,msg
+1513185485.3280,sync_abs,radical.entk.resource_manager.0000,MainThread,,,julian.chem.ucl.ac.uk:127.0.0.1:1513185485.32:1513185485.31:ntp
+1513185485.3282,create rmgr obj,radical.entk.resource_manager.0000,MainThread,radical.entk.resource_manager.0000,,
+1513185485.3284,validating rdesc,radical.entk.resource_manager.0000,MainThread,radical.entk.resource_manager.0000,,
+1513185485.3284,rdesc validated,radical.entk.resource_manager.0000,MainThread,radical.entk.resource_manager.0000,,
+1513185485.3285,populating rmgr,radical.entk.resource_manager.0000,MainThread,radical.entk.resource_manager.0000,,
+1513185485.3286,rmgr populated,radical.entk.resource_manager.0000,MainThread,radical.entk.resource_manager.0000,,
+1513185485.3286,rmgr obj created,radical.entk.resource_manager.0000,MainThread,radical.entk.resource_manager.0000,,
+1513185486.0470,creating rreq,radical.entk.resource_manager.0000,MainThread,radical.entk.resource_manager.0000,,
+1513185488.8805,rreq created,radical.entk.resource_manager.0000,MainThread,radical.entk.resource_manager.0000,,
+1513185567.4255,rreq submitted,radical.entk.resource_manager.0000,MainThread,radical.entk.resource_manager.0000,,
+1513250294.4678,resource active,radical.entk.resource_manager.0000,MainThread,radical.entk.resource_manager.0000,,

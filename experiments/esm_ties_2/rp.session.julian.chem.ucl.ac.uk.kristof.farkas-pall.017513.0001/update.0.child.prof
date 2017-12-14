@@ -1,0 +1,18 @@
+#time,event,comp,thread,uid,state,msg
+1513184970.5674,sync_abs,update.0.child,MainThread,,,julian.chem.ucl.ac.uk:127.0.0.1:1513184970.56:1513184970.56:ntp
+1513184971.0040,component_init,update.0.child,MainThread,,,
+1513184979.0068,update_request,update.0.child,update.0.child.subscriber._state_cb,pilot.0000,,PMGR_LAUNCHING_PENDING
+1513184979.0830,update_pushed,update.0.child,update.0.child.subscriber._state_cb,,,bulk size: 1
+1513184979.0830,update_pushed,update.0.child,update.0.child.subscriber._state_cb,pilot.0000,,PMGR_LAUNCHING_PENDING
+1513184979.0834,update_request,update.0.child,update.0.child.subscriber._state_cb,pilot.0000,,PMGR_LAUNCHING
+1513184980.6625,update_pushed,update.0.child,update.0.child.idler._idle_cb,,,bulk size: 1
+1513184980.6625,update_pushed,update.0.child,update.0.child.idler._idle_cb,pilot.0000,,PMGR_LAUNCHING
+1513185021.4563,update_request,update.0.child,update.0.child.subscriber._state_cb,pilot.0000,,PMGR_ACTIVE_PENDING
+1513185021.5340,update_pushed,update.0.child,update.0.child.subscriber._state_cb,,,bulk size: 1
+1513185021.5340,update_pushed,update.0.child,update.0.child.subscriber._state_cb,pilot.0000,,PMGR_ACTIVE_PENDING
+1513247807.8558,update_request,update.0.child,update.0.child.subscriber._state_cb,pilot.0000,,PMGR_ACTIVE
+1513247807.9318,update_pushed,update.0.child,update.0.child.subscriber._state_cb,,,bulk size: 1
+1513247807.9318,update_pushed,update.0.child,update.0.child.subscriber._state_cb,pilot.0000,,PMGR_ACTIVE
+1513255624.5336,update_request,update.0.child,update.0.child.subscriber._state_cb,pilot.0000,,FAILED
+1513255624.6105,update_pushed,update.0.child,update.0.child.subscriber._state_cb,,,bulk size: 1
+1513255624.6105,update_pushed,update.0.child,update.0.child.subscriber._state_cb,pilot.0000,,FAILED
