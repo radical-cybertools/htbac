@@ -7,3 +7,7 @@
 1513250294.5480,creating heartbeat thread,radical.entk.task_manager.0000-obj,MainThread,radical.entk.task_manager.0000,,
 1513250294.5484,starting heartbeat thread,radical.entk.task_manager.0000-obj,MainThread,radical.entk.task_manager.0000,,
 1513250294.5489,heartbeat thread started,radical.entk.task_manager.0000-obj,heartbeat,radical.entk.task_manager.0000,,
+1513307187.9638,tmgr process terminated,radical.entk.task_manager.0000-obj,MainThread,radical.entk.task_manager.0000,,
+1513307188.5767,terminating hearbeat thread,radical.entk.task_manager.0000-obj,heartbeat,radical.entk.task_manager.0000,,
+1513307188.5773,hearbeat thread terminated,radical.entk.task_manager.0000-obj,MainThread,radical.entk.task_manager.0000,,
+1513307188.5774,END,radical.entk.task_manager.0000-obj,MainThread,,,

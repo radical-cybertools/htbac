@@ -115,3 +115,6 @@
 1513185566.2000,staging_in_stop,rp.session.julian.chem.ucl.ac.uk.kristof.farkas-pall.017513.0004,MainThread,pilot.0000,,sd.0054
 1513185566.2001,staging_in_start,rp.session.julian.chem.ucl.ac.uk.kristof.farkas-pall.017513.0004,MainThread,pilot.0000,,sd.0055
 1513185567.4254,staging_in_stop,rp.session.julian.chem.ucl.ac.uk.kristof.farkas-pall.017513.0004,MainThread,pilot.0000,,sd.0055
+1513307202.4807,session_close,rp.session.julian.chem.ucl.ac.uk.kristof.farkas-pall.017513.0004,MainThread,rp.session.julian.chem.ucl.ac.uk.kristof.farkas-pall.017513.0004,,
+1513307209.5317,session_stop,rp.session.julian.chem.ucl.ac.uk.kristof.farkas-pall.017513.0004,MainThread,rp.session.julian.chem.ucl.ac.uk.kristof.farkas-pall.017513.0004,,
+1513307209.5317,END,rp.session.julian.chem.ucl.ac.uk.kristof.farkas-pall.017513.0004,MainThread,,,

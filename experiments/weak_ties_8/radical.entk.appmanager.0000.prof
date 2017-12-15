@@ -1,0 +1,11 @@
+#time,event,comp,thread,uid,state,msg
+1513280688.3924,sync_abs,radical.entk.appmanager.0000,MainThread,,,julian.chem.ucl.ac.uk:127.0.0.1:1513280688.39:1513280688.39:ntp
+1513280688.3927,create amgr obj,radical.entk.appmanager.0000,MainThread,radical.entk.appmanager.0000,,
+1513280688.3929,amgr obj created,radical.entk.appmanager.0000,MainThread,radical.entk.appmanager.0000,,
+1513280688.3930,assigning workflow,radical.entk.appmanager.0000,MainThread,radical.entk.appmanager.0000,,
+1513280688.3930,validating workflow,radical.entk.appmanager.0000,MainThread,radical.entk.appmanager.0000,,
+1513280688.3930,workflow validated,radical.entk.appmanager.0000,MainThread,radical.entk.appmanager.0000,,
+1513280688.3932,amgr run started,radical.entk.appmanager.0000,MainThread,radical.entk.appmanager.0000,,
+1513280688.3933,init mqs setup,radical.entk.appmanager.0000,MainThread,radical.entk.appmanager.0000,,
+1513280689.0872,mqs setup done,radical.entk.appmanager.0000,MainThread,radical.entk.appmanager.0000,,
+1513280689.0874,init rreq submission,radical.entk.appmanager.0000,MainThread,radical.entk.appmanager.0000,,

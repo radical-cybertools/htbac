@@ -10,3 +10,6 @@
 1513185488.8805,rreq created,radical.entk.resource_manager.0000,MainThread,radical.entk.resource_manager.0000,,
 1513185567.4255,rreq submitted,radical.entk.resource_manager.0000,MainThread,radical.entk.resource_manager.0000,,
 1513250294.4678,resource active,radical.entk.resource_manager.0000,MainThread,radical.entk.resource_manager.0000,,
+1513307188.5779,canceling resource allocation,radical.entk.resource_manager.0000,MainThread,radical.entk.resource_manager.0000,,
+1513307268.4724,resource allocation cancelled,radical.entk.resource_manager.0000,MainThread,radical.entk.resource_manager.0000,,
+1513307268.4980,END,radical.entk.resource_manager.0000,MainThread,,,
