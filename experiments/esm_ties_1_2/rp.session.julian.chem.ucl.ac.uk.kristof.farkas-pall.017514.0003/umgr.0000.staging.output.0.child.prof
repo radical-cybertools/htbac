@@ -541,3 +541,5 @@
 1513252891.9030,drop,umgr.0000.staging.output.0.child,MainThread,unit.000087,DONE,
 1513252891.9030,drop,umgr.0000.staging.output.0.child,MainThread,unit.000088,DONE,
 1513252891.9030,drop,umgr.0000.staging.output.0.child,MainThread,unit.000089,DONE,
+1513341525.4599,component_final,umgr.0000.staging.output.0.child,MainThread,,,
+1513341525.4600,END,umgr.0000.staging.output.0.child,MainThread,,,

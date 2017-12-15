@@ -4,3 +4,5 @@
 1513250294.5252,wfp obj created,radical.entk.wfprocessor.0000-obj,MainThread,radical.entk.wfprocessor.0000,,
 1513250294.5254,creating wfp process,radical.entk.wfprocessor.0000-obj,MainThread,radical.entk.wfprocessor.0000,,
 1513250294.5261,starting wfp process,radical.entk.wfprocessor.0000-obj,MainThread,radical.entk.wfprocessor.0000,,
+1513307171.7884,wfp process terminated,radical.entk.wfprocessor.0000-obj,MainThread,radical.entk.wfprocessor.0000,,
+1513307171.7886,END,radical.entk.wfprocessor.0000-obj,MainThread,,,

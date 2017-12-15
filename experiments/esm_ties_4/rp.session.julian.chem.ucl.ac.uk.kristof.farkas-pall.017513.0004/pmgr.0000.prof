@@ -10,3 +10,8 @@
 1513185525.5642,advance,pmgr.0000,pmgr.0000.subscriber._state_sub_cb,pilot.0000,PMGR_ACTIVE_PENDING,
 1513250294.4129,advance,pmgr.0000,pmgr.0000.idler._state_pull_cb,pilot.0000,PMGR_ACTIVE,
 1513250294.4174,publish,pmgr.0000,pmgr.0000.idler._state_pull_cb,pilot.0000,PMGR_ACTIVE,
+1513307202.4319,advance,pmgr.0000,pmgr.0000.idler._state_pull_cb,pilot.0000,CANCELED,
+1513307202.4325,publish,pmgr.0000,pmgr.0000.idler._state_pull_cb,pilot.0000,CANCELED,
+1513307202.9161,flush,pmgr.0000,MainThread,,,
+1513307205.3735,component_final,pmgr.0000,MainThread,,,
+1513307205.3735,END,pmgr.0000,MainThread,,,

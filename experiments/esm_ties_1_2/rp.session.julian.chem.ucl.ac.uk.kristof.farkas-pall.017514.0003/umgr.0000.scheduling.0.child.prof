@@ -541,3 +541,5 @@
 1513252857.5924,advance,umgr.0000.scheduling.0.child,MainThread,unit.000089,UMGR_STAGING_INPUT_PENDING,
 1513252857.5928,publish,umgr.0000.scheduling.0.child,MainThread,unit.000089,UMGR_STAGING_INPUT_PENDING,
 1513252857.5932,put,umgr.0000.scheduling.0.child,MainThread,unit.000089,UMGR_STAGING_INPUT_PENDING,umgr.staging.input.queue.input.0000
+1513341525.0958,component_final,umgr.0000.scheduling.0.child,MainThread,,,
+1513341525.0959,END,umgr.0000.scheduling.0.child,MainThread,,,

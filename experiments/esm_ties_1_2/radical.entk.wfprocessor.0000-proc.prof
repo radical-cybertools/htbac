@@ -790,3 +790,6 @@
 1513252958.6371,transition,radical.entk.wfprocessor.0000-proc,dequeue-thread,radical.entk.task.0039,DONE,radical.entk.stage.0000
 1513252958.6376,publishing obj with state DONE for sync,radical.entk.wfprocessor.0000-proc,dequeue-thread,radical.entk.task.0039,,radical.entk.stage.0000
 1513252958.7342,obj with state DONE synchronized,radical.entk.wfprocessor.0000-proc,dequeue-thread,radical.entk.task.0039,,radical.entk.stage.0000
+1513341508.6340,creating dequeue-thread,radical.entk.wfprocessor.0000-proc,MainThread,radical.entk.wfprocessor.0000,,
+1513341508.6348,starting dequeue-thread,radical.entk.wfprocessor.0000-proc,MainThread,radical.entk.wfprocessor.0000,,
+1513341508.6452,dequeue-thread started,radical.entk.wfprocessor.0000-proc,dequeue-thread,radical.entk.wfprocessor.0000,,

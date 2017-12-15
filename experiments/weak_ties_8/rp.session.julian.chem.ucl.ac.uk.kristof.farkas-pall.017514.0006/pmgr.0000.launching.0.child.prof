@@ -1,0 +1,12 @@
+#time,event,comp,thread,uid,state,msg
+1513280696.2367,sync_abs,pmgr.0000.launching.0.child,MainThread,,,julian.chem.ucl.ac.uk:127.0.0.1:1513280696.24:1513280696.24:sys
+1513280696.3686,component_init,pmgr.0000.launching.0.child,MainThread,,,
+1513280704.3748,get,pmgr.0000.launching.0.child,MainThread,pilot.0000,PMGR_LAUNCHING_PENDING,
+1513280704.3753,advance,pmgr.0000.launching.0.child,MainThread,pilot.0000,PMGR_LAUNCHING,
+1513280704.3758,publish,pmgr.0000.launching.0.child,MainThread,pilot.0000,PMGR_LAUNCHING,
+1513280709.5081,staging_in_start,pmgr.0000.launching.0.child,MainThread,pilot.0000,,
+1513280725.0488,staging_in_stop,pmgr.0000.launching.0.child,MainThread,pilot.0000,,
+1513280725.0488,submission_start,pmgr.0000.launching.0.child,MainThread,pilot.0000,,
+1513280733.4802,submission_stop,pmgr.0000.launching.0.child,MainThread,pilot.0000,,
+1513280733.4803,advance,pmgr.0000.launching.0.child,MainThread,pilot.0000,PMGR_ACTIVE_PENDING,
+1513280733.4808,publish,pmgr.0000.launching.0.child,MainThread,pilot.0000,PMGR_ACTIVE_PENDING,
