@@ -118,7 +118,7 @@ class Ties(object):
 
         average_task = Task()
         average_task.name = 'average_dg'
-        average_task.arguments = ['-1 --quiet dg_* > dgs_{}.out'.format(pipeline.uid)]
+        average_task.arguments = ['-1 --quiet dg_* > dgs.out']  # .format(pipeline.uid)]
         average_task.executable = ['head']
 
         average_task.mpi = False
@@ -130,7 +130,7 @@ class Ties(object):
         links = ['$Pipeline_{}_Stage_{}_Task_{}/dg_{}.out'.format(pipeline.uid, previous_stage.uid, t.uid,
                                                                   t.name) for t in previous_tasks]
         average_task.link_input_data = links
-        average_task.download_output_data = ['dgs_{}.out'.format(pipeline.uid)]
+        average_task.download_output_data = ['dgs.out']  # .format(pipeline.uid)]
 
         average.add_tasks(average_task)
         pipeline.add_stages(average)
