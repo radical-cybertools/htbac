@@ -13,11 +13,12 @@ _full_steps = dict(min=1000, eq1=30000, eq2=970000, prod=2000000)
 
 
 class Ties(object):
-    def __init__(self, number_of_replicas, number_of_windows, system, workflow=None, cores=64, ligand=False, full=True, restart = False):
+    def __init__(self, number_of_replicas, number_of_windows=0, additional=None,
+                 system=None, workflow=None, cores=64, ligand=False, full=True, restart=None):
 
         self.number_of_replicas = number_of_replicas
         self.lambdas = np.linspace(0.0, 1.0, number_of_windows, endpoint=True)
-        self.lambdas = np.append(self.lambdas, [0.05, 0.95])
+        self.lambdas = np.append(self.lambdas, additional or [0.05, 0.95])
         self.ligand = '-ligands' if ligand else ''
         self.step_count = _full_steps if full else _reduced_steps
         self.restart = restart
@@ -117,9 +118,8 @@ class Ties(object):
 
         average_task = Task()
         average_task.name = 'average_dg'
-        # Change this to the actual averaging. How?
-        average_task.arguments = ['average']
-        average_task.executable = ['echo']
+        average_task.arguments = ['-1 --quiet dg_* > dgs_{}.out'.format(pipeline.uid)]
+        average_task.executable = ['head']
 
         average_task.mpi = False
         average_task.cores = 1
@@ -130,6 +130,7 @@ class Ties(object):
         links = ['$Pipeline_{}_Stage_{}_Task_{}/dg_{}.out'.format(pipeline.uid, previous_stage.uid, t.uid,
                                                                   t.name) for t in previous_tasks]
         average_task.link_input_data = links
+        average_task.download_output_data = ['dgs_{}.out'.format(pipeline.uid)]
 
         average.add_tasks(average_task)
         pipeline.add_stages(average)
