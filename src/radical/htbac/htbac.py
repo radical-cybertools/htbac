@@ -85,8 +85,3 @@ class Runner(object):
 
         if terminate:
             self.app_manager.resource_terminate()
-
-
-
-
-

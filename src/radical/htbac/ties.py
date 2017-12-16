@@ -20,6 +20,7 @@ class Ties(object):
         self.lambdas = np.append(self.lambdas, [0.05, 0.95])
         self.ligand = '-ligands' if ligand else ''
         self.step_count = _full_steps if full else _reduced_steps
+        self.restart = restart
 
         self.system = system
         self.box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
@@ -99,17 +100,11 @@ class Ties(object):
             analysis_task.mpi = False
             analysis_task.cores = 1
 
-            production_stage = pipeline.stages[-1]
-            production_tasks = [t for t in production_stage.tasks if analysis_task.name in t.name]
-            links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_ti.out'.format(pipeline.uid, production_stage.uid, t.uid, t.name.split('_lambda_')[-1]) for t in production_tasks]
-            # additional data output data from previous pipeline/instance
-            if restart: 
-                previous_pipeline = pipeline[-1]
-                previous_production_stage = previous_pipeline.stages[-1]
-                previous_production_tasks = [t for t in previous_production_stage.tasks if analysis_task.name in t.name]
-                links.append('$Pipeline_{}_Stage_{}_Task_{}/alch_{}_ti.out'.format(previous_pipeline.uid, previous_production_stage.uid, t.uid, t.name.split('_lambda_')[-1]) for t in previous_production_tasks)
-
-            analysis_task.link_input_data = links
+            for p in filter(None, [pipeline, self.restart]):
+                production_stage = next(stage for stage in p.stages if stage.name == 'prod')
+                production_tasks = [t for t in production_stage.tasks if analysis_task.name in t.name]
+                links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_ti.out'.format(p.uid, production_stage.uid, t.uid, t.name.split('_lambda_')[-1]) for t in production_tasks]
+                analysis_task.link_input_data += links
 
             analysis.add_tasks(analysis_task)
 
