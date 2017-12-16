@@ -14,6 +14,7 @@ class Runner(object):
         self._protocols = list()
         self._hostname = None
         self._port = None
+        self.app_manager = None
         self.total_replicas = 0
 
         # Profiler for Runner
@@ -41,7 +42,7 @@ class Runner(object):
         self._hostname = hostname
         self._port = port
 
-    def run(self, walltime=1440, strong_scaled=1):
+    def run(self, strong_scaled=1):
         pipelines = set()
         input_data = list()
 
@@ -54,7 +55,7 @@ class Runner(object):
         print 'Running on', self._cores, 'cores.'
 
         res_dict = {'resource': 'ncsa.bw_aprun',
-                    'walltime': walltime,
+                    'walltime': 1440,
                     'cores': int(self._cores*strong_scaled),
                     'project': 'bamm',
                     'queue': 'high',
@@ -65,13 +66,27 @@ class Runner(object):
         resource_manager.shared_data = input_data
 
         # Create Application Manager
-        app_manager = AppManager(hostname=self._hostname, port=self._port)
-        app_manager.resource_manager = resource_manager
-        app_manager.assign_workflow(pipelines)
+        self.app_manager = AppManager(hostname=self._hostname, port=self._port, autoterminate=False)
+        self.app_manager.resource_manager = resource_manager
+        self.app_manager.assign_workflow(pipelines)
 
         self._prof.prof('execution_run')
         print 'Running...'
-        app_manager.run()
+        self.app_manager.run()
+
+    def rerun(self, protocol, terminate=True):
+        pipelines = set()
+
+        pipelines.add(protocol.generate_pipeline())
+
+        self.app_manager.assign_workflow(pipelines)
+
+        self.app_manager.run()
+
+        if terminate:
+            self.app_manager.resource_terminate()
+
+
 
 
 
