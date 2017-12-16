@@ -13,7 +13,7 @@ _full_steps = dict(min=1000, eq1=30000, eq2=970000, prod=2000000)
 
 
 class Ties(object):
-    def __init__(self, number_of_replicas, number_of_windows, system, workflow=None, cores=64, ligand=False, full=True):
+    def __init__(self, number_of_replicas, number_of_windows, system, workflow=None, cores=64, ligand=False, full=True, restart = False):
 
         self.number_of_replicas = number_of_replicas
         self.lambdas = np.linspace(0.0, 1.0, number_of_windows, endpoint=True)
@@ -102,6 +102,13 @@ class Ties(object):
             production_stage = pipeline.stages[-1]
             production_tasks = [t for t in production_stage.tasks if analysis_task.name in t.name]
             links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_ti.out'.format(pipeline.uid, production_stage.uid, t.uid, t.name.split('_lambda_')[-1]) for t in production_tasks]
+            # additional data output data from previous pipeline/instance
+            if restart: 
+                previous_pipeline = pipeline[-1]
+                previous_production_stage = previous_pipeline.stages[-1]
+                previous_production_tasks = [t for t in previous_production_stage.tasks if analysis_task.name in t.name]
+                links.append('$Pipeline_{}_Stage_{}_Task_{}/alch_{}_ti.out'.format(previous_pipeline.uid, previous_production_stage.uid, t.uid, t.name.split('_lambda_')[-1]) for t in previous_production_tasks)
+
             analysis_task.link_input_data = links
 
             analysis.add_tasks(analysis_task)
