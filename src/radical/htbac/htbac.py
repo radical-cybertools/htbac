@@ -43,7 +43,7 @@ class Runner(object):
         self._hostname = hostname
         self._port = port
 
-    def run(self, strong_scaled=1):
+    def run(self, strong_scaled=1, autoterminate=True):
         pipelines = set()
         input_data = list()
         self.ids = dict()
@@ -72,7 +72,7 @@ class Runner(object):
         resource_manager.shared_data = input_data
 
         # Create Application Manager
-        self.app_manager = AppManager(hostname=self._hostname, port=self._port, autoterminate=False)
+        self.app_manager = AppManager(hostname=self._hostname, port=self._port, autoterminate=autoterminate)
         self.app_manager.resource_manager = resource_manager
         self.app_manager.assign_workflow(pipelines)
 
