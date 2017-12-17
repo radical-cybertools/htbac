@@ -1,5 +1,6 @@
 import numpy as np
 import parmed as pmd
+import uuid
 
 import radical.utils as ru
 from radical.entk import Pipeline, Stage, Task
@@ -26,9 +27,10 @@ class Ties(object):
         self.system = system
         self.box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
         self.cores = cores
+        self._id = uuid.uuid1() # generate id
 
         self.workflow = workflow or ['min', 'eq1', 'eq2', 'prod']
-
+        
         # Profiler for TIES PoE
 
         self._uid = ru.generate_id('radical.htbac.ties')
@@ -36,8 +38,12 @@ class Ties(object):
         self._prof = ru.Profiler(name=self._uid)
         self._prof.prof('create ties instance', uid=self._uid)
 
+    def id(self):
+        return self._id
+
+
     # Generate a new pipeline
-    def generate_pipeline(self):
+    def generate_pipeline(self, previous_pipeline = None):
 
         pipeline = Pipeline()
 
@@ -64,9 +70,9 @@ class Ties(object):
                     links += ['$SHARED/{}-complex.top'.format(self.system), '$SHARED/{}-tags.pdb'.format(self.system)]
 
                     if self.workflow.index(step):
-                        previous_stage = pipeline.stages[-1]
+                        previous_stage = self.pipeline.stages[-1]
                         previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
-                        path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.uid, previous_stage.uid, previous_task.uid)
+                        path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(self.pipeline.uid, previous_stage.uid, previous_task.uid)
                         links += [path+previous_stage.name+suffix for suffix in _simulation_file_suffixes]
                     else:
                         links += ['$SHARED/{}-complex.pdb'.format(self.system)]
@@ -101,7 +107,7 @@ class Ties(object):
             analysis_task.mpi = False
             analysis_task.cores = 1
 
-            for p in filter(None, [pipeline, self.restart]):
+            for p in filter(None, [pipeline, previous_pipeline]):
                 production_stage = next(stage for stage in p.stages if stage.name == 'prod')
                 production_tasks = [t for t in production_stage.tasks if analysis_task.name in t.name]
                 links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_ti.out'.format(p.uid, production_stage.uid, t.uid, t.name.split('_lambda_')[-1]) for t in production_tasks]
@@ -152,3 +158,4 @@ class Ties(object):
     @property
     def replicas(self):
         return self.number_of_replicas*len(self.lambdas)
+

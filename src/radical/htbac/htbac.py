@@ -45,10 +45,15 @@ class Runner(object):
     def run(self, strong_scaled=1):
         pipelines = set()
         input_data = list()
+        self.ids = dict()
 
         for protocol in self._protocols:
-            pipelines.add(protocol.generate_pipeline())
+            gen_pipeline = protocol.generate_pipeline()
+            pipelines.add(gen_pipeline)
             input_data.extend(protocol.input_data)
+            self.ids[protocol.id()] = gen_pipeline
+            #protocol.id is the uuid, gen_pipeline.uid is the pipeline
+
             self.total_replicas += protocol.replicas
 
         self._cores = self._cores * self.total_replicas
@@ -72,16 +77,23 @@ class Runner(object):
 
         self._prof.prof('execution_run')
         print 'Running...'
-        self.app_manager.run()
+        self.app_manager.run()    # this method is blocking until all pipelines show state = completed
 
-    def rerun(self, protocol, terminate=True):
-        pipelines = set()
+    def rerun(self, protocol, terminate=True, previous_pipeline=None):
 
-        pipelines.add(protocol.generate_pipeline())
+        if self.ids.get(previous_pipeline.id(), None) != None:
 
-        self.app_manager.assign_workflow(pipelines)
+            pipelines = set()
 
-        self.app_manager.run()
+            pipelines.add(protocol.generate_pipeline(previous_pipeline=self.ids[previous_pipeline.id()]))
 
-        if terminate:
-            self.app_manager.resource_terminate()
+            self.app_manager.assign_workflow(pipelines)
+
+            self.app_manager.run()
+
+            if terminate:
+                self.app_manager.resource_terminate()
+
+        else: 
+
+            print "previous protocol instance is not found"
