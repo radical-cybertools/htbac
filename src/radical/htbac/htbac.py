@@ -14,6 +14,7 @@ class Runner(object):
         self._protocols = list()
         self._hostname = None
         self._port = None
+        self.ids = None
         self.app_manager = None
         self.total_replicas = 0
 
@@ -52,7 +53,7 @@ class Runner(object):
             pipelines.add(gen_pipeline)
             input_data.extend(protocol.input_data)
             self.ids[protocol.id()] = gen_pipeline
-            #protocol.id is the uuid, gen_pipeline.uid is the pipeline
+            # protocol.id is the uuid, gen_pipeline.uid is the pipeline
 
             self.total_replicas += protocol.replicas
 
@@ -81,7 +82,7 @@ class Runner(object):
 
     def rerun(self, protocol=None, terminate=True, previous_pipeline=None):
 
-        if self.ids.get(previous_pipeline.id(), None) != None:
+        if self.ids.get(previous_pipeline.id(), None) is not None:
 
             pipelines = set()
 

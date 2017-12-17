@@ -18,7 +18,6 @@ def main():
     dgs = np.loadtxt('dgs.out')
     print stats.sem(dgs)
 
-
     ties2_3_lds = Ties(number_of_replicas=5, additional=[0.15, 0.85], system='brd4-gsk2-3', full=False)
 
     ht.rerun(protocol=ties2_3_lds, terminate=True, previous_pipeline=ties2_3)

@@ -15,19 +15,18 @@ _full_steps = dict(min=1000, eq1=30000, eq2=970000, prod=2000000)
 
 class Ties(object):
     def __init__(self, number_of_replicas, number_of_windows=0, additional=None,
-                 system=None, workflow=None, cores=64, ligand=False, full=True, restart=None):
+                 system=None, workflow=None, cores=64, ligand=False, full=True):
 
         self.number_of_replicas = number_of_replicas
         self.lambdas = np.linspace(0.0, 1.0, number_of_windows, endpoint=True)
         self.lambdas = np.append(self.lambdas, additional or [0.05, 0.95])
         self.ligand = '-ligands' if ligand else ''
         self.step_count = _full_steps if full else _reduced_steps
-        self.restart = restart
 
         self.system = system
         self.box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
         self.cores = cores
-        self._id = uuid.uuid1() # generate id
+        self._id = uuid.uuid1()  # generate id
 
         self.workflow = workflow or ['min', 'eq1', 'eq2', 'prod']
         
@@ -41,9 +40,8 @@ class Ties(object):
     def id(self):
         return self._id
 
-
     # Generate a new pipeline
-    def generate_pipeline(self, previous_pipeline = None):
+    def generate_pipeline(self, previous_pipeline=None):
 
         pipeline = Pipeline()
 
@@ -70,9 +68,9 @@ class Ties(object):
                     links += ['$SHARED/{}-complex.top'.format(self.system), '$SHARED/{}-tags.pdb'.format(self.system)]
 
                     if self.workflow.index(step):
-                        previous_stage = self.pipeline.stages[-1]
+                        previous_stage = pipeline.stages[-1]
                         previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
-                        path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(self.pipeline.uid, previous_stage.uid, previous_task.uid)
+                        path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.uid, previous_stage.uid, previous_task.uid)
                         links += [path+previous_stage.name+suffix for suffix in _simulation_file_suffixes]
                     else:
                         links += ['$SHARED/{}-complex.pdb'.format(self.system)]
@@ -158,4 +156,3 @@ class Ties(object):
     @property
     def replicas(self):
         return self.number_of_replicas*len(self.lambdas)
-
