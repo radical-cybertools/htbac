@@ -79,7 +79,7 @@ class Runner(object):
         print 'Running...'
         self.app_manager.run()    # this method is blocking until all pipelines show state = completed
 
-    def rerun(self, protocol, terminate=True, previous_pipeline=None):
+    def rerun(self, protocol=None, terminate=True, previous_pipeline=None):
 
         if self.ids.get(previous_pipeline.id(), None) != None:
 
