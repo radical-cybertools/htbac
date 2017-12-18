@@ -15,7 +15,7 @@ def main():
     ht.add_protocol(ties3_4)
     ht.add_protocol(ties3_7)
     ht.cores = 64
-    ht.rabbitmq_config()
+    ht.rabbitmq_config(hostname='two.radical-project.org', port=32804)
     ht.run()
 
 

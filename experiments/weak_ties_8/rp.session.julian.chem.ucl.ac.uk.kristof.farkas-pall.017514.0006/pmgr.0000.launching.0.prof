@@ -1,4 +1,0 @@
-#time,event,comp,thread,uid,state,msg
-1513280695.2098,sync_abs,pmgr.0000.launching.0,MainThread,,,julian.chem.ucl.ac.uk:127.0.0.1:1513280695.21:1513280695.21:sys
-1513280696.2376,END,pmgr.0000.launching.0,MainThread,,,
-1513280696.4013,component_init,pmgr.0000.launching.0,MainThread,,,
