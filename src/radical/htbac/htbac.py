@@ -73,7 +73,7 @@ class Runner(object):
         resource_manager.shared_data = input_data
 
         # Create Application Manager
-        self.app_manager = AppManager(hostname=self._hostname, port=self._port, autoterminate=autoterminate)
+        self.app_manager = AppManager(hostname=self._hostname, port=self._port)
         self.app_manager.resource_manager = resource_manager
         self.app_manager.assign_workflow(pipelines)
 
@@ -81,22 +81,4 @@ class Runner(object):
         print 'Running...'
         self.app_manager.run()    # this method is blocking until all pipelines show state = completed
 
-    def rerun(self, protocol=None, terminate=True, previous_pipeline=None):
-
-        if self.ids.get(previous_pipeline.id(), None) is not None:
-
-            pipelines = set()
-
-            pipelines.add(protocol.generate_pipeline(previous_pipeline=self.ids[previous_pipeline.id()]))
-            print previous_pipeline
-
-            self.app_manager.assign_workflow(pipelines)
-
-            self.app_manager.run()
-
-            if terminate:
-                self.app_manager.resource_terminate()
-
-        else: 
-
-            print "previous protocol instance is not found"
+    
