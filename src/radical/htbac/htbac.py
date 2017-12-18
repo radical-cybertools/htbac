@@ -24,6 +24,7 @@ class Runner(object):
         self._prof = ru.Profiler(name=self._uid)
         self._prof.prof('create workflow_runner obj', uid=self._uid)
         self._root_directories = list()
+        self.ids = dict()
 
     def add_protocol(self, protocol):
         self._protocols.append(protocol)
@@ -46,7 +47,7 @@ class Runner(object):
     def run(self, strong_scaled=1, autoterminate=True):
         pipelines = set()
         input_data = list()
-        self.ids = dict()
+        
 
         for protocol in self._protocols:
             gen_pipeline = protocol.generate_pipeline()
@@ -87,6 +88,7 @@ class Runner(object):
             pipelines = set()
 
             pipelines.add(protocol.generate_pipeline(previous_pipeline=self.ids[previous_pipeline.id()]))
+            print previous_pipeline
 
             self.app_manager.assign_workflow(pipelines)
 
