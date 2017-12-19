@@ -88,7 +88,7 @@ class TiesProduction(object):
                 task.pre_exec += ["sed -i 's/LAMBDA/{}/g' *.conf".format(ld)]
 
                 task.pre_exec += ["sed -i 's/INPUT/{}/g' *.conf".format(previous_pipeline.stages[-1].name)]
-                task.pre_exec += ["sed -i 's/OUTPUT/{}/g' *.conf".format(pipeline.stages[-1].name)]
+                task.pre_exec += ["sed -i 's/OUTPUT/{}/g' *.conf".format(stage.name)]
 
                 stage.add_tasks(task)
 
