@@ -17,15 +17,21 @@ def main():
 
     print 'Equilibration finished'
 
-    ties2_3_lds = TiesProduction(number_of_replicas=1, number_of_windows=1, system='brd4-gsk2-3', full=False)
+    ties2_3_p1 = TiesProduction(number_of_replicas=1, number_of_windows=1, system='brd4-gsk2-3', full=False)
 
-    ht.rerun(protocol=ties2_3_lds, terminate=False, previous_pipeline=ties2_3)
+    ht.rerun(protocol=ties2_3_p1, terminate=False, previous_pipeline=ties2_3)
 
-    print 'Production finished'
+    print 'Production 1 finished'
 
-    ties2_3_ana = TiesAnalysis(number_of_replicas=1, lambda_windows=ties2_3_lds.lambdas)
+    ties2_3_p2 = TiesProduction(number_of_replicas=1, number_of_windows=2, system='brd4-gsk2-3', full=False)
 
-    ht.rerun(protocol=ties2_3_ana, terminate=True, previous_pipeline=ties2_3_lds)
+    ht.rerun(protocol=ties2_3_p2, terminate=False, previous_pipeline=ties2_3_p1)
+
+    print 'Production 2 finished'
+
+    ties2_3_ana = TiesAnalysis(number_of_replicas=1, lambda_windows=ties2_3_p2.lambdas)
+
+    ht.rerun(protocol=ties2_3_ana, terminate=True, previous_pipeline=ties2_3_p2)
 
     print 'Analysis finished'
 
