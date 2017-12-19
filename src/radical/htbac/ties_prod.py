@@ -50,7 +50,7 @@ class TiesProduction(object):
         # Production stage
         # =================
         stage = Stage()
-        stage.name = self.workflow + pipeline.uid.rsplit('.', 1)[-1]  # Will this work?
+        stage.name = self.workflow + '.' + pipeline.uid.rsplit('.', 1)[-1]  # Will this work?
 
         for replica in range(self.number_of_replicas):
             for ld in self.lambdas:
@@ -58,8 +58,8 @@ class TiesProduction(object):
                 task = Task()
                 task.name = 'replica_{}_lambda_{}'.format(replica, ld)
 
-                task.arguments += ['ties-{}.conf'.format(stage.name)]
-                task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage.name)]
+                task.arguments += ['ties-{}.conf'.format(self.workflow)]
+                task.copy_input_data = ['$SHARED/ties-{}.conf'.format(self.workflow)]
                 task.executable = [NAMD2]
 
                 task.mpi = True
@@ -70,8 +70,10 @@ class TiesProduction(object):
 
                 previous_stage = previous_pipeline.stages[-1]  # TODO: this is not correct. The last stage is analysis.
                 previous_lambdas = np.array(previous_pipeline.name.split('_'), dtype=np.float)
+
                 closest_lambda = previous_lambdas[(np.abs(previous_lambdas-ld)).argmin()]
                 closest_task_name = 'replica_{}_lambda_{}'.format(replica, closest_lambda)
+
                 previous_task = next(t for t in previous_stage.tasks if t.name == closest_task_name)
                 path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(previous_pipeline.uid, previous_stage.uid, previous_task.uid)
                 links += [path + previous_stage.name + suffix for suffix in _simulation_file_suffixes]
@@ -119,7 +121,7 @@ class TiesProduction(object):
         #     analysis.add_tasks(analysis_task)
         #
         # pipeline.add_stages(analysis)
-        #
+
         print 'TIES Production pipeline has', len(pipeline.stages), 'stages. Tasks counts:', [len(s.tasks) for s in pipeline.stages]
 
         return pipeline
