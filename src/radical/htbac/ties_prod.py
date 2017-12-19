@@ -50,7 +50,7 @@ class TiesProduction(object):
         # Production stage
         # =================
         stage = Stage()
-        stage.name = self.workflow + '.' + pipeline.uid.rsplit('.', 1)[-1]  # Will this work?
+        stage.name = self.workflow + '.' + pipeline.uid.split('.')[-1]  # Will this work?
 
         for replica in range(self.number_of_replicas):
             for ld in self.lambdas:
@@ -68,7 +68,7 @@ class TiesProduction(object):
                 links = []
                 links += ['$SHARED/{}-complex.top'.format(self.system), '$SHARED/{}-tags.pdb'.format(self.system)]
 
-                previous_stage = previous_pipeline.stages[-1]  # TODO: this is not correct. The last stage is analysis.
+                previous_stage = next(stage for stage in previous_pipeline.stages if stage.name in ['eq2', 'prod.{}'.format(previous_pipeline.uid.split('.')[-1])])
                 previous_lambdas = np.array(previous_pipeline.name.split('_'), dtype=np.float)
 
                 closest_lambda = previous_lambdas[(np.abs(previous_lambdas-ld)).argmin()]
@@ -88,6 +88,7 @@ class TiesProduction(object):
                 task.pre_exec += ["sed -i 's/STEP/{}/g' *.conf".format(self.step_count[self.workflow])]
 
                 task.pre_exec += ["sed -i 's/LAMBDA/{}/g' *.conf".format(ld)]
+                task.pre_exec += ["sed -i 's/REPLICA/{}/g' *.conf".format(replica)]
 
                 task.pre_exec += ["sed -i 's/INPUT/{}/g' *.conf".format(previous_stage.name)]
                 task.pre_exec += ["sed -i 's/OUTPUT/{}/g' *.conf".format(stage.name)]
@@ -99,28 +100,29 @@ class TiesProduction(object):
         # Analysis stage
         # ==============
         # Calculate the dU/dl value at each lambda window
-        # analysis = Stage()
-        # analysis.name = 'analysis'
-        #
-        # for ld in self.lambdas:
-        #     analysis_task = Task()
-        #     analysis_task.name = 'lambda_{}'.format(ld)
-        #
-        #     analysis_task.arguments += ['-d', '*ti.out', '>', 'dg_{}.out'.format(analysis_task.name)]
-        #     analysis_task.executable = [NAMD_TI_ANALYSIS]
-        #
-        #     analysis_task.mpi = False
-        #     analysis_task.cores = 1
-        #
-        #     for p in filter(None, [pipeline, previous_pipeline]):
-        #         production_stage = next(stage for stage in p.stages if stage.name == 'prod')
-        #         production_tasks = [t for t in production_stage.tasks if analysis_task.name in t.name]
-        #         links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_ti.out'.format(p.uid, production_stage.uid, t.uid, t.name.split('_lambda_')[-1]) for t in production_tasks]
-        #         analysis_task.link_input_data += links
-        #
-        #     analysis.add_tasks(analysis_task)
-        #
-        # pipeline.add_stages(analysis)
+        analysis = Stage()
+        analysis.name = 'analysis'
+
+        for ld in self.lambdas:
+            analysis_task = Task()
+            analysis_task.name = 'lambda_{}'.format(ld)
+
+            analysis_task.arguments += ['-f', '>', 'dg_{}_{}.out'.format(analysis_task.name, pipeline.uid.split('.')[-1])]
+            analysis_task.executable = [NAMD_TI_ANALYSIS]
+
+            analysis_task.mpi = False
+            analysis_task.cores = 1
+
+            production_stage = pipeline.stages[-1]
+            production_tasks = [t for t in production_stage.tasks if analysis_task.name in t.name]
+            links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_{}_{}_ti.out'.format(pipeline.uid, production_stage.uid, t.uid, t.name.split('_')[1], t.name.split('_')[3], stage.name) for t in production_tasks]
+            analysis_task.link_input_data += links
+
+            analysis_task.download_output_data = ['dg_{}_{}.out'.format(analysis_task.name, pipeline.uid.split('.')[-1])]
+
+            analysis.add_tasks(analysis_task)
+
+        pipeline.add_stages(analysis)
 
         print 'TIES Production pipeline has', len(pipeline.stages), 'stages. Tasks counts:', [len(s.tasks) for s in pipeline.stages]
 
