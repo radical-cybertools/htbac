@@ -134,7 +134,7 @@ class Ties(object):
         links = ['$Pipeline_{}_Stage_{}_Task_{}/dg_{}.out'.format(pipeline.uid, previous_stage.uid, t.uid,
                                                                   t.name) for t in previous_tasks]
         average_task.link_input_data = links
-        average_task.download_output_data = ['dgs.out']  # .format(pipeline.uid)]
+        #average_task.download_output_data = ['dgs.out']  # .format(pipeline.uid)]
 
         average.add_tasks(average_task)
         pipeline.add_stages(average)
