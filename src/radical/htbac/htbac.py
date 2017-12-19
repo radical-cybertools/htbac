@@ -70,6 +70,9 @@ class Runner(object):
                 stage.add_tasks(pipeline.stages[index].tasks)
             p.add_stages(stage)
 
+        print 'Creating', len(p.stages.tasks), 'tasks.'
+        print 'Creating', len(p.stages), 'stages.'
+        print 'Creating', len(p), 'pipeline.'
         return p
 
     def run(self, strong_scaled=1):
