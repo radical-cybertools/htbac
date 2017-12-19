@@ -204,9 +204,9 @@ setup_args = {
                              'radical.entk==jdakka',
                              'setuptools>=1',
                              'pika'],
-    'dependency_links': ['git+https://github.com/radical-cybertools/radical.utils.git@master#egg=radical.utils-rc',
-                          'git+https://github.com/radical-cybertools/saga-python.git@master#egg=saga-python-rc',
-                          'git+https://github.com/radical-cybertools/radical.pilot.git@master#egg=radical.pilot-rc',
+    'dependency_links': ['git+https://github.com/radical-cybertools/radical.utils.git@master#egg=radical.utils-master',
+                          'git+https://github.com/radical-cybertools/saga-python.git@master#egg=saga-python-master',
+                          'git+https://github.com/radical-cybertools/radical.pilot.git@master#egg=radical.pilot-master',
                           'git+https://github.com/vivek-bala/radical.entk.git@experiment/jdakka#egg=radical.entk-jdakka'],
   
 
