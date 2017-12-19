@@ -17,7 +17,7 @@ def main():
 
     print 'Equilibration finished'
 
-    ties2_3_lds = TiesProduction(number_of_replicas=1, additional=1, system='brd4-gsk2-3', full=False)
+    ties2_3_lds = TiesProduction(number_of_replicas=1, number_of_windows=1, system='brd4-gsk2-3', full=False)
 
     ht.rerun(protocol=ties2_3_lds, terminate=False, previous_pipeline=ties2_3)
 

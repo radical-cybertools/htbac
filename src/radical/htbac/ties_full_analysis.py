@@ -1,3 +1,4 @@
+import uuid
 import numpy as np
 
 import radical.utils as ru
@@ -10,6 +11,10 @@ class TiesAnalysis(object):
     def __init__(self, number_of_replicas, lambda_windows):
         self.number_of_replicas = number_of_replicas
         self.lambda_windows = lambda_windows
+        self._id = uuid.uuid1()  # generate id
+
+    def id(self):
+        return self._id
 
     def generate_pipeline(self, previous_pipeline=None):
         pipeline = Pipeline()

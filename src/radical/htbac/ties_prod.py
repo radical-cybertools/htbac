@@ -87,12 +87,12 @@ class TiesProduction(object):
 
                 task.pre_exec += ["sed -i 's/LAMBDA/{}/g' *.conf".format(ld)]
 
-                task.pre_exec += ["sed -i 's/INPUT/{}/g' *.conf".format(previous_pipeline.stages[-1].name)]
+                task.pre_exec += ["sed -i 's/INPUT/{}/g' *.conf".format(previous_stage.name)]
                 task.pre_exec += ["sed -i 's/OUTPUT/{}/g' *.conf".format(stage.name)]
 
                 stage.add_tasks(task)
 
-            pipeline.add_stages(stage)
+        pipeline.add_stages(stage)
 
         # Analysis stage
         # ==============
@@ -120,7 +120,7 @@ class TiesProduction(object):
         #
         # pipeline.add_stages(analysis)
         #
-        # print 'TIES Production pipeline has', len(pipeline.stages), 'stages. Tasks counts:', [len(s.tasks) for s in pipeline.stages]
+        print 'TIES Production pipeline has', len(pipeline.stages), 'stages. Tasks counts:', [len(s.tasks) for s in pipeline.stages]
 
         return pipeline
 
