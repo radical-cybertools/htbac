@@ -5,8 +5,8 @@ __license__     = "MIT"
 import os
 
 import radical.utils as ru
-from radical.entk import AppManager, ResourceManager
-
+from radical.entk import Pipeline, Stage, Task, AppManager, ResourceManager
+ 
 
 class Runner(object):
     def __init__(self):
@@ -17,6 +17,7 @@ class Runner(object):
         self.ids = None
         self.app_manager = None
         self.total_replicas = 0
+        self.instances = None
 
         # Profiler for Runner
         self._uid = ru.generate_id('radical.htbac.workflow_runner')
@@ -44,21 +45,38 @@ class Runner(object):
         self._hostname = hostname
         self._port = port
 
-    def run(self, strong_scaled=1):
+
+    def PoE(self):
+
         pipelines = set()
         input_data = list()
-        
 
         for protocol in self._protocols:
+
             gen_pipeline = protocol.generate_pipeline()
+            self.ids[protocol.id()] = gen_pipeline
+            self.replicas += protocol.replicas
             pipelines.add(gen_pipeline)
             input_data.extend(protocol.input_data)
-            self.ids[protocol.id()] = gen_pipeline
-            # protocol.id is the uuid, gen_pipeline.uid is the pipeline
+            
 
-            self.total_replicas += protocol.replicas
+        # Here we combine all pipelines into a single pipeline
 
-        self._cores = self._cores * self.total_replicas
+        p = Pipeline() 
+    
+        for index,s in enumerate(pipelines[0].stages):
+            stage = Stage()
+            for pipeline in pipelines:
+                stage.add_tasks(pipeline.stages[index].tasks)
+            p.add_stages(stage)
+
+        return p
+
+    def run(self, strong_scaled=1):
+
+        # Pilot size   
+        self._cores = self._cores * self.replicas 
+        
         print 'Running on', self._cores, 'cores.'
 
         res_dict = {'resource': 'ncsa.bw_aprun',
@@ -75,7 +93,7 @@ class Runner(object):
         # Create Application Manager
         self.app_manager = AppManager(hostname=self._hostname, port=self._port)
         self.app_manager.resource_manager = resource_manager
-        self.app_manager.assign_workflow(pipelines)
+        self.app_manager.assign_workflow(self.PoE())
 
         self._prof.prof('execution_run')
         print 'Running...'

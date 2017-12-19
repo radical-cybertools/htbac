@@ -41,19 +41,22 @@ class Ties(object):
         return self._id
 
     # Generate a new pipeline
-    def generate_pipeline(self, previous_pipeline=None):
+    def generate_pipeline(self):
 
         pipeline = Pipeline()
 
         # Simulation stages
         # =================
+
+
         for step in self.workflow:
             stage = Stage()
             stage.name = step
 
             for replica in range(self.number_of_replicas):
                 for ld in self.lambdas:
-                    
+                
+                
                     task = Task()
                     task.name = 'replica_{}_lambda_{}'.format(replica, ld)
 
@@ -134,7 +137,7 @@ class Ties(object):
         links = ['$Pipeline_{}_Stage_{}_Task_{}/dg_{}.out'.format(pipeline.uid, previous_stage.uid, t.uid,
                                                                   t.name) for t in previous_tasks]
         average_task.link_input_data = links
-        average_task.download_output_data = ['dgs.out']  # .format(pipeline.uid)]
+        #average_task.download_output_data = ['dgs.out']  # .format(pipeline.uid)]
 
         average.add_tasks(average_task)
         pipeline.add_stages(average)
@@ -156,3 +159,5 @@ class Ties(object):
     @property
     def replicas(self):
         return self.number_of_replicas*len(self.lambdas)
+
+    
