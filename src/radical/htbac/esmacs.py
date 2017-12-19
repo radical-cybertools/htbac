@@ -1,4 +1,5 @@
 import parmed as pmd
+import uuid
 
 import radical.utils as ru
 from radical.entk import Pipeline, Stage, Task
@@ -19,6 +20,7 @@ class Esmacs(object):
         self.box = pmd.amber.AmberAsciiRestart('systems/esmacs/{s}/build/{s}-complex.crd'.format(s=system)).box
         self.cores = cores
         self.step_count = _full_steps if full else _reduced_steps
+        self._id = uuid.uuid1()  # generate id
 
         self.workflow = workflow or ['eq0', 'eq1', 'eq2', 'sim1']
         
@@ -28,6 +30,9 @@ class Esmacs(object):
         self._logger = ru.get_logger('radical.htbac.esmacs')
         self._prof = ru.Profiler(name=self._uid)
         self._prof.prof('create esmacs instance', uid=self._uid)
+
+    def id(self):
+        return self._id
 
     # Generate a new pipeline
     def generate_pipeline(self):
