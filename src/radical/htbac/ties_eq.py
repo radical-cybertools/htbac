@@ -100,7 +100,7 @@ class TiesEquilibration(object):
     @property
     def input_data(self):
         files = []
-        files += ['adaptive_configs/ties-{}.conf'.format(step) for step in self.workflow]
+        files += ['adaptive_configs/ties-{}.conf'.format(step) for step in ['min', 'eq1', 'eq2', 'prod']]
         files += ['systems/ties{lig}/{s}/build/{s}-complex.pdb'.format(lig=self.ligand, s=self.system)]
         files += ['systems/ties{lig}/{s}/build/{s}-complex.top'.format(lig=self.ligand, s=self.system)]
         files += ['systems/ties{lig}/{s}/build/{s}-tags.pdb'.format(lig=self.ligand, s=self.system)]

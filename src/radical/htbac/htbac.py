@@ -86,8 +86,11 @@ class Runner(object):
 
             pipelines = set()
 
-            pipelines.add(protocol.generate_pipeline(previous_pipeline=self.ids[previous_pipeline.id()]))
-            print previous_pipeline
+            gen_pipeline = protocol.generate_pipeline(previous_pipeline=self.ids[previous_pipeline.id()])
+
+            pipelines.add(gen_pipeline)
+
+            self.ids[protocol.id()] = gen_pipeline
 
             self.app_manager.assign_workflow(pipelines)
 
@@ -98,4 +101,4 @@ class Runner(object):
 
         else: 
 
-            print "previous protocol instance is not found"
+            print "ERROR: previous protocol instance is not found"
