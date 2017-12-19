@@ -44,7 +44,7 @@ class Runner(object):
         self._hostname = hostname
         self._port = port
 
-    def run(self, strong_scaled=1, autoterminate=True):
+    def run(self, strong_scaled=1):
         pipelines = set()
         input_data = list()
         
