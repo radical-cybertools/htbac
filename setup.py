@@ -198,15 +198,15 @@ setup_args = {
 
     
   
-    'install_requires'  :  ['radical.utils==rc',
-                             'saga-python==rc',
-                             'radical.pilot==rc',
+    'install_requires'  :  ['radical.utils==master',
+                             'saga-python==master',
+                             'radical.pilot==master',
                              'radical.entk==jdakka',
                              'setuptools>=1',
                              'pika'],
-    'dependency_links': ['git+https://github.com/radical-cybertools/radical.utils.git@rc/v0.46.3#egg=radical.utils-rc',
-                          'git+https://github.com/radical-cybertools/saga-python.git@rc/v0.46.3#egg=saga-python-rc',
-                          'git+https://github.com/radical-cybertools/radical.pilot.git@rc/v0.46.3#egg=radical.pilot-rc',
+    'dependency_links': ['git+https://github.com/radical-cybertools/radical.utils.git@master#egg=radical.utils-rc',
+                          'git+https://github.com/radical-cybertools/saga-python.git@master#egg=saga-python-rc',
+                          'git+https://github.com/radical-cybertools/radical.pilot.git@master#egg=radical.pilot-rc',
                           'git+https://github.com/vivek-bala/radical.entk.git@experiment/jdakka#egg=radical.entk-jdakka'],
   
 
