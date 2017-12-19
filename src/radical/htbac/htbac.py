@@ -47,7 +47,6 @@ class Runner(object):
     def run(self, strong_scaled=1, autoterminate=True, queue='high', walltime=1440):
         pipelines = set()
         input_data = list()
-        
 
         for protocol in self._protocols:
             gen_pipeline = protocol.generate_pipeline()

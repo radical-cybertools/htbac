@@ -9,11 +9,11 @@ from radical.entk import Pipeline, Stage, Task
 NAMD2 = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
 NAMD_TI_ANALYSIS = "/u/sciteam/farkaspa/namd/ti/namd2_ti.pl"
 _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
-_reduced_steps = dict(min=1000, eq1=30000, eq2=97000)
+_reduced_steps = dict(min=1000, eq1=5000, eq2=10000)
 _full_steps = dict(min=1000, eq1=30000, eq2=970000)
 
 
-class Ties(object):
+class TiesEquilibration(object):
     def __init__(self, number_of_replicas, number_of_windows=0, additional=None,
                  system=None, workflow=None, cores=64, ligand=False, full=True):
 
@@ -41,7 +41,7 @@ class Ties(object):
         return self._id
 
     # Generate a new pipeline
-    def generate_pipeline(self, previous_pipeline=None):
+    def generate_pipeline(self):
 
         pipeline = Pipeline()
 
@@ -90,8 +90,7 @@ class Ties(object):
 
             pipeline.add_stages(stage)
 
-
-        print 'TIES pipeline has', len(pipeline.stages), 'stages. Tasks counts:', [len(s.tasks) for s in pipeline.stages]
+        print 'TIES equilibration pipeline has', len(pipeline.stages), 'stages. Tasks counts:', [len(s.tasks) for s in pipeline.stages]
 
         return pipeline
 
