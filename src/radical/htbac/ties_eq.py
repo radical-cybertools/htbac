@@ -45,6 +45,8 @@ class TiesEquilibration(object):
 
         pipeline = Pipeline()
 
+        pipeline.name = '_'.join(str(l) for l in self.lambdas)
+
         # Simulation stages
         # =================
         for step in self.workflow:

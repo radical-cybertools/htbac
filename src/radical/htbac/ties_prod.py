@@ -68,7 +68,7 @@ class TiesProduction(object):
                 links = []
                 links += ['$SHARED/{}-complex.top'.format(self.system), '$SHARED/{}-tags.pdb'.format(self.system)]
 
-                previous_stage = previous_pipeline.stages[-1]
+                previous_stage = previous_pipeline.stages[-1]  # TODO: this is not correct. The last stage is analysis.
                 previous_lambdas = np.array(previous_pipeline.name.split('_'), dtype=np.float)
                 closest_lambda = previous_lambdas[(np.abs(previous_lambdas-ld)).argmin()]
                 closest_task_name = 'replica_{}_lambda_{}'.format(replica, closest_lambda)
