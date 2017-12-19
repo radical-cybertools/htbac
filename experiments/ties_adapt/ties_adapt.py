@@ -18,8 +18,8 @@ def main():
     try:
         dgs = np.loadtxt('dgs.out')
         print 'END OF TIES. Standard error:', stats.sem(dgs)
-    except IOError:
-        print 'Output failed to download'
+    except (IOError, ValueError) as e:
+        print 'Output failed to download', e
 
     ties2_3_lds = Ties(number_of_replicas=5, additional=[0.15, 0.85], system='brd4-gsk2-3', full=False)
 
