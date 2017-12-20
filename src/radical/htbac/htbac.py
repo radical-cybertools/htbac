@@ -48,15 +48,17 @@ class Runner(object):
 
     def PoE(self):
 
-        pipelines = set()
+        pipelines = list()
         input_data = list()
 
         for protocol in self._protocols:
-
+            
             gen_pipeline = protocol.generate_pipeline()
             self.ids[protocol.id()] = gen_pipeline
             self.total_replicas += protocol.replicas
             pipelines.add(gen_pipeline)
+            print len(pipelines)
+
             input_data.extend(protocol.input_data)
             
 
@@ -64,7 +66,7 @@ class Runner(object):
 
         p = Pipeline() 
     
-        for s in range(len(pipelines[0].stages)):
+        for index in range(len(pipelines[0].stages)):
             stage = Stage()
             for pipeline in pipelines:
                 stage.add_tasks(pipeline.stages[index].tasks)
@@ -73,7 +75,7 @@ class Runner(object):
         print 'Creating', len(p.stages.tasks), 'tasks.'
         print 'Creating', len(p.stages), 'stages.'
         print 'Creating', len(p), 'pipeline.'
-        return p
+        return set(p)
 
     def run(self, strong_scaled=1):
 
