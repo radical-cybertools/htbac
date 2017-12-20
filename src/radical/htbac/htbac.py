@@ -77,6 +77,9 @@ class Runner(object):
 
     def run(self, strong_scaled=1):
 
+        # Create Application Manager
+        self.app_manager = AppManager(hostname=self._hostname, port=self._port)
+        self.app_manager.assign_workflow(self.PoE())
         # Pilot size   
         self._cores = self._cores * self.replicas 
         
@@ -92,11 +95,7 @@ class Runner(object):
         # Create Resource Manager object with the above resource description
         resource_manager = ResourceManager(res_dict)
         resource_manager.shared_data = input_data
-
-        # Create Application Manager
-        self.app_manager = AppManager(hostname=self._hostname, port=self._port)
         self.app_manager.resource_manager = resource_manager
-        self.app_manager.assign_workflow(self.PoE())
 
         self._prof.prof('execution_run')
         print 'Running...'
