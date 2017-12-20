@@ -56,7 +56,7 @@ class Runner(object):
             gen_pipeline = protocol.generate_pipeline()
             self.ids[protocol.id()] = gen_pipeline
             self.total_replicas += protocol.replicas
-            pipelines.add(gen_pipeline)
+            pipelines.extend(gen_pipeline)
             print len(pipelines)
 
             input_data.extend(protocol.input_data)
