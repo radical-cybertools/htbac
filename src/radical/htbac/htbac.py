@@ -17,6 +17,8 @@ class Runner(object):
         self.ids = None
         self.app_manager = None
         self.total_replicas = 0
+        self.number_stages = 0 
+        self.input_data = list()
         
 
         # Profiler for Runner
@@ -48,34 +50,35 @@ class Runner(object):
 
     def PoE(self):
 
-        pipelines = list()
-        input_data = list()
+        pipelines = set()
+        self.input_data = list()
 
         for protocol in self._protocols:
             
             gen_pipeline = protocol.generate_pipeline()
             self.ids[protocol.id()] = gen_pipeline
             self.total_replicas += protocol.replicas
-            pipelines.extend(gen_pipeline)
+            pipelines.add(gen_pipeline)
             print len(pipelines)
 
-            input_data.extend(protocol.input_data)
+            self.number_stages = len(gen_pipeline.stages)
+
+            self.input_data.extend(protocol.input_data)
             
 
         # Here we combine all pipelines into a single pipeline
 
         p = Pipeline() 
     
-        for index in range(len(pipelines[0].stages)):
+        for index in range(self.number_stages):
             stage = Stage()
             for pipeline in pipelines:
                 stage.add_tasks(pipeline.stages[index].tasks)
             p.add_stages(stage)
 
-        print 'Creating', len(p.stages.tasks), 'tasks.'
-        print 'Creating', len(p.stages), 'stages.'
-        print 'Creating', len(p), 'pipeline.'
-        return set(p)
+        
+        print 'Big pipeline has', len(p.stages), 'stages. Tasks counts:', [len(s.tasks) for s in p.stages]
+        return p
 
     def run(self, strong_scaled=1):
 
@@ -83,7 +86,7 @@ class Runner(object):
         self.app_manager = AppManager(hostname=self._hostname, port=self._port)
         self.app_manager.assign_workflow(self.PoE())
         # Pilot size   
-        self._cores = self._cores * self.replicas 
+        self._cores = self._cores * self.total_replicas
         
         print 'Running on', self._cores, 'cores.'
 
@@ -96,7 +99,7 @@ class Runner(object):
 
         # Create Resource Manager object with the above resource description
         resource_manager = ResourceManager(res_dict)
-        resource_manager.shared_data = input_data
+        resource_manager.shared_data = self.input_data
         self.app_manager.resource_manager = resource_manager
 
         self._prof.prof('execution_run')
