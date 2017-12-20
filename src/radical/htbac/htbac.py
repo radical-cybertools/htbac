@@ -17,7 +17,7 @@ class Runner(object):
         self.ids = None
         self.app_manager = None
         self.total_replicas = 0
-        self.instances = None
+        
 
         # Profiler for Runner
         self._uid = ru.generate_id('radical.htbac.workflow_runner')
@@ -55,7 +55,7 @@ class Runner(object):
 
             gen_pipeline = protocol.generate_pipeline()
             self.ids[protocol.id()] = gen_pipeline
-            self.replicas += protocol.replicas
+            self.total_replicas += protocol.replicas
             pipelines.add(gen_pipeline)
             input_data.extend(protocol.input_data)
             
