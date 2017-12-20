@@ -64,7 +64,7 @@ class Runner(object):
 
         p = Pipeline() 
     
-        for index,s in enumerate(pipelines[0].stages):
+        for s in range(len(pipelines[0].stages)):
             stage = Stage()
             for pipeline in pipelines:
                 stage.add_tasks(pipeline.stages[index].tasks)
