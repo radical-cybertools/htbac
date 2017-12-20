@@ -41,7 +41,7 @@ class Ties(object):
         return self._id
 
     # Generate a new pipeline
-    def generate_pipeline(self):
+    def generate_pipeline(self,previous_pipeline=None):
 
         pipeline = Pipeline()
 
