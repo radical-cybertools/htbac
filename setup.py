@@ -196,7 +196,7 @@ setup_args = {
 
     # the install_requires names are not the actual branches, just aliases
 
-    
+    '''
 
     'install_requires'  :  ['radical.utils==master',
                              'saga-python==master',
@@ -209,7 +209,7 @@ setup_args = {
                           'git+https://github.com/radical-cybertools/radical.pilot.git@master#egg=radical.pilot-master',
                           'git+https://github.com/vivek-bala/radical.entk.git@experiment/jdakka#egg=radical.entk-jdakka'],
   
-    
+    '''
     'zip_safe'          : False,
     # This copies the contents of the examples/ dir under
     # sys.prefix/share/radical.pilot.

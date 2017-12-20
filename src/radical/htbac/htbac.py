@@ -86,7 +86,7 @@ class Runner(object):
         self.app_manager = AppManager(hostname=self._hostname, port=self._port)
         self.app_manager.assign_workflow(self.PoE())
         # Pilot size   
-        self._cores = self._cores * self.total_replicas
+        self._cores = int(self._cores * self.total_replicas*strong_scaled)
         
         print 'Running on', self._cores, 'cores.'
 
