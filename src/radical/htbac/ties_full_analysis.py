@@ -37,7 +37,7 @@ class TiesAnalysis(object):
 
             production_stage = previous_pipeline.stages[0]  # The pipeline's first stage is the production run.
             production_tasks = [t for t in production_stage.tasks if analysis_task.name in t.name]
-            links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_{}_ti.out'.format(previous_pipeline.uid, production_stage.uid, t.uid, t.name.split('_lambda_')[-1], production_stage.name) for t in production_tasks]
+            links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_{}_{}_ti.out'.format(previous_pipeline.uid, production_stage.uid, t.uid, t.name.split('_')[1], t.name.split('_')[3], production_stage.name) for t in production_tasks]
             analysis_task.link_input_data += links
 
             analysis.add_tasks(analysis_task)
