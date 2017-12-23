@@ -15,7 +15,7 @@ _full_steps = dict(min=1000, eq1=30000, eq2=970000, prod=2000000)
 
 class Ties(object):
 
-    def __init__(self, number_of_replicas, number_of_windows=0, additional=None,
+    def __init__(self, number_of_replicas, number_of_windows=0, additional=list(),
                  systems=list(), workflow=None, cores=64, ligand=False, full=False):
 
         self.number_of_replicas = number_of_replicas
@@ -23,11 +23,10 @@ class Ties(object):
         self.lambdas = np.append(self.lambdas, additional)
         self.ligand = '-ligands' if ligand else ''
         self.step_count = _full_steps if full else _reduced_steps
-        self.instances = 0 
         
         self.systems = systems
-        print self.systems
-        self.instances = len(self.systems)
+        print "Systems:", self.systems
+
         self.cores = cores
         self._id = uuid.uuid1()  # generate id
 
@@ -44,7 +43,7 @@ class Ties(object):
         return self._id
 
     # Generate a new pipeline
-    def generate_pipeline(self, previous_pipeline=None):
+    def generate_pipeline(self):
 
         pipeline = Pipeline()
 
@@ -57,15 +56,13 @@ class Ties(object):
             print stage.name
 
             for system in self.systems:
-                self.box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box            
+                box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
                     
                 for replica in range(self.number_of_replicas):
                     for ld in self.lambdas:
-
                     
                         task = Task()
                         task.name = 'system_{}_replica_{}_lambda_{}'.format(system, replica, ld)
-
 
                         task.arguments += ['ties-{}.conf'.format(stage.name)]
                         task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage.name)]
@@ -76,7 +73,6 @@ class Ties(object):
 
                         links = []
                         links += ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-tags.pdb'.format(system)]
-                        print links
                         if self.workflow.index(step):
                             previous_stage = pipeline.stages[-1]
                             previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
@@ -85,11 +81,12 @@ class Ties(object):
                         else:
                             links += ['$SHARED/{}-complex.pdb'.format(system)]
 
+                        print "Linking files:", links
                         task.link_input_data = links
 
-                        task.pre_exec += ["sed -i 's/BOX_X/{}/g' *.conf".format(self.box[0]),
-                                          "sed -i 's/BOX_Y/{}/g' *.conf".format(self.box[1]),
-                                          "sed -i 's/BOX_Z/{}/g' *.conf".format(self.box[2]),
+                        task.pre_exec += ["sed -i 's/BOX_X/{}/g' *.conf".format(box[0]),
+                                          "sed -i 's/BOX_Y/{}/g' *.conf".format(box[1]),
+                                          "sed -i 's/BOX_Z/{}/g' *.conf".format(box[2]),
                                           "sed -i 's/SYSTEM/{}/g' *.conf".format(system)]
 
                         task.pre_exec += ["sed -i 's/STEP/{}/g' *.conf".format(self.step_count[step])]
@@ -106,19 +103,14 @@ class Ties(object):
     # Input data
     @property
     def input_data(self):
-        files = []
+        files = ['default_configs/ties-{}.conf'.format(step) for step in self.workflow]
         for system in self.systems:
-            files += ['default_configs/ties-{}.conf'.format(step) for step in self.workflow]
             files += ['systems/ties{lig}/{s}/build/{s}-complex.pdb'.format(lig=self.ligand, s=system)]
             files += ['systems/ties{lig}/{s}/build/{s}-complex.top'.format(lig=self.ligand, s=system)]
             files += ['systems/ties{lig}/{s}/build/{s}-tags.pdb'.format(lig=self.ligand, s=system)]
-        print files
+        print "Input files:", files
         return files
-
-    
 
     @property
     def replicas(self):
-
-        return self.number_of_replicas*len(self.lambdas)*self.instances
-
+        return self.number_of_replicas*len(self.lambdas)*len(self.systems)
