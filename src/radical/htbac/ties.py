@@ -18,7 +18,7 @@ class Ties(object):
     def __init__(self, number_of_replicas, number_of_windows=0, additional=None,
                  systems=list(), workflow=None, cores=64, ligand=False, full=False):
 
-        self.number_of_replicas = number_of_replicasi
+        self.number_of_replicas = number_of_replicas
         self.lambdas = np.linspace(0.0, 1.0, number_of_windows, endpoint=True)
         self.lambdas = np.append(self.lambdas, additional)
         self.ligand = '-ligands' if ligand else ''
@@ -149,6 +149,7 @@ class Ties(object):
             pipeline.add_stages(average)
 
             print 'TIES pipeline has', len(pipeline.stages), 'stages. Tasks counts:', [len(s.tasks) for s in pipeline.stages]
+            print 'Input data', [len(s.tasks.link_input_data) for s in pipeline.stages]
 
         return pipeline
 
