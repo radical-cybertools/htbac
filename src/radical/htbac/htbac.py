@@ -74,8 +74,8 @@ class Runner(object):
             stage = Stage()
             for pipeline in pipelines:
                 stage.add_tasks(pipeline.stages[index].tasks)
+                stage.name = pipeline.stages[index].name
             p.add_stages(stage)
-
         
         print 'Big pipeline has', len(p.stages), 'stages. Tasks counts:', [len(s.tasks) for s in p.stages]
         return p
@@ -91,10 +91,10 @@ class Runner(object):
         print 'Running on', self._cores, 'cores.'
 
         res_dict = {'resource': 'ncsa.bw_aprun',
-                    'walltime': 1440,
+                    'walltime': 30,
                     'cores': int(self._cores*strong_scaled),
                     'project': 'bamm',
-                    'queue': 'high',
+                    'queue': 'debug',
                     'access_schema': 'gsissh'}
 
         # Create Resource Manager object with the above resource description
