@@ -51,11 +51,12 @@ class Ties(object):
         # Simulation stages
         # =================
 
-        for system in self.systems:
-            self.box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
-            for step in self.workflow:
-                stage = Stage()
-                stage.name = step
+        for step in self.workflow:
+            stage = Stage()
+            stage.name = step
+
+            for system in self.systems:
+                self.box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
 
                 for replica in range(self.number_of_replicas):
                     for ld in self.lambdas:
