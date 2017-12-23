@@ -23,10 +23,11 @@ class Ties(object):
         self.lambdas = np.append(self.lambdas, additional)
         self.ligand = '-ligands' if ligand else ''
         self.step_count = _full_steps if full else _reduced_steps
+        self.instances = 0 
         
         self.systems = systems
+        print self.systems
         self.instances = len(self.systems)
-        self.box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
         self.cores = cores
         self._id = uuid.uuid1()  # generate id
 
@@ -51,7 +52,7 @@ class Ties(object):
         # =================
 
         for system in self.systems:
-
+            self.box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
             for step in self.workflow:
                 stage = Stage()
                 stage.name = step
@@ -73,7 +74,7 @@ class Ties(object):
 
                         links = []
                         links += ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-tags.pdb'.format(system)]
-
+                        print links
                         if self.workflow.index(step):
                             previous_stage = pipeline.stages[-1]
                             previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
@@ -149,7 +150,7 @@ class Ties(object):
             pipeline.add_stages(average)
 
             print 'TIES pipeline has', len(pipeline.stages), 'stages. Tasks counts:', [len(s.tasks) for s in pipeline.stages]
-            print 'Input data', [len(s.tasks.link_input_data) for s in pipeline.stages]
+            
 
         return pipeline
 
@@ -162,11 +163,9 @@ class Ties(object):
             files += ['systems/ties{lig}/{s}/build/{s}-complex.pdb'.format(lig=self.ligand, s=system)]
             files += ['systems/ties{lig}/{s}/build/{s}-complex.top'.format(lig=self.ligand, s=system)]
             files += ['systems/ties{lig}/{s}/build/{s}-tags.pdb'.format(lig=self.ligand, s=system)]
+        print files
         return files
 
-    @property
-    def instances(self):
-        return self.instances
     
 
     @property
