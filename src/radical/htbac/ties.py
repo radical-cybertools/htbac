@@ -9,17 +9,18 @@ from radical.entk import Pipeline, Stage, Task
 NAMD2 = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
 NAMD_TI_ANALYSIS = "/u/sciteam/farkaspa/namd/ti/namd2_ti.pl"
 _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
-_reduced_steps = dict(min=10, eq1=30, eq2=9, prod=20)
+_reduced_steps = dict(min=100, eq1=3000, eq2=1000, prod=2000)
 _full_steps = dict(min=1000, eq1=30000, eq2=970000, prod=2000000)
 
 
 class Ties(object):
+
     def __init__(self, number_of_replicas, number_of_windows=0, additional=None,
                  systems=list(), workflow=None, cores=64, ligand=False, full=False):
 
         self.number_of_replicas = number_of_replicasi
         self.lambdas = np.linspace(0.0, 1.0, number_of_windows, endpoint=True)
-        self.lambdas = np.append(self.lambdas, additional or [0.05, 0.95])
+        self.lambdas = np.append(self.lambdas, additional)
         self.ligand = '-ligands' if ligand else ''
         self.step_count = _full_steps if full else _reduced_steps
         
@@ -49,6 +50,7 @@ class Ties(object):
         # Simulation stages
         # =================
 
+<<<<<<< HEAD
         for system in self.systems:
 
             for step in self.workflow:
@@ -61,6 +63,7 @@ class Ties(object):
                     
                         task = Task()
                         task.name = 'system_{}_replica_{}_lambda_{}'.format(system, replica, ld)
+
 
                         task.arguments += ['ties-{}.conf'.format(stage.name)]
                         task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage.name)]
@@ -136,10 +139,12 @@ class Ties(object):
             previous_stage = pipeline.stages[-1]
             previous_tasks = previous_stage.tasks
 
+
             links = ['$Pipeline_{}_Stage_{}_Task_{}/dg_{}.out'.format(pipeline.uid, previous_stage.uid, t.uid,
                                                                       t.name) for t in previous_tasks]
             average_task.link_input_data = links
             #average_task.download_output_data = ['dgs.out']  # .format(pipeline.uid)]
+
 
             average.add_tasks(average_task)
             pipeline.add_stages(average)
@@ -166,6 +171,6 @@ class Ties(object):
 
     @property
     def replicas(self):
+
         return self.number_of_replicas*len(self.lambdas)*self.instances
 
-    

@@ -1,18 +1,17 @@
 from radical.htbac import Ties, Runner
 
 
-
 def main():
 
     ht = Runner()
 
-    ties2_3 = Ties(number_of_replicas=2, number_of_windows=1, system='brd4-gsk2-3')
-    ties3_1 = Ties(number_of_replicas=2, number_of_windows=1, system='brd4-gsk3-1')
+    ties3_7 = Ties(number_of_replicas=1, number_of_windows=1, system='brd4-gsk3-7', cores=32)
+    ties3_1 = Ties(number_of_replicas=1, number_of_windows=1, system='brd4-gsk3-1', cores=32)
 
-    ht.add_protocol(ties2_3)
+    ht.add_protocol(ties3_7)
     ht.add_protocol(ties3_1)
-    ht.cores = 64
-    ht.rabbitmq_config(hostname='two.radical-project.org', port=32775)
+    ht.cores = 32
+    ht.rabbitmq_config(hostname='two.radical-project.org', port=32865)
     ht.run()
 
 
