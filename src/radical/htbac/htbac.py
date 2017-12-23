@@ -5,8 +5,8 @@ __license__     = "MIT"
 import os
 
 import radical.utils as ru
-from radical.entk import Pipeline, Stage, Task, AppManager, ResourceManager
- 
+from radical.entk import AppManager, ResourceManager
+
 
 class Runner(object):
     def __init__(self):
@@ -17,9 +17,6 @@ class Runner(object):
         self.ids = None
         self.app_manager = None
         self.total_replicas = 0
-        self.number_stages = 0 
-        self.input_data = list()
-        
 
         # Profiler for Runner
         self._uid = ru.generate_id('radical.htbac.workflow_runner')
@@ -47,63 +44,41 @@ class Runner(object):
         self._hostname = hostname
         self._port = port
 
-
-    def PoE(self):
-
-        pipelines = set()
-        self.input_data = list()
-
-        for protocol in self._protocols:
-            
-            gen_pipeline = protocol.generate_pipeline()
-            self.ids[protocol.id()] = gen_pipeline
-            self.total_replicas += protocol.replicas
-            pipelines.add(gen_pipeline)
-            print len(pipelines)
-
-            self.number_stages = len(gen_pipeline.stages)
-
-            self.input_data.extend(protocol.input_data)
-            
-
-        # Here we combine all pipelines into a single pipeline
-
-        p = Pipeline() 
-    
-        for index in range(self.number_stages):
-            stage = Stage()
-            for pipeline in pipelines:
-                stage.add_tasks(pipeline.stages[index].tasks)
-                stage.name = pipeline.stages[index].name
-            p.add_stages(stage)
-        
-        print 'Big pipeline has', len(p.stages), 'stages. Tasks counts:', [len(s.tasks) for s in p.stages]
-        return p
-
     def run(self, strong_scaled=1):
-
-        # Create Application Manager
-        self.app_manager = AppManager(hostname=self._hostname, port=self._port)
-        self.app_manager.assign_workflow(self.PoE())
-        # Pilot size   
-        self._cores = int(self._cores * self.total_replicas*strong_scaled)
+        pipelines = set()
+        input_data = list()
         
+        for protocol in self._protocols:
+            gen_pipeline = protocol.generate_pipeline()
+            pipelines.add(gen_pipeline)
+            input_data.extend(protocol.input_data)
+            self.ids[protocol.id()] = gen_pipeline
+            # protocol.id is the uuid, gen_pipeline.uid is the pipeline
+
+            self.total_replicas += protocol.replicas
+
+        self._cores = self._cores * self.total_replicas
         print 'Running on', self._cores, 'cores.'
 
         res_dict = {'resource': 'ncsa.bw_aprun',
-                    'walltime': 30,
+                    'walltime': 1440,
                     'cores': int(self._cores*strong_scaled),
                     'project': 'bamm',
-                    'queue': 'debug',
+                    'queue': 'high',
                     'access_schema': 'gsissh'}
 
         # Create Resource Manager object with the above resource description
         resource_manager = ResourceManager(res_dict)
-        resource_manager.shared_data = self.input_data
+        resource_manager.shared_data = input_data
+
+        # Create Application Manager
+        self.app_manager = AppManager(hostname=self._hostname, port=self._port)
         self.app_manager.resource_manager = resource_manager
+        self.app_manager.assign_workflow(pipelines)
 
         self._prof.prof('execution_run')
         print 'Running...'
         self.app_manager.run()    # this method is blocking until all pipelines show state = completed
 
+    
     
