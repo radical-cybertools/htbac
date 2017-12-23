@@ -44,43 +44,17 @@ class Runner(object):
         self._hostname = hostname
         self._port = port
 
-<<<<<<< HEAD
     def run(self, strong_scaled=1):
-=======
-    def PoE(self):
-
->>>>>>> e693bed233f87e4abd07606be95c79e4a8471dfa
         pipelines = set()
         input_data = list()
         
+
         for protocol in self._protocols:
             gen_pipeline = protocol.generate_pipeline()
             pipelines.add(gen_pipeline)
-<<<<<<< HEAD
             input_data.extend(protocol.input_data)
             self.ids[protocol.id()] = gen_pipeline
             # protocol.id is the uuid, gen_pipeline.uid is the pipeline
-=======
-            print len(pipelines)
-
-            self.number_stages = len(gen_pipeline.stages)
-
-            self.input_data.extend(protocol.input_data)
-
-        # Here we combine all pipelines into a single pipeline
-
-        p = Pipeline() 
-    
-        for index in range(self.number_stages):
-            stage = Stage()
-            for pipeline in pipelines:
-                stage.add_tasks(pipeline.stages[index].tasks)
-                stage.name = pipeline.stages[index].name
-            p.add_stages(stage)
-        
-        print 'Big pipeline has', len(p.stages), 'stages. Tasks counts:', [len(s.tasks) for s in p.stages]
-        return p
->>>>>>> e693bed233f87e4abd07606be95c79e4a8471dfa
 
             self.total_replicas += protocol.replicas
 
@@ -106,6 +80,3 @@ class Runner(object):
         self._prof.prof('execution_run')
         print 'Running...'
         self.app_manager.run()    # this method is blocking until all pipelines show state = completed
-
-    
-    
