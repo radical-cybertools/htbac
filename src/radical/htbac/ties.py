@@ -50,7 +50,6 @@ class Ties(object):
         # Simulation stages
         # =================
 
-<<<<<<< HEAD
         for system in self.systems:
 
             for step in self.workflow:
