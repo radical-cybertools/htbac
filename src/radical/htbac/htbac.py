@@ -47,7 +47,6 @@ class Runner(object):
         self._hostname = hostname
         self._port = port
 
-
     def PoE(self):
 
         pipelines = set()
@@ -64,7 +63,6 @@ class Runner(object):
             self.number_stages = len(gen_pipeline.stages)
 
             self.input_data.extend(protocol.input_data)
-            
 
         # Here we combine all pipelines into a single pipeline
 

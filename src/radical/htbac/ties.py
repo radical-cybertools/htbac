@@ -9,7 +9,7 @@ from radical.entk import Pipeline, Stage, Task
 NAMD2 = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
 NAMD_TI_ANALYSIS = "/u/sciteam/farkaspa/namd/ti/namd2_ti.pl"
 _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
-_reduced_steps = dict(min=10, eq1=30, eq2=9, prod=20)
+_reduced_steps = dict(min=100, eq1=3000, eq2=1000, prod=2000)
 _full_steps = dict(min=1000, eq1=30000, eq2=970000, prod=2000000)
 
 
@@ -41,13 +41,12 @@ class Ties(object):
         return self._id
 
     # Generate a new pipeline
-    def generate_pipeline(self,previous_pipeline=None):
+    def generate_pipeline(self, previous_pipeline=None):
 
         pipeline = Pipeline()
 
         # Simulation stages
         # =================
-
 
         for step in self.workflow:
             stage = Stage()
@@ -55,8 +54,7 @@ class Ties(object):
 
             for replica in range(self.number_of_replicas):
                 for ld in self.lambdas:
-                
-                
+
                     task = Task()
                     task.name = 'replica_{}_lambda_{}'.format(replica, ld)
 
@@ -137,7 +135,7 @@ class Ties(object):
         links = ['$Pipeline_{}_Stage_{}_Task_{}/dg_{}.out'.format(pipeline.uid, previous_stage.uid, t.uid,
                                                                   t.name) for t in previous_tasks]
         average_task.link_input_data = links
-        #average_task.download_output_data = ['dgs.out']  # .format(pipeline.uid)]
+        # average_task.download_output_data = ['dgs.out']  # .format(pipeline.uid)]
 
         average.add_tasks(average_task)
         pipeline.add_stages(average)
@@ -159,5 +157,3 @@ class Ties(object):
     @property
     def replicas(self):
         return self.number_of_replicas*len(self.lambdas)
-
-    
