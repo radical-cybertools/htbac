@@ -54,13 +54,14 @@ class Ties(object):
         for step in self.workflow:
             stage = Stage()
             stage.name = step
+            print stage.name
 
             for system in self.systems:
-                self.box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
-
+                self.box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box            
+                    
                 for replica in range(self.number_of_replicas):
                     for ld in self.lambdas:
-                    
+
                     
                         task = Task()
                         task.name = 'system_{}_replica_{}_lambda_{}'.format(system, replica, ld)
@@ -97,14 +98,16 @@ class Ties(object):
 
                         stage.add_tasks(task)
 
-                pipeline.add_stages(stage)
+            pipeline.add_stages(stage)
 
             # Analysis stage
             # ==============
             analysis = Stage()
             analysis.name = 'analysis'
 
-            for replica in range(self.number_of_replicas):
+        for replica in range(self.number_of_replicas):
+            for system in self.systems:
+                self.box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box            
                 analysis_task = Task()
                 analysis_task.name = 'system_{}_replica_{}'.format(system,replica)
 
@@ -114,20 +117,22 @@ class Ties(object):
                 analysis_task.mpi = False
                 analysis_task.cores = 1
 
-                for p in filter(None, [pipeline, previous_pipeline]):
-                    production_stage = next(stage for stage in p.stages if stage.name == 'prod')
-                    production_tasks = [t for t in production_stage.tasks if analysis_task.name in t.name]
-                    links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_ti.out'.format(p.uid, production_stage.uid, t.uid, t.name.split('_lambda_')[-1]) for t in production_tasks]
-                    analysis_task.link_input_data += links
+                production_stage = pipeline.stages[-1]
+                production_tasks = [t for t in production_stage.tasks if analysis_task.name in t.name]
+                links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_ti.out'.format(pipeline.uid, production_stage.uid, t.uid, t.name.split('_lambda_')[-1]) for t in production_tasks]
+                analysis_task.link_input_data = links
 
                 analysis.add_tasks(analysis_task)
 
-            pipeline.add_stages(analysis)
+        pipeline.add_stages(analysis)
 
-            # Averaging stage
-            # ===============
-            average = Stage()
-            average.name = 'average'
+        # Averaging stage
+        # ===============
+        average = Stage()
+        average.name = 'average'
+
+        for system in self.systems:
+            self.box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box            
 
             average_task = Task()
             average_task.name = 'average_dg'
@@ -146,13 +151,10 @@ class Ties(object):
             average_task.link_input_data = links
             #average_task.download_output_data = ['dgs.out']  # .format(pipeline.uid)]
 
-
             average.add_tasks(average_task)
-            pipeline.add_stages(average)
+        pipeline.add_stages(average)
 
-            print 'TIES pipeline has', len(pipeline.stages), 'stages. Tasks counts:', [len(s.tasks) for s in pipeline.stages]
-            
-
+        print 'TIES pipeline has', len(pipeline.stages), 'stages. Tasks counts:', [len(s.tasks) for s in pipeline.stages]
         return pipeline
 
     # Input data
