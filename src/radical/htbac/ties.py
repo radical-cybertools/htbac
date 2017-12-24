@@ -16,7 +16,7 @@ _full_steps = dict(min=1000, eq1=30000, eq2=970000, prod=2000000)
 class Ties(object):
 
     def __init__(self, number_of_replicas, number_of_windows=0, additional=list(),
-                 systems=list(), workflow=None, cores=64, ligand=False, full=False):
+                 systems=list(), workflow=None, cores=32, ligand=False, full=True):
 
         self.number_of_replicas = number_of_replicas
         self.lambdas = np.linspace(0.0, 1.0, number_of_windows, endpoint=True)
@@ -25,7 +25,7 @@ class Ties(object):
         self.step_count = _full_steps if full else _reduced_steps
         
         self.systems = systems
-        print "Systems:", self.systems
+        print "Lambda Windows:", self.lambdas
 
         self.cores = cores
         self._id = uuid.uuid1()  # generate id

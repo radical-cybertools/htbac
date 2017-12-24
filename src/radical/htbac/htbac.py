@@ -62,7 +62,7 @@ class Runner(object):
         print 'Running on', self._cores, 'cores.'
 
         res_dict = {'resource': 'ncsa.bw_aprun',
-                    'walltime': 120,
+                    'walltime': 1440,
                     'cores': int(self._cores*strong_scaled),
                     'project': 'bamm',
                     'queue': 'high',
