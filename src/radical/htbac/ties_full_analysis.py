@@ -1,5 +1,8 @@
 import uuid
 import numpy as np
+import pandas as pd
+from StringIO import StringIO
+
 
 import radical.utils as ru
 from radical.entk import Pipeline, Stage, Task
@@ -70,3 +73,51 @@ class TiesAnalysis(object):
 
         return pipeline
 
+
+class AdaptiveQuadrature(object):
+    def __init__(self, namd_ti, tol=5):
+        self.namd_ti = namd_ti
+        self.tol = tol
+        self._process_data()
+
+    splits = ['Partition 1 electrostatics',
+              'Partition 1 vdW',
+              'Partition 2 electrostatics']
+
+    def _process_data(self):
+        with open(self.namd_ti) as f:
+            data = f.read()
+            dfs = list()
+
+            for s in self.splits:
+                sp = data.split(s)
+                dfs += [pd.read_csv(StringIO(sp[0].replace('\t', ' ')), delim_whitespace=True, usecols=[0, 1])]
+                data = sp[1]
+
+            self.p1v = dfs[2]
+
+    def requested_windows(self):
+        number_to_add = len(self.p1v)
+
+        while True:
+            newp1v = self.p1v.copy(deep=True)
+
+            for index in range(len(self.p1v) - 1):
+                dif = abs(self.p1v.loc[index]['dE/dl'] - self.p1v.loc[index + 1]['dE/dl'])
+                if dif > self.tol:
+                    newld = (self.p1v.loc[index]['Lambda'] + self.p1v.loc[index + 1]['Lambda']) / 2
+                    print 'Add new ld at:', newld
+                    newp1v.loc[len(newp1v)] = [newld, max(self.p1v.loc[index]['dE/dl'], self.p1v.loc[index + 1]['dE/dl'])]
+                    number_to_add -= 1
+
+                    if number_to_add == 0:
+                        break
+
+            newp1v.sort_values('Lambda', inplace=True)
+            newp1v.reset_index(drop=True, inplace=True)
+            self.p1v = newp1v
+
+            if number_to_add == 0:
+                break
+
+        return self.p1v['Lambda'].as_matrix()

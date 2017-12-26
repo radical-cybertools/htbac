@@ -103,24 +103,23 @@ class TiesProduction(object):
         analysis = Stage()
         analysis.name = 'analysis'
 
-        for ld in self.lambdas:
-            analysis_task = Task()
-            analysis_task.name = 'lambda_{}'.format(ld)
+        analysis_task = Task()
+        analysis_task.name = 'analysis'
 
-            analysis_task.arguments += ['-f', '>', 'dg.out'.format(analysis_task.name, pipeline.uid.split('.')[-1])]
-            analysis_task.executable = [NAMD_TI_ANALYSIS]
+        analysis_task.arguments += ['-f', '>', 'dg.out']
+        analysis_task.executable = [NAMD_TI_ANALYSIS]
 
-            analysis_task.mpi = False
-            analysis_task.cores = 1
+        analysis_task.mpi = False
+        analysis_task.cores = 1
 
-            production_stage = pipeline.stages[-1]
-            production_tasks = [t for t in production_stage.tasks if analysis_task.name in t.name]
-            links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_{}_{}_ti.out'.format(pipeline.uid, production_stage.uid, t.uid, t.name.split('_')[1], t.name.split('_')[3], stage.name) for t in production_tasks]
-            analysis_task.link_input_data += links
+        production_stage = pipeline.stages[-1]
+        production_tasks = production_stage.tasks
+        links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_{}_{}_ti.out'.format(pipeline.uid, production_stage.uid, t.uid, t.name.split('_')[1], t.name.split('_')[3], stage.name) for t in production_tasks]
+        analysis_task.link_input_data += links
 
-            analysis_task.download_output_data = ['dg.out > dg_{}_{}.out'.format(analysis_task.name, pipeline.uid.split('.')[-1])]
+        analysis_task.download_output_data = ['dg.out > dg_{}.out'.format(self.id)]
 
-            analysis.add_tasks(analysis_task)
+        analysis.add_tasks(analysis_task)
 
         pipeline.add_stages(analysis)
 
