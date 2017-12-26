@@ -107,7 +107,7 @@ class TiesProduction(object):
             analysis_task = Task()
             analysis_task.name = 'lambda_{}'.format(ld)
 
-            analysis_task.arguments += ['-f', '>', 'dg_{}_{}.out'.format(analysis_task.name, pipeline.uid.split('.')[-1])]
+            analysis_task.arguments += ['-f', '>', 'dg.out'.format(analysis_task.name, pipeline.uid.split('.')[-1])]
             analysis_task.executable = [NAMD_TI_ANALYSIS]
 
             analysis_task.mpi = False
@@ -118,7 +118,7 @@ class TiesProduction(object):
             links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_{}_{}_ti.out'.format(pipeline.uid, production_stage.uid, t.uid, t.name.split('_')[1], t.name.split('_')[3], stage.name) for t in production_tasks]
             analysis_task.link_input_data += links
 
-            analysis_task.download_output_data = ['dg_{}_{}.out'.format(analysis_task.name, pipeline.uid.split('.')[-1])]
+            analysis_task.download_output_data = ['dg.out > dg_{}_{}.out'.format(analysis_task.name, pipeline.uid.split('.')[-1])]
 
             analysis.add_tasks(analysis_task)
 
