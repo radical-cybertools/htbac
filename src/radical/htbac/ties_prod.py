@@ -9,7 +9,7 @@ from radical.entk import Pipeline, Stage, Task
 NAMD2 = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
 NAMD_TI_ANALYSIS = "/u/sciteam/farkaspa/namd/ti/namd2_ti.pl"
 _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
-_reduced_steps = dict(prod=10000)
+_reduced_steps = dict(prod=1000)
 _full_steps = dict(prod=500000)
 
 

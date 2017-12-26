@@ -23,7 +23,7 @@ def main():
 
     print 'Production 1 finished'
 
-    ties2_3_p2 = TiesProduction(number_of_replicas=1, number_of_windows=2, system='brd4-gsk2-3', full=False)
+    ties2_3_p2 = TiesProduction(number_of_replicas=1, number_of_windows=1, system='brd4-gsk2-3', full=False)
 
     ht.rerun(protocol=ties2_3_p2, terminate=False, previous_pipeline=ties2_3_p1)
 
