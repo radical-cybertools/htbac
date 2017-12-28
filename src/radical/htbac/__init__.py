@@ -15,7 +15,7 @@ import os
 os.environ['RADICAL_ENMD_PROFILING'] = '1'
 os.environ['RADICAL_PILOT_PROFILE'] = 'True'
 os.environ['RADICAL_ENMD_PROFILE'] = 'True'
-os.environ['RADICAL_ENTK_VERBOSE'] = 'INFO'
+os.environ['RADICAL_ENTK_VERBOSE'] = 'DEBUG'
 os.environ['RADICAL_PILOT_DBURL'] = 'mongodb://htbac-user:password@ds131826.mlab.com:31826/htbac-isc-experiments'
 
 os.environ['RP_ENABLE_OLD_DEFINES'] = 'True'
