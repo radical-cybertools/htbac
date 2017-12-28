@@ -75,7 +75,7 @@ class TiesAnalysis(object):
 
 
 class AdaptiveQuadrature(object):
-    def __init__(self, namd_ti, tol=5):
+    def __init__(self, namd_ti, tol=2):
         self.namd_ti = namd_ti
         self.tol = tol
         self._process_data()
