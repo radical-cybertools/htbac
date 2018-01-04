@@ -1,125 +1,116 @@
+import numpy as np
+import parmed as pmd
+import uuid
+
 import radical.utils as ru
-from radical.entk import Pipeline, Stage, Task, AppManager, ResourceManager
-import os
+from radical.entk import Pipeline, Stage, Task
+
+
+NAMD2 = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
+NAMD_TI_ANALYSIS = "/u/sciteam/farkaspa/namd/ti/namd2_ti.pl"
+_simulation_file_suffixes = ['.coor', '.xsc', '.vel']
+_reduced_steps = dict(min=100, eq1=5000, eq2=5000, prod=5000)
+_full_steps = dict(min=1000, eq1=30000, eq2=970000, prod=2000000)
 
 
 class Ties(object):
 
-   # class NamdTask(Task):
+    def __init__(self, number_of_replicas, number_of_windows=0, additional=list(),
+                 systems=list(), workflow=None, cores=32, ligand=False, full=True):
 
-    def __init__(self, replicas = 0, lambda_initial = 0, lambda_final = 0, lambda_delta = 0, rootdir = None, workflow = None):
-
-        self._replicas        = replicas
-        self.lambda_initial   = lambda_initial
-        self.lambda_final     = lambda_final*100
-        self.lambda_delta     = int(lambda_delta*100)
-        self.rootdir          = rootdir
-        self.executable       = ['/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2']
+        self.number_of_replicas = number_of_replicas
+        self.lambdas = np.linspace(0.0, 1.0, number_of_windows, endpoint=True)
+        self.lambdas = np.append(self.lambdas, additional or [0.05, 0.95])
+        self.ligand = '-ligands' if ligand else ''
+        self.step_count = _full_steps if full else _reduced_steps
         
-        self.cores            = 32      
-        self.workflow         = workflow
+        self.systems = systems
+        print "Lambda Windows:", self.lambdas
 
-        #profiler for TIES PoE
+        self.cores = cores
+        self._id = uuid.uuid1()  # generate id
+
+        self.workflow = workflow or ['min', 'eq1', 'eq2', 'prod']
+        
+        # Profiler for TIES PoE
 
         self._uid = ru.generate_id('radical.htbac.ties')
         self._logger = ru.get_logger('radical.htbac.ties')
-        self._prof = ru.Profiler(name = self._uid) 
+        self._prof = ru.Profiler(name=self._uid)
         self._prof.prof('create ties instance', uid=self._uid)
 
-        self.my_list = list()
-            
-        for subdir, dirs, files in os.walk(self.rootdir):
-            for file in files:
-                self.my_list.append(os.path.join(subdir, file))
+    def id(self):
+        return self._id
 
-        self.lambdas = list()
-        self.lambdas = [0.0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 1.0]
-        
-        
-        #self.lambdas = [i/100.0 for i in range(self._lambda_initial, self._lambda_final*100, self._lambda_delta*100)]
+    # Generate a new pipeline
+    def generate_pipeline(self):
 
+        pipeline = Pipeline()
 
+        # Simulation stages
+        # =================
 
+        for step in self.workflow:
+            stage = Stage()
+            stage.name = step
+            print stage.name
+
+            for system in self.systems:
+                box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
+                    
+                for replica in range(self.number_of_replicas):
+                    for ld in self.lambdas:
+                    
+                        task = Task()
+                        task.name = 'system_{}_replica_{}_lambda_{}'.format(system, replica, ld)
+
+                        task.arguments += ['ties-{}.conf'.format(stage.name)]
+                        task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage.name)]
+                        task.executable = [NAMD2]
+
+                        task.mpi = True
+                        task.cores = self.cores
+
+                        links = []
+                        links += ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-tags.pdb'.format(system)]
+                        if self.workflow.index(step):
+                            previous_stage = pipeline.stages[-1]
+                            previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
+                            path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.uid, previous_stage.uid, previous_task.uid)
+                            links += [path+previous_stage.name+suffix for suffix in _simulation_file_suffixes]
+                        else:
+                            links += ['$SHARED/{}-complex.pdb'.format(system)]
+
+                        print "Linking files:", links
+                        task.link_input_data = links
+
+                        task.pre_exec += ["sed -i 's/BOX_X/{}/g' *.conf".format(box[0]),
+                                          "sed -i 's/BOX_Y/{}/g' *.conf".format(box[1]),
+                                          "sed -i 's/BOX_Z/{}/g' *.conf".format(box[2]),
+                                          "sed -i 's/SYSTEM/{}/g' *.conf".format(system)]
+
+                        task.pre_exec += ["sed -i 's/STEP/{}/g' *.conf".format(self.step_count[step])]
+
+                        task.pre_exec += ["sed -i 's/LAMBDA/{}/g' *.conf".format(ld)]
+
+                        stage.add_tasks(task)
+
+            pipeline.add_stages(stage)
+
+        print 'TIES pipeline has', len(pipeline.stages), 'stages. Tasks counts:', [len(s.tasks) for s in pipeline.stages]
+        return pipeline
+
+    # Input data
     @property
     def input_data(self):
-
-        return self.rootdir
+        files = ['default_configs/ties-{}.conf'.format(step) for step in self.workflow]
+        for system in self.systems:
+            files += ['systems/ties{lig}/{s}/build/{s}-complex.pdb'.format(lig=self.ligand, s=system)]
+            files += ['systems/ties{lig}/{s}/build/{s}-complex.top'.format(lig=self.ligand, s=system)]
+            files += ['systems/ties{lig}/{s}/build/{s}-tags.pdb'.format(lig=self.ligand, s=system)]
+        print "Input files:", files
+        return files
 
     @property
     def replicas(self):
-        return self._replicas*len(self.lambdas)
-
-    # Generate pipelines
-    def generate_pipeline(self):
-
-
-    # Here we create 1 pipeline with n_stages where n is the number of steps in the workflow
-    # In each stage we generate x_tasks where x = lambdas*replicas
-
-        p = Pipeline()
-        stage_ref = dict()
-
-        for index, step in enumerate(self.workflow):
-            s = Stage()
-            for replica in range(self._replicas):
-                for ld in self.lambdas:
-                    
-                    
-                    if index == 0:
-
-                        t = Task()
-                        t.name = "replica_{0}_lambda_{1}_step_{2}".format(replica,ld,step) 
-                        t.copy_input_data = ["$SHARED/" + self.rootdir + ".tgz > " + self.rootdir + ".tgz"]
-                        t.pre_exec = ['tar zxvf {input1}'.format(input1=self.rootdir + ".tgz")]
-                        t.cores   = self.cores
-                        t.mpi = True 
-                        t.executable = self.executable
-                        t.arguments  = ['replica_{}/lambda_{}/{}.conf'.format(replica, ld, step), 
-                                    '&>', 
-                                    'replica_{}/lambda_{}/{}.log'.format(replica, ld, step)]
-
-                        # obtain the task path of the previous step for current replica+lambda combination for any stage after stage 1 
-                    
-                        #task_ref = ["$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s.uid, t.uid)]
-                        stage_ref["replica_{0}_lambda_{1}_step_{2}".format(replica,ld,step)]="$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s.uid, t.uid)
-
-                        s.add_tasks(t)
-
-
-                    if index != 0: 
-
-
-                        t = Task()
-                        t.name = "replica_{0}_lambda_{1}_step_{2}".format(replica,ld,step) 
-
-                        #obtain task_path of current replica from previous workflow step 
-                        task_path = stage_ref["replica_{0}_lambda_{1}_step_{2}".format(replica,ld,self.workflow[index-1])]
-                        
-                        t.copy_input_data =[task_path+'/'+self.rootdir+'/replica_{input1}/lambda_{input2}/{input3}.xsc > replica_{input1}/lambda_{input2}/{input3}.xsc'.format(input1 = replica, 
-                                                     input2 = ld, 
-                                                     input3 = self.workflow[index-1]),
-                                            task_path+'/'+self.rootdir+'replica_{input1}/lambda_{input2}/{input3}.vel > replica_{input1}/lambda_{input2}/{input3}.vel'.format(input1 = replica, 
-                                                     input2 = ld, 
-                                                     input3 = self.workflow[index-1])]
-
-                        for f in self.my_list:
-                            t.copy_input_data.append("{stage}/".format(stage=task_path) + f + " > " + f)
-
-
-                        t.executable = self.executable
-                        t.cores   = self.cores
-                        t.mpi = True
-                        t.arguments  = ['replica_{}/lambda_{}/{}.conf'.format(replica, ld, step), 
-                                        '&>', 
-                                        'replica_{}/lambda_{}/{}.log'.format(replica, ld, step)]
-
-                        # obtain the task path of the previous step for current replica+lambda combination for any stage after stage 1 
-                        
-                        stage_ref["replica_{0}_lambda_{1}_step_{2}".format(replica,ld,step)]="$Pipeline_{0}_Stage_{1}_Task_{2}/".format(p.uid, s.uid, t.uid)
-                        s.add_tasks(t)
-                
-            p.add_stages(s)
-        return p
-
-
-        
+        return self.number_of_replicas*len(self.lambdas)*len(self.systems)

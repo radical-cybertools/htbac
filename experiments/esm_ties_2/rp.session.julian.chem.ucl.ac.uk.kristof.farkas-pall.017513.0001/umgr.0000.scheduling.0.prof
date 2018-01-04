@@ -1,0 +1,4 @@
+#time,event,comp,thread,uid,state,msg
+1513247816.7748,sync_abs,umgr.0000.scheduling.0,MainThread,,,julian.chem.ucl.ac.uk:127.0.0.1:1513247816.77:1513247816.77:sys
+1513247817.8048,END,umgr.0000.scheduling.0,MainThread,,,
+1513247817.9380,component_init,umgr.0000.scheduling.0,MainThread,,,

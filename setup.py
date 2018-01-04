@@ -197,20 +197,19 @@ setup_args = {
     # the install_requires names are not the actual branches, just aliases
 
     '''
-  
-    'install_requires'  :  ['radical.utils==devel',
-                            'saga-python==devel',
-                            'radical.pilot==devel',
-                            'radical.entk==devel',
-                            'setuptools>=1', 
-                            'pika'],
-    
-    'dependency_links': ['git+https://github.com/radical-cybertools/radical.utils.git@devel#egg=radical.utils-devel', 
-                         'git+https://github.com/radical-cybertools/saga-python.git@feature/gpu#egg=saga-python-devel',
-                         'git+https://github.com/radical-cybertools/radical.pilot.git@feature/gpu#egg=radical.pilot-devel',
-                         'git+https://github.com/vivek-bala/radical.entk.git@feature/gpu#egg=radical.entk-devel'],
-    '''
 
+    'install_requires'  :  ['radical.utils==master',
+                             'saga-python==master',
+                             'radical.pilot==master',
+                             'radical.entk==jdakka',
+                             'setuptools>=1',
+                             'pika'],
+    'dependency_links': ['git+https://github.com/radical-cybertools/radical.utils.git@master#egg=radical.utils-master',
+                          'git+https://github.com/radical-cybertools/saga-python.git@master#egg=saga-python-master',
+                          'git+https://github.com/radical-cybertools/radical.pilot.git@master#egg=radical.pilot-master',
+                          'git+https://github.com/vivek-bala/radical.entk.git@experiment/jdakka#egg=radical.entk-jdakka'],
+  
+    '''
     'zip_safe'          : False,
     # This copies the contents of the examples/ dir under
     # sys.prefix/share/radical.pilot.

@@ -1,0 +1,5 @@
+#time,event,comp,thread,uid,state,msg
+1513185483.3349,sync_abs,radical.htbac.workflow_runner.0000,MainThread,,,julian.chem.ucl.ac.uk:127.0.0.1:1513185483.09:1513185483.32:ntp
+1513185483.3351,create workflow_runner obj,radical.htbac.workflow_runner.0000,MainThread,radical.htbac.workflow_runner.0000,,
+1513185485.3449,execution_run,radical.htbac.workflow_runner.0000,MainThread,,,
+1513307268.4988,END,radical.htbac.workflow_runner.0000,MainThread,,,

@@ -1,0 +1,6 @@
+#time,event,comp,thread,uid,state,msg
+1513247809.9811,sync_abs,radical.entk.task_manager.0000-proc,MainThread,,,julian.chem.ucl.ac.uk:127.0.0.1:1513247809.98:1513247809.98:sys
+1513247809.9816,tmgr process started,radical.entk.task_manager.0000-proc,MainThread,radical.entk.task_manager.0000,,
+1513247819.2360,tmgr infrastructure setup done,radical.entk.task_manager.0000-proc,MainThread,radical.entk.task_manager.0000,,
+1513247819.2362,terminating tmgr process,radical.entk.task_manager.0000-proc,MainThread,radical.entk.task_manager.0000,,
+1513247819.2732,END,radical.entk.task_manager.0000-proc,MainThread,,,

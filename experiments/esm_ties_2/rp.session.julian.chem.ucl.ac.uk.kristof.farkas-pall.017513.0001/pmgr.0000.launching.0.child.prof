@@ -1,0 +1,14 @@
+#time,event,comp,thread,uid,state,msg
+1513184971.1155,sync_abs,pmgr.0000.launching.0.child,MainThread,,,julian.chem.ucl.ac.uk:127.0.0.1:1513184971.11:1513184971.1:ntp
+1513184971.1882,component_init,pmgr.0000.launching.0.child,MainThread,,,
+1513184979.0104,get,pmgr.0000.launching.0.child,MainThread,pilot.0000,PMGR_LAUNCHING_PENDING,
+1513184979.0110,advance,pmgr.0000.launching.0.child,MainThread,pilot.0000,PMGR_LAUNCHING,
+1513184979.0116,publish,pmgr.0000.launching.0.child,MainThread,pilot.0000,PMGR_LAUNCHING,
+1513184988.1965,staging_in_start,pmgr.0000.launching.0.child,MainThread,pilot.0000,,
+1513185011.5705,staging_in_stop,pmgr.0000.launching.0.child,MainThread,pilot.0000,,
+1513185011.5706,submission_start,pmgr.0000.launching.0.child,MainThread,pilot.0000,,
+1513185021.4443,submission_stop,pmgr.0000.launching.0.child,MainThread,pilot.0000,,
+1513185021.4538,advance,pmgr.0000.launching.0.child,MainThread,pilot.0000,PMGR_ACTIVE_PENDING,
+1513185021.4545,publish,pmgr.0000.launching.0.child,MainThread,pilot.0000,PMGR_ACTIVE_PENDING,
+1513255624.5192,advance,pmgr.0000.launching.0.child,pmgr.0000.launching.0.child.idler._pilot_watcher_cb,pilot.0000,FAILED,
+1513255624.5322,publish,pmgr.0000.launching.0.child,pmgr.0000.launching.0.child.idler._pilot_watcher_cb,pilot.0000,FAILED,

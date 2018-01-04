@@ -1,0 +1,3 @@
+#time,event,comp,thread,uid,state,msg
+1513280685.8612,sync_abs,radical.htbac.ties.0006,MainThread,,,julian.chem.ucl.ac.uk:127.0.0.1:1513280685.86:1513280685.86:ntp
+1513280685.8614,create ties instance,radical.htbac.ties.0006,MainThread,radical.htbac.ties.0006,,
