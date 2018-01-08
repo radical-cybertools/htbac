@@ -9,14 +9,14 @@ from radical.entk import Pipeline, Stage, Task
 NAMD2 = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
 NAMD_TI_ANALYSIS = "/u/sciteam/farkaspa/namd/ti/namd2_ti.pl"
 _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
-_reduced_steps = dict(min=100, eq1=5000, eq2=5000, prod=5000)
+_reduced_steps = dict(min=1000, eq1=5000, eq2=5000, prod=50000)
 _full_steps = dict(min=1000, eq1=30000, eq2=970000, prod=2000000)
 
 
 class Ties(object):
 
     def __init__(self, number_of_replicas, number_of_windows=0, additional=list(),
-                 systems=list(), workflow=None, cores=32, ligand=False, full=True):
+                 systems=list(), workflow=None, cores=32, ligand=False, full=False):
 
         self.number_of_replicas = number_of_replicas
         self.lambdas = np.linspace(0.0, 1.0, number_of_windows, endpoint=True)
@@ -25,7 +25,8 @@ class Ties(object):
         self.step_count = _full_steps if full else _reduced_steps
         
         self.systems = systems
-        print "Lambda Windows:", self.lambdas
+        print "Lambda Windows: ", self.lambdas
+        print "step count: ", self.step_count 
 
         self.cores = cores
         self._id = uuid.uuid1()  # generate id
