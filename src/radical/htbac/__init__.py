@@ -16,7 +16,7 @@ os.environ['RADICAL_ENMD_PROFILING'] = '1'
 os.environ['RADICAL_PILOT_PROFILE'] = 'True'
 os.environ['RADICAL_ENMD_PROFILE'] = 'True'
 os.environ['RADICAL_ENTK_VERBOSE'] = 'DEBUG'
-os.environ['RADICAL_PILOT_DBURL'] = 'mongodb://htbac-user:password@ds131826.mlab.com:31826/htbac-isc-experiments'
+os.environ['RADICAL_PILOT_DBURL'] = 'mongodb://htbac:htbac@ds251287.mlab.com:51287/htbac-inspire-1'
 
 os.environ['RP_ENABLE_OLD_DEFINES'] = 'True'
 os.environ['SAGA_PTY_SSH_TIMEOUT'] = '2000'
