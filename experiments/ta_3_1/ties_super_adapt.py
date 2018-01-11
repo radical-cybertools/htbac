@@ -9,7 +9,7 @@ def main():
 
     ht.add_protocol(ties2_3)
     ht.cores = 128
-    ht.rabbitmq_config(hostname='two.radical-project.org', port=32900)
+    ht.rabbitmq_config(hostname='two.radical-project.org', port=32924)
     ht.run(autoterminate=False, walltime=2800)
 
     print 'Equilibration finished'
