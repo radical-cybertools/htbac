@@ -44,7 +44,7 @@ class Runner(object):
         self._hostname = hostname
         self._port = port
 
-    def run(self, strong_scaled=1, autoterminate=True, queue='high', walltime=1440):
+    def run(self, strong_scaled=1, autoterminate=True, queue='batch', walltime=1440):
         pipelines = set()
         input_data = list()
 
@@ -60,12 +60,19 @@ class Runner(object):
         self._cores = self._cores * self.total_replicas
         print 'Running on', self._cores, 'cores.'
 
-        res_dict = {'resource': 'ncsa.bw_aprun',
+        # res_dict = {'resource': 'ncsa.bw_aprun',
+        #             'walltime': walltime,
+        #             'cores': int(self._cores*strong_scaled),
+        #             'project': 'bamm',
+        #             'queue': queue,
+        #             'access_schema': 'gsissh'}
+
+        res_dict = {'resource': 'ornl.titan_aprun',
                     'walltime': walltime,
                     'cores': int(self._cores*strong_scaled),
-                    'project': 'bamm',
+                    'project': 'CHM126',
                     'queue': queue,
-                    'access_schema': 'gsissh'}
+                    'access_schema': 'local'}
 
         # Create Resource Manager object with the above resource description
         resource_manager = ResourceManager(res_dict)
