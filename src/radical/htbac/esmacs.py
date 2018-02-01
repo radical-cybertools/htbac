@@ -6,7 +6,7 @@ from radical.entk import Pipeline, Stage, Task
 
 
 NAMD2 = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
-NAMD_MMPBSA_ANALYSIS = "WHERE IS IT?"
+# NAMD_MMPBSA_ANALYSIS = "WHERE IS IT?"
 _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
 _reduced_steps = dict(eq0=1000, eq1=30000, eq2=92000, sim1=200000)
 _full_steps = dict(eq0=1000, eq1=30000, eq2=970000, sim1=2000000)
@@ -50,9 +50,16 @@ class Esmacs(object):
                 task = Task()
                 task.name = 'replica_{}'.format(replica)
 
-                task.arguments += ['esmacs-{}.conf'.format(stage.name)]
+                task.pre_exec = ['module load namd']
+                task.arguments += ['+ppn','30','+pemap 0,2,4,6,8,10,12', '+commap', '14','esmacs-{}.conf'.format(stage.name)]
+                task.executable = ['namd2']
                 task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(stage.name)]
-                task.executable = [NAMD2]
+
+                # aprun -n $NPROC -N 1 -d 8 namd2 +ppn 7 +setcpuaffinity \ 
+                # +pemap 0,2,4,6,8,10,12 +commap 14 +idlepoll +devices 0 \
+                # sim.conf > sim.log 2>&1
+
+                # task.cpu_reqs = {'processes': 1, 'process_type': None, 'threads_per_process': 1, 'thread_type': None} GPU stack only
 
                 task.mpi = True
                 task.cores = self.cores
