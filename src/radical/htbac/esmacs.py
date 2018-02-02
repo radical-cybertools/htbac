@@ -13,7 +13,7 @@ _full_steps = dict(eq0=1000, eq1=30000, eq2=970000, sim1=2000000)
 
 
 class Esmacs(object):
-    def __init__(self, number_of_replicas, system, workflow=None, cores=64, full=True):
+    def __init__(self, number_of_replicas, system, workflow=None, cores=16, full=True):
 
         self.number_of_replicas = number_of_replicas
         self.system = system

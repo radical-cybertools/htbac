@@ -11,7 +11,7 @@ def main():
     
     ht.cores = 16
     ht.rabbitmq_config(hostname='two.radical-project.org', port=33000)
-    ht.run(walltime=90, strong_scaled=)
+    ht.run(walltime=90)
 
 
 if __name__ == '__main__':
