@@ -50,7 +50,7 @@ class Esmacs(object):
                 task = Task()
                 task.name = 'replica_{}'.format(replica)
 
-                task.pre_exec = ['module load namd']
+                task.pre_exec = ['module load namd/2.12']
                 task.arguments += ['+ppn', '7', '+pemap 0,2,4,6,8,10,12', '+commap', '14', 'esmacs-{}.conf'.format(stage.name)]
                 task.executable = ['namd2']
                 task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(stage.name)]
