@@ -54,14 +54,23 @@ class Esmacs(object):
                                  'export MPICH_PTL_SEND_CREDITS=-1',
                                  'export MPICH_MAX_SHORT_MSG_SIZE=8000',
                                  'export MPICH_PTL_UNEX_EVENTS=80000',
-                                 'export MPICH_UNEX_BUFFER_SIZE=100M']
+                                 'export MPICH_UNEX_BUFFER_SIZE=100M',
+                                 'export OMP_NUM_THREADS=1']
 
-                task.arguments += ['+ppn', '7', '+pemap', '2-14:2',
-                                   '+commap', '0', 'esmacs-{}.conf'.format(stage.name)]
+                # cpu_reqs are arguments for aprun                                 
+                # cpu_reps = {-n processing elements (PEs) defined as 'processes', 
+                #             process type (MPI) defines as 'process_type', 
+                #             -d (depth) specifies the number of threads i.e. the
+                #             number of processors per node for each PE defined as 'threads_per_process'}
+                # ** each application is given -n * -d cores      
+
+                task.cpu_reqs = {'processes': 1, 'process_type': 'MPI', 'threads_per_process': 16, 'thread_type': None}
+                task.arguments += ['+ppn', '14', '+pemap', '0-13',
+                                   '+commap', '14', 'esmacs-{}.conf'.format(stage.name)]
 
                 task.executable = ['namd2']
                 task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(stage.name)]
-
+                
                 # aprun -n $NPROC -N 1 -d 8 namd2 +ppn 7 +setcpuaffinity \ 
                 # +pemap 0,2,4,6,8,10,12 +commap 14 +idlepoll +devices 0 \
                 # sim.conf > sim.log 2>&1
