@@ -50,9 +50,15 @@ class Esmacs(object):
                 task = Task()
                 task.name = 'replica_{}'.format(replica)
 
-                task.pre_exec = ['module load namd/2.12']
-                task.arguments += ['+ppn', '7', '+setcpuaffinity', '+pemap 0,2,4,6,8,10,12',
-                                   '+commap', '14', 'esmacs-{}.conf'.format(stage.name)]
+                task.pre_exec = ['module load namd/2.12',
+                                 'export MPICH_PTL_SEND_CREDITS=-1',
+                                 'export MPICH_MAX_SHORT_MSG_SIZE=8000',
+                                 'export MPICH_PTL_UNEX_EVENTS=80000',
+                                 'export MPICH_UNEX_BUFFER_SIZE=100M']
+
+                task.arguments += ['+ppn', '7', '+pemap', '2-14:2',
+                                   '+commap', '0', 'esmacs-{}.conf'.format(stage.name)]
+
                 task.executable = ['namd2']
                 task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(stage.name)]
 
