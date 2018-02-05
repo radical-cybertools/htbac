@@ -69,7 +69,7 @@ class Runner(object):
 
         res_dict = {'resource': 'ornl.titan_aprun',
                     'walltime': walltime,
-                    'cores': int(self._cores*strong_scaled),
+                    'cpus': int(self._cores*strong_scaled),
                     'project': 'CHM126',
                     'queue': queue,
                     'access_schema': 'local'}
