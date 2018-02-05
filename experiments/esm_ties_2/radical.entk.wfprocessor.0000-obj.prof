@@ -1,6 +1,0 @@
-#time,event,comp,thread,uid,state,msg
-1513247807.9398,sync_abs,radical.entk.wfprocessor.0000-obj,MainThread,,,julian.chem.ucl.ac.uk:127.0.0.1:1513247807.9:1513247807.91:ntp
-1513247807.9401,create wfp obj,radical.entk.wfprocessor.0000-obj,MainThread,radical.entk.wfprocessor.0000,,
-1513247807.9404,wfp obj created,radical.entk.wfprocessor.0000-obj,MainThread,radical.entk.wfprocessor.0000,,
-1513247807.9405,creating wfp process,radical.entk.wfprocessor.0000-obj,MainThread,radical.entk.wfprocessor.0000,,
-1513247807.9412,starting wfp process,radical.entk.wfprocessor.0000-obj,MainThread,radical.entk.wfprocessor.0000,,

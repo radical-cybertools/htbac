@@ -1,3 +1,0 @@
-#time,event,comp,thread,uid,state,msg
-1513341508.0212,sync_abs,radical.htbac.esmacs.0000,MainThread,,,julian.chem.ucl.ac.uk:127.0.0.1:1513341508.02:1513341508.01:ntp
-1513341508.0214,create esmacs instance,radical.htbac.esmacs.0000,MainThread,radical.htbac.esmacs.0000,,
