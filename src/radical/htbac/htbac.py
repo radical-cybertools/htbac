@@ -44,10 +44,13 @@ class Runner(object):
         self._hostname = hostname
         self._port = port
 
+<<<<<<< HEAD
     def run(self, strong_scaled=1):
+=======
+    def run(self, strong_scaled=1, autoterminate=True, queue='batch', walltime=1440):
+>>>>>>> adaptive
         pipelines = set()
         input_data = list()
-        
 
         for protocol in self._protocols:
             gen_pipeline = protocol.generate_pipeline()
@@ -61,12 +64,19 @@ class Runner(object):
         self._cores = self._cores * self.total_replicas
         print 'Running on', self._cores, 'cores.'
 
-        res_dict = {'resource': 'ncsa.bw_aprun',
-                    'walltime': 1440,
-                    'cores': int(self._cores*strong_scaled),
-                    'project': 'bamm',
-                    'queue': 'high',
-                    'access_schema': 'gsissh'}
+        # res_dict = {'resource': 'ncsa.bw_aprun',
+        #             'walltime': walltime,
+        #             'cores': int(self._cores*strong_scaled),
+        #             'project': 'bamm',
+        #             'queue': queue,
+        #             'access_schema': 'gsissh'}
+
+        res_dict = {'resource': 'ornl.titan_aprun',
+                    'walltime': walltime,
+                    'cpus': int(self._cores*strong_scaled),
+                    'project': 'CHM126',
+                    'queue': queue,
+                    'access_schema': 'local'}
 
         # Create Resource Manager object with the above resource description
         resource_manager = ResourceManager(res_dict)
@@ -80,3 +90,29 @@ class Runner(object):
         self._prof.prof('execution_run')
         print 'Running...'
         self.app_manager.run()    # this method is blocking until all pipelines show state = completed
+<<<<<<< HEAD
+=======
+
+    def rerun(self, protocol=None, terminate=True, previous_pipeline=None):
+
+        if self.ids.get(previous_pipeline.id(), None) is not None:
+
+            pipelines = set()
+
+            gen_pipeline = protocol.generate_pipeline(previous_pipeline=self.ids[previous_pipeline.id()])
+
+            pipelines.add(gen_pipeline)
+
+            self.ids[protocol.id()] = gen_pipeline
+
+            self.app_manager.assign_workflow(pipelines)
+
+            self.app_manager.run()
+
+            if terminate:
+                self.app_manager.resource_terminate()
+
+        else: 
+
+            print "ERROR: previous protocol instance is not found"
+>>>>>>> adaptive
