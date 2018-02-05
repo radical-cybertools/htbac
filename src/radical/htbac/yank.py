@@ -14,7 +14,7 @@ from radical.entk import Pipeline, Stage, Task
 
 NULL = ['bin/sleep']
 
-class Yank_repex(object):
+class Yank(object):
 
     def __init__(self, number_of_replicas,
                  systems=list(), 

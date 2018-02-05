@@ -44,11 +44,8 @@ class Runner(object):
         self._hostname = hostname
         self._port = port
 
-<<<<<<< HEAD
-    def run(self, strong_scaled=1):
-=======
+
     def run(self, strong_scaled=1, autoterminate=True, queue='batch', walltime=1440):
->>>>>>> adaptive
         pipelines = set()
         input_data = list()
 
@@ -90,8 +87,7 @@ class Runner(object):
         self._prof.prof('execution_run')
         print 'Running...'
         self.app_manager.run()    # this method is blocking until all pipelines show state = completed
-<<<<<<< HEAD
-=======
+
 
     def rerun(self, protocol=None, terminate=True, previous_pipeline=None):
 
@@ -115,4 +111,4 @@ class Runner(object):
         else: 
 
             print "ERROR: previous protocol instance is not found"
->>>>>>> adaptive
+
