@@ -7,7 +7,3 @@ from radical.htbac.ties import Ties
 from radical.htbac.ties_eq import TiesEquilibration
 from radical.htbac.ties_prod import TiesProduction
 from radical.htbac.ties_full_analysis import TiesAnalysis, AdaptiveQuadrature
-
-
-
-

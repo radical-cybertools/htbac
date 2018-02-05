@@ -1,7 +1,0 @@
-#time,event,comp,thread,uid,state,msg
-1513250292.0305,sync_abs,agent_0.staging.input.0,MainThread,,,nid25262:10.128.99.117:1513250292.0:1513250292.0:ntp
-1513250292.1096,END,agent_0.staging.input.0,MainThread,,,
-1513250292.4438,component_init,agent_0.staging.input.0,MainThread,,,
-1513307191.4088,flush,agent_0.staging.input.0,MainThread,,,
-1513307191.4894,component_final,agent_0.staging.input.0,MainThread,,,
-1513307191.4895,END,agent_0.staging.input.0,MainThread,,,

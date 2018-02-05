@@ -1,4 +1,0 @@
-#time,event,comp,thread,uid,state,msg
-1513184857.5992,sync_abs,update.0,MainThread,,,julian.chem.ucl.ac.uk:127.0.0.1:1513184857.6:1513184857.59:ntp
-1513184857.6203,END,update.0,MainThread,,,
-1513184858.1129,component_init,update.0,MainThread,,,
