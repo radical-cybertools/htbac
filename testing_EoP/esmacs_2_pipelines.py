@@ -5,8 +5,8 @@ def main():
 
     ht = Runner()
 
-    esm1 = Esmacs(number_of_replicas=1, system='brd4-gsk2', full=False, cores=32)
-    esm2 = Esmacs(number_of_replicas=1, system='brd4-gsk3', full=False, cores=32)
+    esm1 = Esmacs(number_of_replicas=1, system='brd-gsk2', cores=32, full=False)
+    esm2 = Esmacs(number_of_replicas=1, system='brd4-gsk3', cores=32, full=False)
 
     ht.add_protocol(esm1)
     ht.add_protocol(esm2)

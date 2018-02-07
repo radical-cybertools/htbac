@@ -13,15 +13,15 @@ _full_steps = dict(eq0=1000, eq1=30000, eq2=970000, sim1=2000000)
 
 
 class Esmacs(object):
-    def __init__(self, number_of_replicas, system, workflow=None, cores=32, full=False):
+    
+    def __init__(self, number_of_replicas, system, cores = 1, workflow = None, full = False):
 
         self.number_of_replicas = number_of_replicas
         self.system = system
-        self.box = pmd.amber.AmberAsciiRestart('systems/esmacs/{s}/build/{s}-complex.crd'.format(s=system)).box
         self.cores = cores
         self.step_count = _full_steps if full else _reduced_steps
         self._id = uuid.uuid1()  # generate id
-
+        self.box = pmd.amber.AmberAsciiRestart('systems/esmacs/{s}/build/{s}-complex.crd'.format(s=self.system)).box
         self.workflow = workflow or ['eq0', 'eq1', 'eq2', 'sim1']
         
         # Profiler for ESMACS PoE
@@ -46,7 +46,7 @@ class Esmacs(object):
             stage.name = step
 
             for replica in range(self.number_of_replicas):
-
+                
                 task = Task()
                 task.name = 'replica_{}'.format(replica)
 
@@ -123,6 +123,6 @@ class Esmacs(object):
     def replicas(self):
         return self.number_of_replicas
     @property
-    def cores(self):
+    def total_cores(self):
         return self.number_of_replicas*self.cores
 

@@ -58,7 +58,7 @@ class Runner(object):
             # protocol.id is the uuid, gen_pipeline.uid is the pipeline
 
             # self.total_replicas += protocol.replicas
-            self._cores += protocol.cores
+            self._cores += protocol.total_cores
         #self._cores = self._cores * self.total_replicas
         print 'Running on', self._cores, 'cores.'
 
