@@ -8,12 +8,12 @@ from radical.entk import Pipeline, Stage, Task
 NAMD2 = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
 # NAMD_MMPBSA_ANALYSIS = "WHERE IS IT?"
 _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
-_reduced_steps = dict(eq0=1000, eq1=30000, eq2=92000, sim1=200000)
+_reduced_steps = dict(eq0=1000, eq1=5000, eq2=5000, sim1=50000)
 _full_steps = dict(eq0=1000, eq1=30000, eq2=970000, sim1=2000000)
 
 
 class Esmacs(object):
-    def __init__(self, number_of_replicas, system, workflow=None, cores=16, full=True):
+    def __init__(self, number_of_replicas, system, workflow=None, cores=32, full=False):
 
         self.number_of_replicas = number_of_replicas
         self.system = system
@@ -50,12 +50,12 @@ class Esmacs(object):
                 task = Task()
                 task.name = 'replica_{}'.format(replica)
 
-                task.pre_exec = ['module load namd/2.12',
-                                 'export MPICH_PTL_SEND_CREDITS=-1',
-                                 'export MPICH_MAX_SHORT_MSG_SIZE=8000',
-                                 'export MPICH_PTL_UNEX_EVENTS=80000',
-                                 'export MPICH_UNEX_BUFFER_SIZE=100M',
-                                 'export OMP_NUM_THREADS=1']
+                # task.pre_exec = ['module load namd/2.12',
+                #                  'export MPICH_PTL_SEND_CREDITS=-1',
+                #                  'export MPICH_MAX_SHORT_MSG_SIZE=8000',
+                #                  'export MPICH_PTL_UNEX_EVENTS=80000',
+                #                  'export MPICH_UNEX_BUFFER_SIZE=100M',
+                #                  'export OMP_NUM_THREADS=1']
 
                 # cpu_reqs are arguments for aprun                                 
                 # cpu_reps = {-n processing elements (PEs) defined as 'processes', 
@@ -64,11 +64,11 @@ class Esmacs(object):
                 #             number of processors per node for each PE defined as 'threads_per_process'}
                 # ** each application is given -n * -d cores      
 
-                task.cpu_reqs = {'processes': 1, 'process_type': 'MPI', 'threads_per_process': 16, 'thread_type': None}
-                task.arguments += ['+ppn', '14', '+pemap', '0-13',
-                                   '+commap', '14', 'esmacs-{}.conf'.format(stage.name)]
+                #task.cpu_reqs = {'processes': 1, 'process_type': 'MPI', 'threads_per_process': 16, 'thread_type': None}
+                task.arguments += ['+ppn', '31', '+pemap', '0-29',
+                                   '+commap', '30', 'esmacs-{}.conf'.format(stage.name)]
 
-                task.executable = ['namd2']
+                task.executable = [NAMD2]
                 task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(stage.name)]
                 
                 # aprun -n $NPROC -N 1 -d 8 namd2 +ppn 7 +setcpuaffinity \ 
@@ -122,3 +122,7 @@ class Esmacs(object):
     @property
     def replicas(self):
         return self.number_of_replicas
+    @property
+    def cores(self):
+        return self.number_of_replicas*self.cores
+

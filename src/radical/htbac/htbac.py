@@ -17,6 +17,7 @@ class Runner(object):
         self.ids = None
         self.app_manager = None
         self.total_replicas = 0
+        self._cores = 0
 
         # Profiler for Runner
         self._uid = ru.generate_id('radical.htbac.workflow_runner')
@@ -29,23 +30,23 @@ class Runner(object):
     def add_protocol(self, protocol):
         self._protocols.append(protocol)
 
-    @property
-    def cores(self):
-        return self._cores
+    # @property
+    # def cores(self):
+    #     return self._cores
 
-    @cores.setter
-    def cores(self, val):
-        if isinstance(val, int):
-            self._cores = val
-        else:
-            raise TypeError()
+    # @cores.setter
+    # def cores(self, val):
+    #     if isinstance(val, int):
+    #         self._cores = val
+    #     else:
+    #         raise TypeError()
 
     def rabbitmq_config(self, hostname='localhost', port=5672):
         self._hostname = hostname
         self._port = port
 
 
-    def run(self, strong_scaled=1, autoterminate=True, queue='batch', walltime=1440):
+    def run(self, strong_scaled=1, autoterminate=True, queue='high', walltime=1440):
         pipelines = set()
         input_data = list()
 
@@ -56,24 +57,24 @@ class Runner(object):
             self.ids[protocol.id()] = gen_pipeline
             # protocol.id is the uuid, gen_pipeline.uid is the pipeline
 
-            self.total_replicas += protocol.replicas
-
-        self._cores = self._cores * self.total_replicas
+            # self.total_replicas += protocol.replicas
+            self._cores += protocol.cores
+        #self._cores = self._cores * self.total_replicas
         print 'Running on', self._cores, 'cores.'
 
-        # res_dict = {'resource': 'ncsa.bw_aprun',
-        #             'walltime': walltime,
-        #             'cores': int(self._cores*strong_scaled),
-        #             'project': 'bamm',
-        #             'queue': queue,
-        #             'access_schema': 'gsissh'}
-
-        res_dict = {'resource': 'ornl.titan_aprun',
+        res_dict = {'resource': 'ncsa.bw_aprun',
                     'walltime': walltime,
-                    'cpus': int(self._cores*strong_scaled),
-                    'project': 'CHM126',
+                    'cores': int(self._cores*strong_scaled),
+                    'project': 'bamm',
                     'queue': queue,
-                    'access_schema': 'local'}
+                    'access_schema': 'gsissh'}
+
+        # res_dict = {'resource': 'ornl.titan_aprun',
+        #             'walltime': walltime,
+        #             'cpus': int(self._cores*strong_scaled),
+        #             'project': 'CHM126',
+        #             'queue': queue,
+        #             'access_schema': 'local'}
 
         # Create Resource Manager object with the above resource description
         resource_manager = ResourceManager(res_dict)
