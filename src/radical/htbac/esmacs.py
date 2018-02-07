@@ -8,15 +8,15 @@ from radical.entk import Pipeline, Stage, Task
 NAMD2 = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
 # NAMD_MMPBSA_ANALYSIS = "WHERE IS IT?"
 _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
-_reduced_steps = dict(eq0=1000, eq1=30000, eq2=92000, sim1=200000)
+_reduced_steps = dict(eq0=1000, eq1=5000, eq2=5000, sim1=50000)
 _full_steps = dict(eq0=1000, eq1=30000, eq2=970000, sim1=2000000)
 
 
 class Esmacs(object):
-    def __init__(self, number_of_replicas, system, workflow=None, cores=16, full=True):
+    def __init__(self, number_of_replicas, systems, workflow=None, cores=16, full=False):
 
         self.number_of_replicas = number_of_replicas
-        self.system = system
+        self.systems = list()
         self.box = pmd.amber.AmberAsciiRestart('systems/esmacs/{s}/build/{s}-complex.crd'.format(s=system)).box
         self.cores = cores
         self.step_count = _full_steps if full else _reduced_steps
@@ -45,10 +45,12 @@ class Esmacs(object):
             stage = Stage()
             stage.name = step
 
-            for replica in range(self.number_of_replicas):
+            for system in self.systems:
+
+                for replica in range(self.number_of_replicas):
 
                 task = Task()
-                task.name = 'replica_{}'.format(replica)
+                task.name = 'system_{}_replica_{}'.format(system,replica)
 
                 task.pre_exec = ['module load namd/2.12',
                                  'export MPICH_PTL_SEND_CREDITS=-1',
@@ -64,7 +66,7 @@ class Esmacs(object):
                 #             number of processors per node for each PE defined as 'threads_per_process'}
                 # ** each application is given -n * -d cores      
 
-                task.cpu_reqs = {'processes': 1, 'process_type': 'MPI', 'threads_per_process': 16, 'thread_type': None}
+                # task.cpu_reqs = {'processes': 1, 'process_type': 'MPI', 'threads_per_process': 16, 'thread_type': None}
                 task.arguments += ['+ppn', '14', '+pemap', '0-13',
                                    '+commap', '14', 'esmacs-{}.conf'.format(stage.name)]
 
@@ -75,13 +77,11 @@ class Esmacs(object):
                 # +pemap 0,2,4,6,8,10,12 +commap 14 +idlepoll +devices 0 \
                 # sim.conf > sim.log 2>&1
 
-                # task.cpu_reqs = {'processes': 1, 'process_type': None, 'threads_per_process': 1, 'thread_type': None} GPU stack only
-
                 task.mpi = True
                 task.cores = self.cores
 
                 links = []
-                links += ['$SHARED/{}-complex.top'.format(self.system), '$SHARED/{}-cons.pdb'.format(self.system)]
+                links += ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-cons.pdb'.format(system)]
 
                 if self.workflow.index(step):
                     previous_stage = pipeline.stages[-1]
@@ -90,14 +90,14 @@ class Esmacs(object):
                                                                    previous_task.uid)
                     links += [path + previous_stage.name + suffix for suffix in _simulation_file_suffixes]
                 else:
-                    links += ['$SHARED/{}-complex.pdb'.format(self.system)]
+                    links += ['$SHARED/{}-complex.pdb'.format(system)]
 
                 task.link_input_data = links
 
                 task.pre_exec += ["sed -i 's/BOX_X/{}/g' *.conf".format(self.box[0]),
                                   "sed -i 's/BOX_Y/{}/g' *.conf".format(self.box[1]),
                                   "sed -i 's/BOX_Z/{}/g' *.conf".format(self.box[2]),
-                                  "sed -i 's/SYSTEM/{}/g' *.conf".format(self.system)]
+                                  "sed -i 's/SYSTEM/{}/g' *.conf".format(system)]
 
                 task.pre_exec += ["sed -i 's/STEP/{}/g' *.conf".format(self.step_count[step])]
 
@@ -109,16 +109,22 @@ class Esmacs(object):
 
         return pipeline
 
+
     # Input data
     @property
     def input_data(self):
-        files = []
-        files += ['default_configs/esmacs-{}.conf'.format(step) for step in self.workflow]
-        files += ['systems/esmacs/{s}/build/{s}-complex.pdb'.format(s=self.system)]
-        files += ['systems/esmacs/{s}/build/{s}-complex.top'.format(s=self.system)]
-        files += ['systems/esmacs/{s}/constraint/{s}-cons.pdb'.format(s=self.system)]
+        files = ['default_configs/ties-{}.conf'.format(step) for step in self.workflow]
+        for system in self.systems:
+            files += ['default_configs/esmacs-{}.conf'.format(step) for step in self.workflow]
+            files += ['systems/esmacs/{s}/build/{s}-complex.pdb'.format(s=self.system)]
+            files += ['systems/esmacs/{s}/build/{s}-complex.top'.format(s=self.system)]
+            files += ['systems/esmacs/{s}/constraint/{s}-cons.pdb'.format(s=self.system)]
         return files
 
     @property
     def replicas(self):
-        return self.number_of_replicas
+        return self.number_of_replicas*len(self.systems)
+
+    @property
+    def cores(self):
+        return self.number_of_replicas*len(self.systems)

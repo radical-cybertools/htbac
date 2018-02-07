@@ -65,12 +65,21 @@ class Ties(object):
                         task = Task()
                         task.name = 'system_{}_replica_{}_lambda_{}'.format(system, replica, ld)
 
-                        task.arguments += ['ties-{}.conf'.format(stage.name)]
                         task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage.name)]
-                        task.executable = [NAMD2]
+                        task.pre_exec = ['module load namd/2.12',
+                                 'export MPICH_PTL_SEND_CREDITS=-1',
+                                 'export MPICH_MAX_SHORT_MSG_SIZE=8000',
+                                 'export MPICH_PTL_UNEX_EVENTS=80000',
+                                 'export MPICH_UNEX_BUFFER_SIZE=100M',
+                                 'export OMP_NUM_THREADS=1']
 
-                        task.mpi = True
-                        task.cores = self.cores
+                        task.cpu_reqs = {'processes': 1, 'process_type': 'MPI', 'threads_per_process': 16, 'thread_type': None}
+                        task.arguments += ['+ppn', '14', '+pemap', '0-13',
+                                           '+commap', '14', 'ties-{}.conf'.format(stage.name)]
+
+                        task.executable = ['namd2']         
+                        # task.mpi = True
+                        # task.cores = self.cores
 
                         links = []
                         links += ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-tags.pdb'.format(system)]
@@ -159,9 +168,13 @@ class Ties(object):
             files += ['systems/ties{lig}/{s}/build/{s}-complex.pdb'.format(lig=self.ligand, s=system)]
             files += ['systems/ties{lig}/{s}/build/{s}-complex.top'.format(lig=self.ligand, s=system)]
             files += ['systems/ties{lig}/{s}/build/{s}-tags.pdb'.format(lig=self.ligand, s=system)]
-        print "Input files:", files
+        # print "Input files:", files
         return files
 
     @property
     def replicas(self):
+        return self.number_of_replicas*len(self.lambdas)*len(self.systems)
+
+    @property
+    def cores(self):
         return self.number_of_replicas*len(self.lambdas)*len(self.systems)
