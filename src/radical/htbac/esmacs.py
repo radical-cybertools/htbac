@@ -80,7 +80,7 @@ class Esmacs(object):
                     #                  'threads_per_process': 1, 'thread_type': None} # GPU stack only
 
                     task.mpi = True
-                    task.cores = self._cores
+                    task.cores = 1  # self._cores
 
                     links = []
                     links += ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-cons.pdb'.format(system)]
