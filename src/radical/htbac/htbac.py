@@ -60,7 +60,7 @@ class Runner(object):
             self.total_replicas += protocol.replicas
             self._cores += protocol.cores 
 
-        #self._cores = self._cores * self.total_replicas
+        # self._cores = self._cores * self.total_replicas
         print 'Running on', self._cores, 'cores.'
 
         # res_dict = {'resource': 'ncsa.bw_aprun',
@@ -89,7 +89,6 @@ class Runner(object):
         self._prof.prof('execution_run')
         print 'Running...'
         self.app_manager.run()    # this method is blocking until all pipelines show state = completed
-
 
     def rerun(self, protocol=None, terminate=True, previous_pipeline=None):
 
