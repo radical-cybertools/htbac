@@ -55,8 +55,7 @@ class Esmacs(object):
                                      'export MPICH_PTL_SEND_CREDITS=-1',
                                      'export MPICH_MAX_SHORT_MSG_SIZE=8000',
                                      'export MPICH_PTL_UNEX_EVENTS=80000',
-                                     'export MPICH_UNEX_BUFFER_SIZE=100M',
-                                     'export OMP_NUM_THREADS=1']
+                                     'export MPICH_UNEX_BUFFER_SIZE=100M']
 
                     # cpu_reqs are arguments for aprun
                     # cpu_reps = {-n processing elements (PEs) defined as 'processes',
@@ -66,8 +65,7 @@ class Esmacs(object):
                     # ** each application is given -n * -d cores
 
                     # task.cpu_reqs = {'processes': 1, 'process_type': 'MPI', 'threads_per_process': 16, 'thread_type': None}
-                    task.arguments += ['+ppn', '14', '+pemap', '0-13',
-                                       '+commap', '14', 'esmacs-{}.conf'.format(stage.name)]
+                    task.arguments += ['+ppn', '15', '+pemap', '0-14', '+commap', '15', 'esmacs-{}.conf'.format(stage.name)]
 
                     task.executable = ['namd2']
                     task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(stage.name)]
@@ -115,7 +113,7 @@ class Esmacs(object):
     # Input data
     @property
     def input_data(self):
-        files = ['default_configs/ties-{}.conf'.format(step) for step in self.workflow]
+        files = ['default_configs/esmacs-{}.conf'.format(step) for step in self.workflow]
         for system in self.systems:
             files += ['default_configs/esmacs-{}.conf'.format(step) for step in self.workflow]
             files += ['systems/esmacs/{s}/build/{s}-complex.pdb'.format(s=system)]

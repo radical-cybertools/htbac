@@ -45,7 +45,6 @@ class Runner(object):
         self._hostname = hostname
         self._port = port
 
-
     def run(self, strong_scaled=1, autoterminate=True, queue='batch', walltime=120):
         pipelines = set()
         input_data = list()
@@ -73,7 +72,7 @@ class Runner(object):
         res_dict = {'resource': 'ornl.titan_aprun',
                     'walltime': walltime,
                     'cores': int(self._cores*strong_scaled),
-                    'project': 'CHM126',
+                    'project': 'chm126',
                     'queue': queue,
                     'access_schema': 'local'}
 
