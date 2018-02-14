@@ -107,7 +107,6 @@ class Esmacs(object):
     def input_data(self):
         files = [pkg_resources.resource_filename(__name__, 'default-configs/esmacs-{}.conf'.format(step)) for step in self.workflow]
         for system in self.systems:
-            files += ['default_configs/esmacs-{}.conf'.format(step) for step in self.workflow]
             files += ['systems/esmacs/{s}/build/{s}-complex.pdb'.format(s=system)]
             files += ['systems/esmacs/{s}/build/{s}-complex.top'.format(s=system)]
             files += ['systems/esmacs/{s}/constraint/{s}-cons.pdb'.format(s=system)]
