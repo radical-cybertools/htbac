@@ -1,23 +1,23 @@
-__copyright__   = "Copyright 2017-2018, http://radical.rutgers.edu"
-__author__      = "Jumana Dakka <jumanadakka@gmail.com>, Kristof Farkas-Pall <kristofarkas@gmail.com>"
-__license__     = "MIT"
-
-import os
+import json
+import pprint
+import pkg_resources
 
 import radical.utils as ru
 from radical.entk import AppManager, ResourceManager
 
+__copyright__ = "Copyright 2017-2018, http://radical.rutgers.edu"
+__author__ = "Jumana Dakka <jumanadakka@gmail.com>, Kristof Farkas-Pall <kristofarkas@gmail.com>"
+__license__ = "MIT"
+
 
 class Runner(object):
-    def __init__(self):
-        self._cores = 0
+    def __init__(self, supercomputer='titan'):
+        self.supercomputer = supercomputer
         self._protocols = list()
         self._hostname = None
         self._port = None
         self.ids = None
         self.app_manager = None
-        self.total_replicas = 0
-        self._cores = 0 
 
         # Profiler for Runner
         self._uid = ru.generate_id('radical.htbac.workflow_runner')
@@ -30,24 +30,14 @@ class Runner(object):
     def add_protocol(self, protocol):
         self._protocols.append(protocol)
 
-    # @property
-    # def cores(self):
-    #     return self._cores
-
-    # @cores.setter
-    # def cores(self, val):
-    #     if isinstance(val, int):
-    #         self._cores = val
-    #     else:
-    #         raise TypeError()
-
     def rabbitmq_config(self, hostname='localhost', port=5672):
         self._hostname = hostname
         self._port = port
 
-    def run(self, strong_scaled=1, autoterminate=True, queue='batch', walltime=120):
+    def run(self, strong_scaled=1, autoterminate=True, queue='batch', walltime=120, dry_run=False):
         pipelines = set()
         input_data = list()
+        cores = 0
 
         for protocol in self._protocols:
             gen_pipeline = protocol.generate_pipeline()
@@ -56,25 +46,16 @@ class Runner(object):
             self.ids[protocol.id()] = gen_pipeline
             # protocol.id is the uuid, gen_pipeline.uid is the pipeline
 
-            self.total_replicas += protocol.replicas
-            self._cores += protocol.cores 
+            cores += protocol.total_cores
 
-        # self._cores = self._cores * self.total_replicas
-        print 'Running on', self._cores, 'cores.'
+        cores *= strong_scaled
+        cores += 16  # Additional node for agent.
 
-        # res_dict = {'resource': 'ncsa.bw_aprun',
-        #             'walltime': walltime,
-        #             'cores': int(self._cores*strong_scaled),
-        #             'project': 'bamm',
-        #             'queue': queue,
-        #             'access_schema': 'gsissh'}
+        res_dict = self.resource_dictionary(cores, queue, walltime)
 
-        res_dict = {'resource': 'ornl.titan_aprun',
-                    'walltime': walltime,
-                    'cores': int(self._cores*strong_scaled),
-                    'project': 'chm126',
-                    'queue': queue,
-                    'access_schema': 'local'}
+        print 'HTBAC RUNNER: using a total of {} cores.'.format(cores)
+        print 'HTBAC RUNNER: Resource dictionary:'
+        pprint.pprint(res_dict)
 
         # Create Resource Manager object with the above resource description
         resource_manager = ResourceManager(res_dict)
@@ -87,7 +68,9 @@ class Runner(object):
 
         self._prof.prof('execution_run')
         print 'Running...'
-        self.app_manager.run()    # this method is blocking until all pipelines show state = completed
+
+        if not dry_run:
+            self.app_manager.run()    # this method is blocking until all pipelines show state = completed
 
     def rerun(self, protocol=None, terminate=True, previous_pipeline=None):
 
@@ -112,3 +95,11 @@ class Runner(object):
 
             print "ERROR: previous protocol instance is not found"
 
+    def resource_dictionary(self, cores, queue, walltime):
+        resource = json.load(pkg_resources.resource_stream(__name__, 'resources.json'))[self.supercomputer]
+
+        resource['cores'] = cores
+        resource['queue'] = queue
+        resource['walltime'] = walltime
+
+        return resource
