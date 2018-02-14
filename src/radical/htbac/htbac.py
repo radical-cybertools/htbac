@@ -43,7 +43,7 @@ class Runner(object):
             gen_pipeline = protocol.generate_pipeline()
             pipelines.add(gen_pipeline)
             input_data.extend(protocol.input_data)
-            self.ids[protocol.id()] = gen_pipeline
+            self.ids[protocol.id] = gen_pipeline
             # protocol.id is the uuid, gen_pipeline.uid is the pipeline
 
             cores += protocol.total_cores
@@ -82,7 +82,7 @@ class Runner(object):
 
             pipelines.add(gen_pipeline)
 
-            self.ids[protocol.id()] = gen_pipeline
+            self.ids[protocol.id] = gen_pipeline
 
             self.app_manager.assign_workflow(pipelines)
 
