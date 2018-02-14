@@ -96,7 +96,13 @@ class Runner(object):
             print "ERROR: previous protocol instance is not found"
 
     def resource_dictionary(self, cores, queue, walltime):
-        resource = json.load(pkg_resources.resource_stream(__name__, 'resources.json'))[self.supercomputer]
+        def str_hook(obj):
+            return {k.encode('utf-8') if isinstance(k, unicode) else k:
+                    v.encode('utf-8') if isinstance(v, unicode) else v
+                    for k, v in obj}
+
+        resource = json.load(pkg_resources.resource_stream(__name__, 'resources.json'),
+                             object_pairs_hook=str_hook)[self.supercomputer]
 
         resource['cores'] = cores
         resource['queue'] = queue
