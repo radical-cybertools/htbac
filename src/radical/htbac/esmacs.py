@@ -13,8 +13,8 @@ BW_NAMD2 = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
 TITAN_NAMD2 = 'namd2'
 
 _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
-_reduced_steps = dict(eq0=1000, eq1=5000, eq2=5000, sim1=50000)
-_full_steps = dict(eq0=1000, eq1=30000, eq2=970000, sim1=2000000)
+_reduced_steps = dict(eq0=100, eq1=5000, eq2=10, sim1=5000)
+_full_steps = dict(eq0=1000, eq1=30000, eq2=800000, sim1=2000000)
 
 
 class Esmacs(object):
