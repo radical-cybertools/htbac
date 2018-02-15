@@ -192,7 +192,7 @@ setup_args = {
     'scripts'           : ['bin/htbac-version'],
                            
 
-    'package_data'      :  {'': ['*.sh', '*.json', 'VERSION', 'VERSION.git', '*.conf']},
+    'package_data'      :  {'': ['*.sh', '*.json', 'VERSION', 'VERSION.git', 'default-configs/*.conf']},
 
     # the install_requires names are not the actual branches, just aliases
 

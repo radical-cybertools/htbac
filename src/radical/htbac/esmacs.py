@@ -86,8 +86,9 @@ class Esmacs(object):
 
                     task.link_input_data = links
 
-                    settings = dict(BOX_X=box[0], BOX_Y=box[1], BOX_Z=box[2], SYSTEM=system, STEP=self.step_count[step],
-                                    CUTOFF=self.cutoff, SWITCHING=self.cutoff-2.0, PAIRLISTDIST=self.cutoff+1.5)
+                    settings = dict(BOX_X=box[0], BOX_Y=box[1], BOX_Z=box[2], SYSTEM=system,
+                                    STEP=self.step_count[step], CUTOFF=self.cutoff, SWITCHING=self.cutoff-2.0,
+                                    PAIRLISTDIST=self.cutoff+1.5, WATERMODEL='tip3')
 
                     task.pre_exec += ["sed -i 's/{}/{}/g' *.conf".format(k, w) for k, w in settings.items()]
 
