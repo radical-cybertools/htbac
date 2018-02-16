@@ -18,16 +18,17 @@ _full_steps = dict(eq0=1000, eq1=30000, eq2=800000, sim1=2000000)
 
 
 class Esmacs(object):
-    def __init__(self, number_of_replicas, systems, workflow=None, cores=16, full=False, cutoff=12.0):
+    def __init__(self, number_of_replicas, systems, workflow=None, cores=16, full=False, **kwargs):
 
         self.number_of_replicas = number_of_replicas
         self.systems = systems
         self.cores = cores
         self.step_count = _full_steps if full else _reduced_steps
-        self.cutoff = cutoff
+        self.workflow = workflow or ['eq0', 'eq1', 'eq2', 'sim1']
         self.id = uuid.uuid1()  # generate id
 
-        self.workflow = workflow or ['eq0', 'eq1', 'eq2', 'sim1']
+        self.cutoff = kwargs.get('cutoff', 12.0)
+        self.water_model = kwargs.get('water_model', 'tip3')
         
         # Profiler for ESMACS PoE
 
@@ -48,7 +49,7 @@ class Esmacs(object):
             stage.name = step
 
             for system in self.systems:
-                box = pmd.amber.AmberAsciiRestart('systems/esmacs/{s}/build/{s}-complex.crd'.format(s=system)).box
+                box = pmd.amber.AmberAsciiRestart('systems/{s}/build/{s}-complex.crd'.format(s=system)).box
 
                 for replica in range(self.number_of_replicas):
 
@@ -88,7 +89,7 @@ class Esmacs(object):
 
                     settings = dict(BOX_X=box[0], BOX_Y=box[1], BOX_Z=box[2], SYSTEM=system,
                                     STEP=self.step_count[step], CUTOFF=self.cutoff, SWITCHING=self.cutoff-2.0,
-                                    PAIRLISTDIST=self.cutoff+1.5, WATERMODEL='tip3')
+                                    PAIRLISTDIST=self.cutoff+1.5, WATERMODEL=self.water_model)
 
                     task.pre_exec += ["sed -i 's/{}/{}/g' *.conf".format(k, w) for k, w in settings.items()]
 
@@ -108,9 +109,9 @@ class Esmacs(object):
     def input_data(self):
         files = [pkg_resources.resource_filename(__name__, 'default-configs/esmacs-{}.conf'.format(step)) for step in self.workflow]
         for system in self.systems:
-            files += ['systems/esmacs/{s}/build/{s}-complex.pdb'.format(s=system)]
-            files += ['systems/esmacs/{s}/build/{s}-complex.top'.format(s=system)]
-            files += ['systems/esmacs/{s}/constraint/{s}-cons.pdb'.format(s=system)]
+            files += ['systems/{s}/build/{s}-complex.pdb'.format(s=system)]
+            files += ['systems/{s}/build/{s}-complex.top'.format(s=system)]
+            files += ['systems/{s}/constraint/{s}-cons.pdb'.format(s=system)]
         return files
 
     @property
