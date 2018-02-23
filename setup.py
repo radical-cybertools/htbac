@@ -1,4 +1,4 @@
-   #!/usr/bin/env python
+#!/usr/bin/env python
 
 __author__    = "Jumana Dakka"
 __email__     = "jumanadakka@gmail.com"
@@ -203,7 +203,8 @@ setup_args = {
                              'radical.pilot==master',
                              'radical.entk==jdakka',
                              'setuptools>=1',
-                             'pika'],
+                             'pika', 
+                             'parmed'],
     'dependency_links': ['git+https://github.com/radical-cybertools/radical.utils.git@master#egg=radical.utils-master',
                           'git+https://github.com/radical-cybertools/saga-python.git@master#egg=saga-python-master',
                           'git+https://github.com/radical-cybertools/radical.pilot.git@master#egg=radical.pilot-master',
@@ -217,4 +218,4 @@ setup_args = {
     # It needs the MANIFEST.in entries to work.
 }
 
-setup (**setup_args)
+setup(**setup_args)
