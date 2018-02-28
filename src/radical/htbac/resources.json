@@ -1,18 +1,18 @@
 {
-  "titan": 
+  "ornl.titan_aprun": 
   {
     "resource": "ornl.titan_aprun",
-    "walltime": null,
+    "walltime": 120,
     "cores": null,
     "project": "chm126",
     "queue": "batch",
     "access_schema": "local"
   },
   
-  "blue_waters":
+  "ncsa.bw_aprun":
   {
     "resource": "ncsa.bw_aprun",
-    "walltime": null,
+    "walltime": 1440,
     "cores": null,
     "project": "bamm",
     "queue": "normal",

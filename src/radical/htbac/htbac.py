@@ -11,8 +11,8 @@ __license__ = "MIT"
 
 
 class Runner(object):
-    def __init__(self, supercomputer='titan'):
-        self.supercomputer = supercomputer
+    def __init__(self, resource='ncsa.bw_aprun'):
+        self.resource = resource
         self._protocols = list()
         self._hostname = None
         self._port = None
@@ -77,20 +77,14 @@ class Runner(object):
         if self.ids.get(previous_pipeline.id(), None) is not None:
 
             pipelines = set()
-
             gen_pipeline = protocol.generate_pipeline(previous_pipeline=self.ids[previous_pipeline.id()])
-
             pipelines.add(gen_pipeline)
-
             self.ids[protocol.id] = gen_pipeline
-
             self.app_manager.assign_workflow(pipelines)
-
             self.app_manager.run()
-
             if terminate:
                 self.app_manager.resource_terminate()
-
+                
         else: 
 
             print "ERROR: previous protocol instance is not found"
@@ -102,7 +96,7 @@ class Runner(object):
                     for k, v in obj}
 
         resource = json.load(pkg_resources.resource_stream(__name__, 'resources.json'),
-                             object_pairs_hook=str_hook)[self.supercomputer]
+                             object_pairs_hook=str_hook)[self.resource]
 
         resource['cores'] = cores
         resource['queue'] = queue

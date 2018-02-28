@@ -198,17 +198,17 @@ setup_args = {
 
     '''
 
-    'install_requires'  :  ['radical.utils==master',
-                             'saga-python==master',
-                             'radical.pilot==master',
-                             'radical.entk==jdakka',
+    'install_requires'  :  ['radical.utils==devel',
+                             'saga-python==devel',
+                             'radical.pilot==feature/fifo',
+                             'radical.entk==devel',
                              'setuptools>=1',
                              'pika', 
                              'parmed'],
-    'dependency_links': ['git+https://github.com/radical-cybertools/radical.utils.git@master#egg=radical.utils-master',
-                          'git+https://github.com/radical-cybertools/saga-python.git@master#egg=saga-python-master',
-                          'git+https://github.com/radical-cybertools/radical.pilot.git@master#egg=radical.pilot-master',
-                          'git+https://github.com/vivek-bala/radical.entk.git@experiment/jdakka#egg=radical.entk-jdakka'],
+    'dependency_links': ['git+https://github.com/radical-cybertools/radical.utils.git@devel#egg=radical.utils-devel',
+                          'git+https://github.com/radical-cybertools/saga-python.git@devel#egg=saga-python-devel',
+                          'git+https://github.com/radical-cybertools/radical.pilot.git@feature/fifo#egg=radical.pilot-feature/fifo',
+                          'git+https://github.com/vivek-bala/radical.entk.git@devel#egg=radical.entk-devel'],
   
 
     '''
