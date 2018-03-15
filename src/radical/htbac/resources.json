@@ -1,7 +1,7 @@
 {
   "titan": 
   {
-    "resource": "ornl.titan_aprun",
+    "resource": "ornl.titan_orte",
     "walltime": null,
     "cores": null,
     "project": "chm126",
