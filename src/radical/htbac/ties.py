@@ -7,6 +7,8 @@ from radical.entk import Pipeline, Stage, Task
 
 
 NAMD2 = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
+TITAN_NAMD2 = 'namd2'
+
 NAMD_TI_ANALYSIS = "/u/sciteam/farkaspa/namd/ti/namd2_ti.pl"
 _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
 _reduced_steps = dict(min=1000, eq1=5000, eq2=5000, prod=50000)
@@ -16,7 +18,7 @@ _full_steps = dict(min=1000, eq1=30000, eq2=970000, prod=2000000)
 class Ties(object):
 
     def __init__(self, number_of_replicas, number_of_windows=0, additional=list(),
-                 systems=list(), workflow=None, cores=32, ligand=False, full=False):
+                 systems=list(), workflow=None, cores=16, ligand=False, full=False):
 
         self.number_of_replicas = number_of_replicas
         self.lambdas = np.linspace(0.0, 1.0, number_of_windows, endpoint=True)
@@ -66,19 +68,33 @@ class Ties(object):
                         task.name = 'system_{}_replica_{}_lambda_{}'.format(system, replica, ld)
 
                         task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage.name)]
-                        task.pre_exec = ['module load namd/2.12',
-                                 'export MPICH_PTL_SEND_CREDITS=-1',
-                                 'export MPICH_MAX_SHORT_MSG_SIZE=8000',
-                                 'export MPICH_PTL_UNEX_EVENTS=80000',
-                                 'export MPICH_UNEX_BUFFER_SIZE=100M',
-                                 'export OMP_NUM_THREADS=1']
+                        # task.pre_exec = ['module load namd/2.12',
+                        #          'export MPICH_PTL_SEND_CREDITS=-1',
+                        #          'export MPICH_MAX_SHORT_MSG_SIZE=8000',
+                        #          'export MPICH_PTL_UNEX_EVENTS=80000',
+                        #          'export MPICH_UNEX_BUFFER_SIZE=100M',
+                        #          'export OMP_NUM_THREADS=1']
 
-                        task.cpu_reqs = {'processes': 1, 'process_type': 'MPI', 'threads_per_process': 16, 'thread_type': None}
-                        task.arguments += ['+ppn', '14', '+pemap', '0-13',
-                                           '+commap', '14', 'ties-{}.conf'.format(stage.name)]
+                        task.pre_exec = ['export LD_PRELOAD=/lib64/librt.so.1',
+                                        'module load PrgEnv-gnu/5.2.82',
+                                        'module load tcl_tk/8.5.8',
+                                        'module unload cray-mpich',
+                                        'module load cmake',
+                                        'module load rca',
+                                        'module load python/2.7.9',
+                                        'module load python_pip/8.1.2',
+                                        'module load python_virtualenv/12.0.7',
+                                        'module load namd/2.12']
 
-                        task.executable = ['namd2']         
-                        # task.mpi = True
+                        task.cpu_reqs = {'processes': 1, 'threads_per_process': 16, 'thread_type': POSIX}
+                        # task.cpu_reqs = {'process_type': 'MPI'}
+
+                        task.arguments += ['+ppn', '15', 'ties-{}.conf'.format(stage.name)]
+                        # task.arguments += ['+ppn', '14', '+pemap', '0-13',
+                        #                    '+commap', '14', 'ties-{}.conf'.format(stage.name)]
+
+                        task.executable = [TITAN_NAMD2]         
+                        task.mpi = False
                         # task.cores = self.cores
 
                         links = []
@@ -109,52 +125,52 @@ class Ties(object):
             
         # Analysis stage
         # ==============
-        analysis = Stage()
-        analysis.name = 'analysis'
+        # analysis = Stage()
+        # analysis.name = 'analysis'
 
-        for replica in range(self.number_of_replicas):
-            analysis_task = Task()
-            analysis_task.name = 'replica_{}'.format(replica)
+        # for replica in range(self.number_of_replicas):
+        #     analysis_task = Task()
+        #     analysis_task.name = 'replica_{}'.format(replica)
 
-            analysis_task.arguments += ['-d', '*ti.out', '>', 'dg_{}.out'.format(analysis_task.name)]
-            analysis_task.executable = [NAMD_TI_ANALYSIS]
+        #     analysis_task.arguments += ['-d', '*ti.out', '>', 'dg_{}.out'.format(analysis_task.name)]
+        #     analysis_task.executable = [NAMD_TI_ANALYSIS]
 
-            analysis_task.mpi = False
-            analysis_task.cores = 1
+        #     analysis_task.mpi = False
+        #     analysis_task.cores = 1
 
-            for p in filter(None, [pipeline, previous_pipeline]):
-                production_stage = next(stage for stage in p.stages if stage.name == 'prod')
-                production_tasks = [t for t in production_stage.tasks if analysis_task.name in t.name]
-                links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_ti.out'.format(p.uid, production_stage.uid, t.uid, t.name.split('_lambda_')[-1]) for t in production_tasks]
-                analysis_task.link_input_data += links
+        #     for p in filter(None, [pipeline, previous_pipeline]):
+        #         production_stage = next(stage for stage in p.stages if stage.name == 'prod')
+        #         production_tasks = [t for t in production_stage.tasks if analysis_task.name in t.name]
+        #         links = ['$Pipeline_{}_Stage_{}_Task_{}/alch_{}_ti.out'.format(p.uid, production_stage.uid, t.uid, t.name.split('_lambda_')[-1]) for t in production_tasks]
+        #         analysis_task.link_input_data += links
 
-            analysis.add_tasks(analysis_task)
+        #     analysis.add_tasks(analysis_task)
 
-        pipeline.add_stages(analysis)
+        # pipeline.add_stages(analysis)
 
-        # Averaging stage
-        # ===============
-        average = Stage()
-        average.name = 'average'
+        # # Averaging stage
+        # # ===============
+        # average = Stage()
+        # average.name = 'average'
 
-        average_task = Task()
-        average_task.name = 'average_dg'
-        average_task.arguments = ['-1 --quiet dg_* > dgs.out']  # .format(pipeline.uid)]
-        average_task.executable = ['head']
+        # average_task = Task()
+        # average_task.name = 'average_dg'
+        # average_task.arguments = ['-1 --quiet dg_* > dgs.out']  # .format(pipeline.uid)]
+        # average_task.executable = ['head']
 
-        average_task.mpi = False
-        average_task.cores = 1
+        # average_task.mpi = False
+        # average_task.cores = 1
 
-        previous_stage = pipeline.stages[-1]
-        previous_tasks = previous_stage.tasks
+        # previous_stage = pipeline.stages[-1]
+        # previous_tasks = previous_stage.tasks
 
-        links = ['$Pipeline_{}_Stage_{}_Task_{}/dg_{}.out'.format(pipeline.uid, previous_stage.uid, t.uid,
-                                                                  t.name) for t in previous_tasks]
-        average_task.link_input_data = links
-        #average_task.download_output_data = ['dgs.out']  # .format(pipeline.uid)]
+        # links = ['$Pipeline_{}_Stage_{}_Task_{}/dg_{}.out'.format(pipeline.uid, previous_stage.uid, t.uid,
+        #                                                           t.name) for t in previous_tasks]
+        # average_task.link_input_data = links
+        # #average_task.download_output_data = ['dgs.out']  # .format(pipeline.uid)]
 
-        average.add_tasks(average_task)
-        pipeline.add_stages(average)
+        # average.add_tasks(average_task)
+        # pipeline.add_stages(average)
 
 
         print 'TIES pipeline has', len(pipeline.stages), 'stages. Tasks counts:', [len(s.tasks) for s in pipeline.stages]
