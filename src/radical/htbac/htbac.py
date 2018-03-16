@@ -30,7 +30,7 @@ class Runner(object):
     def add_protocol(self, protocol):
         self._protocols.append(protocol)
 
-    def rabbitmq_config(self, hostname='localhost', port=5672):
+    def rabbitmq_config(self, hostname='dtn05.ccs.ornl.gov', port=30672):
         self._hostname = hostname
         self._port = port
 
@@ -45,7 +45,7 @@ class Runner(object):
             input_data.extend(protocol.input_data)
             self.ids[protocol.id] = gen_pipeline
             # protocol.id is the uuid, gen_pipeline.uid is the pipeline
-
+	    print "input data added"
             cores += protocol.total_cores
 
         cores *= strong_scaled
@@ -71,7 +71,7 @@ class Runner(object):
 
         if not dry_run:
             self.app_manager.run()    # this method is blocking until all pipelines show state = completed
-
+	    print "appman instantiated"
     def rerun(self, protocol=None, terminate=True, previous_pipeline=None):
 
         if self.ids.get(previous_pipeline.id(), None) is not None:

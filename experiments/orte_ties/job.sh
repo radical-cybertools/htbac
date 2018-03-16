@@ -13,7 +13,7 @@ export RADICAL_PILOT_VERBOSE='DEBUG'
 
 export LD_PRELOAD='/lib64/librt.so.1'
 
-module load PrgEnv-gnu/5.2.82
+module swap PrgEnv-gnu/5.2.82
 module load tcl_tk/8.5.8
 module unload cray-mpich
 module load cmake
@@ -22,9 +22,6 @@ module load rca
 module load python/2.7.9
 module load python_pip/8.1.2
 module load python_virtualenv/12.0.7
-module load namd/2.12
-
-
 
 #python /lustre/atlas/scratch/farkaspall/chm126/htbac/experiments_inspire/esmacs-nilotinib.py
 python test.py

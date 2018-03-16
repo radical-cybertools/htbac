@@ -76,17 +76,16 @@ class Ties(object):
                         #          'export OMP_NUM_THREADS=1']
 
                         task.pre_exec = ['export LD_PRELOAD=/lib64/librt.so.1',
-                                        'module load PrgEnv-gnu/5.2.82',
+                                        'module swap PrgEnv-pgi PrgEnv-gnu/5.2.82',
                                         'module load tcl_tk/8.5.8',
                                         'module unload cray-mpich',
                                         'module load cmake',
                                         'module load rca',
                                         'module load python/2.7.9',
                                         'module load python_pip/8.1.2',
-                                        'module load python_virtualenv/12.0.7',
-                                        'module load namd/2.12']
+                                        'module load python_virtualenv/12.0.7']
 
-                        task.cpu_reqs = {'processes': 1, 'threads_per_process': 16, 'thread_type': POSIX}
+                        task.cpu_reqs = {'processes': 1, 'threads_per_process': 16}
                         # task.cpu_reqs = {'process_type': 'MPI'}
 
                         task.arguments += ['+ppn', '15', 'ties-{}.conf'.format(stage.name)]
