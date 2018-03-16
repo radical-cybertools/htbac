@@ -13,7 +13,8 @@ def main():
     ht.rabbitmq_config(hostname='openshift-node1.ccs.ornl.gov', port=30673)
     ht.run()
 
+    ht.run()
+
+
 if __name__ == '__main__':
     main()
-
-
