@@ -11,7 +11,7 @@ def main():
     esm = Esmacs(number_of_replicas=25, systems=muts, full=True, cores=16, cutoff=10, water_model='tip4')
     ht.add_protocol(esm)
 
-    ht.rabbitmq_config(hostname='two.radical-project.org', port=33024)
+    ht.rabbitmq_config(hostname='openshift-node1.ccs.ornl.gov', port=30673)
     ht.run(walltime=720)
 
 
