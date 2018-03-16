@@ -58,23 +58,23 @@ class Esmacs(object):
                     task.name = 'system_{}_replica_{}'.format(system, replica)
 
                     # Load namd module and set some environment variables.
-                    # task.pre_exec = ['module load namd/2.12',
-                    #                  'export MPICH_PTL_SEND_CREDITS=-1',
-                    #                  'export MPICH_MAX_SHORT_MSG_SIZE=8000',
-                    #                  'export MPICH_PTL_UNEX_EVENTS=80000',
-                    #                  'export MPICH_UNEX_BUFFER_SIZE=100M']
+                    task.pre_exec = ['module load namd/2.12',
+                                     'export MPICH_PTL_SEND_CREDITS=-1',
+                                     'export MPICH_MAX_SHORT_MSG_SIZE=8000',
+                                     'export MPICH_PTL_UNEX_EVENTS=80000',
+                                     'export MPICH_UNEX_BUFFER_SIZE=100M']
 
-                    task.pre_exec = ['export LD_PRELOAD=/lib64/librt.so.1',
-                                     'module swap PrgEnv-pgi PrgEnv-gnu/5.2.82',
-                                     'module load tcl_tk/8.5.8',
-                                     'module unload cray-mpich',
-                                     'module load cmake',
-                                     'module load rca']  # ,
+                    task.pre_exec += ['export LD_PRELOAD=/lib64/librt.so.1',
+                                      'module swap PrgEnv-pgi PrgEnv-gnu/5.2.82',
+                                      'module load tcl_tk/8.5.8',
+                                      'module unload cray-mpich',
+                                      'module load cmake',
+                                      'module load rca']  # ,
                                      # 'module load python/2.7.9',
                                      # 'module load python_pip/8.1.2',
                                      # 'module load python_virtualenv/12.0.7']
 
-                    task.executable = [TITAN_ORTE_NAMD2]
+                    task.executable = [TITAN_NAMD2]
                     task.arguments += ['+ppn', str(self.cores-1),
                                        # '+pemap', '1-{}'.format(self.cores-1),
                                        # '+commap', '0',
