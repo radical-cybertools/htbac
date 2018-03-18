@@ -1,7 +1,8 @@
 
 # High Throughput Binding Affinity Calculator 
 
-Framework supporting Alchemical and Endpoint Free Energy Calculation Protocols
+Framework supporting Alchemical and Endpoint Free Energy Calculation Protocols\
+Support with Blue Waters 
 ## Installation: 
 ```
 virtualenv $HOME/venv
