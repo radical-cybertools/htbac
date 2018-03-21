@@ -107,7 +107,7 @@ class Ties(object):
                         else:
                             links += ['$SHARED/{}-complex.pdb'.format(system)]
 
-                        print "Linking files:", links
+                        # print "Linking files:", links
                         task.link_input_data = links
 
                         task.pre_exec += ["sed -i 's/BOX_X/{}/g' *.conf".format(box[0]),
@@ -184,7 +184,6 @@ class Ties(object):
             files += ['systems/ties{lig}/{s}/build/{s}-complex.pdb'.format(lig=self.ligand, s=system)]
             files += ['systems/ties{lig}/{s}/build/{s}-complex.top'.format(lig=self.ligand, s=system)]
             files += ['systems/ties{lig}/{s}/build/{s}-tags.pdb'.format(lig=self.ligand, s=system)]
-        # print "Input files:", files
         return files
 
     @property
