@@ -8,6 +8,7 @@ from radical.entk import Pipeline, Stage, Task
 
 NAMD2 = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
 TITAN_NAMD2 = 'namd2'
+TITAN_ORTE_NAMD2 = '/lustre/atlas2/csc230/world-shared/openmpi/applications/namd/namd-openmp/CRAY-XE-gnu/namd2'
 
 NAMD_TI_ANALYSIS = "/u/sciteam/farkaspa/namd/ti/namd2_ti.pl"
 _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
@@ -92,7 +93,7 @@ class Ties(object):
                         # task.arguments += ['+ppn', '14', '+pemap', '0-13',
                         #                    '+commap', '14', 'ties-{}.conf'.format(stage.name)]
 
-                        task.executable = [TITAN_NAMD2]         
+                        task.executable = [TITAN_ORTE_NAMD2]         
                         task.mpi = False
                         # task.cores = self.cores
 
