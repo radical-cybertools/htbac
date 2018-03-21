@@ -24,7 +24,7 @@ class Ties(object):
         self.ligand = '-ligands' if ligand else ''
         self.step_count = _full_steps if full else _reduced_steps
         
-        self.systems = systems
+        self.systems = system
         print "Lambda Windows: ", self.lambdas
         print "step count: ", self.step_count 
 
