@@ -19,7 +19,7 @@ class Esmacs(object):
         self.number_of_replicas = number_of_replicas
         self.system = system
         self.cores = cores
-        self.step_count = _full_steps if full else _reduced_steps
+        self.step_count = _full_steps
         self._id = uuid.uuid1()  # generate id
         self.box = pmd.amber.AmberAsciiRestart('systems/esmacs/{s}/build/{s}-complex.crd'.format(s=self.system)).box
         self.workflow = workflow or ['eq0', 'eq1', 'eq2', 'sim1']
@@ -65,8 +65,7 @@ class Esmacs(object):
                 # ** each application is given -n * -d cores      
 
                 #task.cpu_reqs = {'processes': 1, 'process_type': 'MPI', 'threads_per_process': 16, 'thread_type': None}
-                task.arguments += ['+ppn', '31', '+pemap', '0-29',
-                                   '+commap', '30', 'esmacs-{}.conf'.format(stage.name)]
+                task.arguments += ['esmacs-{}.conf'.format(stage.name)]
 
                 task.executable = [NAMD2]
                 task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(stage.name)]
