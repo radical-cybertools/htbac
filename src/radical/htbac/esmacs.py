@@ -19,7 +19,7 @@ class Esmacs(object):
         self.number_of_replicas = number_of_replicas
         self.system = system
         self.cores = cores
-        self.step_count = _full_steps
+        self.step_count = _reduced_steps
         self._id = uuid.uuid1()  # generate id
         self.box = pmd.amber.AmberAsciiRestart('systems/esmacs/{s}/build/{s}-complex.crd'.format(s=self.system)).box
         self.workflow = workflow or ['eq0', 'eq1', 'eq2', 'sim1']
