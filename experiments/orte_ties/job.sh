@@ -24,6 +24,6 @@ module load python_pip/8.1.2
 module load python_virtualenv/12.0.7
 
 #python /lustre/atlas/scratch/farkaspall/chm126/htbac/experiments_inspire/esmacs-nilotinib.py
-python test.py
+python ties_8_instances.py
 
 
