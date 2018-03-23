@@ -51,12 +51,12 @@ class Esmacs(object):
             stage.name = step
 
            
-            box = pmd.amber.AmberAsciiRestart('system/{s}/build/{s}-complex.inpcrd'.format(s=system)).box
+            box = pmd.amber.AmberAsciiRestart('system/{s}/build/{s}-complex.inpcrd'.format(s=self.system)).box
 
             for replica in range(self.number_of_replicas):
 
                 task = Task()
-                task.name = 'system_{}_replica_{}'.format(system, replica)
+                task.name = 'system_{}_replica_{}'.format(self.system, replica)
 
                 # Load openmm module and set some environment variables.
 
@@ -76,7 +76,7 @@ class Esmacs(object):
                 task.mpi = False 
                 task.cores = self.cores
 
-                links = ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-cons.pdb'.format(system)]
+                links = ['$SHARED/{}-complex.top'.format(self.system), '$SHARED/{}-cons.pdb'.format(self.system)]
 
                 if self.workflow.index(step):
                     previous_stage = pipeline.stages[-1]
@@ -85,11 +85,11 @@ class Esmacs(object):
                                                                    previous_task.uid)
                     links += [path + previous_stage.name + suffix for suffix in _simulation_file_suffixes]
                 else:
-                    links += ['$SHARED/{}-complex.pdb'.format(system)]
+                    links += ['$SHARED/{}-complex.pdb'.format(self.system)]
 
                 task.link_input_data = links
 
-                settings = dict(BOX_X=box[0], BOX_Y=box[1], BOX_Z=box[2], SYSTEM=system,
+                settings = dict(BOX_X=box[0], BOX_Y=box[1], BOX_Z=box[2], SYSTEM=self.system,
                                 STEP=self.step_count[step], CUTOFF=self.cutoff, SWITCHING=self.cutoff-2.0,
                                 PAIRLISTDIST=self.cutoff+1.5, WATERMODEL=self.water_model)
 
@@ -111,9 +111,9 @@ class Esmacs(object):
     def input_data(self):
         files = [pkg_resources.resource_filename(__name__, 'default-configs/esmacs-{}.conf'.format(step)) for step in self.workflow]
     
-        files += ['systems/{s}/build/{s}-complex.pdb'.format(s=system)]
-        files += ['systems/{s}/build/{s}-complex.top'.format(s=system)]
-        files += ['systems/{s}/constraint/{s}-cons.pdb'.format(s=system)]
+        files += ['systems/{s}/build/{s}-complex.pdb'.format(s=self.system)]
+        files += ['systems/{s}/build/{s}-complex.top'.format(s=self.system)]
+        files += ['systems/{s}/constraint/{s}-cons.pdb'.format(s=self.system)]
         return files
 
     @property
