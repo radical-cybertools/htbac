@@ -51,7 +51,7 @@ class Esmacs(object):
             stage.name = step
 
            
-            box = pmd.amber.AmberAsciiRestart('systems/{s}/build/{s}-complex.inpcrd'.format(s=self.system)).box
+            box = pmd.amber.AmberAsciiRestart('systems/esmacs/{s}/build/{s}-complex.crd'.format(s=self.system)).box
 
             for replica in range(self.number_of_replicas):
 
@@ -111,9 +111,9 @@ class Esmacs(object):
     def input_data(self):
         files = [pkg_resources.resource_filename(__name__, 'default-configs/esmacs-{}.conf'.format(step)) for step in self.workflow]
     
-        files += ['systems/{s}/build/{s}-complex.pdb'.format(s=self.system)]
-        files += ['systems/{s}/build/{s}-complex.top'.format(s=self.system)]
-        files += ['systems/{s}/constraint/{s}-cons.pdb'.format(s=self.system)]
+        files += ['systems/esmacs/{s}/build/{s}-complex.pdb'.format(s=self.system)]
+        files += ['systems/esmacs/{s}/build/{s}-complex.top'.format(s=self.system)]
+        files += ['systems/esmacs/{s}/constraint/{s}-cons.pdb'.format(s=self.system)]
         return files
 
     @property
