@@ -50,52 +50,52 @@ class Esmacs(object):
             stage = Stage()
             stage.name = step
 
-            for system in self.system:
-                box = pmd.amber.AmberAsciiRestart('system/{s}/build/{s}-complex.inpcrd'.format(s=system)).box
+           
+            box = pmd.amber.AmberAsciiRestart('system/{s}/build/{s}-complex.inpcrd'.format(s=system)).box
 
-                for replica in range(self.number_of_replicas):
+            for replica in range(self.number_of_replicas):
 
-                    task = Task()
-                    task.name = 'system_{}_replica_{}'.format(system, replica)
+                task = Task()
+                task.name = 'system_{}_replica_{}'.format(system, replica)
 
-                    # Load namd module and set some environment variables.
+                # Load openmm module and set some environment variables.
 
-                    task.executable = ['python -m']
-                    task.arguments += ['esmacs-{}.conf'.format(step)]
+                task.executable = ['python -m']
+                task.arguments += ['esmacs-{}.conf'.format(step)]
 
-                    #task.cpu_reqs = {'processes': 1, 'threads_per_process': self.cores}
+                #task.cpu_reqs = {'processes': 1, 'threads_per_process': self.cores}
 
-                    task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(step)]
+                task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(step)]
 
-                    task.pre_exec = ['export PATH="/lustre/atlas/scratch/farkaspall/chm126/miniconda3/bin:$PATH"',
-                                     'export HOME=/lustre/atlas/scratch/farkaspall/chm126',
-                                     'export MINICONDA3="$HOME/miniconda3"',
-                                     'export PATH="$MINICONDA3/bin:$PATH"',
-                                     'export LD_LIBRARY_PATH=$MINICONDA3/lib:$LD_LIBRARY_PATH']
-                                     
-                    task.mpi = False 
-                    task.cores = self.cores
+                task.pre_exec = ['export PATH="/lustre/atlas/scratch/farkaspall/chm126/miniconda3/bin:$PATH"',
+                                 'export HOME=/lustre/atlas/scratch/farkaspall/chm126',
+                                 'export MINICONDA3="$HOME/miniconda3"',
+                                 'export PATH="$MINICONDA3/bin:$PATH"',
+                                 'export LD_LIBRARY_PATH=$MINICONDA3/lib:$LD_LIBRARY_PATH']
+                                 
+                task.mpi = False 
+                task.cores = self.cores
 
-                    links = ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-cons.pdb'.format(system)]
+                links = ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-cons.pdb'.format(system)]
 
-                    if self.workflow.index(step):
-                        previous_stage = pipeline.stages[-1]
-                        previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
-                        path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.uid, previous_stage.uid,
-                                                                       previous_task.uid)
-                        links += [path + previous_stage.name + suffix for suffix in _simulation_file_suffixes]
-                    else:
-                        links += ['$SHARED/{}-complex.pdb'.format(system)]
+                if self.workflow.index(step):
+                    previous_stage = pipeline.stages[-1]
+                    previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
+                    path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.uid, previous_stage.uid,
+                                                                   previous_task.uid)
+                    links += [path + previous_stage.name + suffix for suffix in _simulation_file_suffixes]
+                else:
+                    links += ['$SHARED/{}-complex.pdb'.format(system)]
 
-                    task.link_input_data = links
+                task.link_input_data = links
 
-                    settings = dict(BOX_X=box[0], BOX_Y=box[1], BOX_Z=box[2], SYSTEM=system,
-                                    STEP=self.step_count[step], CUTOFF=self.cutoff, SWITCHING=self.cutoff-2.0,
-                                    PAIRLISTDIST=self.cutoff+1.5, WATERMODEL=self.water_model)
+                settings = dict(BOX_X=box[0], BOX_Y=box[1], BOX_Z=box[2], SYSTEM=system,
+                                STEP=self.step_count[step], CUTOFF=self.cutoff, SWITCHING=self.cutoff-2.0,
+                                PAIRLISTDIST=self.cutoff+1.5, WATERMODEL=self.water_model)
 
-                    task.pre_exec += ["sed -i 's/{}/{}/g' *.conf".format(k, w) for k, w in settings.items()]
+                task.pre_exec += ["sed -i 's/{}/{}/g' *.conf".format(k, w) for k, w in settings.items()]
 
-                    stage.add_tasks(task)
+                stage.add_tasks(task)
 
             pipeline.add_stages(stage)
 
@@ -110,12 +110,12 @@ class Esmacs(object):
     @property
     def input_data(self):
         files = [pkg_resources.resource_filename(__name__, 'default-configs/esmacs-{}.conf'.format(step)) for step in self.workflow]
-        for system in self.system:
-            files += ['systems/{s}/build/{s}-complex.pdb'.format(s=system)]
-            files += ['systems/{s}/build/{s}-complex.top'.format(s=system)]
-            files += ['systems/{s}/constraint/{s}-cons.pdb'.format(s=system)]
+    
+        files += ['systems/{s}/build/{s}-complex.pdb'.format(s=system)]
+        files += ['systems/{s}/build/{s}-complex.top'.format(s=system)]
+        files += ['systems/{s}/constraint/{s}-cons.pdb'.format(s=system)]
         return files
 
     @property
     def total_cores(self):
-        return self.cores * self.number_of_replicas * len(self.system)
+        return self.cores * self.number_of_replicas
