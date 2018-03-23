@@ -38,6 +38,7 @@ def generate_pipeline():
     # Add Stage to the Pipeline
     p.add_stages(s1)
 
+    return p
 
 
 
