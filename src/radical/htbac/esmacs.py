@@ -51,7 +51,7 @@ class Esmacs(object):
             stage.name = step
 
            
-            box = pmd.amber.AmberAsciiRestart('system/{s}/build/{s}-complex.inpcrd'.format(s=self.system)).box
+            box = pmd.amber.AmberAsciiRestart('systems/{s}/build/{s}-complex.inpcrd'.format(s=self.system)).box
 
             for replica in range(self.number_of_replicas):
 
