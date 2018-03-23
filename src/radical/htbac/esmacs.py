@@ -13,16 +13,17 @@ BW_NAMD2 = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
 TITAN_NAMD2 = 'namd2'
 TITAN_ORTE_NAMD2 = '/lustre/atlas2/csc230/world-shared/openmpi/applications/namd/namd-openmp/CRAY-XE-gnu/namd2'
 
+
 _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
 _reduced_steps = dict(eq0=100, eq1=5000, eq2=10, sim1=5000)
 _full_steps = dict(eq0=1000, eq1=30000, eq2=800000, sim1=2000000)
 
 
 class Esmacs(object):
-    def __init__(self, number_of_replicas, systems, workflow=None, cores=16, full=False, **kwargs):
+    def __init__(self, number_of_replicas, system, workflow=None, cores=16, full=False, **kwargs):
 
         self.number_of_replicas = number_of_replicas
-        self.systems = systems
+        self.system = system
         self.cores = cores
         self.step_count = _full_steps if full else _reduced_steps
         self.workflow = workflow or ['eq0', 'eq1', 'eq2', 'sim1']
@@ -49,8 +50,8 @@ class Esmacs(object):
             stage = Stage()
             stage.name = step
 
-            for system in self.systems:
-                box = pmd.amber.AmberAsciiRestart('systems/{s}/build/{s}-complex.inpcrd'.format(s=system)).box
+            for system in self.system:
+                box = pmd.amber.AmberAsciiRestart('system/{s}/build/{s}-complex.inpcrd'.format(s=system)).box
 
                 for replica in range(self.number_of_replicas):
 
@@ -58,33 +59,21 @@ class Esmacs(object):
                     task.name = 'system_{}_replica_{}'.format(system, replica)
 
                     # Load namd module and set some environment variables.
-                    task.pre_exec = ['module load namd/2.12',
-                                     'export MPICH_PTL_SEND_CREDITS=-1',
-                                     'export MPICH_MAX_SHORT_MSG_SIZE=8000',
-                                     'export MPICH_PTL_UNEX_EVENTS=80000',
-                                     'export MPICH_UNEX_BUFFER_SIZE=100M']
 
-                    task.pre_exec += ['export LD_PRELOAD=/lib64/librt.so.1',
-                                      'module swap PrgEnv-pgi PrgEnv-gnu/5.2.82',
-                                      'module load tcl_tk/8.5.8',
-                                      'module unload cray-mpich',
-                                      'module load cmake',
-                                      'module load rca']  # ,
-                                     # 'module load python/2.7.9',
-                                     # 'module load python_pip/8.1.2',
-                                     # 'module load python_virtualenv/12.0.7']
+                    task.executable = ['python -m']
+                    task.arguments += ['esmacs-{}.conf'.format(step)]
 
-                    task.executable = [TITAN_NAMD2]
-                    task.arguments += ['+ppn', str(self.cores-1),
-                                       # '+pemap', '1-{}'.format(self.cores-1),
-                                       # '+commap', '0',
-                                       'esmacs-{}.conf'.format(step)]
-
-                    task.cpu_reqs = {'processes': 1, 'threads_per_process': self.cores}
+                    #task.cpu_reqs = {'processes': 1, 'threads_per_process': self.cores}
 
                     task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(step)]
 
-                    task.mpi = False
+                    task.pre_exec = ['export PATH="/lustre/atlas/scratch/farkaspall/chm126/miniconda3/bin:$PATH"',
+                                     'export HOME=/lustre/atlas/scratch/farkaspall/chm126',
+                                     'export MINICONDA3="$HOME/miniconda3"',
+                                     'export PATH="$MINICONDA3/bin:$PATH"',
+                                     'export LD_LIBRARY_PATH=$MINICONDA3/lib:$LD_LIBRARY_PATH']
+                                     
+                    task.mpi = False 
                     task.cores = self.cores
 
                     links = ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-cons.pdb'.format(system)]
@@ -112,7 +101,7 @@ class Esmacs(object):
 
         print 'HTBAC: ESM pipeline has', len(pipeline.stages), 'stages.'
         print 'HTBAC: Tasks per stage:', [len(s.tasks) for s in pipeline.stages]
-        print 'HTBAC: {} system(s), {} replica(s).'.format(len(self.systems), self.number_of_replicas)
+        print 'HTBAC: {} system(s), {} replica(s).'.format(len(self.system), self.number_of_replicas)
         print 'HTBAC: Total cores required: {}, i.e. {} nodes.'.format(self.total_cores, self.total_cores/16)
 
         return pipeline
@@ -121,7 +110,7 @@ class Esmacs(object):
     @property
     def input_data(self):
         files = [pkg_resources.resource_filename(__name__, 'default-configs/esmacs-{}.conf'.format(step)) for step in self.workflow]
-        for system in self.systems:
+        for system in self.system:
             files += ['systems/{s}/build/{s}-complex.pdb'.format(s=system)]
             files += ['systems/{s}/build/{s}-complex.top'.format(s=system)]
             files += ['systems/{s}/constraint/{s}-cons.pdb'.format(s=system)]
@@ -129,4 +118,4 @@ class Esmacs(object):
 
     @property
     def total_cores(self):
-        return self.cores * self.number_of_replicas * len(self.systems)
+        return self.cores * self.number_of_replicas * len(self.system)
