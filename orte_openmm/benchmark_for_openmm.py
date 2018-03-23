@@ -63,7 +63,7 @@ if __name__ == '__main__':
     rman = ResourceManager(res_dict)
 
     # Create Application Manager
-    appman = AppManager(autoterminate=False)
+    appman = AppManager(hostname='openshift-node1.ccs.ornl.gov', port=30673)
 
     # Assign resource manager to the Application Manager
     appman.resource_manager = rman
