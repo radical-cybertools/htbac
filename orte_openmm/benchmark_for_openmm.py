@@ -29,8 +29,8 @@ def generate_pipeline():
      
     task.mpi = False 
     task.cores = 16
-    task.arguments = ['benchmark.py']
-    task.executable = ['python -m']
+    task.executable = ['benchmark.py']
+    task.argument = ['python -m']
 
     # Add the Task to the Stage
     s1.add_tasks(task)
@@ -52,7 +52,7 @@ if __name__ == '__main__':
 
             'resource': 'ornl.titan_orte',
             'walltime': 120,
-            'cores': 16,
+            'cores': 32,
             'project': 'chm126',
             'queue': 'batch',
             'access_schema': 'local'
@@ -64,7 +64,7 @@ if __name__ == '__main__':
     rman = ResourceManager(res_dict)
 
     # Create Application Manager
-    appman = AppManager(hostname='openshift-node1.ccs.ornl.gov', port=30673)
+    appman = AppManager(hostname='openshift-node1.ccs.ornl.gov', port=30673, autoterminate = False)
 
     # Assign resource manager to the Application Manager
     appman.resource_manager = rman
