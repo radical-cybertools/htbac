@@ -15,7 +15,6 @@ _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
 _reduced_steps = dict(min=1000, eq1=5000, eq2=5000, prod=50000)
 _full_steps = dict(min=1000, eq1=30000, eq2=970000, prod=2000000)
 
-
 class Ties(object):
 
     def __init__(self, number_of_replicas, number_of_windows=0, additional=list(),
@@ -188,8 +187,8 @@ class Ties(object):
 
     @property
     def replicas(self):
-        return self.number_of_replicas*len(self.lambdas)*len(self.systems)
+        return self.number_of_replicas * len(self.lambdas) * len(self.systems)
 
     @property
     def total_cores(self):
-        return self.number_of_replicas*len(self.lambdas)*len(self.systems)
+        return self.cores * self.number_of_replicas * len(self.systems) * len(self.lambdas) 

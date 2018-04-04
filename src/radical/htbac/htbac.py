@@ -30,7 +30,7 @@ class Runner(object):
     def add_protocol(self, protocol):
         self._protocols.append(protocol)
 
-    def rabbitmq_config(self, hostname='dtn05.ccs.ornl.gov', port=30672):
+    def rabbitmq_config(self, hostname='openshift-node1.ccs.ornl.gov', port=30673):
         self._hostname = hostname
         self._port = port
 
