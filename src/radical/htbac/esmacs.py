@@ -9,28 +9,28 @@ from radical.entk import Pipeline, Stage, Task
 
 # Constants
 
-BW_NAMD2 = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
-TITAN_NAMD2 = 'namd2'
-TITAN_ORTE_NAMD2 = '/lustre/atlas2/csc230/world-shared/openmpi/applications/namd/namd-openmp/CRAY-XE-gnu/namd2'
-
-
+BW_NAMD2_MPI = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
+BW_ORTE_NAMD2_OPENMP_CUDA = '/u/sciteam/dakka/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2'
+TITAN_NAMD2_MPI = 'namd2'
+TITAN_ORTE_OPENMP = '/lustre/atlas2/csc230/world-shared/openmpi/applications/namd/namd-openmp/CRAY-XE-gnu/namd2'
+TITAN_ORTE_NAMD2_OPENMP_CUDA = '/lustre/atlas/scratch/jdakka/chm126/namd/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2' 
 _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
 _reduced_steps = dict(eq0=100, eq1=5000, eq2=10, sim1=5000)
 _full_steps = dict(eq0=1000, eq1=30000, eq2=800000, sim1=2000000)
 
 
 class Esmacs(object):
-    def __init__(self, number_of_replicas, system, workflow=None, cores=16, full=False, **kwargs):
+    def __init__(self, number_of_replicas, systems, workflow=None, cores=16, full=False, **kwargs):
 
         self.number_of_replicas = number_of_replicas
-        self.system = system
+        self.systems = systems
         self.cores = cores
         self.step_count = _full_steps if full else _reduced_steps
         self.workflow = workflow or ['eq0', 'eq1', 'eq2', 'sim1']
         self.id = uuid.uuid1()  # generate id
 
         self.cutoff = kwargs.get('cutoff', 12.0)
-        self.water_model = kwargs.get('water_model', 'tip3')
+        self.water_model = kwargs.get('water_model', 'tip4')
         
         # Profiler for ESMACS PoE
 
@@ -50,58 +50,60 @@ class Esmacs(object):
             stage = Stage()
             stage.name = step
 
-           
-            box = pmd.amber.AmberAsciiRestart('systems/esmacs/{s}/build/{s}-complex.crd'.format(s=self.system)).box
+            for system in self.systems:
+                box = pmd.amber.AmberAsciiRestart('systems/{s}/build/{s}-complex.inpcrd'.format(s=system)).box
 
-            for replica in range(self.number_of_replicas):
+                for replica in range(self.number_of_replicas):
 
-                task = Task()
-                task.name = 'system_{}_replica_{}'.format(self.system, replica)
+                    task = Task()
+                    task.name = 'system_{}_replica_{}'.format(system, replica)
 
-                # Load openmm module and set some environment variables.
+                    # Load namd module and set some environment variables.
+                    task.pre_exec = []
+                               
 
-                task.executable = ['python -m']
-                task.arguments += ['esmacs-{}.conf'.format(step)]
+                    task.pre_exec += ['export LD_PRELOAD=/lib64/librt.so.1']
+                                      
+                          
+                    task.executable = [BW_ORTE_NAMD2_OPENMP_CUDA]
+                    task.arguments += ['+ppn', str(self.cores-1),
+                                       '+pemap', '1-{}'.format(self.cores-1),
+                                       '+commap', '0',
+                                       'esmacs-{}.conf'.format(step)]
 
-                #task.cpu_reqs = {'processes': 1, 'threads_per_process': self.cores}
+                    #task.cpu_reqs = {'processes': 1, 'threads_per_process': self.cores}
 
-                task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(step)]
+                    task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(step)]
 
-                task.pre_exec = ['export PATH="/lustre/atlas/scratch/farkaspall/chm126/miniconda3/bin:$PATH"',
-                                 'export HOME=/lustre/atlas/scratch/farkaspall/chm126',
-                                 'export MINICONDA3="$HOME/miniconda3"',
-                                 'export PATH="$MINICONDA3/bin:$PATH"',
-                                 'export LD_LIBRARY_PATH=$MINICONDA3/lib:$LD_LIBRARY_PATH']
-                                 
-                task.mpi = False 
-                task.cores = self.cores
+                    task.mpi = False
+                    task.cores = self.cores
 
-                links = ['$SHARED/{}-complex.top'.format(self.system), '$SHARED/{}-cons.pdb'.format(self.system)]
+                    links = ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-cons.pdb'.format(system)]
 
-                if self.workflow.index(step):
-                    previous_stage = pipeline.stages[-1]
-                    previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
-                    path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.uid, previous_stage.uid,
-                                                                   previous_task.uid)
-                    links += [path + previous_stage.name + suffix for suffix in _simulation_file_suffixes]
-                else:
-                    links += ['$SHARED/{}-complex.pdb'.format(self.system)]
+                    if self.workflow.index(step):
+                        previous_stage = pipeline.stages[-1]
+                        previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
+                        path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.uid, previous_stage.uid,
+                                                                       previous_task.uid)
+                        links += [path + previous_stage.name + suffix for suffix in _simulation_file_suffixes]
+                    else:
+                        links += ['$SHARED/{}-complex.pdb'.format(system)]
 
-                task.link_input_data = links
+                    task.link_input_data = links
 
-                settings = dict(BOX_X=box[0], BOX_Y=box[1], BOX_Z=box[2], SYSTEM=self.system,
-                                STEP=self.step_count[step], CUTOFF=self.cutoff, SWITCHING=self.cutoff-2.0,
-                                PAIRLISTDIST=self.cutoff+1.5, WATERMODEL=self.water_model)
+                    settings = dict(BOX_X=box[0], BOX_Y=box[1], BOX_Z=box[2], SYSTEM=system,
+                                    STEP=self.step_count[step], CUTOFF=self.cutoff, SWITCHING=self.cutoff-2.0,
+                                    PAIRLISTDIST=self.cutoff+1.5, WATERMODEL=self.water_model)
 
-                task.pre_exec += ["sed -i 's/{}/{}/g' *.conf".format(k, w) for k, w in settings.items()]
+                    task.pre_exec += ["sed -i 's/{}/{}/g' *.conf".format(k, w) for k, w in settings.items()]
 
-                stage.add_tasks(task)
+                    stage.add_tasks(task)
 
             pipeline.add_stages(stage)
 
         print 'HTBAC: ESM pipeline has', len(pipeline.stages), 'stages.'
         print 'HTBAC: Tasks per stage:', [len(s.tasks) for s in pipeline.stages]
-        print 'HTBAC: {} system(s), {} replica(s).'.format(len(self.system), self.number_of_replicas)
+        print 'HTBAC: {} system(s), {} replica(s).'.format(len(self.systems), self.number_of_replicas)
         print 'HTBAC: Total cores required: {}, i.e. {} nodes.'.format(self.total_cores, self.total_cores/16)
 
         return pipeline
@@ -110,12 +112,12 @@ class Esmacs(object):
     @property
     def input_data(self):
         files = [pkg_resources.resource_filename(__name__, 'default-configs/esmacs-{}.conf'.format(step)) for step in self.workflow]
-    
-        files += ['systems/esmacs/{s}/build/{s}-complex.pdb'.format(s=self.system)]
-        files += ['systems/esmacs/{s}/build/{s}-complex.top'.format(s=self.system)]
-        files += ['systems/esmacs/{s}/constraint/{s}-cons.pdb'.format(s=self.system)]
+        for system in self.systems:
+            files += ['systems/{s}/build/{s}-complex.pdb'.format(s=system)]
+            files += ['systems/{s}/build/{s}-complex.top'.format(s=system)]
+            files += ['systems/{s}/constraint/{s}-cons.pdb'.format(s=system)]
         return files
 
     @property
     def total_cores(self):
-        return self.cores * self.number_of_replicas
+        return self.cores * self.number_of_replicas * len(self.systems)
