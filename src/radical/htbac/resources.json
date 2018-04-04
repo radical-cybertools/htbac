@@ -18,5 +18,17 @@
     "queue": "normal",
     "access_schema": "gsissh"
 
-  }
+  },
+
+
+  "blue_waters_orte":
+  {
+    "resource": "ncsa.bw_orte",
+    "walltime": null,
+    "cores": null,
+    "project": "bamm",
+    "queue": "high",
+    "access_schema": "gsissh"
+
+  },
 }

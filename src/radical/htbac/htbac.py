@@ -49,7 +49,9 @@ class Runner(object):
             cores += protocol.total_cores
 
         cores *= strong_scaled
-        cores += 16  # Additional node for agent.
+
+        if self.supercomputer == 'titan':
+            cores += 16  # Additional node for agent.
 
         res_dict = self.resource_dictionary(cores, queue, walltime)
 
