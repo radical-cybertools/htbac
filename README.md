@@ -22,7 +22,13 @@ git checkout devel;pip install .;cd ..
 
 git clone git@github.com:jdakka/radical.htbac.git
 cd radical.htbac
-git checkout fifo_queue;pip install .;cd ..
+git checkout devel;pip install .;cd ..
+
+
+## Changing to the `FIFO Scheduler` in RP Agent:
+vi radical.pilot/src/radical/pilot/configs/resource_ncsa.json
+* Change agent_scheduler: 
+`"agent_scheduler"             : "CONTINUOUS_FIFO",` 
 
 pip install parmed
 pip install numpy
