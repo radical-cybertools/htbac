@@ -96,7 +96,7 @@ class Esmacs(object):
                     task.pre_exec += ["sed -i 's/BOX_X/{}/g' *.conf".format(self.box[0]),
                                       "sed -i 's/BOX_Y/{}/g' *.conf".format(self.box[1]),
                                       "sed -i 's/BOX_Z/{}/g' *.conf".format(self.box[2]),
-                                      "sed -i 's/SYSTEM/{}/g' *.conf".format(self.system)]
+                                      "sed -i 's/SYSTEM/{}/g' *.conf".format(system)]
 
                     task.pre_exec += ["sed -i 's/STEP/{}/g' *.conf".format(self.step_count[step])]
 
