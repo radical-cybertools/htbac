@@ -59,8 +59,9 @@ class Runner(object):
 
             # self.total_replicas += protocol.replicas
             self._cores += protocol.total_cores
+            self.total_replicas += protocol.total_replicas
         #self._cores = self._cores * self.total_replicas
-        print 'Running on', self._cores, 'cores.'
+        print 'Running on', self._cores, 'cores with', self.replicas, 'replicas'
 
         res_dict = {'resource': 'ncsa.bw_aprun',
                     'walltime': walltime,
@@ -93,19 +94,12 @@ class Runner(object):
     def rerun(self, protocol=None, terminate=True, previous_pipeline=None):
 
         if self.ids.get(previous_pipeline.id(), None) is not None:
-
             pipelines = set()
-
             gen_pipeline = protocol.generate_pipeline(previous_pipeline=self.ids[previous_pipeline.id()])
-
             pipelines.add(gen_pipeline)
-
             self.ids[protocol.id()] = gen_pipeline
-
             self.app_manager.assign_workflow(pipelines)
-
             self.app_manager.run()
-
             if terminate:
                 self.app_manager.resource_terminate()
 
