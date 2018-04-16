@@ -61,7 +61,7 @@ class Runner(object):
             self._cores += protocol.total_cores
             self.total_replicas += protocol.total_replicas
         #self._cores = self._cores * self.total_replicas
-        print 'Running on', self._cores, 'cores with', self.replicas, 'replicas'
+        print 'Running on', self._cores, 'cores with', self.total_replicas, 'replicas'
 
         res_dict = {'resource': 'ncsa.bw_aprun',
                     'walltime': walltime,
