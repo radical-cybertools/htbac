@@ -65,7 +65,7 @@ class Esmacs(object):
 
                     task.pre_exec += ['export LD_PRELOAD=/lib64/librt.so.1']
 
-                    task.executable = [BW_ORTE_NAMD2_OPENMP_CUDA]
+                    task.executable = [TITAN_ORTE_NAMD2_OPENMP_CUDA]
                     task.arguments += ['+ppn', str(self.cores-1),
                                        '+pemap', '1-{}'.format(self.cores-1),
                                        '+commap', '0',
