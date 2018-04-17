@@ -14,7 +14,7 @@ BW_NAMD2_MPI = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
 BW_ORTE_NAMD2_OPENMP_CUDA = '/u/sciteam/dakka/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2'
 TITAN_NAMD2_MPI = 'namd2'
 TITAN_ORTE_OPENMP = '/lustre/atlas2/csc230/world-shared/openmpi/applications/namd/namd-openmp/CRAY-XE-gnu/namd2'
-TITAN_ORTE_NAMD2_OPENMP_CUDA = '/lustre/atlas/scratch/jdakka/chm126/namd/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2' 
+TITAN_ORTE_NAMD2_OPENMP_CUDA = '/lustre/atlas/scratch/farkaspall/chm126/namd/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2'
 _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
 _reduced_steps = dict(eq0=100, eq1=5000, eq2=10, sim1=5000)
 _full_steps = dict(eq0=1000, eq1=30000, eq2=800000, sim1=2000000)
@@ -45,6 +45,7 @@ class Esmacs(object):
     def generate_pipeline(self):
 
         pipeline = Pipeline()
+        pipeline.name = 'esmacs'
 
         # Simulation stages
         # =================
@@ -60,7 +61,7 @@ class Esmacs(object):
                 for replica in range(self.number_of_replicas):
 
                     task = Task()
-                    task.name = 'system_{}_replica_{}'.format(system, replica)
+                    task.name = 'system-{}-replica-{}'.format(system, replica)
 
                     task.pre_exec += ['export LD_PRELOAD=/lib64/librt.so.1']
 
