@@ -204,7 +204,7 @@ setup_args = {
                              'radical.entk==jdakka',
                              'setuptools>=1',
                              'pika', 
-                             'parmed'],
+                             'parmed', 'PyYAML'],
     'dependency_links': ['git+https://github.com/radical-cybertools/radical.utils.git@master#egg=radical.utils-master',
                           'git+https://github.com/radical-cybertools/saga-python.git@master#egg=saga-python-master',
                           'git+https://github.com/radical-cybertools/radical.pilot.git@master#egg=radical.pilot-master',

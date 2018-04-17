@@ -1,6 +1,6 @@
 import os
 import uuid
-import pkg_resources
+from pkg_resources import resource_filename
 
 import parmed as pmd
 
@@ -9,19 +9,12 @@ from radical.entk import Pipeline, Stage, Task
 
 
 # Constants
-
-BW_NAMD2_MPI = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
-BW_ORTE_NAMD2_OPENMP_CUDA = '/u/sciteam/dakka/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2'
-TITAN_NAMD2_MPI = 'namd2'
-TITAN_ORTE_OPENMP = '/lustre/atlas2/csc230/world-shared/openmpi/applications/namd/namd-openmp/CRAY-XE-gnu/namd2'
-TITAN_ORTE_NAMD2_OPENMP_CUDA = '/lustre/atlas/scratch/farkaspall/chm126/namd/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2'
-_simulation_file_suffixes = ['.coor', '.xsc', '.vel']
 _reduced_steps = [100, 5000, 1000, 10, 5000]
 _full_steps = [1000, 30000, 1000, 800000, 2000000]
 
 
 class Esmacs(object):
-    def __init__(self, number_of_replicas, systems, rootdir, numsteps=5, cores=16, full=False, **kwargs):
+    def __init__(self, number_of_replicas, systems, rootdir, cores, full, numsteps=5,  **kwargs):
 
         self.number_of_replicas = number_of_replicas
         self.systems = systems
@@ -33,6 +26,8 @@ class Esmacs(object):
 
         self.cutoff = kwargs.get('cutoff', 10.0)
         self.water_model = kwargs.get('water_model', 'tip4')
+
+        self.engine = dict()
         
         # Profiler for ESMACS PoE
 
@@ -40,6 +35,9 @@ class Esmacs(object):
         self._logger = ru.get_logger('radical.htbac.esmacs')
         self._prof = ru.Profiler(name=self._uid)
         self._prof.prof('create esmacs instance', uid=self._uid)
+
+    def set_engine_for_resource(self, resource):
+        self.engine = resource['namd']
 
     # Generate a new pipeline
     def generate_pipeline(self):
@@ -63,22 +61,17 @@ class Esmacs(object):
                     task = Task()
                     task.name = 'system:{}-replica:{}'.format(system, replica)
 
-                    task.pre_exec += ['export LD_PRELOAD=/lib64/librt.so.1']
+                    task.pre_exec = self.engine['pre_exec']
+                    task.executable = self.engine['executable']['openmp_cuda']
+                    task.arguments = self.engine['arguments']
+                    task.mpi = self.engine['mpi']
+                    task.cores = self.engine['cores'] or self.cores
 
-                    task.executable = [TITAN_ORTE_NAMD2_OPENMP_CUDA]
-                    task.arguments += ['+ppn', str(self.cores-1),
-                                       '+pemap', '1-{}'.format(self.cores-1),
-                                       '+commap', '0',
-                                       'esmacs-stage-{}.conf'.format(step)]
-
-                    # task.cpu_reqs = {'processes': 1, 'threads_per_process': self.cores}
+                    task.arguments += ['esmacs-stage-{}.conf'.format(step)]
 
                     task.copy_input_data = ['$SHARED/esmacs-stage-{}.conf'.format(step)]
 
                     task.post_exec = ['echo {}-{} > simulation.desc'.format(stage.name, task.name)]
-
-                    task.mpi = False
-                    task.cores = self.cores
 
                     links = ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-cons.pdb'.format(system)]
 
@@ -92,7 +85,7 @@ class Esmacs(object):
                         previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
                         path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.name, previous_stage.name,
                                                                        previous_task.name)
-                        links += [path + previous_stage.name + suffix for suffix in _simulation_file_suffixes]
+                        links += [path + previous_stage.name + suffix for suffix in ['.coor', '.xsc', '.vel']]
                         settings['INPUT'] = previous_stage.name
                     else:
                         links += ['$SHARED/{}-complex.pdb'.format(system)]
@@ -115,7 +108,8 @@ class Esmacs(object):
     # Input data
     @property
     def input_data(self):
-        files = [pkg_resources.resource_filename(__name__, 'default-configs/esmacs-stage-{}.conf'.format(step)) for step in range(self.numsteps)]
+        f = 'default-configs/esmacs-stage-{}.conf'
+        files = [resource_filename(__name__, f.format(step)) for step in range(self.numsteps)]
         for system in self.systems:
             comps = [self.rootdir] + system.split('-') + [system]
             base = os.path.join(*comps)

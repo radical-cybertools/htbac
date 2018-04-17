@@ -1,6 +1,6 @@
-import json
+import yaml
 import pprint
-import pkg_resources
+from pkg_resources import resource_stream
 
 import radical.utils as ru
 from radical.entk import AppManager, ResourceManager
@@ -11,8 +11,10 @@ __license__ = "MIT"
 
 
 class Runner(object):
-    def __init__(self, supercomputer='titan'):
-        self.supercomputer = supercomputer
+    def __init__(self, resource='titan_orte'):
+
+        self.resource = yaml.load(resource_stream(__name__, 'resources.yaml'))[resource]
+
         self._protocols = list()
         self._hostname = None
         self._port = None
@@ -28,13 +30,14 @@ class Runner(object):
         self.ids = dict()
 
     def add_protocol(self, protocol):
+        protocol.set_engine_for_resource(self.resource)
         self._protocols.append(protocol)
 
     def rabbitmq_config(self, hostname='openshift-node1.ccs.ornl.gov', port=30673):
         self._hostname = hostname
         self._port = port
 
-    def run(self, strong_scaled=1, autoterminate=True, queue='batch', walltime=120, dry_run=False):
+    def run(self, walltime, strong_scaled=1, queue=None, dry_run=False):
 
         pipelines = set()
         input_data = list()
@@ -49,18 +52,19 @@ class Runner(object):
             cores += protocol.total_cores
 
         cores *= strong_scaled
+        cores += self.resource.get('agent_cores', 0)
 
-        if self.supercomputer == 'titan':
-            cores += 16  # Additional node for agent.
-
-        res_dict = self.resource_dictionary(cores, queue, walltime)
+        self.resource['resource_dictionary']['cores'] = cores
+        self.resource['resource_dictionary']['walltime'] = walltime
+        if queue:
+            self.resource['resource_dictionary']['queue'] = queue
 
         print 'HTBAC RUNNER: using a total of {} cores.'.format(cores)
         print 'HTBAC RUNNER: Resource dictionary:'
-        pprint.pprint(res_dict)
+        pprint.pprint(self.resource['resource_dictionary'])
 
         # Create Resource Manager object with the above resource description
-        resource_manager = ResourceManager(res_dict)
+        resource_manager = ResourceManager(self.resource['resource_dictionary'])
         resource_manager.shared_data = input_data
 
         # Create Application Manager
@@ -96,18 +100,3 @@ class Runner(object):
         else: 
 
             print "ERROR: previous protocol instance is not found"
-
-    def resource_dictionary(self, cores, queue, walltime):
-        def str_hook(obj):
-            return {k.encode('utf-8') if isinstance(k, unicode) else k:
-                    v.encode('utf-8') if isinstance(v, unicode) else v
-                    for k, v in obj}
-
-        resource = json.load(pkg_resources.resource_stream(__name__, 'resources.json'),
-                             object_pairs_hook=str_hook)[self.supercomputer]
-
-        resource['cores'] = cores
-        resource['queue'] = queue
-        resource['walltime'] = walltime
-
-        return resource
