@@ -29,7 +29,7 @@ class Esmacs(object):
         self.workflow = workflow or ['eq0', 'eq1', 'eq2', 'sim1']
         self.id = uuid.uuid1()  # generate id
 
-        self.cutoff = kwargs.get('cutoff', 12.0)
+        self.cutoff = kwargs.get('cutoff', 10.0)
         self.water_model = kwargs.get('water_model', 'tip4')
         
         # Profiler for ESMACS PoE
@@ -58,20 +58,15 @@ class Esmacs(object):
                     task = Task()
                     task.name = 'system_{}_replica_{}'.format(system, replica)
 
-                    # Load namd module and set some environment variables.
-                    task.pre_exec = []
-                               
-
                     task.pre_exec += ['export LD_PRELOAD=/lib64/librt.so.1']
-                                      
-                          
+
                     task.executable = [BW_ORTE_NAMD2_OPENMP_CUDA]
                     task.arguments += ['+ppn', str(self.cores-1),
                                        '+pemap', '1-{}'.format(self.cores-1),
                                        '+commap', '0',
                                        'esmacs-{}.conf'.format(step)]
 
-                    #task.cpu_reqs = {'processes': 1, 'threads_per_process': self.cores}
+                    # task.cpu_reqs = {'processes': 1, 'threads_per_process': self.cores}
 
                     task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(step)]
 

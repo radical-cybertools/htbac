@@ -35,6 +35,7 @@ class Runner(object):
         self._port = port
 
     def run(self, strong_scaled=1, autoterminate=True, queue='batch', walltime=120, dry_run=False):
+
         pipelines = set()
         input_data = list()
         cores = 0
@@ -45,7 +46,6 @@ class Runner(object):
             input_data.extend(protocol.input_data)
             self.ids[protocol.id] = gen_pipeline
             # protocol.id is the uuid, gen_pipeline.uid is the pipeline
-	    print "input data added"
             cores += protocol.total_cores
 
         cores *= strong_scaled
@@ -73,7 +73,7 @@ class Runner(object):
 
         if not dry_run:
             self.app_manager.run()    # this method is blocking until all pipelines show state = completed
-	    print "appman instantiated"
+
     def rerun(self, protocol=None, terminate=True, previous_pipeline=None):
 
         if self.ids.get(previous_pipeline.id(), None) is not None:
