@@ -75,6 +75,8 @@ class Esmacs(object):
 
                     task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(step)]
 
+                    task.post_exec = ['echo {}-{} > simulation.desc'.format(stage.name, task.name)]
+
                     task.mpi = False
                     task.cores = self.cores
 
