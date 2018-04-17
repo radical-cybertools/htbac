@@ -21,14 +21,14 @@ _full_steps = dict(eq0=1000, eq1=30000, eq2=800000, sim1=2000000)
 
 
 class Esmacs(object):
-    def __init__(self, number_of_replicas, systems, rootdir, cores=16, full=False, **kwargs):
+    def __init__(self, number_of_replicas, systems, rootdir, numsteps=5, cores=16, full=False, **kwargs):
 
         self.number_of_replicas = number_of_replicas
         self.systems = systems
         self.rootdir = os.path.abspath(rootdir)
         self.cores = cores
+        self.numsteps = numsteps
         self.step_count = _full_steps if full else _reduced_steps
-        self.workflow = ['eq0', 'eq1', 'eq2', 'sim1']
         self.id = uuid.uuid1()  # generate id
 
         self.cutoff = kwargs.get('cutoff', 10.0)
@@ -49,9 +49,9 @@ class Esmacs(object):
 
         # Simulation stages
         # =================
-        for step in self.workflow:
+        for step in range(self.numsteps):
             stage = Stage()
-            stage.name = step
+            stage.name = 'stage-{}'.format(step)
 
             for system in self.systems:
                 comps = [self.rootdir] + system.split('-') + [system]
@@ -61,7 +61,7 @@ class Esmacs(object):
                 for replica in range(self.number_of_replicas):
 
                     task = Task()
-                    task.name = 'system-{}-replica-{}'.format(system, replica)
+                    task.name = 'system:{}-replica:{}'.format(system, replica)
 
                     task.pre_exec += ['export LD_PRELOAD=/lib64/librt.so.1']
 
@@ -69,11 +69,11 @@ class Esmacs(object):
                     task.arguments += ['+ppn', str(self.cores-1),
                                        '+pemap', '1-{}'.format(self.cores-1),
                                        '+commap', '0',
-                                       'esmacs-{}.conf'.format(step)]
+                                       'esmacs-stage-{}.conf'.format(step)]
 
                     # task.cpu_reqs = {'processes': 1, 'threads_per_process': self.cores}
 
-                    task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(step)]
+                    task.copy_input_data = ['$SHARED/esmacs-stage-{}.conf'.format(step)]
 
                     task.post_exec = ['echo {}-{} > simulation.desc'.format(stage.name, task.name)]
 
@@ -82,20 +82,22 @@ class Esmacs(object):
 
                     links = ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-cons.pdb'.format(system)]
 
-                    if self.workflow.index(step):
+                    settings = dict(BOX_X=box[0], BOX_Y=box[1], BOX_Z=box[2], SYSTEM=system,
+                                    STEP=self.step_count[step], CUTOFF=self.cutoff, SWITCHING=self.cutoff-2.0,
+                                    PAIRLISTDIST=self.cutoff+1.5, WATERMODEL=self.water_model,
+                                    INPUT='', OUTPUT=stage.name)
+
+                    if step > 0:
                         previous_stage = pipeline.stages[-1]
                         previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
                         path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.name, previous_stage.name,
                                                                        previous_task.name)
                         links += [path + previous_stage.name + suffix for suffix in _simulation_file_suffixes]
+                        settings['INPUT'] = previous_stage.name
                     else:
                         links += ['$SHARED/{}-complex.pdb'.format(system)]
 
                     task.link_input_data = links
-
-                    settings = dict(BOX_X=box[0], BOX_Y=box[1], BOX_Z=box[2], SYSTEM=system,
-                                    STEP=self.step_count[step], CUTOFF=self.cutoff, SWITCHING=self.cutoff-2.0,
-                                    PAIRLISTDIST=self.cutoff+1.5, WATERMODEL=self.water_model)
 
                     task.pre_exec += ["sed -i 's/{}/{}/g' *.conf".format(k, w) for k, w in settings.items()]
 
@@ -113,7 +115,7 @@ class Esmacs(object):
     # Input data
     @property
     def input_data(self):
-        files = [pkg_resources.resource_filename(__name__, 'default-configs/esmacs-{}.conf'.format(step)) for step in self.workflow]
+        files = [pkg_resources.resource_filename(__name__, 'default-configs/esmacs-stage-{}.conf'.format(step)) for step in range(self.numsteps)]
         for system in self.systems:
             comps = [self.rootdir] + system.split('-') + [system]
             base = os.path.join(*comps)
