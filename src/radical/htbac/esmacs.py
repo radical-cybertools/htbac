@@ -25,7 +25,7 @@ class Esmacs(object):
 
         self.number_of_replicas = number_of_replicas
         self.systems = systems
-        self.rootdir = rootdir
+        self.rootdir = os.path.abspath(rootdir)
         self.cores = cores
         self.step_count = _full_steps if full else _reduced_steps
         self.workflow = ['eq0', 'eq1', 'eq2', 'sim1']
