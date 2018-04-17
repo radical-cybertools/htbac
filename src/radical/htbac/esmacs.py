@@ -1,3 +1,4 @@
+import os
 import uuid
 import pkg_resources
 
@@ -20,13 +21,14 @@ _full_steps = dict(eq0=1000, eq1=30000, eq2=800000, sim1=2000000)
 
 
 class Esmacs(object):
-    def __init__(self, number_of_replicas, systems, workflow=None, cores=16, full=False, **kwargs):
+    def __init__(self, number_of_replicas, systems, rootdir, cores=16, full=False, **kwargs):
 
         self.number_of_replicas = number_of_replicas
         self.systems = systems
+        self.rootdir = rootdir
         self.cores = cores
         self.step_count = _full_steps if full else _reduced_steps
-        self.workflow = workflow or ['eq0', 'eq1', 'eq2', 'sim1']
+        self.workflow = ['eq0', 'eq1', 'eq2', 'sim1']
         self.id = uuid.uuid1()  # generate id
 
         self.cutoff = kwargs.get('cutoff', 10.0)
@@ -51,7 +53,9 @@ class Esmacs(object):
             stage.name = step
 
             for system in self.systems:
-                box = pmd.amber.AmberAsciiRestart('systems/{s}/build/{s}-complex.inpcrd'.format(s=system)).box
+                comps = [self.rootdir] + system.split('-') + [system]
+                base = os.path.join(comps)
+                box = pmd.amber.AmberAsciiRestart(base+'-complex.inpcrd').box
 
                 for replica in range(self.number_of_replicas):
 
@@ -108,9 +112,9 @@ class Esmacs(object):
     def input_data(self):
         files = [pkg_resources.resource_filename(__name__, 'default-configs/esmacs-{}.conf'.format(step)) for step in self.workflow]
         for system in self.systems:
-            files += ['systems/{s}/build/{s}-complex.pdb'.format(s=system)]
-            files += ['systems/{s}/build/{s}-complex.top'.format(s=system)]
-            files += ['systems/{s}/constraint/{s}-cons.pdb'.format(s=system)]
+            comps = [self.rootdir] + system.split('-') + [system]
+            base = os.path.join(comps)
+            files += [base+'-complex.pdb', base+'-complex.top', base+'-cons.pdb']
         return files
 
     @property
