@@ -54,7 +54,7 @@ class Esmacs(object):
 
             for system in self.systems:
                 comps = [self.rootdir] + system.split('-') + [system]
-                base = os.path.join(comps)
+                base = os.path.join(*comps)
                 box = pmd.amber.AmberAsciiRestart(base+'-complex.inpcrd').box
 
                 for replica in range(self.number_of_replicas):
@@ -113,7 +113,7 @@ class Esmacs(object):
         files = [pkg_resources.resource_filename(__name__, 'default-configs/esmacs-{}.conf'.format(step)) for step in self.workflow]
         for system in self.systems:
             comps = [self.rootdir] + system.split('-') + [system]
-            base = os.path.join(comps)
+            base = os.path.join(*comps)
             files += [base+'-complex.pdb', base+'-complex.top', base+'-cons.pdb']
         return files
 
