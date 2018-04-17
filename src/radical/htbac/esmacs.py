@@ -16,8 +16,8 @@ TITAN_NAMD2_MPI = 'namd2'
 TITAN_ORTE_OPENMP = '/lustre/atlas2/csc230/world-shared/openmpi/applications/namd/namd-openmp/CRAY-XE-gnu/namd2'
 TITAN_ORTE_NAMD2_OPENMP_CUDA = '/lustre/atlas/scratch/farkaspall/chm126/namd/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2'
 _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
-_reduced_steps = dict(eq0=100, eq1=5000, eq2=10, sim1=5000)
-_full_steps = dict(eq0=1000, eq1=30000, eq2=800000, sim1=2000000)
+_reduced_steps = [100, 5000, 1000, 10, 5000]
+_full_steps = [1000, 30000, 1000, 800000, 2000000]
 
 
 class Esmacs(object):
