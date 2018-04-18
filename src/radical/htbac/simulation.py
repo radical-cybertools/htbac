@@ -10,8 +10,8 @@ class Simulation(object):
         self.system = None
         self.replica = 0
         self.step = 0
-        self.input_data = None
-        self.input_name = None
+        self.input_data = list()
+        self.input_name = str()
         self.config = None
 
         # Simulation specific
