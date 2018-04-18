@@ -16,13 +16,13 @@ _full_steps = [1000, 30000, 1000, 800000, 2000000]
 class Esmacs(object):
     def __init__(self, number_of_replicas, systems, rootdir, cores, full, numsteps=5,  **kwargs):
 
-        self.number_of_replicas = number_of_replicas
-        self.systems = systems
-        self.rootdir = os.path.abspath(rootdir)
         self.cores = cores
+        self.id = uuid.uuid1()
+        self.systems = systems
         self.numsteps = numsteps
+        self.rootdir = os.path.abspath(rootdir)
+        self.number_of_replicas = number_of_replicas
         self.step_count = _full_steps if full else _reduced_steps
-        self.id = uuid.uuid1()  # generate id
 
         self.cutoff = kwargs.get('cutoff', 10.0)
         self.water_model = kwargs.get('water_model', 'tip4')
@@ -37,19 +37,45 @@ class Esmacs(object):
         self._prof.prof('create esmacs instance', uid=self._uid)
 
     def set_engine_for_resource(self, resource):
+        # This version of ESMACS uses NAMD to run the simulations.
         self.engine = resource['namd']
 
-    # Generate a new pipeline
+    def generate_task(self, system, replica, step, box, data):
+
+        task = Task()
+        task.name = self.get_task_name(system, replica)
+
+        task.pre_exec = self.engine['pre_exec']
+        task.executable = self.engine['executable']['openmp_cuda']
+        task.arguments = self.engine['arguments']
+        task.mpi = self.engine['uses_mpi']
+        task.cores = self.engine['cores'] or self.cores
+
+        task.arguments += ['esmacs-{}.conf'.format(step)]
+
+        task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(step)]
+
+        task.post_exec = ['echo stage:{}-{} > simulation.desc'.format(step, task.name)]
+
+        task.link_input_data = ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-cons.pdb'.format(system)] + data[1]
+
+        settings = dict(BOX_X=box[0], BOX_Y=box[1], BOX_Z=box[2], SYSTEM=system,
+                        STEP=self.step_count[step], CUTOFF=self.cutoff, SWITCHING=self.cutoff-2.0,
+                        PAIRLISTDIST=self.cutoff+1.5, WATERMODEL=self.water_model,
+                        INPUT=data[0], OUTPUT=self.get_stage_name(step))
+
+        task.pre_exec += ["sed -i 's/{}/{}/g' *.conf".format(k, w) for k, w in settings.items()]
+
+        return task
+
     def generate_pipeline(self):
 
         pipeline = Pipeline()
         pipeline.name = 'esmacs'
 
-        # Simulation stages
-        # =================
         for step in range(self.numsteps):
             stage = Stage()
-            stage.name = 'stage-{}'.format(step)
+            stage.name = self.get_stage_name(step)
 
             for system in self.systems:
                 comps = [self.rootdir] + system.split('-') + [system]
@@ -58,42 +84,16 @@ class Esmacs(object):
 
                 for replica in range(self.number_of_replicas):
 
-                    task = Task()
-                    task.name = 'system:{}-replica:{}'.format(system, replica)
-
-                    task.pre_exec = self.engine['pre_exec']
-                    task.executable = self.engine['executable']['openmp_cuda']
-                    task.arguments = self.engine['arguments']
-                    task.mpi = self.engine['mpi']
-                    task.cores = self.engine['cores'] or self.cores
-
-                    task.arguments += ['esmacs-stage-{}.conf'.format(step)]
-
-                    task.copy_input_data = ['$SHARED/esmacs-stage-{}.conf'.format(step)]
-
-                    task.post_exec = ['echo {}-{} > simulation.desc'.format(stage.name, task.name)]
-
-                    links = ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-cons.pdb'.format(system)]
-
-                    settings = dict(BOX_X=box[0], BOX_Y=box[1], BOX_Z=box[2], SYSTEM=system,
-                                    STEP=self.step_count[step], CUTOFF=self.cutoff, SWITCHING=self.cutoff-2.0,
-                                    PAIRLISTDIST=self.cutoff+1.5, WATERMODEL=self.water_model,
-                                    INPUT='', OUTPUT=stage.name)
-
                     if step > 0:
                         previous_stage = pipeline.stages[-1]
-                        previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
+                        previous_task = next(t for t in previous_stage.tasks if t.name == self.get_task_name(system, replica))
                         path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.name, previous_stage.name,
                                                                        previous_task.name)
-                        links += [path + previous_stage.name + suffix for suffix in ['.coor', '.xsc', '.vel']]
-                        settings['INPUT'] = previous_stage.name
+                        data = (previous_stage.name, [path + previous_stage.name + suffix for suffix in ['.coor', '.xsc', '.vel']])
                     else:
-                        links += ['$SHARED/{}-complex.pdb'.format(system)]
+                        data = ('', ['$SHARED/{}-complex.pdb'.format(system)])
 
-                    task.link_input_data = links
-
-                    task.pre_exec += ["sed -i 's/{}/{}/g' *.conf".format(k, w) for k, w in settings.items()]
-
+                    task = self.generate_task(system, replica, step, box, data)
                     stage.add_tasks(task)
 
             pipeline.add_stages(stage)
@@ -119,3 +119,11 @@ class Esmacs(object):
     @property
     def total_cores(self):
         return self.cores * self.number_of_replicas * len(self.systems)
+
+    @staticmethod
+    def get_task_name(system, replica):
+        return 'system:{}-replica:{}'.format(system, replica)
+
+    @staticmethod
+    def get_stage_name(step):
+        return 'stage-{}'.format(step)

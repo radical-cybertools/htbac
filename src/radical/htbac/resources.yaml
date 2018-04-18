@@ -27,7 +27,7 @@ titan_orte:
       - "+commap"
       - "0"
     cores: 16
-    mpi: No
+    uses_mpi: No
 
 bw_aprun:
   resource_dictionary:

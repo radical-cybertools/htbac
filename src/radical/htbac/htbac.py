@@ -11,7 +11,7 @@ __license__ = "MIT"
 
 
 class Runner(object):
-    def __init__(self, resource='titan_orte'):
+    def __init__(self, resource):
 
         self.resource = yaml.load(resource_stream(__name__, 'resources.yaml'))[resource]
 
