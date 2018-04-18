@@ -45,8 +45,7 @@ class Runner(object):
             gen_pipeline = protocol.generate_pipeline()
             pipelines.add(gen_pipeline)
             shared_data.update(protocol.shared_data)
-
-            cores += protocol.total_cores
+            cores += protocol.cores
 
         cores *= strong_scaled
         cores += self.resource.get('agent_cores', 0)
