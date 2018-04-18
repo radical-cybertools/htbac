@@ -1,6 +1,7 @@
 import os
 from radical.entk import Pipeline, Stage, Task
 
+from .engine import Engine
 
 class Simulation(object):
 
@@ -60,7 +61,7 @@ class Simulation(object):
         return 'system-{}-step-{}-replica-{}'.format(self.system.name, self.step, self.replica)
 
     def set_engine_for_resource(self, resource):
-        self.engine = resource[self.engine]
+        self.engine = Engine.from_dictionary(**resource[self.engine])
 
     def settings(self):
         return dict(BOX_X=self.system.box[0], BOX_Y=self.system.box[1], BOX_Z=self.system.box[2],
