@@ -9,7 +9,6 @@ class Simulation(object):
         self.system = None
         self.replica = 0
         self.step = 0
-        self.data = None
         self.input_data = None
         self.input_name = None
         self.config = None
@@ -59,6 +58,9 @@ class Simulation(object):
             raise ValueError('The simulation does not have all the necessary information yet')
 
         return 'system-{}-step-{}-replica-{}'.format(self.system.name, self.step, self.replica)
+
+    def set_engine_for_resource(self, resource):
+        self.engine = resource[self.engine]
 
     def settings(self):
         return dict(BOX_X=self.system.box[0], BOX_Y=self.system.box[1], BOX_Z=self.system.box[2],
