@@ -60,6 +60,7 @@ titan_orte:
       - "export MINICONDA=$WORKDIR/miniconda3"
       - "export PATH=$MINICONDA/bin:$PATH"
       - "export LD_LIBRARY_PATH=$MINICONDA/lib:$LD_LIBRARY_PATH"
+      - "export LD_PRELOAD=/lib64/librt.so.1"
     cores: 16
     uses_mpi: No
 
@@ -73,6 +74,7 @@ titan_orte:
       - "export LD_LIBRARY_PATH=$MINICONDA/lib:$LD_LIBRARY_PATH"
       - "module load cudatoolkit"
       - "export OPENMM_CUDA_COMPILER=`which nvcc`"
+      - "export LD_PRELOAD=/lib64/librt.so.1"
     cores: 16
     uses_mpi: No
     extension: ".py"
