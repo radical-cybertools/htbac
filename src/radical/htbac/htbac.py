@@ -18,7 +18,6 @@ class Runner(object):
         self._protocols = list()
         self._hostname = None
         self._port = None
-        self.ids = None
         self.app_manager = None
 
         # Profiler for Runner
@@ -27,7 +26,6 @@ class Runner(object):
         self._prof = ru.Profiler(name=self._uid)
         self._prof.prof('create workflow_runner obj', uid=self._uid)
         self._root_directories = list()
-        self.ids = dict()
 
     def add_protocol(self, protocol):
         protocol.set_engine_for_resource(self.resource)
@@ -47,8 +45,7 @@ class Runner(object):
             gen_pipeline = protocol.generate_pipeline()
             pipelines.add(gen_pipeline)
             shared_data.update(protocol.shared_data)
-            self.ids[protocol.id] = gen_pipeline
-            # protocol.id is the uuid, gen_pipeline.uid is the pipeline
+
             cores += protocol.total_cores
 
         cores *= strong_scaled
