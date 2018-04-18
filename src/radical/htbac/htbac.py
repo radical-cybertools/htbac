@@ -46,7 +46,7 @@ class Runner(object):
         for protocol in self._protocols:
             gen_pipeline = protocol.generate_pipeline()
             pipelines.add(gen_pipeline)
-            shared_data.extend(protocol.input_data)
+            shared_data.update(protocol.shared_data)
             self.ids[protocol.id] = gen_pipeline
             # protocol.id is the uuid, gen_pipeline.uid is the pipeline
             cores += protocol.total_cores
