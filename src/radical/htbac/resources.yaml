@@ -11,12 +11,19 @@ titan_orte:
 
   namd:
     executable:
-      openmp_cuda:
-       - "/lustre/atlas/scratch/farkaspall/chm126/namd/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
-      openmp:
-       - "/lustre/atlas2/csc230/world-shared/openmpi/applications/namd/namd-openmp/CRAY-XE-gnu/namd2"
-      default:
-       - "namd2"
+      - "namd2"
+    pre_exec:
+      - "module load namd/2.12"
+      - "export MPICH_PTL_SEND_CREDITS=-1"
+      - "export MPICH_MAX_SHORT_MSG_SIZE=8000"
+      - "export MPICH_PTL_UNEX_EVENTS=80000"
+      - "export MPICH_UNEX_BUFFER_SIZE=100M"
+    cores:
+    uses_mpi:
+
+  namd_openmp_cuda:
+    executable:
+      - "/lustre/atlas/scratch/farkaspall/chm126/namd/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
     pre_exec:
       - "export LD_PRELOAD=/lib64/librt.so.1"
     arguments:
@@ -28,6 +35,49 @@ titan_orte:
       - "0"
     cores: 16
     uses_mpi: No
+    extension: ".conf"
+
+  namd_openmp:
+    executable:
+      - "/lustre/atlas2/csc230/world-shared/openmpi/applications/namd/namd-openmp/CRAY-XE-gnu/namd2"
+    pre_exec:
+      - "export LD_PRELOAD=/lib64/librt.so.1"
+    arguments:
+      - "+ppn"
+      - "15"
+      - "+pemap"
+      - "1-15"
+      - "+commap"
+      - "0"
+    cores: 16
+    uses_mpi: No
+
+  openmm:
+    executable:
+      - "python"
+    pre_exec:
+      - "export WORKDIR=/lustre/atlas/scratch/farkaspall/chm126"
+      - "export MINICONDA=$WORKDIR/miniconda3"
+      - "export PATH=$MINICONDA/bin:$PATH"
+      - "export LD_LIBRARY_PATH=$MINICONDA/lib:$LD_LIBRARY_PATH"
+    cores: 16
+    uses_mpi: No
+
+  openmm_cuda:
+    executable:
+      - "python"
+    pre_exec:
+      - "export WORKDIR=/lustre/atlas/scratch/farkaspall/chm126"
+      - "export MINICONDA=$WORKDIR/miniconda3"
+      - "export PATH=$MINICONDA/bin:$PATH"
+      - "export LD_LIBRARY_PATH=$MINICONDA/lib:$LD_LIBRARY_PATH"
+      - "module load cudatoolkit"
+      - "export OPENMM_CUDA_COMPILER=`which nvcc`"
+    cores: 16
+    uses_mpi: No
+    extension: ".py"
+
+
 
 bw_aprun:
   resource_dictionary:

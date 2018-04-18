@@ -40,13 +40,13 @@ class Runner(object):
     def run(self, walltime, strong_scaled=1, queue=None, dry_run=False):
 
         pipelines = set()
-        input_data = list()
+        shared_data = set()
         cores = 0
 
         for protocol in self._protocols:
             gen_pipeline = protocol.generate_pipeline()
             pipelines.add(gen_pipeline)
-            input_data.extend(protocol.input_data)
+            shared_data.extend(protocol.input_data)
             self.ids[protocol.id] = gen_pipeline
             # protocol.id is the uuid, gen_pipeline.uid is the pipeline
             cores += protocol.total_cores
@@ -65,7 +65,7 @@ class Runner(object):
 
         # Create Resource Manager object with the above resource description
         resource_manager = ResourceManager(self.resource['resource_dictionary'])
-        resource_manager.shared_data = input_data
+        resource_manager.shared_data = list(shared_data)
 
         # Create Application Manager
         self.app_manager = AppManager(hostname=self._hostname, port=self._port)
