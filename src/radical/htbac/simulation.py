@@ -34,7 +34,7 @@ class Simulation(object):
         task.cores = self.cores
 
         task.arguments.append(os.path.basename(self.config))
-        task.copy_input_data = ['$SHARED/'.format(os.path.basename(self.config))]
+        task.copy_input_data = [os.path.join('$SHARED', os.path.basename(self.config))]
 
         task.post_exec = ['echo {} > simulation.desc'.format(self.name)]
 
