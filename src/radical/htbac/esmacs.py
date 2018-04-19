@@ -61,9 +61,9 @@ class Esmacs(object):
                     task = Task()
                     task.name = 'system:{}-replica:{}'.format(system, replica)
 
-                    task.pre_exec = self.engine['pre_exec']
+                    task.pre_exec = self.engine.get('pre_exec', list())
                     task.executable = self.engine['executable']['openmp_cuda']
-                    task.arguments = self.engine['arguments']
+                    task.arguments = self.engine.get('arguments', list())
                     task.mpi = self.engine['mpi']
                     task.cores = self.engine['cores'] or self.cores
 
