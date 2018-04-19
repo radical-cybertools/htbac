@@ -35,7 +35,6 @@ titan_orte:
       - "0"
     cores: 16
     uses_mpi: No
-    extension: ".conf"
 
   namd_openmp:
     executable:
@@ -77,7 +76,6 @@ titan_orte:
       - "export LD_PRELOAD=/lib64/librt.so.1"
     cores: 16
     uses_mpi: No
-    extension: ".py"
 
 
 
@@ -96,6 +94,7 @@ bw_aprun:
   namd_mpi:
     executable:
       - "/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2"
+    uses_mpi: No
 
 bw_orte:
   resource_dictionary:
@@ -109,3 +108,4 @@ bw_orte:
   namd_openmp_cuda:
     executable:
       - "/u/sciteam/dakka/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
+    uses_mpi: No
