@@ -90,12 +90,12 @@ bw_aprun:
     queue: "normal"
     access_schema: "gsissh"
 
-  namd:
+  namd_openmp_cuda:
     executable:
-      openmp_cuda:
-        - "/u/sciteam/dakka/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
-      mpi:
-        - "/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2"
+      - "/u/sciteam/dakka/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
+  namd_mpi:
+    executable:
+      - "/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2"
 
 bw_orte:
   resource_dictionary:
@@ -106,7 +106,6 @@ bw_orte:
     queue: "normal"
     access_schema: "gsissh"
 
-  namd:
+  namd_openmp_cuda:
     executable:
-      openmp_cuda:
-        - "/u/sciteam/dakka/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
+      - "/u/sciteam/dakka/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
