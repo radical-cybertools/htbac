@@ -12,7 +12,7 @@ class System(object):
     def name(self):
         return os.path.basename(self.prefix)
 
-    _suffixes = ['-complex.inpcrd', '-complex.pdb', '-complex.top']
+    _suffixes = ['-complex.inpcrd', '-complex.pdb', '-complex.top', '-cons.pdb']
 
     def file_paths(self, relative_to=None):
         if relative_to:
