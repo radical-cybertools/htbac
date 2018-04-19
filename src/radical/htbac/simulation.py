@@ -49,7 +49,7 @@ class Simulation(object):
 
     @cores.setter
     def cores(self, value):
-        if self.engine and self.engine.cores and self.engine.cores != value:
+        if isinstance(self.engine, Engine) and self.engine.cores and self.engine.cores != value:
             raise ValueError("The simulation's engine has a default core count. You cannot change this!")
 
         self._cores = value
