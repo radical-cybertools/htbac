@@ -12,6 +12,7 @@ class System(object):
     def name(self):
         return os.path.basename(self.prefix)
 
+    # TODO: instead create a specific systems loader that read in systems with this type of folder setup.
     _suffixes = ['-complex.inpcrd', '-complex.pdb', '-complex.top', '-cons.pdb']
 
     def file_paths(self, relative_to=None):
@@ -24,3 +25,7 @@ class System(object):
     def shared_data(self):
         return [self.prefix + suffix for suffix in self._suffixes]
 
+    @property
+    def water_model(self):
+        # TODO: read in water model from structure file. Look at WAT ot HOH.
+        return NotImplemented

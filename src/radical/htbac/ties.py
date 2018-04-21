@@ -28,7 +28,7 @@ class Ties(object):
         
         self.systems = systems
         print "Lambda Windows: ", self.lambdas
-        print "step count: ", self.step_count 
+        print "stage count: ", self.step_count
 
         self.cores = cores
         self._id = uuid.uuid1()  # generate id
