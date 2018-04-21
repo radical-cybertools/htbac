@@ -4,20 +4,19 @@ from radical.entk import Pipeline
 class Protocol(object):
 
     def __init__(self):
-        self._stages = list()
+        self._simulations = list()
 
-    def add_stage(self, stage):
+    def add_simulation(self, simulation):
 
-        if self._stages:
-            # Set the input of this stage to be the output of the previous stage
-            pass
+        if self._simulations:
+            simulation.input_sim = self._simulations[-1]
 
-        self._stages.append(stage)
-
-        # self.stage.
+        self._simulations.append(simulation)
 
     def generate_pipeline(self):
-        p = Pipeline
+        p = Pipeline()
+        p.name = 'protocol'
+        p.add_stages([s.generate_stage() for s in self._simulations])
 
         return p
 

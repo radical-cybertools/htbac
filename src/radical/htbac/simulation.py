@@ -68,18 +68,17 @@ class BaseSimulation(object):
     def __repr__(self):
         return self.major_name + self.minor_name
 
+    def generate_stage(self):
+        s = Stage()
+        s.name = self.major_name
+        s.add_tasks(self.generate_task())
+
+        return s
+
     def generate_pipeline(self):
         p = Pipeline()
         p.name = 'protocol'
-
-        s = Stage()
-        s.name = self.major_name
-
-        t = self.generate_task()
-
-        s.add_tasks(t)
-
-        p.add_stages(s)
+        p.add_stages(self.generate_stage())
 
         return p
 
@@ -177,18 +176,9 @@ class EnsembleSimulation(BaseSimulation):
     def generate_stage(self):
         s = Stage()
         s.name = self.major_name
-
         s.add_tasks({self.generate_task(**x) for x in self._ensemble_product()})
 
         return s
-
-    def generate_pipeline(self):
-        p = Pipeline()
-        p.name = 'protocol'
-
-        p.add_stages(self.generate_stage())
-
-        return p
 
     def _ensemble_product(self):
         return (dict(izip(self._ensembles, x)) for x in product(*self._ensembles.itervalues()))
