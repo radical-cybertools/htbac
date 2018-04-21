@@ -163,7 +163,7 @@ class Ties(object):
 
     @property
     def total_replicas(self):
-        return self.number_of_replicas*len(self.lambdas)*len(self.system)
+        return self.number_of_replicas*len(self.lambdas)*len(self.systems)
     @property
     def total_cores(self):
         return self.number_of_replicas*len(self.lambdas)*self.cores*len(self.systems)
