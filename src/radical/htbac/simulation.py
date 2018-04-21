@@ -149,7 +149,7 @@ class EnsembleSimulation(BaseSimulation):
         s = Stage()
         s.name = self.major_name
 
-        s.add_tasks(self.generate_task(**x) for x in self._ensemble_product())
+        s.add_tasks({self.generate_task(**x) for x in self._ensemble_product()})
 
         return s
 
