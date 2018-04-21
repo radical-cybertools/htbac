@@ -18,14 +18,20 @@ class BaseSimulation(object):
         self.config = None
         self._cores = None
 
+        # Simulation specific
+        self.numsteps = None
+        self.cutoff = None
+        self.water_model = None
+        self.lambda_window = None
+
     def generate_task(self):
 
         task = Task()
         task.name = self.minor_name
 
-        task.pre_exec = self.engine.pre_exec
-        task.executable = self.engine.executable
-        task.arguments = self.engine.arguments
+        task.pre_exec += self.engine.pre_exec
+        task.executable += self.engine.executable
+        task.arguments += self.engine.arguments
         task.mpi = self.engine.uses_mpi
         task.cores = self.cores
 
@@ -35,6 +41,9 @@ class BaseSimulation(object):
         task.post_exec = ['echo {} > simulation.desc'.format(self)]
 
         task.link_input_data = self.system.file_paths(relative_to="$SHARED") + self.input_data
+
+        task.pre_exec += ["sed -i 's/{}/{}/g' {}".format(k, w, os.path.basename(self.config)) for k, w in
+                          self._settings.items()]
 
         return task
 
@@ -79,26 +88,6 @@ class BaseSimulation(object):
         path = "$Pipeline_{pipeline}_Stage_{stage}_Task_{task}"
         path.format(stage=self.input_sim.major_name, task=self.minor_name)
         return [os.path.join(path, self.input_sim.name+s) for s in ['.coor', '.xsc', '.vel']]
-
-
-class ConfigurableSimulation(BaseSimulation):
-
-    def __init__(self):
-        super(ConfigurableSimulation, self).__init__()
-
-        # Simulation specific
-        self.numsteps = None
-        self.cutoff = None
-        self.water_model = None
-        self.lambda_window = None
-
-    def generate_task(self):
-        t = super(ConfigurableSimulation, self).generate_task()
-
-        t.pre_exec += ["sed -i 's/{}/{}/g' {}".format(k, w, os.path.basename(self.config)) for k, w in
-                       self._settings.items()]
-
-        return t
 
     @property
     def _settings(self):
