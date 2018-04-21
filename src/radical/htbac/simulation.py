@@ -15,14 +15,10 @@ class BaseSimulation(object):
         self.engine = None
         self.system = None
         self.input_sim = None
+        # TODO: automatically detect placeholders in configuration file.
         self.config = None
         self._cores = None
-
-        # Simulation specific
-        self.numsteps = None
-        self.cutoff = None
-        self.water_model = None
-        self.lambda_window = None
+        self._placeholders = list()
 
     def generate_task(self):
 
@@ -42,8 +38,8 @@ class BaseSimulation(object):
 
         task.link_input_data = self.system.file_paths(relative_to="$SHARED") + self.input_data
 
-        task.pre_exec += ["sed -i 's/{}/{}/g' {}".format(k, w, os.path.basename(self.config)) for k, w in
-                          self._settings.items()]
+        task.pre_exec += ["sed -i 's/<{}>/{}/g' {}".format(k, w, os.path.basename(self.config)) for k, w in
+                          self._settings.iteritems()]
 
         return task
 
@@ -94,11 +90,18 @@ class BaseSimulation(object):
 
     @property
     def _settings(self):
-        return dict(BOX_X=self.system.box[0], BOX_Y=self.system.box[1], BOX_Z=self.system.box[2],
-                    SYSTEM=self.system.name, STEP=self.numsteps, CUTOFF=self.cutoff,
-                    SWITCHING=self.cutoff - 2.0, PAIRLISTDIST=self.cutoff + 1.5,
-                    WATERMODEL=self.water_model, LAMBDA=self.lambda_window,
-                    INPUT=self.input_sim.major_name, OUTPUT=self.major_name)
+
+        input_name = self.input_sim.major_name if self.input_sim else str()
+        settings = dict(box_x=self.system.box[0], box_y=self.system.box[1], box_z=self.system.box[2],
+                        system=self.system.name, input=input_name, output=self.major_name)
+
+        settings.update({k: getattr(self, k) for k in self._placeholders})
+
+        return settings
+
+    def add_placeholder(self, name, value=None):
+        setattr(self, name, value)
+        self._placeholders.append(name)
 
 
 class EnsembleSimulation(BaseSimulation):
@@ -110,6 +113,9 @@ class EnsembleSimulation(BaseSimulation):
         self._input_sim = None
 
     def add_ensemble(self, key, values):
+        if not hasattr(self, key):
+            self.add_placeholder(key)
+
         self._ensembles[key] = values
         self.minor_name += "-{key}-{{{key}}}".format(key=key)
 
@@ -133,7 +139,7 @@ class EnsembleSimulation(BaseSimulation):
     def generate_task(self, **kwargs):
 
         for attribute, value in kwargs.iteritems():
-            if hasattr(self, attribute) and getattr(self, attribute):
+            if getattr(self, attribute):
                 raise AttributeError('Attribute {} should not have been set!'.format(attribute))
 
             setattr(self, attribute, value)
