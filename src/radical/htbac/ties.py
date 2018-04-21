@@ -56,13 +56,12 @@ class Ties(object):
             stage.name = step
             print stage.name
 
-        
-            box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
                
             for system in self.systems:  
+                box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
                 for replica in range(self.number_of_replicas):
                     for ld in self.lambdas:
-                
+
                         task = Task()
                         task.name = 'system_{}_replica_{}_lambda_{}'.format(system, replica, ld)
 
