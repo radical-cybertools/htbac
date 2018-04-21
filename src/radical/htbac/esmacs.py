@@ -27,7 +27,7 @@ class Esmacs(object):
         self.cutoff = kwargs.get('cutoff', 10.0)
         self.water_model = kwargs.get('water_model', 'tip4')
 
-        self.engine = dict()
+        self.engine = None
         
         # Profiler for ESMACS PoE
 
@@ -61,9 +61,9 @@ class Esmacs(object):
                     task = Task()
                     task.name = 'system:{}-replica:{}'.format(system, replica)
 
-                    task.pre_exec = self.engine.get('pre_exec', list())
-                    task.executable = self.engine['executable']['openmp_cuda']
-                    task.arguments = self.engine.get('arguments', list())
+                    task.pre_exec += self.engine.get('pre_exec', list())
+                    task.executable += self.engine['executable']['openmp_cuda']
+                    task.arguments += self.engine.get('arguments', list())
                     task.mpi = self.engine['mpi']
                     task.cores = self.engine['cores'] or self.cores
 
