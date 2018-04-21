@@ -1,7 +1,5 @@
 from radical.entk import Pipeline
 
-from .stage import SimulationStage
-
 
 class Protocol(object):
 
@@ -22,13 +20,5 @@ class Protocol(object):
         p = Pipeline
 
         return p
-
-def main():
-
-    esmacs = Protocol()
-
-    minimize = SimulationStage()
-
-    esmacs.add_stage(minimize)
 
 
