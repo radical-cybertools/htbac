@@ -16,7 +16,7 @@ def main():
     ht.add_protocol(esm)
 
     ht.rabbitmq_config(hostname='two.radical-project.org', port=33130) # add new port number 
-    ht.run(strong_scaled=1, autoterminate=True, queue='high', walltime=200):
+    ht.run(strong_scaled=1, autoterminate=True, queue='high', walltime=200)
 
 if __name__ == '__main__':
     main()
