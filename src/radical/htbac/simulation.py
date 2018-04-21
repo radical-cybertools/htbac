@@ -17,7 +17,7 @@ class BaseSimulation(object):
         self.input_sim = None
         # TODO: automatically detect placeholders in configuration file.
         self.config = None
-        self._cores = None
+        self._cores = 0
         self._placeholders = list()
 
     def generate_task(self):
@@ -29,7 +29,7 @@ class BaseSimulation(object):
         task.executable += self.engine.executable
         task.arguments += self.engine.arguments
         task.mpi = self.engine.uses_mpi
-        task.cores = self.cores
+        task.cores = self._cores
 
         task.arguments.append(os.path.basename(self.config))
         task.copy_input_data = [os.path.join('$SHARED', os.path.basename(self.config))]
@@ -45,17 +45,25 @@ class BaseSimulation(object):
 
     @property
     def cores(self):
-        return self._cores or self.engine.cores
+        return self._cores * len(self)
 
     @cores.setter
     def cores(self, value):
         if isinstance(self.engine, Engine) and self.engine.cores and self.engine.cores != value:
-            raise ValueError("The simulation's engine has a default core count. You cannot change this!")
-
+            raise ValueError('Engine has default core count. Do not set simulation cores!')
         self._cores = value
 
     def set_engine_for_resource(self, resource):
+        if not isinstance(self.engine, str):
+            raise ValueError('Engine type not set!')
+
         self.engine = Engine.from_dictionary(**resource[self.engine])
+
+        if self.engine.cores:
+            if self.cores and self.cores != self.engine.cores:
+                raise ValueError('Engine has default core count. Do not set simulation cores!')
+
+            self.cores = self.engine.cores
 
     def __repr__(self):
         return self.major_name + self.minor_name
@@ -103,6 +111,9 @@ class BaseSimulation(object):
         setattr(self, name, value)
         self._placeholders.append(name)
 
+    def __len__(self):
+        return 1
+
 
 class EnsembleSimulation(BaseSimulation):
 
@@ -113,6 +124,14 @@ class EnsembleSimulation(BaseSimulation):
         self._input_sim = None
 
     def add_ensemble(self, key, values):
+        """
+        Add a parmeter to the simulation that you want multiple values to be run with. For example
+        running multiple systems with the same configuration, or trying out a range of cutoff
+        distances to see which one works best. This is very powerful!
+        :param key:
+        :param values:
+        :return:
+        """
         if not hasattr(self, key):
             self.add_placeholder(key)
 
@@ -144,7 +163,8 @@ class EnsembleSimulation(BaseSimulation):
 
             setattr(self, attribute, value)
         generic = self.minor_name
-        self.minor_name.format(**kwargs)
+
+        self.minor_name = self.minor_name.format(**kwargs)
 
         t = super(EnsembleSimulation, self).generate_task()
 
@@ -175,10 +195,6 @@ class EnsembleSimulation(BaseSimulation):
 
     def __len__(self):
         return reduce(mul, (len(v) for v in self._ensembles.itervalues()), 1)
-
-    @property
-    def cores(self):
-        return super(EnsembleSimulation, self).cores * len(self)
 
     @property
     def shared_data(self):
