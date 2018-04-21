@@ -130,7 +130,7 @@ class EnsembleSimulation(BaseSimulation):
     def generate_task(self, **kwargs):
 
         for attribute, value in kwargs.iteritems():
-            if getattr(self, attribute):
+            if hasattr(self, attribute) and getattr(self, attribute):
                 raise AttributeError('Attribute {} should not have been set!'.format(attribute))
 
             setattr(self, attribute, value)
