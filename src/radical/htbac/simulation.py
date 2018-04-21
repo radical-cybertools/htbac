@@ -116,15 +116,14 @@ class EnsembleSimulation(BaseSimulation):
 
     @input_sim.setter
     def input_sim(self, sim):
-        # TODO: consistency check and pre-processing
+        if sim is not None:
+            if not isinstance(sim, EnsembleSimulation):
+                raise ValueError('Input simulation has to have ensembles too!')
 
-        if not isinstance(sim, EnsembleSimulation):
-            raise ValueError('Input simulation has to have ensembles too!')
+            if self._ensembles is not None:
+                raise ValueError('Simulation ensemble will be inherited. Do not set it!')
 
-        if self._ensembles is not None:
-            raise ValueError('Simulation ensemble will be inherited. Do not set it!')
-
-        self._ensembles = sim._ensembles
+            self._ensembles = sim._ensembles
 
         self._input_sim = sim
 
