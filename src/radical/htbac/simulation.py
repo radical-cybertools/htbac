@@ -85,6 +85,9 @@ class BaseSimulation(object):
 
     @property
     def input_data(self):
+        if self.input_sim is None:
+            return list()
+
         path = "$Pipeline_{pipeline}_Stage_{stage}_Task_{task}"
         path.format(stage=self.input_sim.major_name, task=self.minor_name)
         return [os.path.join(path, self.input_sim.name+s) for s in ['.coor', '.xsc', '.vel']]
