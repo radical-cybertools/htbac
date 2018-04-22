@@ -144,7 +144,6 @@ local:
   resource_dictionary:
     resource: "local.localhost"
     cores: 8
-    project:
 
   namd:
     executable:

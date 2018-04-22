@@ -105,25 +105,21 @@ class Esmacs(object):
 
         return pipeline
 
-    # Input data
-    @property
-    def input_data(self):
-        f = 'default-configs/esmacs-stage-{}.conf'
-        files = [resource_filename(__name__, f.format(step)) for step in range(self.numsteps)]
-        for system in self.systems:
-            comps = [self.rootdir] + system.split('-') + [system]
-            base = os.path.join(*comps)
-            files += [base+'-complex.pdb', base+'-complex.top', base+'-cons.pdb']
-        return files
 
-    @property
-    def total_cores(self):
-        return self.cores * self.number_of_replicas * len(self.systems)
+from ..protocol import Protocol
+from ..simulation import EnsembleSimulation
 
-    @staticmethod
-    def get_task_name(system, replica):
-        return 'system:{}-replica:{}'.format(system, replica)
 
-    @staticmethod
-    def get_stage_name(step):
-        return 'stage-{}'.format(step)
+class Esmacs(Protocol):
+    def __init__(self):
+        super(Esmacs, self).__init__()
+
+        s0 = EnsembleSimulation()
+        s0.config = resource_filename(__name__, 'default-configs/esmacs-0.conf')
+        s0.add_ensemble('replica', range(25))
+        s0.engine = 'namd_openmp_cuda'
+
+        s1 = EnsembleSimulation()
+        s1.config = resource_filename(__name__, 'default-configs/esmacs-1.conf')
+
+        self.add_simulation(s1)

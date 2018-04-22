@@ -51,7 +51,8 @@ class Runner(object):
         cores += self.resource.get('agent_cores', 0)
 
         self.resource['resource_dictionary']['cores'] = cores
-        self.resource['resource_dictionary']['walltime'] = walltime
+        if walltime:
+            self.resource['resource_dictionary']['walltime'] = walltime
         if queue:
             self.resource['resource_dictionary']['queue'] = queue
 
