@@ -143,6 +143,7 @@ bw_orte:
 local:
   resource_dictionary:
     resource: "local.localhost"
+    access_schema: "local"
     cores: 8
 
   namd:
