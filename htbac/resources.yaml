@@ -139,3 +139,18 @@ bw_orte:
     executable:
       - "/u/sciteam/dakka/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
     uses_mpi: No
+
+local:
+  resource_dictionary:
+    resource: "local.localhost"
+    cores: 8
+    project:
+
+  namd:
+    executable:
+     - "/Users/kristof.farkas-pall/Developer/NAMD_2.12_MacOSX-x86_64-multicore/namd2"
+    arguments:
+     - "+ppn"
+     - "8"
+    cores: 8
+    uses_mpi: No

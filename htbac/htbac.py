@@ -35,7 +35,7 @@ class Runner(object):
         self._hostname = hostname
         self._port = port
 
-    def run(self, walltime, strong_scaled=1, queue=None, dry_run=False):
+    def run(self, walltime=None, strong_scaled=1, queue=None, dry_run=False):
 
         pipelines = set()
         shared_data = set()
