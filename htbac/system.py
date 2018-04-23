@@ -32,3 +32,9 @@ class System(object):
 
     def __repr__(self):
         return self.name
+
+    @classmethod
+    def from_hyphen_separated_name(cls, name, rootdir):
+        comps = [os.path.abspath(rootdir)] + name.split('-') + [name]
+        prefix = os.path.join(*comps)
+        return System(prefix)
