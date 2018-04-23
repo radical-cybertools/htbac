@@ -93,7 +93,7 @@ class BaseSimulation(object):
 
         path = "$Pipeline_{pipeline}_Stage_{stage}_Task_{task}"
         # TODO: pipeline name has to be fixed!
-        path.format(stage=self.input_sim.major_name, task=self.minor_name, pipeline='protocol')
+        path = path.format(stage=self.input_sim.major_name, task=self.minor_name, pipeline='protocol')
         return [os.path.join(path, self.input_sim.major_name+s) for s in ['.coor', '.xsc', '.vel']]
 
     @property
