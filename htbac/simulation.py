@@ -1,5 +1,6 @@
 import os
 from operator import mul
+from collections import OrderedDict
 from itertools import product, izip
 
 from radical.entk import Pipeline, Stage, Task
@@ -120,7 +121,7 @@ class EnsembleSimulation(BaseSimulation):
     def __init__(self):
         super(EnsembleSimulation, self).__init__()
 
-        self._ensembles = {}
+        self._ensembles = OrderedDict()
         self._input_sim = None
 
     def add_ensemble(self, key, values):
@@ -156,21 +157,25 @@ class EnsembleSimulation(BaseSimulation):
 
         self._input_sim = sim
 
-    def generate_task(self, **kwargs):
+    def generate_task(self, **ensembles):
 
-        for attribute, value in kwargs.iteritems():
+        for attribute, value in ensembles.iteritems():
             if getattr(self, attribute):
                 raise AttributeError('Attribute {} should not have been set!'.format(attribute))
 
             setattr(self, attribute, value)
+
         generic = self.minor_name
 
-        self.minor_name = self.minor_name.format(**kwargs)
+        specific_name = reduce(lambda x, y: '{}-{}'.format(x, y), ('{}-{}'.format(k, w) for k, w in ensembles.iteritems()))
+
+        self.minor_name = self.minor_name + specific_name
 
         t = super(EnsembleSimulation, self).generate_task()
 
+        # Reset everything to how it was before
         self.minor_name = generic
-        for attribute in kwargs.keys():
+        for attribute in ensembles.keys():
             setattr(self, attribute, None)
 
         return t
