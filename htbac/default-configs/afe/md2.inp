@@ -1,0 +1,90 @@
+# Forcefield/Topology/Coordinate Information
+amber yes
+parmfile <system>-complex.top
+readexclusions no
+coordinates  <system>-complex.pdb
+
+# Unchanging information
+################################################################################
+# Force-Field Parameters
+exclude             scaled1-4
+1-4scaling          0.833333
+cutoff              <cutoff>
+switching           on
+switchdist          <switchdist>
+pairlistdist        <pairlistdist>
+# Integrator Parameters
+timestep            2.0  ;# 2fs/step
+rigidBonds          all  ;# needed for 2fs steps
+rigidtolerance      0.00001
+rigidIterations     100
+nonbondedFreq       1
+fullElectFrequency  2
+stepspercycle       10
+wrapWater           on
+wrapAll             on
+# Output
+outputEnergies      500
+outputPressure      5000
+################################################################################
+
+# Cell size and PME
+cellBasisVector1         <box_x>  0.00000  0.00000
+cellBasisVector2         0.00000  <box_y>  0.00000
+cellBasisVector3         0.00000  0.00000  <box_z>
+cellOrigin               0.00000  0.00000  0.00000
+
+PME                 yes
+PMEGridSpacing      1.0
+
+# Output and restart
+binaryoutput        yes
+binaryrestart       yes
+restartfreq         500000
+xstFreq             5000
+outputname          <output>
+restartname         <output>
+XSTfile             <output>.xst
+
+# Constant-T
+temperature         300
+langevin            on    ;# do langevin dynamics
+langevinDamping     5     ;# damping coefficient (gamma) of 5/ps
+langevinTemp        300
+langevinHydrogen    no    ;# dont couple langevin bath to hydrogens
+
+# Constant-P
+useGroupPressure      yes ;# needed for 2fs steps
+useFlexibleCell       no  ;# no for water box, yes for membrane
+useConstantArea       no  ;# no for water box, yes for membrane
+BerendsenPressure                       on
+BerendsenPressureTarget                 1.01325
+BerendsenPressureCompressibility        4.57e-5
+BerendsenPressureRelaxationTime         100
+BerendsenPressureFreq                   2
+
+# Output trajectories
+dcdfreq  5000
+DCDUnitcell  yes
+
+# restraint
+extraBonds	on
+extraBondsFile	restraint.in
+
+# alchemical
+alch            on
+alchType	ti
+alchFile	<system>-complex.pdb
+alchCol		B
+alchOutFile	<output>.alch
+alchOutFreq	1000
+
+alchLambda          <lambda_window>
+alchVdwShiftCoeff	5
+alchElecLambdaStart	0.45
+alchVdwLambdaEnd	1.0
+alchDecouple		on
+
+minimize <numminsteps>
+reinitvels 300
+run <numsteps>

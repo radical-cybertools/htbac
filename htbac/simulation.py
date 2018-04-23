@@ -1,4 +1,5 @@
 import os
+import re
 from operator import mul
 from collections import OrderedDict
 from itertools import product, izip
@@ -16,10 +17,14 @@ class BaseSimulation(object):
         self.engine = None
         self.system = None
         self._input_sim = None
-        # TODO: automatically detect placeholders in configuration file.
-        self.config = None
+        self._input_files = set()
+        self._arguments = list()
         self._cores = 0
         self._placeholders = set()
+
+    _path = "$Pipeline_{pipeline}_Stage_{stage}_Task_{task}"
+    _sed = "sed -i 's/<{}>/{}/g' {}"
+    _r = re.compile("<(\S+)>")
 
     def generate_task(self):
 
@@ -32,15 +37,14 @@ class BaseSimulation(object):
         task.mpi = self.engine.uses_mpi
         task.cores = self._cores
 
-        task.arguments.append(os.path.basename(self.config))
-        task.copy_input_data = [os.path.join('$SHARED', os.path.basename(self.config))]
+        task.arguments.extend(self._arguments)
+        task.copy_input_data.extend(os.path.join('$SHARED', arg) for arg in self._arguments)
 
         task.post_exec = ['echo "{}" > simulation.desc'.format(self)]
 
         task.link_input_data = self.system.file_paths(relative_to="$SHARED") + self.input_data
 
-        task.pre_exec += ["sed -i 's/<{}>/{}/g' {}".format(k, w, os.path.basename(self.config)) for k, w in
-                          self._settings.iteritems()]
+        task.pre_exec.extend(self._sed.format(k, w, f) for k, w in self._settings.iteritems() for f in self._arguments)
 
         return task
 
@@ -85,16 +89,14 @@ class BaseSimulation(object):
 
     @property
     def shared_data(self):
-        return [self.config] + self.system.shared_data
+        return list(self._input_files) + self.system.shared_data
 
     @property
     def input_data(self):
         if self._input_sim is None:
             return list()
-
-        path = "$Pipeline_{pipeline}_Stage_{stage}_Task_{task}"
         # TODO: pipeline name has to be fixed!
-        path = path.format(stage=self._input_sim.major_name, task=self.minor_name, pipeline='protocol')
+        path = self._path.format(stage=self._input_sim.major_name, task=self.minor_name, pipeline='protocol')
         return [os.path.join(path, self._input_sim.major_name+s) for s in ['.coor', '.xsc', '.vel']]
 
     @property
@@ -124,6 +126,17 @@ class BaseSimulation(object):
 
         self._placeholders.add(name)
 
+    def add_input_file(self, input_file, is_executable_argument, auto_detect_variables=True):
+        self._input_files.add(input_file)
+
+        if is_executable_argument:
+            self._arguments.append(os.path.basename(input_file))
+
+        if auto_detect_variables:
+            with open(input_file) as f:
+                for var in set(re.findall(self._r, f.read())):
+                    self.add_placeholder(var)
+
     def __len__(self):
         return 1
 
@@ -137,7 +150,7 @@ class EnsembleSimulation(BaseSimulation):
 
     def add_ensemble(self, key, values):
         """
-        Add a parmeter to the simulation that you want multiple values to be run with. For example
+        Add a parameter to the simulation that you want multiple values to be run with. For example
         running multiple systems with the same configuration, or trying out a range of cutoff
         distances to see which one works best. This is very powerful!
         :param key:
@@ -200,6 +213,6 @@ class EnsembleSimulation(BaseSimulation):
     @property
     def shared_data(self):
         if 'system' in self._ensembles:
-            return [self.config] + [d for s in self._ensembles['system'] for d in s.shared_data]
+            return list(self._input_files) + [d for s in self._ensembles['system'] for d in s.shared_data]
         else:
             return super(EnsembleSimulation, self).shared_data
