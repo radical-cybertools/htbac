@@ -23,4 +23,6 @@ class Protocol(object):
 
         return p
 
-
+    def set_engine_for_resource(self, resource):
+        for sim in self._simulations:
+            sim.set_engine_for_resource(resource)
