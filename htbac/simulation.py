@@ -46,7 +46,7 @@ class BaseSimulation(object):
 
         task.link_input_data = self.system.file_paths(relative_to="$SHARED") + self.input_data
 
-        task.pre_exec.extend(self._sed.format(k, w, f) for k, w in self._settings.iteritems() for f in self._arguments)
+        task.pre_exec.extend(self._sed.format(k, w, os.path.basename(f)) for k, w in self._settings.iteritems() for f in self._input_files)
 
         return task
 
