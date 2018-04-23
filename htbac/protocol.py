@@ -26,3 +26,7 @@ class Protocol(object):
     def set_engine_for_resource(self, resource):
         for sim in self._simulations:
             sim.set_engine_for_resource(resource)
+
+    @property
+    def shared_data(self):
+        return [sim.shared_data for sim in self._simulations]
