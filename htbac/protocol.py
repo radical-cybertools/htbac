@@ -8,6 +8,9 @@ class Protocol(object):
 
     def add_simulation(self, simulation):
 
+        # TODO: think of something better to do here.
+        simulation.major_name = simulation.major_name + "-{}".format(len(self._simulations))
+
         if self._simulations:
             simulation.input_sim = self._simulations[-1]
 
