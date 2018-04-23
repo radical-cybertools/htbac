@@ -150,7 +150,8 @@ class EnsembleSimulation(BaseSimulation):
             if self._ensembles:
                 raise ValueError('Simulation ensemble will be inherited. Do not set it!')
 
-            self._ensembles = sim._ensembles
+            for key, value in sim._ensembles.iteritems():
+                self.add_ensemble(key, value)
 
         self._input_sim = sim
 
