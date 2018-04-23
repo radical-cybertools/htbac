@@ -29,4 +29,4 @@ class Protocol(object):
 
     @property
     def shared_data(self):
-        return [sim.shared_data for sim in self._simulations]
+        return (data for sim in self._simulations for data in sim.shared_data)
