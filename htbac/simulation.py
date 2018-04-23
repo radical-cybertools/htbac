@@ -147,7 +147,7 @@ class EnsembleSimulation(BaseSimulation):
             if not isinstance(sim, EnsembleSimulation):
                 raise ValueError('Input simulation has to have ensembles too!')
 
-            if self._ensembles is not None:
+            if self._ensembles:
                 raise ValueError('Simulation ensemble will be inherited. Do not set it!')
 
             self._ensembles = sim._ensembles
