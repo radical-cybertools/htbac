@@ -38,7 +38,9 @@ class BaseSimulation(object):
         task.cores = self._cores
 
         task.arguments.extend(self._arguments)
-        task.copy_input_data.extend(os.path.join('$SHARED', arg) for arg in self._arguments)
+        # TODO: There are too many input file catergories
+        # argument, not argument, editable, not edible, copy/link
+        task.copy_input_data.extend(os.path.join('$SHARED', os.path.basename(arg)) for arg in self._input_files)
 
         task.post_exec = ['echo "{}" > simulation.desc'.format(self)]
 
