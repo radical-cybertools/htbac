@@ -15,7 +15,7 @@ class BaseSimulation(object):
         self.minor_name = 'simulation'
         self.engine = None
         self.system = None
-        self.input_sim = None
+        self._input_sim = None
         # TODO: automatically detect placeholders in configuration file.
         self.config = None
         self._cores = 0
@@ -89,24 +89,34 @@ class BaseSimulation(object):
 
     @property
     def input_data(self):
-        if self.input_sim is None:
+        if self._input_sim is None:
             return list()
 
         path = "$Pipeline_{pipeline}_Stage_{stage}_Task_{task}"
         # TODO: pipeline name has to be fixed!
-        path = path.format(stage=self.input_sim.major_name, task=self.minor_name, pipeline='protocol')
-        return [os.path.join(path, self.input_sim.major_name+s) for s in ['.coor', '.xsc', '.vel']]
+        path = path.format(stage=self._input_sim.major_name, task=self.minor_name, pipeline='protocol')
+        return [os.path.join(path, self._input_sim.major_name+s) for s in ['.coor', '.xsc', '.vel']]
 
     @property
     def _settings(self):
 
-        input_name = self.input_sim.major_name if self.input_sim else str()
+        input_name = self._input_sim.major_name if self._input_sim else str()
         settings = dict(box_x=self.system.box[0], box_y=self.system.box[1], box_z=self.system.box[2],
                         system=self.system.name, input=input_name, output=self.major_name)
 
         settings.update({k: getattr(self, k) for k in self._placeholders})
 
         return settings
+
+    def set_input_simulation(self, input_sim, copy_setup=True):
+        self._input_sim = input_sim
+
+        if copy_setup:
+            self.engine = input_sim.engine
+            self.cores = input_sim.cores
+
+            for attr in input_sim._placeholders:
+                self.add_placeholder(attr, getattr(input_sim, attr))
 
     def add_placeholder(self, name, value=None):
         setattr(self, name, value)
@@ -122,7 +132,6 @@ class EnsembleSimulation(BaseSimulation):
         super(EnsembleSimulation, self).__init__()
 
         self._ensembles = OrderedDict()
-        self._input_sim = None
 
     def add_ensemble(self, key, values):
         """
@@ -137,25 +146,18 @@ class EnsembleSimulation(BaseSimulation):
             self.add_placeholder(key)
 
         self._ensembles[key] = values
-        self.minor_name += "-{key}-{{{key}}}".format(key=key)
 
-    @property
-    def input_sim(self):
-        return self._input_sim
+    def set_input_simulation(self, input_sim, copy_setup=True):
+        if not isinstance(input_sim, EnsembleSimulation):
+            raise ValueError('Input simulation has to have ensembles too!')
 
-    @input_sim.setter
-    def input_sim(self, sim):
-        if sim is not None:
-            if not isinstance(sim, EnsembleSimulation):
-                raise ValueError('Input simulation has to have ensembles too!')
+        if self._ensembles:
+            raise ValueError('Simulation ensemble will be inherited. Do not set it!')
 
-            if self._ensembles:
-                raise ValueError('Simulation ensemble will be inherited. Do not set it!')
+        for key, value in input_sim._ensembles.iteritems():
+            self.add_ensemble(key, value)
 
-            for key, value in sim._ensembles.iteritems():
-                self.add_ensemble(key, value)
-
-        self._input_sim = sim
+        super(EnsembleSimulation, self).set_input_simulation(input_sim, copy_setup=copy_setup)
 
     def generate_task(self, **ensembles):
 
