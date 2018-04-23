@@ -19,7 +19,7 @@ class BaseSimulation(object):
         # TODO: automatically detect placeholders in configuration file.
         self.config = None
         self._cores = 0
-        self._placeholders = list()
+        self._placeholders = set()
 
     def generate_task(self):
 
@@ -119,10 +119,10 @@ class BaseSimulation(object):
                 self.add_placeholder(attr, getattr(input_sim, attr))
 
     def add_placeholder(self, name, value=None):
-        if not hasattr(self, name) or value is not None:
+        if not hasattr(self, name):
             setattr(self, name, value)
 
-        self._placeholders.append(name)
+        self._placeholders.add(name)
 
     def __len__(self):
         return 1
@@ -171,9 +171,9 @@ class EnsembleSimulation(BaseSimulation):
 
         generic = self.minor_name
 
-        specific_name = reduce(lambda x, y: '{}-{}'.format(x, y), ('{}-{}'.format(k, w) for k, w in ensembles.iteritems()))
+        ens_name = reduce(lambda x, y: '{}-{}'.format(x, y), ('{}-{}'.format(k, w) for k, w in ensembles.iteritems()))
 
-        self.minor_name = self.minor_name + specific_name
+        self.minor_name = self.minor_name + ens_name
 
         t = super(EnsembleSimulation, self).generate_task()
 
