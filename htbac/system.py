@@ -29,3 +29,6 @@ class System(object):
     def water_model(self):
         # TODO: read in water model from structure file. Look at WAT ot HOH.
         return NotImplemented
+
+    def __repr__(self):
+        return self.name

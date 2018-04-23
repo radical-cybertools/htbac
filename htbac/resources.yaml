@@ -142,15 +142,15 @@ bw_orte:
 
 local:
   resource_dictionary:
-    resource: "local.localhost"
-    access_schema: "local"
-    cores: 8
+    resource: "local.localhost_anaconda"
+    schema:
+    cores:
 
   namd:
     executable:
      - "/Users/kristof.farkas-pall/Developer/NAMD_2.12_MacOSX-x86_64-multicore/namd2"
     arguments:
      - "+ppn"
-     - "8"
-    cores: 8
+     - "2"
+    cores:
     uses_mpi: No

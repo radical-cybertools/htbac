@@ -34,7 +34,7 @@ class BaseSimulation(object):
         task.arguments.append(os.path.basename(self.config))
         task.copy_input_data = [os.path.join('$SHARED', os.path.basename(self.config))]
 
-        task.post_exec = ['echo {} > simulation.desc'.format(self)]
+        task.post_exec = ['echo "{}" > simulation.desc'.format(self)]
 
         task.link_input_data = self.system.file_paths(relative_to="$SHARED") + self.input_data
 
