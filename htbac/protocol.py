@@ -12,7 +12,7 @@ class Protocol(object):
         simulation.major_name = simulation.major_name + "-{}".format(len(self._simulations))
 
         if self._simulations:
-            simulation.input_sim = self._simulations[-1]
+            simulation.set_input_simulation(self._simulations[-1], copy_setup=True)
 
         self._simulations.append(simulation)
 

@@ -119,7 +119,9 @@ class BaseSimulation(object):
                 self.add_placeholder(attr, getattr(input_sim, attr))
 
     def add_placeholder(self, name, value=None):
-        setattr(self, name, value)
+        if not hasattr(self, name) or value is not None:
+            setattr(self, name, value)
+
         self._placeholders.append(name)
 
     def __len__(self):
