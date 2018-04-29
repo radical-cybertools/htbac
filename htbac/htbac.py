@@ -1,6 +1,6 @@
 import yaml
+import pprint
 import logging
-from pprint import pprint
 from pkg_resources import resource_stream
 
 import radical.utils as ru
@@ -11,6 +11,10 @@ from .simulation import Simulatable
 __copyright__ = "Copyright 2017-2018, http://radical.rutgers.edu"
 __author__ = "Jumana Dakka <jumanadakka@gmail.com>, Kristof Farkas-Pall <kristofarkas@gmail.com>"
 __license__ = "MIT"
+
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 
 class Runner(object):
@@ -85,8 +89,8 @@ class Runner(object):
         if queue:
             self.resource['resource_dictionary']['queue'] = queue
 
-        logging.info('Using total number of cores: {}.'.format(cores))
-        logging.info('Resource dictionary:\n{}'.format(pprint(self.resource['resource_dictionary'])))
+        logger.info('Using total number of cores: {}.'.format(cores))
+        logger.info('Resource dictionary:\n{}'.format(pprint.pformat(self.resource['resource_dictionary'])))
 
         # Create Resource Manager object with the above resource description
         resource_manager = ResourceManager(self.resource['resource_dictionary'])
@@ -96,11 +100,12 @@ class Runner(object):
         self._app_manager.resource_manager = resource_manager
         self._app_manager.assign_workflow(pipelines)
 
-        print('Random task:')
-        pprint(next(iter(next(iter(pipelines)).stages[0].tasks)).to_dict())
+        logger.info("\n".join("Stage {}: {}*{} cores.".
+                              format(i, len(s.tasks), next(iter(s.tasks)).cores)
+                              for i, s in enumerate(next(iter(pipelines)).stages)))
 
         self._prof.prof('execution_run')
-        logging.info('Running workflow.')
+        logger.info('Running workflow.')
 
         if not dry_run:
             self._app_manager.run()    # this method is blocking until all pipelines show state = completed
