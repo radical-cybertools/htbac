@@ -6,7 +6,7 @@ from pkg_resources import resource_stream
 import radical.utils as ru
 from radical.entk import AppManager, ResourceManager
 
-from .protocol import Protocol
+from .simulation import Simulatable
 
 __copyright__ = "Copyright 2017-2018, http://radical.rutgers.edu"
 __author__ = "Jumana Dakka <jumanadakka@gmail.com>, Kristof Farkas-Pall <kristofarkas@gmail.com>"
@@ -46,7 +46,7 @@ class Runner(object):
 
         Parameters
         ----------
-        protocol: Protocol
+        protocol: Simulatable
         """
         protocol.configure_engine_for_resource(self.resource)
         self._protocols.append(protocol)
