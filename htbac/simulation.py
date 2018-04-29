@@ -124,7 +124,8 @@ class Simulation(Simulatable, Chainable, Sized):
         return self.name
 
     def output_data(self, for_ensemble):
-        path = self._path.format(stage=self.name, pipeline='protocol', task=str(for_ensemble))
+        task = "-".join("{}-{}".format(k, w) for k, w, in for_ensemble.iteritems()) or "sim"
+        path = self._path.format(stage=self.name, pipeline='protocol', task=task)
         return [os.path.join(path, self.name+s) for s in ['.coor', '.xsc', '.vel']]
 
     @property
