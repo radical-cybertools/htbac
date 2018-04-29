@@ -132,7 +132,7 @@ class Simulation(Simulatable, Chainable, Sized):
 
         settings = {k: getattr(self, k) for k in self._variables}
 
-        input_name = self._input_sim.major_name if self._input_sim else str()
+        input_name = self._input_sim.name if self._input_sim else str()
         settings.update(dict(box_x=self.system.box[0], box_y=self.system.box[1], box_z=self.system.box[2],
                              system=self.system.name, input=input_name, output=self.name))
 
