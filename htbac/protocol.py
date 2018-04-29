@@ -1,36 +1,65 @@
+import logging
+from collections import MutableSequence
+
 from radical.entk import Pipeline
 
+from .simulation import Chainable, Simulatable
 
-class Protocol(object):
+
+class Protocol(Simulatable, MutableSequence):
+    """Protocol is a list of simulatable elements that can be chained.
+
+    """
 
     def __init__(self):
         self._simulations = list()
 
-    def add_simulation(self, simulation):
+    def __getitem__(self, item):
+        return self._simulations[item]
 
-        # TODO: think of something better to do here.
-        simulation.major_name = simulation.major_name + "-{}".format(len(self._simulations))
+    def __setitem__(self, key, value):
+        raise IndexError('Protocol elements cannot be changed.')
 
-        if self._simulations:
-            simulation.set_input_simulation(self._simulations[-1], copy_setup=True)
+    def __delitem__(self, key):
+        raise IndexError('Protocol elements cannot be deleted')
 
-        self._simulations.append(simulation)
+    def insert(self, index, simulation):
+        if index != len(self):
+            raise IndexError('New simulation can only be appended to end of protocol!')
+
+        if len(self):
+            logging.info('Simulation appended to protocol.')
+            simulation.add_input_simulation(self[-1], clone_setting=True)
+
+        simulation.major_name += "-{}".format(len(self))
+
+        self._simulations.insert(index, simulation)
+
+    def __len__(self):
+        return len(self._simulations)
 
     def generate_pipeline(self):
         p = Pipeline()
         p.name = 'protocol'
-        p.add_stages([s.generate_stage() for s in self._simulations])
+        p.add_stages([s.generate_stage() for s in self])
 
         return p
 
-    def set_engine_for_resource(self, resource):
-        for sim in self._simulations:
-            sim.set_engine_for_resource(resource)
+    def configure_engine_for_resource(self, resource):
+        for sim in self:
+            sim.configure_engine_for_resource(resource)
 
     @property
     def shared_data(self):
-        return (data for sim in self._simulations for data in sim.shared_data)
+        return (data for sim in self for data in sim.shared_data)
 
     @property
     def cores(self):
-        return self._simulations[0].cores
+        """
+
+        Returns
+        -------
+        int
+            Number of cores the first simulation in the protocol requires.
+        """
+        return self[0].cores
