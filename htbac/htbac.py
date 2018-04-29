@@ -1,5 +1,6 @@
 import yaml
-import pprint
+import logging
+from pprint import pprint
 from pkg_resources import resource_stream
 
 import radical.utils as ru
@@ -11,14 +12,25 @@ __license__ = "MIT"
 
 
 class Runner(object):
-    def __init__(self, resource):
+    def __init__(self, resource='local', comm_server=('localhost', 5672)):
+        """The workhorse of high throughput binding affinity calculations.
+
+        Manages arbitrary number of protocols on any resource (including supercomputers).
+
+        Parameters
+        ----------
+        resource: str
+            The name of the resource where the protocols will be run. This is usually then name of the supercomputer
+            or 'local' if the job will be executed locally. (the default is to try to run locally).
+        comm_server: tuple(str, int)
+            The communication server used by the execution system. Specify a hostname and port number as a tuple. The
+            default is `localhost` and port `5672`
+        """
 
         self.resource = yaml.load(resource_stream(__name__, 'resources.yaml'))[resource]
 
         self._protocols = list()
-        self._hostname = None
-        self._port = None
-        self.app_manager = None
+        self._app_manager = AppManager(*comm_server)
 
         # Profiler for Runner
         self._uid = ru.generate_id('radical.htbac.workflow_runner')
@@ -30,10 +42,6 @@ class Runner(object):
     def add_protocol(self, protocol):
         protocol.set_engine_for_resource(self.resource)
         self._protocols.append(protocol)
-
-    def rabbitmq_config(self, hostname='openshift-node1.ccs.ornl.gov', port=30673):
-        self._hostname = hostname
-        self._port = port
 
     def run(self, walltime=None, strong_scaled=1, queue=None, dry_run=False):
 
@@ -56,24 +64,22 @@ class Runner(object):
         if queue:
             self.resource['resource_dictionary']['queue'] = queue
 
-        print 'HTBAC RUNNER: using a total of {} cores.'.format(cores)
-        print 'HTBAC RUNNER: Resource dictionary:'
-        pprint.pprint(self.resource['resource_dictionary'])
+        logging.info('Using total number of cores: {}.'.format(cores))
+        logging.info('Resource dictionary:\n{}'.format(pprint(self.resource['resource_dictionary'])))
 
         # Create Resource Manager object with the above resource description
         resource_manager = ResourceManager(self.resource['resource_dictionary'])
         resource_manager.shared_data = list(shared_data)
 
         # Create Application Manager
-        self.app_manager = AppManager(hostname=self._hostname, port=self._port)
-        self.app_manager.resource_manager = resource_manager
-        self.app_manager.assign_workflow(pipelines)
+        self._app_manager.resource_manager = resource_manager
+        self._app_manager.assign_workflow(pipelines)
 
         self._prof.prof('execution_run')
-        print 'Running...'
+        logging.info('Running workflow.')
 
         if not dry_run:
-            self.app_manager.run()    # this method is blocking until all pipelines show state = completed
+            self._app_manager.run()    # this method is blocking until all pipelines show state = completed
 
     def rerun(self, protocol=None, terminate=True, previous_pipeline=None):
 
