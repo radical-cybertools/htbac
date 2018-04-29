@@ -96,6 +96,9 @@ class Runner(object):
         self._app_manager.resource_manager = resource_manager
         self._app_manager.assign_workflow(pipelines)
 
+        print('Random task:')
+        pprint(next(iter(next(iter(pipelines)).stages[0].tasks)).to_dict())
+
         self._prof.prof('execution_run')
         logging.info('Running workflow.')
 
