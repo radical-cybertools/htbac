@@ -3,10 +3,10 @@ from .htbac import Runner
 # from .ties_eq import TiesEquilibration
 # from radical.htbac.protocols.ties_prod import TiesProduction
 
-from .simulation import BaseSimulation, EnsembleSimulation
+from .simulation import Simulation
+from .protocol import Protocol
 from .system import System
 from .engine import Engine
-from .protocol import Protocol
 
 
 
