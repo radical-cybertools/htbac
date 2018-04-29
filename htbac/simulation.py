@@ -234,7 +234,7 @@ class Simulation(Simulatable, Chainable, Sized):
         [setattr(self, k, w) for k, w in ensembles.iteritems()]
 
         task = Task()
-        task.name = str(ensembles)
+        task.name = "-".join("{}-{}".format(k, w) for k, w, in ensembles.iteritems()) or "sim"
 
         task.pre_exec += self.engine.pre_exec
         task.executable += self.engine.executable
