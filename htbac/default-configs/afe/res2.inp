@@ -29,9 +29,10 @@ outputPressure      5000
 ################################################################################
 
 # Cell size and PME
-bincoordinates	<input>.coor
-binvelocities	  <input>.vel
-extendedSystem	<input>.xsc
+cellBasisVector1         <box_x>  0.00000  0.00000
+cellBasisVector2         0.00000  <box_y>  0.00000
+cellBasisVector3         0.00000  0.00000  <box_z>
+cellOrigin               0.00000  0.00000  0.00000
 
 PME                 yes
 PMEGridSpacing      1.0
@@ -46,6 +47,7 @@ restartname         <output>
 XSTfile             <output>.xst
 
 # Constant-T
+temperature         300
 langevin            on    ;# do langevin dynamics
 langevinDamping     5     ;# damping coefficient (gamma) of 5/ps
 langevinTemp        300
@@ -70,4 +72,6 @@ extraBonds	on
 extraBondsFile	restraint.in
 
 # protocol - MD
+minimize <numminsteps>
+reinitvels 300
 run <numsteps>
