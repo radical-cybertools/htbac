@@ -81,7 +81,7 @@ class Chainable:
     __metaclass__ = ABCMeta
 
     @abstractmethod
-    def add_input_simulation(self, input_sim, clone_setting):
+    def add_input_simulation(self, input_sim, clone_settings):
         raise NotImplementedError
 
     @abstractmethod
