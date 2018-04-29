@@ -146,7 +146,9 @@ class Simulation(Simulatable, Chainable, Sized):
     # Public methods
 
     def add_variable(self, name, value=None):
-        if not hasattr(self, name):
+        logging.info('Adding variable called {}.'.format(name))
+        if not hasattr(self, name) or getattr(self, name) is None:
+            logging.info('Setting the value to {}.'.format(value))
             setattr(self, name, value)
 
         self._variables.add(name)
@@ -167,6 +169,7 @@ class Simulation(Simulatable, Chainable, Sized):
         if not hasattr(self, name):
             self.add_variable(name)
 
+        logging.info('Adding ensemble called {}.'.format(name))
         self._ensembles[name] = values
 
     def add_input_simulation(self, input_sim, clone_settings):
