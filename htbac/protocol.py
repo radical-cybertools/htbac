@@ -31,7 +31,7 @@ class Protocol(Simulatable, MutableSequence):
             logging.info('Simulation appended to protocol.')
             simulation.add_input_simulation(self[-1], clone_setting=True)
 
-        simulation.major_name += "-{}".format(len(self))
+        simulation.name += "-{}".format(len(self))
 
         self._simulations.insert(index, simulation)
 
