@@ -186,7 +186,7 @@ class Simulation(Simulatable, Chainable, Sized):
 
         if clone_settings:
             self.engine = input_sim.engine
-            self.cores = input_sim.cores
+            self.cores = input_sim._cores
 
             for attr in input_sim._variables:
                 self.add_variable(attr, getattr(input_sim, attr))
