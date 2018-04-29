@@ -268,6 +268,7 @@ class Simulation(Simulatable, Chainable, Sized):
 
     # `Simulatable` protocol implementation
 
+    @property
     def shared_data(self):
         """
 
