@@ -7,6 +7,7 @@ from collections import OrderedDict, Sized
 from itertools import product, izip
 from abc import ABCMeta, abstractmethod, abstractproperty
 
+import numpy as np
 from radical.entk import Pipeline, Stage, Task
 
 from .engine import Engine
@@ -163,7 +164,7 @@ class Simulation(Simulatable, Chainable, Sized):
         ----------
         name: str
             The name of the attribute that will become an ensemble
-        values: list
+        values: list or np.ndarray
             List of values that the attribute can have.
 
         """
