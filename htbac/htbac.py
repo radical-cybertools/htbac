@@ -6,6 +6,8 @@ from pkg_resources import resource_stream
 import radical.utils as ru
 from radical.entk import AppManager, ResourceManager
 
+from .protocol import Protocol
+
 __copyright__ = "Copyright 2017-2018, http://radical.rutgers.edu"
 __author__ = "Jumana Dakka <jumanadakka@gmail.com>, Kristof Farkas-Pall <kristofarkas@gmail.com>"
 __license__ = "MIT"
@@ -40,10 +42,29 @@ class Runner(object):
         self._root_directories = list()
 
     def add_protocol(self, protocol):
-        protocol.set_engine_for_resource(self.resource)
+        """Add a new protocol to the list of protocols to be executed.
+
+        Parameters
+        ----------
+        protocol: Protocol
+        """
+        protocol.configure_engine_for_resource(self.resource)
         self._protocols.append(protocol)
 
     def run(self, walltime=None, strong_scaled=1, queue=None, dry_run=False):
+        """Run protocols.
+
+        Parameters
+        ----------
+        walltime: int
+            Wall time in minutes.
+        strong_scaled: float
+            For testing strong scaling. Number of cores will be multiplied by this number before execution.
+        queue: str
+            Name of the queue. If there is a default for your resource that will be used.
+        dry_run: bool
+            Whether to execute the `.run` command or not.
+        """
 
         pipelines = set()
         shared_data = set()
