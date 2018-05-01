@@ -1,0 +1,156 @@
+titan_orte:
+  resource_dictionary:
+    resource: "ornl.titan_orte"
+    walltime:
+    cores:
+    project: "chm126"
+    queue: "batch"
+    access_schema: "local"
+
+  agent_cores: 16
+
+  dedicated_rabbitmq_server:
+    hostname: "openshift-node1.ccs.ornl.gov"
+    port: 30673
+
+  namd:
+    executable:
+      - "namd2"
+    pre_exec:
+      - "module load namd/2.12"
+      - "export MPICH_PTL_SEND_CREDITS=-1"
+      - "export MPICH_MAX_SHORT_MSG_SIZE=8000"
+      - "export MPICH_PTL_UNEX_EVENTS=80000"
+      - "export MPICH_UNEX_BUFFER_SIZE=100M"
+    cores:
+    uses_mpi:
+
+  namd_openmp_cuda:
+    executable:
+      - "/lustre/atlas/scratch/farkaspall/chm126/namd/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
+    pre_exec:
+      - "export LD_PRELOAD=/lib64/librt.so.1"
+    arguments:
+      - "+ppn"
+      - "15"
+      - "+pemap"
+      - "1-15"
+      - "+commap"
+      - "0"
+    cores: 16
+    uses_mpi: No
+
+  namd_openmp:
+    executable:
+      - "/lustre/atlas2/csc230/world-shared/openmpi/applications/namd/namd-openmp/CRAY-XE-gnu/namd2"
+    pre_exec:
+      - "export LD_PRELOAD=/lib64/librt.so.1"
+    arguments:
+      - "+ppn"
+      - "15"
+      - "+pemap"
+      - "1-15"
+      - "+commap"
+      - "0"
+    cores: 16
+    uses_mpi: No
+
+  openmm:
+    executable:
+      - "python"
+    pre_exec:
+      - "export WORKDIR=/lustre/atlas/scratch/farkaspall/chm126"
+      - "export MINICONDA=$WORKDIR/miniconda3"
+      - "export PATH=$MINICONDA/bin:$PATH"
+      - "export LD_LIBRARY_PATH=$MINICONDA/lib:$LD_LIBRARY_PATH"
+      - "export LD_PRELOAD=/lib64/librt.so.1"
+    cores: 16
+    uses_mpi: No
+
+  openmm_cuda:
+    executable:
+      - "python"
+    pre_exec:
+      - "export WORKDIR=/lustre/atlas/scratch/farkaspall/chm126"
+      - "export MINICONDA=$WORKDIR/miniconda3"
+      - "export PATH=$MINICONDA/bin:$PATH"
+      - "export LD_LIBRARY_PATH=$MINICONDA/lib:$LD_LIBRARY_PATH"
+      - "module load cudatoolkit"
+      - "export OPENMM_CUDA_COMPILER=`which nvcc`"
+      - "export LD_PRELOAD=/lib64/librt.so.1"
+    cores: 16
+    uses_mpi: No
+
+
+
+bw_aprun:
+  resource_dictionary:
+    resource: "ncsa.bw_aprun"
+    walltime:
+    cores:
+    project: "bamm"
+    queue: "normal"
+    access_schema: "gsissh"
+
+  namd_openmp_cuda:
+    executable:
+      - "/u/sciteam/dakka/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
+    arguments:
+      - "+ppn"
+      - "15"
+      - "+pemap"
+      - "1-15"
+      - "+commap"
+      - "0"
+    cores: 16
+    uses_mpi: No
+
+  namd_mpi:
+    executable:
+      - "/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2"
+    arguments:
+      - "+pemap"
+      - "0-31"
+    uses_mpi: Yes
+
+  namd_openmp:
+    executable:
+      - "/u/sciteam/farkaspa/namd/NAMD_2.12_Linux-x86_64-multicore/namd2"
+    arguments:
+      - "+ppn"
+      - "30"
+      - "+pemap"
+      - "0-29"
+      - "+commap"
+      - "30"
+    cores: 32
+    uses_mpi: No
+
+bw_orte:
+  resource_dictionary:
+    resource: "ncsa.bw_orte"
+    walltime:
+    cores:
+    project: "bamm"
+    queue: "normal"
+    access_schema: "gsissh"
+
+  namd_openmp_cuda:
+    executable:
+      - "/u/sciteam/dakka/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
+    uses_mpi: No
+
+local:
+  resource_dictionary:
+    resource: "local.localhost_anaconda"
+    acess_schema: "local"
+    cores:
+
+  namd:
+    executable:
+     - "namd2"
+    arguments:
+     - "+ppn"
+     - "2"
+    cores:
+    uses_mpi: No
