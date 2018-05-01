@@ -118,7 +118,7 @@ class Simulation(Simulatable, Chainable, Sized):
     # Internal constants
 
     _path = "$Pipeline_{pipeline}_Stage_{stage}_Task_{task}"
-    _sed = "sed -i 's/<{}>/{}/g' {}"
+    _sed = "sed -i.bak 's/<{}>/{}/g' {}"
     _placeholder = re.compile("<(\S+)>")
 
     def __repr__(self):
