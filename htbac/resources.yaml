@@ -148,7 +148,7 @@ local:
 
   namd:
     executable:
-     - "/Users/kristof.farkas-pall/Developer/NAMD_2.12_MacOSX-x86_64-multicore/namd2"
+     - "namd2"
     arguments:
      - "+ppn"
      - "2"

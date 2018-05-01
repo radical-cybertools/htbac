@@ -8,7 +8,7 @@ setup(name='htbac',
       url='https://github.com/radical-cybertools/radical.htbac',
       license='MIT',
       packages=find_packages(),
-      package_data={'': ['*.yaml', 'protocols/default-configs/*.conf']},
+      package_data={'': ['*.yaml', 'protocols/default-configs/*/*']},
       install_requires=['numpy', 'parmed', 'PyYAML'],
       zip_safe=False,
       )
