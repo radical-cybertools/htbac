@@ -1,3 +1,4 @@
+import sys
 import yaml
 import pprint
 import logging
@@ -14,6 +15,12 @@ __license__ = "MIT"
 
 
 logger = logging.getLogger(__name__)
+
+# handler = logging.StreamHandler(sys.stdout)
+# handler.setFormatter(logging.Formatter('HTBAC %(asctime)s %(message)s'))
+# handler.setLevel(logging.INFO)
+#
+# logger.addHandler(handler)
 logger.setLevel(logging.INFO)
 
 

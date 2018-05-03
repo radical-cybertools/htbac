@@ -252,7 +252,7 @@ class Simulation(Simulatable, Chainable, Sized):
         if self._input_sim:
             task.link_input_data += self._input_sim.output_data(for_ensemble=ensembles)
 
-        task.link_input_data += self.system.file_paths(relative_to='$SHARED')
+        task.link_input_data.extend(os.path.join('$SHARED', f) for f in self.system.input_files)
         task.pre_exec.extend(self._sed.format(k, w, os.path.basename(f)) for k, w in self._settings.iteritems() for f in self._copy_files)
 
         return task
