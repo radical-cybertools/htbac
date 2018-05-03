@@ -10,18 +10,47 @@ class System(object):
     as input to MD engine configuration files.
 
     """
-    def __init__(self, prefix):
+    def __init__(self, name, pdb, coordinate, topology, constraints=None, alchemical_tags=None):
+        """An object containing references to files that make up the system. There are some
+        methods on it for convenience like box vector or water model.
+
+        Parameters
+        ----------
+        name: str
+        pdb: str
+        coordinate: str
+        topology: str
+        constraints: str
+        alchemical_tags: str
         """
+
+        self.name = name
+        self.pdb = pdb
+        self.coordinate = coordinate
+        self.topology = topology
+        self.constraints = constraints
+        self.alchemical_tags = alchemical_tags
+
+        self.box = pmd.amber.AmberAsciiRestart(coordinate).box
+
+    @classmethod
+    def with_prefix(cls, prefix):
+        """Load a system with a give prefix
 
         Parameters
         ----------
         prefix: str
-                Prefix of the system files. All sub-files (coordinate, topology) must have this prefix. They
-                are automatically loaded into the object.
+            Truncated path to the system.
+        Returns
+        -------
+            System
         """
 
-        self.prefix = prefix
-        self.box = pmd.amber.AmberAsciiRestart(prefix + '-complex.inpcrd').box
+        name = os.path.basename(prefix)
+
+        return System(name=name, pdb=prefix+'-complex.pdb', coordinate=prefix+'-complex.inpcrd',
+                      topology=prefix+'-complex.top', constraints=prefix+'-cons.pdb',
+                      alchemical_tags=prefix+'-tags.pdb')
 
     @classmethod
     def from_hyphen_separated_name(cls, name, rootdir):
@@ -41,46 +70,27 @@ class System(object):
             A new instance of `System` with the files correctly loaded in.
 
         """
-        comps = [os.path.abspath(rootdir)] + name.split('-') + [name]
+        comps = [rootdir] + name.split('-') + [name]
         prefix = os.path.join(*comps)
-        return System(prefix)
+        return System.with_prefix(prefix)
 
-    @property
-    def name(self):
-        """
-
-        Returns
-        -------
-        str
-            The name of the system. That is the name of the files without the common suffixes.
-        """
-        return os.path.basename(self.prefix)
-
-    # TODO: instead create a specific systems loader that reads in systems with this type of folder setup.
     _suffixes = ['-complex.inpcrd', '-complex.pdb', '-complex.top', '-cons.pdb']
 
-    def file_paths(self, relative_to=None):
+    @property
+    def input_files(self):
         """
-
-        Parameters
-        ----------
-        relative_to: str
-            Return the file paths of the system relative to this path.
-
-        Returns
-        -------
-        list
-            List of file paths of all the system files.
-
+        List of the names of the files. This is just the name, not the path.
         """
-        if relative_to:
-            return [os.path.join(relative_to, (self.name+suffix)) for suffix in self._suffixes]
-        else:
-            return [self.prefix + suffix for suffix in self._suffixes]
+        return [os.path.basename(f) for f in self.shared_data]
 
     @property
     def shared_data(self):
-        return [self.prefix + suffix for suffix in self._suffixes]
+        """
+
+        List of paths to all the files needed to describe the system.
+
+        """
+        return filter(None, [self.pdb, self.coordinate, self.topology, self.constraints, self.alchemical_tags])
 
     @property
     def water_model(self):
