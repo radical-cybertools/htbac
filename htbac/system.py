@@ -1,4 +1,6 @@
 import os
+from shutil import copyfile
+
 import parmed as pmd
 
 
@@ -10,47 +12,42 @@ class System(object):
     as input to MD engine configuration files.
 
     """
-    def __init__(self, name, pdb, coordinate, topology, constraints=None, alchemical_tags=None):
+    def __init__(self, name, files, add_prefix=False):
         """An object containing references to files that make up the system. There are some
         methods on it for convenience like box vector or water model.
 
         Parameters
         ----------
         name: str
-        pdb: str
-        coordinate: str
-        topology: str
-        constraints: str
-        alchemical_tags: str
+        files: dict
+            File type (one of topology, coordinate, constraint, alchemical-tags): path.
+        add_prefix: bool
+            Prefix the name of every file with `name` to make them unique.
         """
 
         self.name = name
-        self.pdb = pdb
-        self.coordinate = coordinate
-        self.topology = topology
-        self.constraints = constraints
-        self.alchemical_tags = alchemical_tags
 
-        self.box = pmd.amber.AmberAsciiRestart(coordinate).box
+        self.files = {k: self._prefix_path(w) for k, w in files.iteritems()} if add_prefix else files
+
+        self.box = pmd.amber.AmberAsciiRestart(self.files['coordinate']).box
 
     @classmethod
-    def with_prefix(cls, prefix):
+    def with_common_prefix(cls, name, common_prefix, add_prefix=False):
         """Load a system with a give prefix
 
         Parameters
         ----------
-        prefix: str
+        common_prefix: str
             Truncated path to the system.
+        add_prefix: bool
         Returns
         -------
             System
         """
 
-        name = os.path.basename(prefix)
-
         return System(name=name, pdb=prefix+'-complex.pdb', coordinate=prefix+'-complex.inpcrd',
                       topology=prefix+'-complex.top', constraints=prefix+'-cons.pdb',
-                      alchemical_tags=prefix+'-tags.pdb')
+                      alchemical_tags=prefix+'-tags.pdb', add_prefix=add_prefix)
 
     @classmethod
     def from_hyphen_separated_name(cls, name, rootdir):
@@ -74,7 +71,9 @@ class System(object):
         prefix = os.path.join(*comps)
         return System.with_prefix(prefix)
 
-    _suffixes = ['-complex.inpcrd', '-complex.pdb', '-complex.top', '-cons.pdb']
+    @property
+    def input_values(self):
+        return {k: os.path.basename(w) for k, w in self.files.iteritems()}
 
     @property
     def input_files(self):
@@ -90,7 +89,7 @@ class System(object):
         List of paths to all the files needed to describe the system.
 
         """
-        return filter(None, [self.pdb, self.coordinate, self.topology, self.constraints, self.alchemical_tags])
+        return self.files.values()
 
     @property
     def water_model(self):
@@ -106,3 +105,16 @@ class System(object):
 
     def __repr__(self):
         return self.name
+
+    def __getattr__(self, item):
+        try:
+            return os.path.basename(self.files[item])
+        except KeyError:
+            raise AttributeError('System has no attribute {}'.format(item))
+
+    def _prefix_path(self, path):
+        head, tail = os.path.split(path)
+        new_path = os.path.join(head, "-".join((self.name, tail)))
+        if not os.path.exists(new_path):
+            copyfile(path, new_path)
+        return new_path
