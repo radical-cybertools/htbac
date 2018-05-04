@@ -12,7 +12,7 @@ class System(object):
     as input to MD engine configuration files.
 
     """
-    def __init__(self, name, files, add_prefix=False):
+    def __init__(self, name, add_prefix=False, **files):
         """An object containing references to files that make up the system. There are some
         methods on it for convenience like box vector or water model.
 
