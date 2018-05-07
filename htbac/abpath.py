@@ -1,3 +1,4 @@
+import shutil
 from pathlib2 import Path
 
 
@@ -24,12 +25,14 @@ class AbFile(Path):
         return Path('$SHARED', self.name)
 
     def with_prefix(self, prefix):
-        self.rename(prefix+self.name)
-
         new_file = self.with_name(prefix+self.name)
         new_file.tag = self.tag
         new_file.needs_copying = self.needs_copying
         new_file.is_executable_argument = self.is_executable_argument
+
+        if not new_file.exists():
+            shutil.copyfile(str(self), str(new_file))
+
         return new_file
 
 
