@@ -1,8 +1,8 @@
-import shutil
-from pathlib2 import Path
+import os
+from shutil import copyfile
 
 
-class AbFile(Path):
+class AbFile:
     """An protocol for objects that support RP style path mechanism.
 
     RP has a somewhat complicated way to assign path to files based on a number of factors.
@@ -14,26 +14,31 @@ class AbFile(Path):
 
     def __init__(self, path, tag=str(), needs_copying=False, is_executable_argument=False):
 
+        self.path = path
         self.tag = tag
         self.needs_copying = needs_copying
         self.is_executable_argument = is_executable_argument
 
-        super(AbFile, self).__init__(path)
-
     @property
     def remote_shared_path(self):
-        return Path('$SHARED', self.name)
+        return os.path.join('$SHARED', self.name)
+
+    @property
+    def name(self):
+        return os.path.basename(self.path)
+
+    def __repr__(self):
+        return self.name
 
     def with_prefix(self, prefix):
-        new_file = self.with_name(prefix+self.name)
-        new_file.tag = self.tag
-        new_file.needs_copying = self.needs_copying
-        new_file.is_executable_argument = self.is_executable_argument
 
-        if not new_file.exists():
-            shutil.copyfile(str(self), str(new_file))
+        head, tail = os.path.split(self.path)
+        new_path = os.path.join(head, prefix+'-'+tail)
+        if not os.path.exists(new_path):
+            copyfile(self.path, new_path)
 
-        return new_file
+        self.path = new_path
+        return self
 
 
 class AbFolder:
