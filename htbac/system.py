@@ -3,8 +3,10 @@ from shutil import copyfile
 
 import parmed as pmd
 
+from .abpath import AbFolder, AbFile
 
-class System(object):
+
+class System(AbFolder):
     """ Object describing a molecular system to be simulated.
 
     `System` is a container storing all the files required to run a certain molecular system. It also defines a
@@ -12,24 +14,24 @@ class System(object):
     as input to MD engine configuration files.
 
     """
-    def __init__(self, name, add_prefix=False, **files):
+    def __init__(self, name, files):
         """An object containing references to files that make up the system. There are some
         methods on it for convenience like box vector or water model.
 
         Parameters
         ----------
         name: str
-        files: dict
-            File type (one of topology, coordinate, constraint, alchemical-tags): path.
-        add_prefix: bool
-            Prefix the name of every file with `name` to make them unique.
+        files: list
+            AbFiles with tags one of [coordinate, pdb, topology, alchemical_path, constraint, restraint]
         """
+
+        AbFolder.__init__(self)
 
         self.name = name
 
-        self.files = {k: self._prefix_path(w) for k, w in files.iteritems()} if add_prefix else files
+        self._files = files
 
-        self.box = pmd.amber.AmberAsciiRestart(self.files['coordinate']).box
+        self.box_x, self.box_y, self.box_z = pmd.amber.AmberAsciiRestart(self.files['coordinate']).box
 
     @classmethod
     def with_common_prefix(cls, name, common_prefix, add_prefix=False):
@@ -72,26 +74,6 @@ class System(object):
         return System.with_prefix(prefix)
 
     @property
-    def input_values(self):
-        return {k: os.path.basename(w) for k, w in self.files.iteritems()}
-
-    @property
-    def input_files(self):
-        """
-        List of the names of the files. This is just the name, not the path.
-        """
-        return [os.path.basename(f) for f in self.shared_data]
-
-    @property
-    def shared_data(self):
-        """
-
-        List of paths to all the files needed to describe the system.
-
-        """
-        return self.files.values()
-
-    @property
     def water_model(self):
         """The water model of the system. Can be one of `tip3`, `tip4`.
 
@@ -108,13 +90,6 @@ class System(object):
 
     def __getattr__(self, item):
         try:
-            return os.path.basename(self.files[item])
+            return next(f.name for f in self._files if f.tag == item)
         except KeyError:
             raise AttributeError('System has no attribute {}'.format(item))
-
-    def _prefix_path(self, path):
-        head, tail = os.path.split(path)
-        new_path = os.path.join(head, "-".join((self.name, tail)))
-        if not os.path.exists(new_path):
-            copyfile(path, new_path)
-        return new_path

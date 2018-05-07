@@ -11,6 +11,7 @@ import numpy as np
 from radical.entk import Pipeline, Stage, Task
 
 from .engine import Engine
+from .abpath import AbFolder, AbFile
 
 
 class Simulatable:
@@ -90,7 +91,7 @@ class Chainable:
         raise NotImplementedError
 
 
-class Simulation(Simulatable, Chainable, Sized):
+class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
     def __init__(self, name='simulation'):
         """
@@ -107,13 +108,14 @@ class Simulation(Simulatable, Chainable, Sized):
         self.system = None
 
         self._input_sim = None  # Input simulation. Needs to link data generated here.
-        self._input_files = list()  # Files than are input to this simulation
-        self._copy_files = set()  # Files that this simulation will change so need to be copied
-        self._arguments = list()  # Files that are arguments to the executable.
+        # self._input_files = list()  # Files than are input to this simulation
+        # self._arguments = list()  # Files that are arguments to the executable.
 
         self._cores = 0
-        self._variables = set()
+        self._variables = dict(all=set())
         self._ensembles = OrderedDict()
+
+        AbFolder.__init__(self)
 
     # Internal constants
 
@@ -130,15 +132,15 @@ class Simulation(Simulatable, Chainable, Sized):
         return [os.path.join(path, self.name+s) for s in ['.coor', '.xsc', '.vel']]
 
     @property
-    def _settings(self):
+    def input(self):
+        return self._input_sim.name if self._input_sim else str()
 
-        settings = {k: getattr(self, k) for k in self._variables}
+    @property
+    def output(self):
+        return self.name
 
-        input_name = self._input_sim.name if self._input_sim else str()
-        settings.update(dict(box_x=self.system.box[0], box_y=self.system.box[1], box_z=self.system.box[2],
-                             system=self.system.name, input=input_name, output=self.name))
-        settings.update(self.system.input_values)
-        return settings
+    def __getattr__(self, item):
+        return getattr(self.system, item)
 
     # `Sized` protocol
 
@@ -147,13 +149,16 @@ class Simulation(Simulatable, Chainable, Sized):
 
     # Public methods
 
-    def add_variable(self, name, value=None):
+    def add_variable(self, name, in_file, value=None):
         logging.info('Adding variable called {}.'.format(name))
         if not hasattr(self, name) or getattr(self, name) is None:
             logging.info('Setting the value to {}.'.format(value))
             setattr(self, name, value)
 
-        self._variables.add(name)
+        if in_file in self._variables:
+            self._variables[in_file].add(name)
+        else:
+            self._variables[in_file] = {name}
 
     def add_ensemble(self, name, values):
         """Add a parameter to the simulation that you want multiple values to be run with.
@@ -189,8 +194,9 @@ class Simulation(Simulatable, Chainable, Sized):
             self.engine = input_sim.engine
             self.cores = input_sim._cores
 
-            for attr in input_sim._variables:
-                self.add_variable(attr, getattr(input_sim, attr))
+            for in_file, attrs in input_sim._variables.iteritems():
+                for attr in attrs:
+                    self.add_variable(attr, in_file, getattr(input_sim, attr))
 
             for ens, values in input_sim._ensembles.iteritems():
                 self.add_ensemble(ens, values)
@@ -206,19 +212,16 @@ class Simulation(Simulatable, Chainable, Sized):
             Automatically detect placeholders in the file (of the form <placeholder>) and add
             them as variables to the object. Default is True.
         """
-        self._input_files.append(input_file)
 
-        if is_executable_argument:
-            self._arguments.append(os.path.basename(input_file))
+        abfile = AbFile(needs_copying=False, is_executable_argument=is_executable_argument)
+        self._files.append(abfile)
 
         if auto_detect_variables:
             with open(input_file) as f:
                 variables = set(re.findall(self._placeholder, f.read()))
-                if variables:
-                    logging.info("Detected variables {} in {}.".format(variables, input_file))
-                    self._copy_files.add(os.path.join(os.path.basename(input_file)))
-                    for var in variables:
-                        self.add_variable(var)
+                abfile.needs_copying = bool(variables)
+                for var in variables:
+                    self.add_variable(var, in_file=abfile.name)
 
     # Methods used by underlying execution framework
 
@@ -244,16 +247,18 @@ class Simulation(Simulatable, Chainable, Sized):
         task.mpi = self.engine.uses_mpi
         task.cores = self._cores
 
-        task.arguments.extend(self._arguments)
-        task.copy_input_data.extend(os.path.join('$SHARED', f) for f in self._copy_files)
+        task.arguments.extend(self.arguments)
+        task.copy_input_data.extend(self.copied_files)
+        task.copy_input_data.extend(self.system.copied_files)
 
-        task.post_exec = ['echo "{}" > simulation.desc'.format(self)]
+        task.post_exec.append('echo "{}" > sim_desc.txt'.format(task.name))
 
         if self._input_sim:
-            task.link_input_data += self._input_sim.output_data(for_ensemble=ensembles)
+            task.link_input_data.extend(self._input_sim.output_data(for_ensemble=ensembles))
 
-        task.link_input_data.extend(os.path.join('$SHARED', f) for f in self.system.input_files)
-        task.pre_exec.extend(self._sed.format(k, w, os.path.basename(f)) for k, w in self._settings.iteritems() for f in self._copy_files)
+        task.link_input_data.extend(self.system.linked_files)
+
+        task.pre_exec.extend(self._sed.format(v, getattr(self, v), f) for f, vs in self._variables.items() for v in vs)
 
         return task
 
@@ -276,18 +281,14 @@ class Simulation(Simulatable, Chainable, Sized):
     @property
     def shared_data(self):
         """
-
-        Returns
-        -------
-        list
-            List of all the files that need to be staged to remote.
+        List of all the files that need to be staged to remote.
         """
 
         # If `system` is an ensemble than return that otherwise return
         # just the one system.
         systems = self._ensembles.get('system', [self.system])
 
-        return self._input_files + [d for s in systems for d in s.shared_data]
+        return self.shared_files + [d for s in systems for d in s.shared_files]
 
     @property
     def cores(self):
