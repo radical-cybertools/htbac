@@ -28,7 +28,7 @@ class System(AbFolder):
 
         self._files = files
 
-        self.box_x, self.box_y, self.box_z = pmd.amber.AmberAsciiRestart(self.files['coordinate']).box
+        self.box_x, self.box_y, self.box_z = pmd.amber.AmberAsciiRestart(self.coordinate.path).box[:3]
 
     @property
     def water_model(self):
@@ -47,6 +47,6 @@ class System(AbFolder):
 
     def __getattr__(self, item):
         try:
-            return next(f.name for f in self._files if f.tag == item)
+            return next(f for f in self._files if f.tag == item)
         except KeyError:
             raise AttributeError('System has no attribute {}'.format(item))

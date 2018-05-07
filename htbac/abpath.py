@@ -27,6 +27,9 @@ class AbFile:
     def name(self):
         return os.path.basename(self.path)
 
+    def __repr__(self):
+        return self.name
+
     def with_prefix(self, prefix):
 
         head, tail = os.path.split(self.path)

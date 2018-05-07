@@ -149,7 +149,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
     # Public methods
 
-    def add_variable(self, name, in_file, value=None):
+    def add_variable(self, name, in_file=None, value=None):
         logging.info('Adding variable called {}.'.format(name))
         if not hasattr(self, name) or getattr(self, name) is None:
             logging.info('Setting the value to {}.'.format(value))
@@ -157,7 +157,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         if in_file in self._variables:
             self._variables[in_file].add(name)
-        else:
+        elif in_file is not None:
             self._variables[in_file] = {name}
 
     def add_ensemble(self, name, values):
@@ -213,7 +213,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
             them as variables to the object. Default is True.
         """
 
-        abfile = AbFile(needs_copying=False, is_executable_argument=is_executable_argument)
+        abfile = AbFile(path=input_file, needs_copying=False, is_executable_argument=is_executable_argument)
         self._files.append(abfile)
 
         if auto_detect_variables:
