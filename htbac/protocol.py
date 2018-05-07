@@ -11,8 +11,9 @@ class Protocol(Simulatable, MutableSequence):
 
     """
 
-    def __init__(self):
+    def __init__(self, clone_settings):
         self._simulations = list()
+        self.clone_settings = clone_settings
 
     def __getitem__(self, item):
         return self._simulations[item]
@@ -29,7 +30,7 @@ class Protocol(Simulatable, MutableSequence):
 
         if len(self):
             logging.info('Simulation appended to protocol.')
-            simulation.add_input_simulation(self[-1], clone_settings=True)
+            simulation.add_input_simulation(self[-1], clone_settings=self.clone_settings)
 
         simulation.name += "-{}".format(len(self))
 

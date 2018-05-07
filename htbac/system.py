@@ -1,8 +1,11 @@
 import os
+
 import parmed as pmd
 
+from .abpath import AbFolder
 
-class System(object):
+
+class System(AbFolder):
     """ Object describing a molecular system to be simulated.
 
     `System` is a container storing all the files required to run a certain molecular system. It also defines a
@@ -10,77 +13,24 @@ class System(object):
     as input to MD engine configuration files.
 
     """
-    def __init__(self, prefix):
-        """
-
-        Parameters
-        ----------
-        prefix: str
-                Prefix of the system files. All sub-files (coordinate, topology) must have this prefix. They
-                are automatically loaded into the object.
-        """
-
-        self.prefix = prefix
-        self.box = pmd.amber.AmberAsciiRestart(prefix + '-complex.inpcrd').box
-
-    @classmethod
-    def from_hyphen_separated_name(cls, name, rootdir):
-        """
+    def __init__(self, name, files):
+        """An object containing references to files that make up the system. There are some
+        methods on it for convenience like box vector or water model.
 
         Parameters
         ----------
         name: str
-            Hyphen separated name of the system. The components will be assumed to be the names of the directory
-            it is contained in. For example `nilotinib-e255k` should to be in the folder `rootdir/nilotinib/e255k/`.
-        rootdir: str
-            The root directory where to look for the files.
-
-        Returns
-        -------
-        System
-            A new instance of `System` with the files correctly loaded in.
-
-        """
-        comps = [os.path.abspath(rootdir)] + name.split('-') + [name]
-        prefix = os.path.join(*comps)
-        return System(prefix)
-
-    @property
-    def name(self):
+        files: list
+            AbFiles with tags one of [coordinate, pdb, topology, alchemical_path, constraint, restraint]
         """
 
-        Returns
-        -------
-        str
-            The name of the system. That is the name of the files without the common suffixes.
-        """
-        return os.path.basename(self.prefix)
+        AbFolder.__init__(self)
 
-    # TODO: instead create a specific systems loader that reads in systems with this type of folder setup.
-    _suffixes = ['-complex.inpcrd', '-complex.pdb', '-complex.top', '-cons.pdb']
+        self.name = name
 
-    def file_paths(self, relative_to=None):
-        """
+        self._files = files
 
-        Parameters
-        ----------
-        relative_to: str
-            Return the file paths of the system relative to this path.
-
-        Returns
-        -------
-        list
-            List of file paths of all the system files.
-
-        """
-        if relative_to:
-            return [os.path.join(relative_to, (self.name+suffix)) for suffix in self._suffixes]
-        else:
-            return [self.prefix + suffix for suffix in self._suffixes]
-
-    @property
-    def shared_data(self):
-        return [self.prefix + suffix for suffix in self._suffixes]
+        self.box_x, self.box_y, self.box_z = pmd.amber.AmberAsciiRestart(self.files['coordinate']).box
 
     @property
     def water_model(self):
@@ -96,3 +46,9 @@ class System(object):
 
     def __repr__(self):
         return self.name
+
+    def __getattr__(self, item):
+        try:
+            return next(f.name for f in self._files if f.tag == item)
+        except KeyError:
+            raise AttributeError('System has no attribute {}'.format(item))

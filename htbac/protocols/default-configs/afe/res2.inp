@@ -1,8 +1,8 @@
 # Forcefield/Topology/Coordinate Information
 amber yes
-parmfile <system>-complex.top
+parmfile <topology>
 readexclusions no
-coordinates  <system>-complex.pdb
+coordinates <pdb>
 
 # Unchanging information
 ################################################################################
@@ -69,9 +69,7 @@ DCDUnitcell  yes
 
 # restraint
 extraBonds	on
-extraBondsFile	restraint.in
+extraBondsFile	<restraint>
 
 # protocol - MD
-minimize <numminsteps>
-reinitvels 300
 run <numsteps>

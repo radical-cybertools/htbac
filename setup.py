@@ -9,6 +9,6 @@ setup(name='htbac',
       license='MIT',
       packages=find_packages(),
       package_data={'': ['*.yaml', 'protocols/default-configs/*/*']},
-      install_requires=['numpy', 'parmed', 'PyYAML'],
+      install_requires=['numpy', 'parmed', 'PyYAML', 'pathlib2'],
       zip_safe=False,
       )
