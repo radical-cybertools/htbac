@@ -50,7 +50,7 @@ class AbFolder:
 
     @property
     def shared_files(self):
-        return self._files
+        return [f.path for f in self._files]
 
     @property
     def arguments(self):
