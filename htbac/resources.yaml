@@ -140,6 +140,24 @@ bw_orte:
       - "/u/sciteam/dakka/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
     uses_mpi: No
 
+bw_local_orte:
+  resource_dictionary:
+    resource: "ncsa.bw_local_orte"
+    walltime:
+    cores:
+    project: "bamm"
+    queue: "normal"
+    access_schema: "local"
+
+  namd_mpi:
+    executable:
+      - "/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2"
+    arguments:
+      - "+pemap"
+      - "0-31"
+    uses_mpi: Yes
+
+
 local:
   resource_dictionary:
     resource: "local.localhost_anaconda"
