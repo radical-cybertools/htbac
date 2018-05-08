@@ -10,8 +10,8 @@ titan_orte:
   agent_cores: 16
 
   dedicated_rabbitmq_server:
-    hostname: "openshift-node1.ccs.ornl.gov"
-    port: 30673
+    hostname: 'csc190specfem.marble.ccs.ornl.gov'
+    port: 30672
 
   namd:
     executable:
