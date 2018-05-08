@@ -213,7 +213,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
             them as variables to the object. Default is True.
         """
 
-        abfile = AbFile(path=input_file, needs_copying=False, is_executable_argument=is_executable_argument)
+        abfile = AbFile(path=input_file, is_executable_argument=is_executable_argument)
         self._files.append(abfile)
 
         if auto_detect_variables:

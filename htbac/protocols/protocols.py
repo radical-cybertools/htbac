@@ -14,9 +14,8 @@ class Esmacs:
 class Afe:
     step0 = resource_filename(__name__, "default-configs/afe/md2.inp")
     step1 = resource_filename(__name__, "default-configs/afe/res2.inp")
-    numsteps = [3000000]
-    steps = [step0]
-
+    numsteps = [2000000, 2000000]
+    steps = [step0, step1]
 
 
 class Rfe:
