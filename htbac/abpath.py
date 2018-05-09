@@ -1,5 +1,6 @@
 import os
-from shutil import copyfile
+import shutil
+import filecmp
 
 
 class AbFile:
@@ -34,8 +35,8 @@ class AbFile:
 
         head, tail = os.path.split(self.path)
         new_path = os.path.join(head, prefix+'-'+tail)
-        if not os.path.exists(new_path):
-            copyfile(self.path, new_path)
+        if not os.path.exists(new_path) or not filecmp.cmp(self.path, new_path):
+            shutil.copyfile(self.path, new_path)
 
         self.path = new_path
         return self
@@ -49,7 +50,7 @@ class AbFolder:
 
     @property
     def shared_files(self):
-        return self._files
+        return [f.path for f in self._files]
 
     @property
     def arguments(self):

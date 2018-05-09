@@ -15,12 +15,6 @@ __license__ = "MIT"
 
 
 logger = logging.getLogger(__name__)
-
-# handler = logging.StreamHandler(sys.stdout)
-# handler.setFormatter(logging.Formatter('HTBAC %(asctime)s %(message)s'))
-# handler.setLevel(logging.INFO)
-#
-# logger.addHandler(handler)
 logger.setLevel(logging.INFO)
 
 
@@ -62,7 +56,7 @@ class Runner(object):
         protocol.configure_engine_for_resource(self.resource)
         self._protocols.append(protocol)
 
-    def run(self, walltime=None, strong_scaled=1, queue=None, dry_run=False):
+    def run(self, walltime=None, strong_scaled=1, queue=None, access_schema=None, dry_run=False):
         """Run protocols.
 
         Parameters
@@ -73,6 +67,8 @@ class Runner(object):
             For testing strong scaling. Number of cores will be multiplied by this number before execution.
         queue: str
             Name of the queue. If there is a default for your resource that will be used.
+        access_schema: str
+            One of ssh, gsissh, local
         dry_run: bool
             Whether to execute the `.run` command or not.
         """
@@ -95,6 +91,8 @@ class Runner(object):
             self.resource['resource_dictionary']['walltime'] = walltime
         if queue:
             self.resource['resource_dictionary']['queue'] = queue
+        if access_schema:
+            self.resource['resource_dictionary']['access_schema'] = access_schema
 
         logger.info('Using total number of cores: {}.'.format(cores))
         logger.info('Resource dictionary:\n{}'.format(pprint.pformat(self.resource['resource_dictionary'])))
