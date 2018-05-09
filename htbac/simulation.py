@@ -186,11 +186,15 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         Parameters
         ----------
         name: str
-            The name of the attribute that will become an ensemble
+            The name of the attribute that will become an ensemble. Has to be alphanumeric only!
         values: list or np.ndarray
             List of values that the attribute can have.
 
         """
+
+        if not name.isalnum():
+            raise ValueError('Ensemble name must be alpha numeric only!')
+        
         if not hasattr(self, name):
             self.add_variable(name)
 
