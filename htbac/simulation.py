@@ -256,7 +256,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         if not self.all_variables_defined():
             raise ValueError('Some variables are not defined!')
-        
+
         [setattr(self, k, w) for k, w in ensembles.iteritems()]
 
         task = Task()
