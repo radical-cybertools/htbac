@@ -163,6 +163,9 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         elif in_file is not None:
             self._variables[in_file] = {name}
 
+    def all_variables_defined(self):
+        return all(self.get_variable(v) is not None for vs in self._variables.values() for v in vs)
+
     def get_variables(self):
         return {f: [(v, self.get_variable(v)) for v in vs] for f, vs in self._variables.items()}
 
@@ -251,6 +254,9 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
             task object can be generated.
         """
 
+        if not self.all_variables_defined():
+            raise ValueError('Some variables are not defined!')
+        
         [setattr(self, k, w) for k, w in ensembles.iteritems()]
 
         task = Task()

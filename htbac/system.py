@@ -48,5 +48,5 @@ class System(AbFolder):
     def __getattr__(self, item):
         try:
             return next(f for f in self._files if f.tag == item)
-        except KeyError:
-            raise AttributeError('System has no attribute {}'.format(item))
+        except StopIteration:
+            raise AttributeError("'System' object has no attribute {}".format(item))
