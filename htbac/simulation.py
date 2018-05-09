@@ -112,7 +112,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         # self._arguments = list()  # Files that are arguments to the executable.
 
         self._cores = 0
-        self._variables = dict(all=set())
+        self._variables = dict()
         self._ensembles = OrderedDict()
 
         AbFolder.__init__(self)
@@ -160,6 +160,12 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         elif in_file is not None:
             self._variables[in_file] = {name}
 
+    def get_variables(self):
+        return {f: [(v, self.get_variable(v)) for v in vs] for f, vs in self._variables.items()}
+
+    def get_variable(self, var):
+        return getattr(self, var) or getattr(self.system, var)
+
     def add_ensemble(self, name, values):
         """Add a parameter to the simulation that you want multiple values to be run with.
         For example running multiple systems with the same configuration, or trying out a
@@ -176,7 +182,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         if not hasattr(self, name):
             self.add_variable(name)
 
-        logging.info('Adding ensemble called {}.'.format(name))
+        logging.info('Adding ensemble {}.'.format(name))
         self._ensembles[name] = values
 
     def add_input_simulation(self, input_sim, clone_settings):
@@ -258,7 +264,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         task.link_input_data.extend(self.system.linked_files)
 
-        task.pre_exec.extend(self._sed.format(v, getattr(self, v), f) for f, vs in self._variables.items() for v in vs)
+        task.pre_exec.extend(self._sed.format(n, v, f) for f, vs in self.get_variables().items() for n, v in vs)
 
         return task
 
