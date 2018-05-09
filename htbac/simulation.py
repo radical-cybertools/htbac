@@ -13,6 +13,9 @@ from radical.entk import Pipeline, Stage, Task
 from .engine import Engine
 from .abpath import AbFolder, AbFile
 
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
 
 class Simulatable:
     """Abstract base class for objects that can be simulated
@@ -150,9 +153,9 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     # Public methods
 
     def add_variable(self, name, in_file=None, value=None):
-        logging.info('Adding variable called {}.'.format(name))
+        logger.info('Adding variable called {}.'.format(name))
         if not hasattr(self, name) or getattr(self, name) is None:
-            logging.info('Setting the value to {}.'.format(value))
+            logger.info('Setting the value to {}.'.format(value))
             setattr(self, name, value)
 
         if in_file in self._variables:
@@ -160,11 +163,20 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         elif in_file is not None:
             self._variables[in_file] = {name}
 
+    def all_variables_defined(self):
+        return all(self.get_variable(v) is not None for vs in self._variables.values() for v in vs)
+
     def get_variables(self):
         return {f: [(v, self.get_variable(v)) for v in vs] for f, vs in self._variables.items()}
 
     def get_variable(self, var):
-        return getattr(self, var) or getattr(self.system, var)
+        v = getattr(self, var)
+
+        if v is not None:
+            return v
+
+        logger.info('Getting variable from system.')
+        return getattr(self.system, var)
 
     def add_ensemble(self, name, values):
         """Add a parameter to the simulation that you want multiple values to be run with.
@@ -182,7 +194,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         if not hasattr(self, name):
             self.add_variable(name)
 
-        logging.info('Adding ensemble {}.'.format(name))
+        logger.info('Adding ensemble {}.'.format(name))
         self._ensembles[name] = values
 
     def add_input_simulation(self, input_sim, clone_settings):
@@ -242,6 +254,9 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
             task object can be generated.
         """
 
+        if not self.all_variables_defined():
+            raise ValueError('Some variables are not defined!')
+        
         [setattr(self, k, w) for k, w in ensembles.iteritems()]
 
         task = Task()
