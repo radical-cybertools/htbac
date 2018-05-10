@@ -21,3 +21,4 @@ class Afe:
 class Rfe:
     step0 = resource_filename(__name__, "default-configs/rfe/ties-0.conf")
     step1 = resource_filename(__name__, "default-configs/rfe/ties-1.conf")
+    steps = [step0, step1]
