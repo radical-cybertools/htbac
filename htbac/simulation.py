@@ -219,6 +219,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         if clone_settings:
             self.engine = input_sim.engine
             self.cores = input_sim._cores
+            self.system = input_sim.system
 
             for in_file, attrs in input_sim._variables.iteritems():
                 for attr in attrs:
