@@ -156,7 +156,11 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         logger.info('Adding variable called {}.'.format(name))
         if not hasattr(self, name) or getattr(self, name) is None:
             logger.info('Setting the value to {}.'.format(value))
-            setattr(self, name, value)
+            if callable(value):
+                logger.info('Value is stored as property because it is callable')
+                setattr(self.__class__, name, property(value))
+            else:
+                setattr(self, name, value)
 
         if in_file in self._variables:
             self._variables[in_file].add(name)
@@ -194,7 +198,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         if not name.isalnum():
             raise ValueError('Ensemble name must be alpha numeric only!')
-        
+
         if not hasattr(self, name):
             self.add_variable(name)
 
