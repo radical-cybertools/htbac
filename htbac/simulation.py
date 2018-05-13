@@ -350,7 +350,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
             logger.info("Setting simulation core count to the REQUIRED value by engine ({}). "
                         "Do not alter this!".format(self.engine.cores))
-            self.cores = self.engine.cores
+            self._cores = self.engine.cores
 
     # Private methods
 
