@@ -13,6 +13,7 @@ from radical.entk import Pipeline, Stage, Task
 from .engine import Engine
 from .abpath import AbFolder, AbFile
 
+logging.basicConfig()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
@@ -156,7 +157,11 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         logger.info('Adding variable called {}.'.format(name))
         if not hasattr(self, name) or getattr(self, name) is None:
             logger.info('Setting the value to {}.'.format(value))
-            setattr(self, name, value)
+            if callable(value):
+                logger.info('Value is stored as property because it is callable')
+                setattr(self.__class__, name, property(value))
+            else:
+                setattr(self, name, value)
 
         if in_file in self._variables:
             self._variables[in_file].add(name)
@@ -186,11 +191,15 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         Parameters
         ----------
         name: str
-            The name of the attribute that will become an ensemble
+            The name of the attribute that will become an ensemble. Has to be alphanumeric only!
         values: list or np.ndarray
             List of values that the attribute can have.
 
         """
+
+        if not name.isalnum():
+            raise ValueError('Ensemble name must be alpha numeric only!')
+
         if not hasattr(self, name):
             self.add_variable(name)
 
@@ -211,6 +220,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         if clone_settings:
             self.engine = input_sim.engine
             self.cores = input_sim._cores
+            self.system = input_sim.system
 
             for in_file, attrs in input_sim._variables.iteritems():
                 for attr in attrs:
@@ -254,10 +264,10 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
             task object can be generated.
         """
 
+        [setattr(self, k, w) for k, w in ensembles.iteritems()]
+
         if not self.all_variables_defined():
             raise ValueError('Some variables are not defined!')
-        
-        [setattr(self, k, w) for k, w in ensembles.iteritems()]
 
         task = Task()
         task.name = "-".join("{}-{}".format(k, w) for k, w, in ensembles.iteritems()) or "sim"
@@ -317,21 +327,30 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
     @cores.setter
     def cores(self, value):
-        if isinstance(self.engine, Engine) and self.engine.cores and self.engine.cores != value:
-            raise ValueError('Engine has default core count. Do not set simulation cores!')
+        if isinstance(self.engine, Engine) and self.engine.cores:
+            raise ValueError('Engine has REQUIRED core count. Do not set simulation cores!')
         self._cores = value
 
     def configure_engine_for_resource(self, resource):
         if not isinstance(self.engine, str):
             raise ValueError('Engine type not set!')
 
-        self.engine = Engine.from_dictionary(**resource[self.engine])
+        engine = resource[self.engine]
+
+        if isinstance(engine, str):
+            engine = resource[engine]
+
+        self.engine = Engine.from_dictionary(**engine)
+
+        logger.info("Engine is using executable: {}".format(self.engine.executable))
 
         if self.engine.cores:
-            if self.cores and self.cores != self.engine.cores:
-                raise ValueError('Engine has default core count. Do not set simulation cores!')
+            if self.cores:
+                raise ValueError('Engine has REQUIRED core count. Do not set simulation cores!')
 
-            self.cores = self.engine.cores
+            logger.info("Setting simulation core count to the REQUIRED value by engine ({}). "
+                        "Do not alter this!".format(self.engine.cores))
+            self._cores = self.engine.cores
 
     # Private methods
 

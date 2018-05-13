@@ -34,6 +34,10 @@ class AbFile:
     def with_prefix(self, prefix):
 
         head, tail = os.path.split(self.path)
+
+        if tail.startswith(prefix):
+            return self
+
         new_path = os.path.join(head, prefix+'-'+tail)
         if not os.path.exists(new_path) or not filecmp.cmp(self.path, new_path):
             shutil.copyfile(self.path, new_path)

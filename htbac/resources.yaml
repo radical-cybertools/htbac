@@ -92,6 +92,8 @@ bw_aprun:
     queue: "normal"
     access_schema: "gsissh"
 
+  namd: namd_mpi
+
   namd_openmp_cuda:
     executable:
       - "/u/sciteam/dakka/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
@@ -126,6 +128,12 @@ bw_aprun:
     cores: 32
     uses_mpi: No
 
+  dummy:
+    executable:
+      - "/bin/echo"
+    cores: 1
+    uses_mpi: No
+
 bw_orte:
   resource_dictionary:
     resource: "ncsa.bw_orte"
@@ -134,6 +142,8 @@ bw_orte:
     project: "bamm"
     queue: "normal"
     access_schema: "gsissh"
+
+  namd: namd_openmp_cuda
 
   namd_openmp_cuda:
     executable:
@@ -148,6 +158,8 @@ bw_local_orte:
     project: "bamm"
     queue: "normal"
     access_schema: "local"
+
+  namd: namd_mpi
 
   namd_mpi:
     executable:
@@ -172,3 +184,10 @@ local:
      - "2"
     cores:
     uses_mpi: No
+
+  dummy:
+    executable:
+      - "/bin/echo"
+    cores: 1
+    uses_mpi: No
+
