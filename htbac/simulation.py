@@ -13,6 +13,7 @@ from radical.entk import Pipeline, Stage, Task
 from .engine import Engine
 from .abpath import AbFolder, AbFile
 
+logging.basicConfig()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
@@ -326,20 +327,29 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
     @cores.setter
     def cores(self, value):
-        if isinstance(self.engine, Engine) and self.engine.cores and self.engine.cores != value:
-            raise ValueError('Engine has default core count. Do not set simulation cores!')
+        if isinstance(self.engine, Engine) and self.engine.cores:
+            raise ValueError('Engine has REQUIRED core count. Do not set simulation cores!')
         self._cores = value
 
     def configure_engine_for_resource(self, resource):
         if not isinstance(self.engine, str):
             raise ValueError('Engine type not set!')
 
-        self.engine = Engine.from_dictionary(**resource[self.engine])
+        engine = resource[self.engine]
+
+        if isinstance(engine, str):
+            engine = resource[engine]
+
+        self.engine = Engine.from_dictionary(**engine)
+
+        logger.info("Engine is using executable: {}".format(engine.executable))
 
         if self.engine.cores:
-            if self.cores and self.cores != self.engine.cores:
-                raise ValueError('Engine has default core count. Do not set simulation cores!')
+            if self.cores:
+                raise ValueError('Engine has REQUIRED core count. Do not set simulation cores!')
 
+            logger.info("Setting simulation core count to the REQUIRED value by engine ({}). "
+                        "Do not alter this!".format(self.engine.cores))
             self.cores = self.engine.cores
 
     # Private methods

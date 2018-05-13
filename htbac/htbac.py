@@ -56,11 +56,13 @@ class Runner(object):
         protocol.configure_engine_for_resource(self.resource)
         self._protocols.append(protocol)
 
-    def run(self, walltime=None, strong_scaled=1, queue=None, access_schema=None, dry_run=False):
+    def run(self, resource=None, walltime=None, strong_scaled=1, queue=None, access_schema=None, dry_run=False):
         """Run protocols.
 
         Parameters
         ----------
+        resource: str
+            The specific resource and sub-resource you want to use.
         walltime: int
             Wall time in minutes.
         strong_scaled: float
@@ -87,6 +89,9 @@ class Runner(object):
         cores += self.resource.get('agent_cores', 0)
 
         self.resource['resource_dictionary']['cores'] = cores
+
+        if resource:
+            self.resource['resource_dictionary']['resource'] = resource
         if walltime:
             self.resource['resource_dictionary']['walltime'] = walltime
         if queue:
