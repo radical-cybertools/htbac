@@ -342,7 +342,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         self.engine = Engine.from_dictionary(**engine)
 
-        logger.info("Engine is using executable: {}".format(engine.executable))
+        logger.info("Engine is using executable: {}".format(self.engine.executable))
 
         if self.engine.cores:
             if self.cores:
