@@ -224,7 +224,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
             for in_file, attrs in input_sim._variables.iteritems():
                 for attr in attrs:
-                    self.add_variable(attr, in_file, getattr(input_sim, attr))
+                    self.add_variable(attr, value=getattr(input_sim, attr))
 
             for ens, values in input_sim._ensembles.iteritems():
                 self.add_ensemble(ens, values)
