@@ -57,7 +57,7 @@ titan_orte:
 
   openmm:
     executable:
-      - "python"
+      - "/lustre/atlas/scratch/farkaspall/chm126/software/miniconda2/bin/python"
     pre_exec:
       - "export PATH=/lustre/atlas/scratch/farkaspall/chm126/software/miniconda2/bin:$PATH"
       - "export LD_LIBRARY_PATH=/lustre/atlas/scratch/farkaspall/chm126/software/miniconda2/lib:$LD_LIBRARY_PATH"
