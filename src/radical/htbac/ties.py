@@ -9,6 +9,8 @@ from radical.entk import Pipeline, Stage, Task
 NAMD2 = '/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2'
 TITAN_NAMD2 = 'namd2'
 TITAN_ORTE_NAMD2 = '/lustre/atlas2/csc230/world-shared/openmpi/applications/namd/namd-openmp/CRAY-XE-gnu/namd2'
+TITAN_NAMD2_MULTICORE_NONCUDA = '/lustre/atlas/scratch/jdakka/chm126/namd/NAMD_Git-2018-05-06_Linux-x86_64-multicore/namd2'
+
 
 NAMD_TI_ANALYSIS = "/u/sciteam/farkaspa/namd/ti/namd2_ti.pl"
 _simulation_file_suffixes = ['.coor', '.xsc', '.vel']
@@ -75,26 +77,31 @@ class Ties(object):
                         #          'export MPICH_UNEX_BUFFER_SIZE=100M',
                         #          'export OMP_NUM_THREADS=1']
 
-                        task.pre_exec = ['export LD_PRELOAD=/lib64/librt.so.1',
-                                        'module swap PrgEnv-pgi PrgEnv-gnu/5.2.82',
-                                        'module load tcl_tk/8.5.8',
-                                        'module unload cray-mpich',
-                                        'module load cmake',
-                                        'module load rca',
-                                        'module load python/2.7.9',
-                                        'module load python_pip/8.1.2',
-                                        'module load python_virtualenv/12.0.7']
+                        # task.pre_exec = ['export LD_PRELOAD=/lib64/librt.so.1',
+                        #                 'module swap PrgEnv-pgi PrgEnv-gnu/5.2.82',
+                        #                 'module load tcl_tk/8.5.8',
+                        #                 'module unload cray-mpich',
+                        #                 'module load cmake',
+                        #                 'module load rca',
+                        #                 'module load python/2.7.9',
+                        #                 'module load python_pip/8.1.2',
+                        #                 'module load python_virtualenv/12.0.7']
 
-                        task.cpu_reqs = {'processes': 1, 'threads_per_process': 16}
+                        # task.cpu_reqs = {'processes': 1, 'threads_per_process': 16}
                         # task.cpu_reqs = {'process_type': 'MPI'}
 
-                        task.arguments += ['+ppn', '15', 'ties-{}.conf'.format(stage.name)]
+                        task.arguments += ['+ppn', str(self.cores-1),
+                                       '+pemap', '1-{}'.format(self.cores-1),
+                                       '+commap', '0',
+                                       'ties-{}.conf'.format(step)]
+
+                        # task.arguments += ['+ppn', '15', 'ties-{}.conf'.format(stage.name)]
                         # task.arguments += ['+ppn', '14', '+pemap', '0-13',
                         #                    '+commap', '14', 'ties-{}.conf'.format(stage.name)]
 
-                        task.executable = [TITAN_ORTE_NAMD2]         
+                        task.executable = [TITAN_NAMD2_MULTICORE_NONCUDA]         
                         task.mpi = False
-                        # task.cores = self.cores
+                        task.cores = self.cores
 
                         links = []
                         links += ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-tags.pdb'.format(system)]
