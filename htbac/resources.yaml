@@ -59,29 +59,13 @@ titan_orte:
     executable:
       - "python"
     pre_exec:
-      - "export WORKDIR=/lustre/atlas/scratch/farkaspall/chm126"
-      - "export MINICONDA=$WORKDIR/miniconda3"
-      - "export PATH=$MINICONDA/bin:$PATH"
-      - "export LD_LIBRARY_PATH=$MINICONDA/lib:$LD_LIBRARY_PATH"
-      - "export LD_PRELOAD=/lib64/librt.so.1"
-    cores: 16
-    uses_mpi: No
-
-  openmm_cuda:
-    executable:
-      - "python"
-    pre_exec:
-      - "export WORKDIR=/lustre/atlas/scratch/farkaspall/chm126"
-      - "export MINICONDA=$WORKDIR/miniconda3"
-      - "export PATH=$MINICONDA/bin:$PATH"
-      - "export LD_LIBRARY_PATH=$MINICONDA/lib:$LD_LIBRARY_PATH"
+      - "export PATH=/lustre/atlas/scratch/farkaspall/chm126/software/miniconda2/bin:$PATH"
+      - "export LD_LIBRARY_PATH=/lustre/atlas/scratch/farkaspall/chm126/software/miniconda2/lib:$LD_LIBRARY_PATH"
       - "module load cudatoolkit"
       - "export OPENMM_CUDA_COMPILER=`which nvcc`"
       - "export LD_PRELOAD=/lib64/librt.so.1"
     cores: 16
     uses_mpi: No
-
-
 
 bw_aprun:
   resource_dictionary:
