@@ -30,8 +30,8 @@ class Runner(object):
             The name of the resource where the protocols will be run. This is usually then name of the supercomputer
             or 'local' if the job will be executed locally. (the default is to try to run locally).
         comm_server: tuple(str, int)
-            The communication server used by the execution system. Specify a hostname and port number as a tuple. The
-            default is `localhost` and port `5672`
+            The communication server used by the execution system. Specify a hostname and port number as a tuple. If
+            None, then the dedicated server might be used from the resource description if present.
         """
 
         self.resource = yaml.load(resource_stream(__name__, 'resources.yaml'))[resource]
