@@ -19,7 +19,7 @@ logger.setLevel(logging.INFO)
 
 
 class Runner(object):
-    def __init__(self, resource='local', comm_server=('localhost', 5672)):
+    def __init__(self, resource='local', comm_server=None):
         """The workhorse of high throughput binding affinity calculations.
 
         Manages arbitrary number of protocols on any resource (including supercomputers).
@@ -35,6 +35,9 @@ class Runner(object):
         """
 
         self.resource = yaml.load(resource_stream(__name__, 'resources.yaml'))[resource]
+
+        if comm_server is None:
+            comm_server = self.resource.get('dedicated_rabbitmq_server')
 
         self._protocols = list()
         self._app_manager = AppManager(*comm_server)
