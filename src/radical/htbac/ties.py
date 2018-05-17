@@ -69,7 +69,7 @@ class Ties(object):
                         task = Task()
                         task.name = 'system_{}_replica_{}_lambda_{}'.format(system, replica, ld)
 
-                        task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage.name)]
+                        task.copy_input_data = ['$SHARED/ties-{}.conf'.format(step.name)]
                         # task.pre_exec = ['module load namd/2.12',
                         #          'export MPICH_PTL_SEND_CREDITS=-1',
                         #          'export MPICH_MAX_SHORT_MSG_SIZE=8000',
