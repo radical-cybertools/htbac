@@ -76,6 +76,8 @@ bw_aprun:
     queue: "normal"
     access_schema: "gsissh"
 
+  max_cu_count: 400
+
   namd: namd_mpi
 
   namd_openmp_cuda:
