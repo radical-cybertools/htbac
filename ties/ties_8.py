@@ -16,7 +16,7 @@ def main():
 
     ht.add_protocol(ties)
 
-    ht.rabbitmq_config(hostname='openshift-node1.ccs.ornl.gov', port=30673) # add new port number 
+    ht.rabbitmq_config(hostname='csc190specfem.marble.ccs.ornl.gov', port=30672) # add new port number 
     ht.run(walltime=120)
 
 
