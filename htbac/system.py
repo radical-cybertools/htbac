@@ -30,6 +30,18 @@ class System(AbFolder):
 
         self.box_x, self.box_y, self.box_z = pmd.amber.AmberAsciiRestart(self.coordinate.path).box[:3]
 
+        if 'constraint' in [f.tag for f in files]:
+            df = pmd.load_file(self.constraint.path).to_dataframe()
+            all_o_same = all(df.occupancy.values == df.occupancy.values[0])
+            all_b_same = all(df.bfactor.values == df.bfactor.values[0])
+
+            if all_o_same and not all_b_same:
+                self.constraint_column = 'B'
+            elif all_b_same and not all_o_same:
+                self.constraint_column = 'O'
+            else:
+                raise ValueError('Invalid constraint file!')
+
     @property
     def water_model(self):
         """The water model of the system. Can be one of `tip3`, `tip4`.
