@@ -1,6 +1,10 @@
+import logging
 import parmed as pmd
 
 from .abpath import AbFolder
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 
 class System(AbFolder):
@@ -41,6 +45,8 @@ class System(AbFolder):
                 self.constraint_column = 'O'
             else:
                 raise ValueError('Invalid constraint file!')
+
+            logger.info('Constraint column set to: ', self.constraint_column)
 
     @property
     def water_model(self):
