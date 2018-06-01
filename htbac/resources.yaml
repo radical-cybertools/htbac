@@ -27,7 +27,7 @@ titan_orte:
 
   namd_openmp_cuda:
     executable:
-      - "/lustre/atlas/scratch/farkaspall/chm126/namd/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
+      - "/lustre/atlas/scratch/farkaspall/chm126/software/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
     pre_exec:
       - "export LD_PRELOAD=/lib64/librt.so.1"
     arguments:
@@ -75,6 +75,8 @@ bw_aprun:
     project: "bamm"
     queue: "normal"
     access_schema: "gsissh"
+
+  max_cu_count: 400
 
   namd: namd_mpi
 
