@@ -46,7 +46,7 @@ class System(AbFolder):
             else:
                 raise ValueError('Invalid constraint file!')
 
-            logger.info('Constraint column set to: ', self.constraint_column)
+            logger.info('Constraint column set to: {}'.format(self.constraint_column))
 
     @property
     def water_model(self):
