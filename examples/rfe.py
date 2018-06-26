@@ -29,7 +29,7 @@ def run_rfe():
         rfe.cutoff = 12.0
         rfe.switchdist = 10.0
         rfe.pairlistdist = 13.5
-        rfe.numminsteps = 10000
+        rfe.numminsteps = 5000
         rfe.numsteps = numsteps
 
         rfe.add_input_file(step, is_executable_argument=True)
