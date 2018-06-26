@@ -36,7 +36,7 @@ def run_rfe():
         
         rfe.add_ensemble('replica', range(1))
         # to increase the number of EnTK tasks: change the lambdawindow parameter
-        rfe.add_ensemble('lambdawindow', 1) 
+        rfe.add_ensemble('lambdawindow', [1.]) 
 
         p.append(rfe)
 
