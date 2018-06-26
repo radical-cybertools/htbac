@@ -33,9 +33,10 @@ def run_rfe():
         rfe.numsteps = numsteps
 
         rfe.add_input_file(step, is_executable_argument=True)
-
-        rfe.add_ensemble('replica', range(5))
-        rfe.add_ensemble('lambdawindow', np.linspace(0, 1, 13))
+        
+        rfe.add_ensemble('replica', range(1))
+        # to increase the number of EnTK tasks: change the lambdawindow parameter
+        rfe.add_ensemble('lambdawindow', 1) 
 
         p.append(rfe)
 
