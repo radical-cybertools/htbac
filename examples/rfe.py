@@ -19,12 +19,12 @@ def run_rfe():
 
     p = Protocol(clone_settings=False)
 
-    for step, numsteps in zip(Rfe.steps, [10000, 3000000]):
+    for step, numsteps in zip(Rfe.steps, [5000, 50000]):
 
         rfe = Simulation()
         rfe.system = system
         rfe.engine = 'namd_mpi'
-        rfe.cores = 128
+        rfe.cores = 32
 
         rfe.cutoff = 12.0
         rfe.switchdist = 10.0
@@ -35,7 +35,7 @@ def run_rfe():
         rfe.add_input_file(step, is_executable_argument=True)
 
         rfe.add_ensemble('replica', range(5))
-        rfe.add_ensemble('lambdawindow', np.linspace(0, 1, 65))
+        rfe.add_ensemble('lambdawindow', np.linspace(0, 1, 13))
 
         p.append(rfe)
 
