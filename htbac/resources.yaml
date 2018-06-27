@@ -55,6 +55,21 @@ titan_orte:
     cores: 16
     uses_mpi: No
 
+  namd_mpi:
+    executable:
+      - "/lustre/atlas/scratch/farkaspall/chm126/software/NAMD_2.12_Linux-x86_64-multicore/namd2"
+    pre_exec:
+      - "export LD_PRELOAD=/lib64/librt.so.1"
+    arguments:
+      - "+ppn"
+      - "15"
+      - "+pemap"
+      - "1-15"
+      - "+commap"
+      - "0"
+    uses_mpi: Yes
+
+
   openmm:
     executable:
       - "/lustre/atlas/scratch/farkaspall/chm126/software/miniconda2/bin/python"
@@ -154,7 +169,6 @@ bw_local_orte:
       - "+pemap"
       - "0-31"
     uses_mpi: Yes
-
 
 local:
   resource_dictionary:
