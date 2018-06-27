@@ -1,11 +1,10 @@
-import sys
 import yaml
 import pprint
 import logging
 from pkg_resources import resource_stream
 
 import radical.utils as ru
-from radical.entk import AppManager, ResourceManager
+from radical.entk import AppManager
 
 from .simulation import Simulatable
 
@@ -113,11 +112,10 @@ class Runner(object):
         logger.info('Resource dictionary:\n{}'.format(pprint.pformat(self.resource['resource_dictionary'])))
 
         # Create Resource Manager object with the above resource description
-        resource_manager = ResourceManager(self.resource['resource_dictionary'])
-        resource_manager.shared_data = list(shared_data)
+        self._app_manager.resource_desc = self.resource['resource_dictionary']
+        self._app_manager._resource_manager.shared_data = list(shared_data)
 
         # Create Application Manager
-        self._app_manager.resource_manager = resource_manager
         self._app_manager.assign_workflow(pipelines)
 
         logger.info("\n".join("Stage {}: {}*{} cores.".
