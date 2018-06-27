@@ -39,7 +39,7 @@ class Runner(object):
             comm_server = self.resource.get('dedicated_rabbitmq_server')
 
         self._protocols = list()
-        self._app_manager = AppManager(*comm_server)
+        self._app_manager = AppManager(hostname=comm_server[0], port=comm_server[1])
 
         # Profiler for Runner
         self._uid = ru.generate_id('radical.htbac.workflow_runner')
