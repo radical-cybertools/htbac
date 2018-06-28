@@ -55,21 +55,6 @@ titan_orte:
     cores: 16
     uses_mpi: No
 
-  namd_mpi:
-    executable:
-      - "/lustre/atlas/scratch/farkaspall/chm126/software/NAMD_2.12_Linux-x86_64-multicore/namd2"
-    pre_exec:
-      - "export LD_PRELOAD=/lib64/librt.so.1"
-    arguments:
-      - "+ppn"
-      - "15"
-      - "+pemap"
-      - "1-15"
-      - "+commap"
-      - "0"
-    uses_mpi: Yes
-
-
   openmm:
     executable:
       - "/lustre/atlas/scratch/farkaspall/chm126/software/miniconda2/bin/python"
@@ -81,6 +66,40 @@ titan_orte:
       - "export LD_PRELOAD=/lib64/librt.so.1"
     cores: 16
     uses_mpi: No
+
+
+titan_aprun:
+  resource_dictionary:
+    resource: "ornl.titan_aprun"
+    walltime:
+    cores:
+    project: "chm126"
+    queue: "batch"
+    access_schema: "local"
+
+  agent_cores: 16
+
+  dedicated_rabbitmq_server:
+    - 'csc190specfem.marble.ccs.ornl.gov'
+    - 30672
+
+  namd_mpi:
+    executable:
+      - "/lustre/atlas2/chm126/scratch/farkaspall/software/NAMD_2.12_Source/CRAY-XE-gnu/namd2"
+    pre_exec:
+      - "module load rca"
+      - "module load craype-hugepages8M"
+      - "export HUGETLB_DEFAULT_PAGE_SIZE=8M"
+      - "export HUGETLB_MORECORE=no"
+    arguments:
+      - "+ppn"
+      - "15"
+      - "+pemap"
+      - "1-15"
+      - "+commap"
+      - "0"
+    uses_mpi: Yes
+
 
 bw_aprun:
   resource_dictionary:
