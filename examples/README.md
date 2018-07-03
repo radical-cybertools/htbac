@@ -1,11 +1,12 @@
 ## HTBAC Workload
 
 Here are instructions for testing a relative free energy protocol. This workload consists of 
-1 `EnTK` pipeline, 2 `EnTK` stages, 1 `EnTK` task per stage. As setup, each task receives 32 cores, but 
-this can be modified in `rfe.cores = 128`. Currently, this workload is configured to execute on
-Blue Waters with the aprun launch method using `rabbitmq` docker instance `33158` on the
+1 `EnTK` pipeline, 2 `EnTK` stages, 1 `EnTK` task per stage. By setup, each task receives 32 cores, but 
+this can be modified in `rfe.cores = 32`. Currently, this workload is configured to execute on
+Blue Waters with the `aprun` launch method using `rabbitmq` docker instance `33158` on the
 RADICAL VM-2. This instance has been reserved for the DA scheduler testing. Also, the walltime
 and queue can be configured accordingly using `ht.run(walltime=480, queue='high')`. 
+Expect this workload to run for approximately 30 minutes. 
 
 ### Instructions: 
 * Install following stack:
