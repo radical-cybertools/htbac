@@ -46,7 +46,8 @@ class Runner(object):
         self._port = port
 
 
-    def run(self, strong_scaled=1, autoterminate=True, queue='high', walltime=1440):
+    def run(self, strong_scaled = 1, autoterminate = True, queue = 'high',
+            walltime = 1440):
         pipelines = set()
         input_data = list()
 
