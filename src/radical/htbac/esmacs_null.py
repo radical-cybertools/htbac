@@ -65,9 +65,9 @@ class Esmacs_null(object):
                     # ** each application is given -n * -d cores      
 
                     #task.cpu_reqs = {'processes': 1, 'process_type': 'MPI', 'threads_per_process': 16, 'thread_type': None}
-                    task.arguments += ['sleep','1000']
+                    task.arguments = ['I am task']
 
-                    task.executable = ['/bin/bash']
+                    task.executable = ['/bin/echo']
                     # task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(stage.name)]
                     
                     # aprun -n $NPROC -N 1 -d 8 namd2 +ppn 7 +setcpuaffinity \ 

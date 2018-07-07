@@ -14,7 +14,7 @@ def main():
     ht.add_protocol(ties1)
 
     ht.rabbitmq_config(hostname='two.radical-project.org', port=33048) # add new port number 
-    ht.run(walltime=120)
+    ht.run(walltime=15)
 
 
 if __name__ == '__main__':
