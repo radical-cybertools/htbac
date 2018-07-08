@@ -65,9 +65,9 @@ class Ties_null(object):
                         task = Task()
                         task.name = 'system_{}_replica_{}_lambda_{}'.format(system, replica, ld)
 
-                        task.arguments = ['I am task']
+                        task.arguments = ['sleep 1000']
                         # task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage.name)]
-                        task.executable = ['/bin/echo']
+                        task.executable = ['/bin/bash']
 
                         task.mpi = True
                         task.cores = self.cores
