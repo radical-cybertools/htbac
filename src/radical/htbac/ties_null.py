@@ -69,7 +69,7 @@ class Ties_null(object):
                         # task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage.name)]
                         task.executable = ['/bin/echo']
 
-                        # task.mpi = True
+                        task.mpi = True
                         task.cores = self.cores
 
                         links = []

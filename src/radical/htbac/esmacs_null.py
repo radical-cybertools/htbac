@@ -44,7 +44,7 @@ class Esmacs_null(object):
             stage = Stage()
             stage.name = step
             for system in self.systems: 
-                self.box = pmd.amber.AmberAsciiRestart('systems/esmacs/{s}/build/{s}-complex.crd'.format(s=system)).box
+                # self.box = pmd.amber.AmberAsciiRestart('systems/esmacs/{s}/build/{s}-complex.crd'.format(s=system)).box
                 for replica in range(self.number_of_replicas):
                 
                     task = Task()
@@ -76,7 +76,7 @@ class Esmacs_null(object):
 
                     # task.cpu_reqs = {'processes': 1, 'process_type': None, 'threads_per_process': 1, 'thread_type': None} GPU stack only
 
-                    # task.mpi = True
+                    task.mpi = True
                     task.cores = self.cores
 
                     links = []
