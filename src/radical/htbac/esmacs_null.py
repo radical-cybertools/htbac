@@ -65,7 +65,7 @@ class Esmacs_null(object):
                     # ** each application is given -n * -d cores      
 
                     #task.cpu_reqs = {'processes': 1, 'process_type': 'MPI', 'threads_per_process': 16, 'thread_type': None}
-                    task.arguments = ['sleep 1000']
+                    task.arguments = ['1000']
 
                     task.executable = ['/bin/sleep']
                     # task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(stage.name)]
