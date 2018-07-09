@@ -1,6 +1,6 @@
 
 import os
-
+from radical.entk import Pipeline, Stage, Task, AppManager
 # ------------------------------------------------------------------------------
 # Set default verbosity
 if os.environ.get('RADICAL_ENTK_VERBOSE') == None:
@@ -58,6 +58,8 @@ if __name__ == '__main__':
 
             # Create a Task object
             t = Task()
+            t.cores = 32
+            t.mpi = True
             t.name = 'my-task'        # Assign a name to the task (optional, do not use ',' or '_')
             t.executable = ['/bin/sleep']   # Assign executable to the task   
             t.arguments = ['1000']  # Assign arguments for the task executable
@@ -79,7 +81,7 @@ if __name__ == '__main__':
                 'walltime': 30,
                 'cores': 640,
                 'project': 'bamm',
-                'queue': high,
+                'queue': 'high',
                 'access_schema': 'gsissh'}
 
     # Assign resource request description to the Application Manager
@@ -87,7 +89,7 @@ if __name__ == '__main__':
 
     # Assign the workflow as a set or list of Pipelines to the Application Manager
     # Note: The list order is not guaranteed to be preserved
-    appman.workflow = set([pipelines])
+    appman.workflow = set(pipelines)
 
     # Run the Application Manager
     appman.run()
