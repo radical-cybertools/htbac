@@ -1,6 +1,8 @@
 
 import os
-from radical.entk import Pipeline, Stage, Task, AppManager
+from radical.entk import Pipeline, Stage, Task
+from radical.entk import AppManager, ResourceManager
+
 # ------------------------------------------------------------------------------
 # Set default verbosity
 if os.environ.get('RADICAL_ENTK_VERBOSE') == None:
@@ -17,46 +19,33 @@ port = os.environ.get('two.radical-project.org', 33048)
 
 if __name__ == '__main__':
 
-    pipelines = []
-
-    # Create a Pipeline object
+    pipelines = set()
     p1 = Pipeline()
-
-    # Create Stage objects
-
-    for i in range(4): 
-
+    
+    for i in range(4):
         s = Stage()
 
-
         for cnt in range(10):
-
-            # Create a Task object
             t = Task()
             t.name = 'my-task'        # Assign a name to the task (optional, do not use ',' or '_')
             t.executable = ['/bin/sleep']   # Assign executable to the task   
             t.arguments = ['1000']  # Assign arguments for the task executable
-
-            # Add the Task to the Stage
             s.add_tasks(t)
-
-    # Add Stage to the Pipeline
-    p1.add_stages(s)
-    pipelines.append(p1)
+            
+        p1.add_stages(s)
+    pipelines.add(p1)
 
     # Create a Pipeline object
     p2 = Pipeline()
 
     # Create Stage objects
 
-    for i in range(4): 
+    for i in range(4):
 
         s = Stage()
 
-
         for cnt in range(10):
 
-            # Create a Task object
             t = Task()
             t.cores = 32
             t.mpi = True
@@ -64,19 +53,14 @@ if __name__ == '__main__':
             t.executable = ['/bin/sleep']   # Assign executable to the task   
             t.arguments = ['1000']  # Assign arguments for the task executable
 
-            # Add the Task to the Stage
             s.add_tasks(t)
-
-    # Add Stage to the Pipeline
-    p2.add_stages(s)
     
-    pipelines.append(p2)
-    # Create Application Manager
-    appman = AppManager(hostname='two.radical-project.org', port=33048)
+        p2.add_stages(s)
+    
+    pipelines.add(p2)
 
-    # Create a dictionary describe four mandatory keys:
-    # resource, walltime, and cpus
-    # resource is 'local.localhost' to execute locally
+    
+    appman = AppManager(hostname='two.radical-project.org', port=33048)
     res_dict = {'resource': 'ncsa.bw_aprun',
                 'walltime': 30,
                 'cores': 640,
@@ -85,11 +69,12 @@ if __name__ == '__main__':
                 'access_schema': 'gsissh'}
 
     # Assign resource request description to the Application Manager
-    appman.resource_desc = res_dict
+    resource_manager = ResourceManager(res_dict)
+    appman.resource_manager = resource_manager
 
     # Assign the workflow as a set or list of Pipelines to the Application Manager
     # Note: The list order is not guaranteed to be preserved
-    appman.workflow = set(pipelines)
+    appman.assign_workflow(pipelines)
 
     # Run the Application Manager
     appman.run()
