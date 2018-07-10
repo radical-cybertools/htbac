@@ -19,28 +19,58 @@ def run_rfe():
 
     p = Protocol(clone_settings=False)
 
+    import pdb 
+    pdb.set_trace()
+
     for step, numsteps in zip(Rfe.steps, [5000, 50000]):
 
-        rfe = Simulation()
-        rfe.system = system
-        rfe.engine = 'namd_mpi'
-        rfe.cores = 32
+        if step == Rfe.step0:
 
-        rfe.cutoff = 12.0
-        rfe.switchdist = 10.0
-        rfe.pairlistdist = 13.5
-        rfe.numminsteps = 5000
-        rfe.numsteps = numsteps
+            rfe = Simulation()
+            rfe.system = system
+            rfe.engine = 'namd_mpi'
+            rfe.cores = 32
 
-        rfe.add_input_file(step, is_executable_argument=True)
+            rfe.cutoff = 12.0
+            rfe.switchdist = 10.0
+            rfe.pairlistdist = 13.5
+            rfe.numminsteps = 5000
+            rfe.numsteps = numsteps
+            rfe.lfs = 10
+
+            rfe.add_input_file(step, is_executable_argument=True)
+            
+            # To change the number of tasks in this stage change 
+            # modify the replica parameter here: 
+
+            rfe.add_ensemble('replica', range(1))
+            rfe.add_ensemble('lambdawindow', [1.]) 
+            p.append(rfe)
         
-        rfe.add_ensemble('replica', range(1))
-        # to increase the number of EnTK tasks: change the lambdawindow parameter
-        rfe.add_ensemble('lambdawindow', [1.]) 
+        if step == Rfe.step1:
 
-        p.append(rfe)
+            rfe = Simulation()
+            rfe.system = system
+            rfe.engine = 'namd_mpi'
+            rfe.cores = 32
 
-    ht = Runner('bw_aprun', comm_server=('two.radical-project.org', 33158))
+            rfe.cutoff = 12.0
+            rfe.switchdist = 10.0
+            rfe.pairlistdist = 13.5
+            rfe.numminsteps = 5000
+            rfe.numsteps = numsteps
+
+            rfe.add_input_file(step, is_executable_argument=True)
+            
+            # make sure the number of ensemble members is the same as the 
+            # previous step for lfs/tagging purposes 
+
+            rfe.add_ensemble('replica', range(1))
+            rfe.add_ensemble('lambdawindow', [1.]) 
+            p.append(rfe)
+    
+   
+    ht = Runner('bw_aprun', comm_server=('two.radical-project.org', 33130))
     ht.add_protocol(p)
     ht.run(walltime=480, queue='high')
 

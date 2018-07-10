@@ -122,6 +122,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         AbFolder.__init__(self)
 
     # Internal constants
+    # Regex search pattern
 
     _path = "$Pipeline_{pipeline}_Stage_{stage}_Task_{task}"
     _sed = "sed -i.bak 's/<{}>/{}/g' {}"
@@ -170,6 +171,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
     def all_variables_defined(self):
         return all(self.get_variable(v) is not None for vs in self._variables.values() for v in vs)
+
 
     def get_variables(self):
         return {f: [(v, self.get_variable(v)) for v in vs] for f, vs in self._variables.items()}
@@ -277,11 +279,13 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         task.arguments += self.engine.arguments
         task.mpi = self.engine.uses_mpi
         task.cores = self._cores
+        task.lfs = None
+        task.tag = task.name 
 
         task.arguments.extend(self.arguments)
         task.copy_input_data.extend(self.copied_files)
         task.copy_input_data.extend(self.system.copied_files)
-
+        if 
         task.post_exec.append('echo "{}" > sim_desc.txt'.format(task.name))
 
         if self._input_sim:
@@ -296,8 +300,10 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     def generate_stage(self):
         s = Stage()
         s.name = self.name
+        import pdb
+        pdb.set_trace()
+        print "this stage {}".format(self.name)
         s.add_tasks({self.generate_task(**x) for x in self._ensemble_product()})
-
         return s
 
     def generate_pipeline(self):
