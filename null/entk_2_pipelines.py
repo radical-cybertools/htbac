@@ -21,43 +21,25 @@ if __name__ == '__main__':
 
     pipelines = set()
     p1 = Pipeline()
+    p2 = Pipeline()
     
     for i in range(4):
         s = Stage()
 
-        for cnt in range(10):
+        for x in range(10):
             t = Task()
             t.name = 'my-task'        # Assign a name to the task (optional, do not use ',' or '_')
-            t.executable = ['/bin/sleep']   # Assign executable to the task   
-            t.arguments = ['1000']  # Assign arguments for the task executable
+            t.cores = 32
+            t.mpi = True
+            t.executable = ['/bin/hostname']   # Assign executable to the task   
+            t.arguments = ['>','hostname_%s.txt'%x]  # Assign arguments for the task executable
             s.add_tasks(t)
             
         p1.add_stages(s)
-    pipelines.add(p1)
-
-    # Create a Pipeline object
-    p2 = Pipeline()
-
-    # Create Stage objects
-
-    for i in range(4):
-
-        s = Stage()
-
-        for cnt in range(10):
-
-            t = Task()
-            t.cores = 32
-            t.mpi = True
-            t.name = 'my-task'        # Assign a name to the task (optional, do not use ',' or '_')
-            t.executable = ['/bin/sleep']   # Assign executable to the task   
-            t.arguments = ['1000']  # Assign arguments for the task executable
-
-            s.add_tasks(t)
-    
         p2.add_stages(s)
-    
-    pipelines.add(p2)
+
+    pipelines.add(p1)
+    pipelines.add(p2) 
 
     
     appman = AppManager(hostname='two.radical-project.org', port=33048)
