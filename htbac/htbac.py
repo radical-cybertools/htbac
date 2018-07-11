@@ -119,7 +119,7 @@ class Runner(object):
         self._app_manager.workflow = pipelines
 
         logger.info("\n".join("Stage {}: {}*{} cpus.".
-                              format(i, len(s.tasks), next(iter(s.tasks)).cpus)
+                              format(i, len(s.tasks), next(iter(s.tasks)).cpu_reqs['processes'])
                               for i, s in enumerate(next(iter(pipelines)).stages)))
 
         self._prof.prof('execution_run')
