@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     pipelines = set()
     p1 = Pipeline()
-    p2 = Pipeline()
+    # p2 = Pipeline()
     
     for i in range(4):
         s = Stage()
@@ -32,7 +32,7 @@ if __name__ == '__main__':
             t.cpu_reqs = { 
                             'processes': 1,
                             'process_type': None,
-                            'threads_per_process': 15,
+                            'threads_per_process': 32,
                             'thread_type': None
                         }
         
@@ -41,10 +41,10 @@ if __name__ == '__main__':
             s.add_tasks(t)
             
         p1.add_stages(s)
-        p2.add_stages(s)
+        # p2.add_stages(s)
 
     pipelines.add(p1)
-    pipelines.add(p2) 
+    # pipelines.add(p2) 
 
     
     # appman = AppManager(hostname='two.radical-project.org', port=33048)
