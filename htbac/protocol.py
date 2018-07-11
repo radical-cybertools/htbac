@@ -55,12 +55,12 @@ class Protocol(Simulatable, MutableSequence):
         return (data for sim in self for data in sim.shared_data)
 
     @property
-    def cores(self):
+    def cpus(self):
         """
 
         Returns
         -------
         int
-            Number of cores the first simulation in the protocol requires.
+            Number of cpus the first simulation in the protocol requires.
         """
-        return self[0].cores
+        return self[0].cpus

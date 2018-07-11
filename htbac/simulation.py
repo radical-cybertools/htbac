@@ -52,8 +52,8 @@ class Simulatable:
         raise NotImplementedError
 
     @abstractproperty
-    def cores(self):
-        """Number of cores required to fulfill the needs of the job(s).
+    def cpus(self):
+        """Number of cpus required to fulfill the needs of the job(s).
 
         Returns
         -------
@@ -115,7 +115,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         # self._input_files = list()  # Files than are input to this simulation
         # self._arguments = list()  # Files that are arguments to the executable.
 
-        self._cores = 0
+        self._cpus = 0
         self._variables = dict()
         self._ensembles = OrderedDict()
 
@@ -219,7 +219,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         if clone_settings:
             self.engine = input_sim.engine
-            self.cores = input_sim._cores
+            self.cpus = input_sim._cpus
             self.system = input_sim.system
 
             for in_file, attrs in input_sim._variables.iteritems():
@@ -275,7 +275,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         task.pre_exec += self.engine.pre_exec
         task.executable += self.engine.executable
         task.arguments += self.engine.arguments
-        task.cpu_reqs = {'processes': self._cores,
+        task.cpu_reqs = {'processes': self._cpus,
                          'process_type': 'MPI' if self.engine.uses_mpi else None,
                          'threads_per_process': 1,
                          'thread_type': None
@@ -325,14 +325,14 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         return self.shared_files + [d for s in systems for d in s.shared_files]
 
     @property
-    def cores(self):
-        return self._cores * len(self)
+    def cpus(self):
+        return self._cpus * len(self)
 
-    @cores.setter
-    def cores(self, value):
-        if isinstance(self.engine, Engine) and self.engine.cores:
-            raise ValueError('Engine has REQUIRED core count. Do not set simulation cores!')
-        self._cores = value
+    @cpus.setter
+    def cpus(self, value):
+        if isinstance(self.engine, Engine) and self.engine.cpus:
+            raise ValueError('Engine has REQUIRED core count. Do not set simulation cpus!')
+        self._cpus = value
 
     def configure_engine_for_resource(self, resource):
         if not isinstance(self.engine, str):
@@ -347,13 +347,13 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         logger.info("Engine is using executable: {}".format(self.engine.executable))
 
-        if self.engine.cores:
-            if self.cores:
-                raise ValueError('Engine has REQUIRED core count. Do not set simulation cores!')
+        if self.engine.cpus:
+            if self.cpus:
+                raise ValueError('Engine has REQUIRED core count. Do not set simulation cpus!')
 
             logger.info("Setting simulation core count to the REQUIRED value by engine ({}). "
-                        "Do not alter this!".format(self.engine.cores))
-            self._cores = self.engine.cores
+                        "Do not alter this!".format(self.engine.cpus))
+            self._cpus = self.engine.cpus
 
     # Private methods
 
