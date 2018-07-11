@@ -68,7 +68,7 @@ class Runner(object):
         walltime: int
             Wall time in minutes.
         strong_scaled: float
-            For testing strong scaling. Number of cores will be multiplied by this number before execution.
+            For testing strong scaling. Number of cpus will be multiplied by this number before execution.
         queue: str
             Name of the queue. If there is a default for your resource that will be used.
         access_schema: str
@@ -79,7 +79,7 @@ class Runner(object):
 
         pipelines = set()
         shared_data = set()
-        cores = 0
+        cpus = 0
 
         max_cu_count = self.resource.get('max_cu_count', 0)
 
@@ -92,12 +92,12 @@ class Runner(object):
 
             pipelines.add(gen_pipeline)
             shared_data.update(protocol.shared_data)
-            cores += protocol.cores
+            cpus += protocol.cpus
 
-        cores *= strong_scaled
-        cores += self.resource.get('agent_cores', 0)
+        cpus *= strong_scaled
+        cpus += self.resource.get('agent_cpus', 0)
 
-        self.resource['resource_dictionary']['cores'] = cores
+        self.resource['resource_dictionary']['cpus'] = cpus
 
         if resource:
             self.resource['resource_dictionary']['resource'] = resource
@@ -108,7 +108,7 @@ class Runner(object):
         if access_schema:
             self.resource['resource_dictionary']['access_schema'] = access_schema
 
-        logger.info('Using total number of cores: {}.'.format(cores))
+        logger.info('Using total number of cpus: {}.'.format(cpus))
         logger.info('Resource dictionary:\n{}'.format(pprint.pformat(self.resource['resource_dictionary'])))
 
         # Create Resource Manager object with the above resource description
@@ -118,8 +118,8 @@ class Runner(object):
         # Create Application Manager
         self._app_manager.workflow = pipelines
 
-        logger.info("\n".join("Stage {}: {}*{} cores.".
-                              format(i, len(s.tasks), next(iter(s.tasks)).cores)
+        logger.info("\n".join("Stage {}: {}*{} cpus.".
+                              format(i, len(s.tasks), next(iter(s.tasks)).cpu_reqs['processes'])
                               for i, s in enumerate(next(iter(pipelines)).stages)))
 
         self._prof.prof('execution_run')
