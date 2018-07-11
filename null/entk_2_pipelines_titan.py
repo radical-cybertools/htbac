@@ -35,7 +35,7 @@ if __name__ == '__main__':
             s.add_tasks(t)
             
         p1.add_stages(s)
-        p2.add_stages(s)
+
 
     pipelines.add(p1)
     
