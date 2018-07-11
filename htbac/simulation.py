@@ -275,8 +275,11 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         task.pre_exec += self.engine.pre_exec
         task.executable += self.engine.executable
         task.arguments += self.engine.arguments
-        task.mpi = self.engine.uses_mpi
-        task.cores = self._cores
+        task.cpu_reqs = {'processes': self._cores,
+                         'process_type': 'MPI' if self.engine.uses_mpi else None,
+                         'threads_per_process': 1,
+                         'thread_type': None
+                         }
 
         task.arguments.extend(self.arguments)
         task.copy_input_data.extend(self.copied_files)
