@@ -33,6 +33,7 @@ if __name__ == '__main__':
         t.arguments = ['>','hostname_%s.txt'%x]  # Assign arguments for the task executable
         s.add_tasks(t)
             
+
     p1.add_stages(s1)
 
     s2 = Stage()
