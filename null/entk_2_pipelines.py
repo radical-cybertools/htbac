@@ -1,7 +1,7 @@
 
 import os
 from radical.entk import Pipeline, Stage, Task
-from radical.entk import AppManager, ResourceManager
+from radical.entk import AppManager
 
 # ------------------------------------------------------------------------------
 # Set default verbosity
@@ -51,7 +51,7 @@ if __name__ == '__main__':
     amgr = AppManager(hostname='two.radical-project.org', port=33048)
     amgr.resource_desc = {'resource': 'ncsa.bw_aprun',
                             'walltime': 30,
-                            'cpus': 640
+                            'cpus': 640,
                             'project': 'bamm',
                             'queue': 'high',
                             'access_schema': 'gsissh'}
@@ -66,4 +66,4 @@ if __name__ == '__main__':
     # appman.assign_workflow(pipelines)
 
     # Run the Application Manager
-    appman.run()
+    amgr.run()
