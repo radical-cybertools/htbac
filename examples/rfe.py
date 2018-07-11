@@ -19,9 +19,6 @@ def run_rfe():
 
     p = Protocol(clone_settings=False)
 
-    import pdb 
-    pdb.set_trace()
-
     for step, numsteps in zip(Rfe.steps, [5000, 50000]):
 
         if step == Rfe.step0:
@@ -36,14 +33,14 @@ def run_rfe():
             rfe.pairlistdist = 13.5
             rfe.numminsteps = 5000
             rfe.numsteps = numsteps
-            rfe.lfs = 10
+            
 
             rfe.add_input_file(step, is_executable_argument=True)
             
             # To change the number of tasks in this stage change 
             # modify the replica parameter here: 
 
-            rfe.add_ensemble('replica', range(1))
+            rfe.add_ensemble('replica', range(5))
             rfe.add_ensemble('lambdawindow', [1.]) 
             p.append(rfe)
         
@@ -65,7 +62,7 @@ def run_rfe():
             # make sure the number of ensemble members is the same as the 
             # previous step for lfs/tagging purposes 
 
-            rfe.add_ensemble('replica', range(1))
+            rfe.add_ensemble('replica', range(5))
             rfe.add_ensemble('lambdawindow', [1.]) 
             p.append(rfe)
     
