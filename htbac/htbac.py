@@ -1,11 +1,10 @@
-import sys
 import yaml
 import pprint
 import logging
 from pkg_resources import resource_stream
 
 import radical.utils as ru
-from radical.entk import AppManager, ResourceManager
+from radical.entk import AppManager
 
 from .simulation import Simulatable
 
@@ -40,7 +39,7 @@ class Runner(object):
             comm_server = self.resource.get('dedicated_rabbitmq_server')
 
         self._protocols = list()
-        self._app_manager = AppManager(*comm_server)
+        self._app_manager = AppManager(hostname=comm_server[0], port=comm_server[1])
 
         # Profiler for Runner
         self._uid = ru.generate_id('radical.htbac.workflow_runner')
@@ -113,12 +112,11 @@ class Runner(object):
         logger.info('Resource dictionary:\n{}'.format(pprint.pformat(self.resource['resource_dictionary'])))
 
         # Create Resource Manager object with the above resource description
-        resource_manager = ResourceManager(self.resource['resource_dictionary'])
-        resource_manager.shared_data = list(shared_data)
+        self._app_manager.resource_desc = self.resource['resource_dictionary']
+        self._app_manager.shared_data = list(shared_data)
 
         # Create Application Manager
-        self._app_manager.resource_manager = resource_manager
-        self._app_manager.assign_workflow(pipelines)
+        self._app_manager.workflow = pipelines
 
         logger.info("\n".join("Stage {}: {}*{} cores.".
                               format(i, len(s.tasks), next(iter(s.tasks)).cores)
