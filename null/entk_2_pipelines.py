@@ -29,8 +29,13 @@ if __name__ == '__main__':
         for x in range(10):
             t = Task()
             t.name = 'my-task'        # Assign a name to the task (optional, do not use ',' or '_')
-            t.cores = 32
-            t.mpi = True
+            t.cpu_reqs = { 
+                            'processes': 1,
+                            'process_type': None,
+                            'threads_per_process': 15,
+                            'thread_type': None
+                        }
+        
             t.executable = ['/bin/hostname']   # Assign executable to the task   
             t.arguments = ['>','hostname_%s.txt'%x]  # Assign arguments for the task executable
             s.add_tasks(t)
@@ -42,21 +47,23 @@ if __name__ == '__main__':
     pipelines.add(p2) 
 
     
-    appman = AppManager(hostname='two.radical-project.org', port=33048)
-    res_dict = {'resource': 'ncsa.bw_aprun',
-                'walltime': 30,
-                'cores': 640,
-                'project': 'bamm',
-                'queue': 'high',
-                'access_schema': 'gsissh'}
+    # appman = AppManager(hostname='two.radical-project.org', port=33048)
+    amgr = AppManager(hostname='two.radical-project.org', port=33048)
+    amgr.resource_desc = {'resource': 'ncsa.bw_aprun',
+                            'walltime': 30,
+                            'cpus': 640
+                            'project': 'bamm',
+                            'queue': 'high',
+                            'access_schema': 'gsissh'}
+    amgr.workflow = pipelines
 
     # Assign resource request description to the Application Manager
-    resource_manager = ResourceManager(res_dict)
-    appman.resource_manager = resource_manager
+    # resource_manager = ResourceManager(res_dict)
+    # appman.resource_manager = resource_manager
 
     # Assign the workflow as a set or list of Pipelines to the Application Manager
     # Note: The list order is not guaranteed to be preserved
-    appman.assign_workflow(pipelines)
+    # appman.assign_workflow(pipelines)
 
     # Run the Application Manager
     appman.run()
