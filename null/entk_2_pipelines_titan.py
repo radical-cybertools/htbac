@@ -25,7 +25,7 @@ if __name__ == '__main__':
             t.name = 'my-task'        # Assign a name to the task (optional, do not use ',' or '_')
             t.cpu_reqs = { 
                             'processes': 1,
-                            'process_type': None,
+                            'process_type': 'MPI',
                             'threads_per_process': 15,
                             'thread_type': None
                         }
