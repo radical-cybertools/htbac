@@ -21,10 +21,10 @@ if __name__ == '__main__':
 
     pipelines = set()
     p1 = Pipeline()
-    # p2 = Pipeline()
+    p2 = Pipeline()
     
     for i in range(4):
-        s = Stage()
+        s1 = Stage()
 
         for x in range(10):
             t = Task()
@@ -38,14 +38,16 @@ if __name__ == '__main__':
         
             t.executable = ['/bin/hostname']   # Assign executable to the task   
             t.arguments = ['>','hostname_%s.txt'%x]  # Assign arguments for the task executable
-            s.add_tasks(t)
-            
-        p1.add_stages(s)
-        # p2.add_stages(s)
+            s1.add_tasks(t)
+
+
+        p1.add_stages(s1)
+        p2.add_stages(s)
 
     pipelines.add(p1)
-    # pipelines.add(p2) 
-
+    pipelines.add(p2) 
+  
+   
     
     # appman = AppManager(hostname='two.radical-project.org', port=33048)
     amgr = AppManager(hostname='two.radical-project.org', port=33048)
