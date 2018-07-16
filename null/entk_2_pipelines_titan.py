@@ -17,29 +17,43 @@ if __name__ == '__main__':
     p1 = Pipeline()
     
     
-    for i in range(4):
-        s = Stage()
+    s1 = Stage()
 
-        for x in range(10):
-            t = Task()
-            t.name = 'my-task'        # Assign a name to the task (optional, do not use ',' or '_')
-            t.cpu_reqs = { 
-                            'processes': 1,
-                            'process_type': None,
-                            'threads_per_process': 15,
-                            'thread_type': None
-                        }
-        
-            t.executable = ['/bin/hostname']   # Assign executable to the task   
-            t.arguments = ['>','hostname_%s.txt'%x]  # Assign arguments for the task executable
-            s.add_tasks(t)
-            
-        p1.add_stages(s)
-        p2.add_stages(s)
-
-    pipelines.add(p1)
+    for x in range(10):
+        t = Task()
+        t.name = 'my-task'        # Assign a name to the task (optional, do not use ',' or '_')
+        t.cpu_reqs = { 
+                        'processes': 1,
+                        'process_type': 'MPI',
+                        'threads_per_process': 15,
+                        'thread_type': None
+                    }
     
+        t.executable = ['/bin/hostname']   # Assign executable to the task   
+        t.arguments = ['>','hostname_%s.txt'%x]  # Assign arguments for the task executable
+        s.add_tasks(t)
+            
 
+    p1.add_stages(s1)
+
+    s2 = Stage()
+
+    for x in range(10):
+        t = Task()
+        t.name = 'my-task'        # Assign a name to the task (optional, do not use ',' or '_')
+        t.cpu_reqs = { 
+                        'processes': 1,
+                        'process_type': 'MPI',
+                        'threads_per_process': 15,
+                        'thread_type': None
+                    }
+    
+        t.executable = ['/bin/hostname']   # Assign executable to the task   
+        t.arguments = ['>','hostname_%s.txt'%x]  # Assign arguments for the task executable
+        s2.add_tasks(t)
+
+    p1.add_stages(s2)
+    pipelines.add(p1)
     
     # appman = AppManager(hostname='two.radical-project.org', port=33048)
     amgr = AppManager(hostname='csc190specfem.marble.ccs.ornl.gov', port=30672)
