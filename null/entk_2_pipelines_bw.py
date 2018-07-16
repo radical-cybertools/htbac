@@ -40,9 +40,25 @@ if __name__ == '__main__':
             t.arguments = ['>','hostname_%s.txt'%x]  # Assign arguments for the task executable
             s1.add_tasks(t)
 
+    for i in range(4):
+        s2 = Stage()
+
+        for x in range(10):
+            t = Task()
+            t.name = 'my-task'        # Assign a name to the task (optional, do not use ',' or '_')
+            t.cpu_reqs = { 
+                            'processes': 1,
+                            'process_type': None,
+                            'threads_per_process': 32,
+                            'thread_type': None
+                        }
+        
+            t.executable = ['/bin/hostname']   # Assign executable to the task   
+            t.arguments = ['>','hostname_%s.txt'%x]  # Assign arguments for the task executable
+            s2.add_tasks(t)
 
         p1.add_stages(s1)
-        p2.add_stages(s)
+        p2.add_stages(s2)
 
     pipelines.add(p1)
     pipelines.add(p2) 
