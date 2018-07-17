@@ -296,14 +296,37 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         return task
 
+
+    def func_on_false(self):
+        print 'Done'
+
+
+    def func_condition(self): 
+
+        global CUR_STAG
+        if CUR_STAGE < MAX_STAGES:
+            CUR_STAGE += 1
+            return True
+
+        return False
+
     def generate_stage(self):
+        global CUR_STAGE
+
         s = Stage()
         s.name = self.name
         s.add_tasks({self.generate_task(**x) for x in self._ensemble_product()})
+        s.post_exec = {
+                       'condition': self.func_condition,
+                       'on_true': self.generate_stage,
+                       'on_false': self.func_on_false
+                    }
 
         return s
 
+
     def generate_pipeline(self):
+
         p = Pipeline()
         p.name = 'protocol'
         p.add_stages(self.generate_stage())

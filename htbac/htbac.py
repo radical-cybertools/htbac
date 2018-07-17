@@ -133,15 +133,10 @@ class Runner(object):
         if self.ids.get(previous_pipeline.id(), None) is not None:
 
             pipelines = set()
-
             gen_pipeline = protocol.generate_pipeline(previous_pipeline=self.ids[previous_pipeline.id()])
-
             pipelines.add(gen_pipeline)
-
             self.ids[protocol.id] = gen_pipeline
-
             self.app_manager.assign_workflow(pipelines)
-
             self.app_manager.run()
 
             if terminate:

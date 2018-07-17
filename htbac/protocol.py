@@ -40,6 +40,7 @@ class Protocol(Simulatable, MutableSequence):
         return len(self._simulations)
 
     def generate_pipeline(self):
+        
         p = Pipeline()
         p.name = 'protocol'
         p.add_stages([s.generate_stage() for s in self])

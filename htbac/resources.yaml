@@ -189,7 +189,32 @@ bw_local_orte:
       - "0-31"
     uses_mpi: Yes
 
-local:
+
+local: 
+  resource_dictionary:
+    resource: "local.localhost"
+    project: ""
+    access_schema: "local"
+    cpus: 
+
+  namd: namd_mpi
+
+  namd_mpi:
+    executable:
+      - "/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2"
+    arguments:
+      - "+pemap"
+      - "0-31"
+    uses_mpi: Yes
+
+  dummy:
+    executable:
+      - "/bin/echo"
+    cpus: 1
+    uses_mpi: No
+
+
+local_anaconda:
   resource_dictionary:
     resource: "local.localhost_anaconda"
     acess_schema: "local"
