@@ -116,6 +116,8 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         # self._arguments = list()  # Files that are arguments to the executable.
 
         self._cpus = 0
+        self._processes = 0
+        self._threads_per_process = 0
         self._variables = dict()
         self._ensembles = OrderedDict()
 
@@ -275,9 +277,9 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         task.pre_exec += self.engine.pre_exec
         task.executable += self.engine.executable
         task.arguments += self.engine.arguments
-        task.cpu_reqs = {'processes': self._cpus,
+        task.cpu_reqs = {'processes': self._processes,
                          'process_type': 'MPI' if self.engine.uses_mpi else None,
-                         'threads_per_process': 1,
+                         'threads_per_process': self._threads_per_process,
                          'thread_type': None
                          }
 
