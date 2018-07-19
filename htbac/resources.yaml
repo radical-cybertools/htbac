@@ -83,6 +83,8 @@ titan_aprun:
     - 'csc190specfem.marble.ccs.ornl.gov'
     - 30672
 
+  namd: namd_mpi
+
   namd_mpi:
     executable:
       - "/ccs/proj/chm126/apbhati/rest2_2.11_copy/CRAY-XE-gnu/namd2"
