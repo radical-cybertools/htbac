@@ -85,8 +85,9 @@ titan_aprun:
 
   namd_mpi:
     executable:
-      - "/lustre/atlas2/chm126/scratch/farkaspall/software/NAMD_2.12_Source/CRAY-XE-gnu/namd2"
+      - "/ccs/proj/chm126/apbhati/rest2_2.11_copy/CRAY-XE-gnu/namd2"
     pre_exec:
+      - "module swap PrgEnv-pgi PrgEnv-gnu"
       - "module load rca"
       - "module load craype-hugepages8M"
       - "export HUGETLB_DEFAULT_PAGE_SIZE=8M"
