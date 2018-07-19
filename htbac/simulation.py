@@ -115,7 +115,8 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         # self._input_files = list()  # Files than are input to this simulation
         # self._arguments = list()  # Files that are arguments to the executable.
 
-        self._cpus = 0
+        self._processes = 0
+        self._threads_per_process = 0
         self._variables = dict()
         self._ensembles = OrderedDict()
 
@@ -275,9 +276,9 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         task.pre_exec += self.engine.pre_exec
         task.executable += self.engine.executable
         task.arguments += self.engine.arguments
-        task.cpu_reqs = {'processes': self._cpus,
+        task.cpu_reqs = {'processes': self._processes,
                          'process_type': 'MPI' if self.engine.uses_mpi else None,
-                         'threads_per_process': 1,
+                         'threads_per_process': self._threads_per_process,
                          'thread_type': None
                          }
 
@@ -326,13 +327,25 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
     @property
     def cpus(self):
-        return self._cpus * len(self)
+        return self._processes * self._threads_per_process * len(self)
 
-    @cpus.setter
-    def cpus(self, value):
+    @property
+    def processes(self):
+        return self._processes
+
+    @processes.setter
+    def processes(self, value):
         if isinstance(self.engine, Engine) and self.engine.cpus:
             raise ValueError('Engine has REQUIRED core count. Do not set simulation cpus!')
-        self._cpus = value
+        self._processes = value
+
+    @property
+    def threads_pre_process(self):
+        return self._threads_pre_process
+
+    @threads_pre_process.setter
+    def threads_pre_process(self, value):
+        self._threads_per_process = value
 
     def configure_engine_for_resource(self, resource):
         if not isinstance(self.engine, str):
@@ -353,7 +366,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
             logger.info("Setting simulation core count to the REQUIRED value by engine ({}). "
                         "Do not alter this!".format(self.engine.cpus))
-            self._cpus = self.engine.cpus
+            self._processes = self.engine.cpus
 
     # Private methods
 
