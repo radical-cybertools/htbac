@@ -58,7 +58,8 @@ class Runner(object):
         protocol.configure_engine_for_resource(self.resource)
         self._protocols.append(protocol)
 
-    def run(self, resource=None, walltime=None, strong_scaled=1, queue=None, access_schema=None, dry_run=False):
+    def run(self, resource=None, walltime=None, strong_scaled=1,
+            queue=None, access_schema=None, cpus=None,  dry_run=False):
         """Run protocols.
 
         Parameters
@@ -73,13 +74,15 @@ class Runner(object):
             Name of the queue. If there is a default for your resource that will be used.
         access_schema: str
             One of ssh, gsissh, local
+        cpus: int, optional
+            Number of cpus to request.
         dry_run: bool
             Whether to execute the `.run` command or not.
         """
 
         pipelines = set()
         shared_data = set()
-        cpus = 0
+        _cpus = 0
 
         max_cu_count = self.resource.get('max_cu_count', 0)
 
@@ -92,12 +95,12 @@ class Runner(object):
 
             pipelines.add(gen_pipeline)
             shared_data.update(protocol.shared_data)
-            cpus += protocol.cpus
+            _cpus += protocol.cpus
 
-        cpus *= strong_scaled
-        cpus += self.resource.get('agent_cpus', 0)
+        _cpus *= strong_scaled
+        _cpus += self.resource.get('agent_cpus', 0)
 
-        self.resource['resource_dictionary']['cpus'] = cpus
+        self.resource['resource_dictionary']['cpus'] = cpus or _cpus
 
         if resource:
             self.resource['resource_dictionary']['resource'] = resource
