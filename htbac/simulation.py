@@ -220,7 +220,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         if clone_settings:
             self.engine = input_sim.engine
             self.processes = input_sim._processes
-            self.threads_pre_process = input_sim._threads_per_process
+            self.threads_per_process = input_sim._threads_per_process
             self.system = input_sim.system
 
             for in_file, attrs in input_sim._variables.iteritems():
@@ -340,11 +340,11 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         self._processes = value
 
     @property
-    def threads_pre_process(self):
-        return self._threads_pre_process
+    def threads_per_process(self):
+        return self._threads_per_process
 
-    @threads_pre_process.setter
-    def threads_pre_process(self, value):
+    @threads_per_process.setter
+    def threads_per_process(self, value):
         self._threads_per_process = value
 
     def configure_engine_for_resource(self, resource):
