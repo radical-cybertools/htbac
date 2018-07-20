@@ -109,8 +109,7 @@ class Runner(object):
         if access_schema:
             self.resource['resource_dictionary']['access_schema'] = access_schema
 
-        logger.info('Using total number of cpus: {}.'.format(cpus))
-        logger.info('Resource dictionary:\n{}'.format(pprint.pformat(self.resource['resource_dictionary'])))
+        logger.info(self.pretty_print_resource_description(self.resource['resource_dictionary']))
 
         # Create Resource Manager object with the above resource description
         self._app_manager.resource_desc = self.resource['resource_dictionary']
@@ -119,9 +118,11 @@ class Runner(object):
         # Create Application Manager
         self._app_manager.workflow = pipelines
 
-        logger.info("\n".join("Stage {}: {}*{} cpus.".
-                              format(i, len(s.tasks), next(iter(s.tasks)).cpu_reqs['processes'])
-                              for i, s in enumerate(next(iter(pipelines)).stages)))
+        for i, s in enumerate(next(iter(pipelines)).stages):
+            logger.info("Stage #{}: has {} tasks, each with {}*{} threads.".format(
+                                  i, len(s.tasks),
+                                  next(iter(s.tasks)).cpu_reqs['processes'],
+                                  next(iter(s.tasks)).cpu_reqs['threads_per_process']))
 
         self._prof.prof('execution_run')
         logger.info('Running workflow.')
@@ -151,3 +152,8 @@ class Runner(object):
         else: 
 
             print "ERROR: previous protocol instance is not found"
+
+    @staticmethod
+    def pretty_print_resource_description(r):
+        return "Running on {cpus} cpus for {walltime} minutes at {resource} " \
+               "{queue} queue consuming {project} allocation.".format(**r)

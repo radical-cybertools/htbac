@@ -154,11 +154,11 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     # Public methods
 
     def add_variable(self, name, in_file=None, value=None):
-        logger.info('Adding variable called {}.'.format(name))
+        logger.debug('Adding variable called {}.'.format(name))
         if not hasattr(self, name) or getattr(self, name) is None:
-            logger.info('Setting the value to {}.'.format(value))
+            logger.debug('Setting the value to {}.'.format(value))
             if callable(value):
-                logger.info('Value is stored as property because it is callable')
+                logger.debug('Value is stored as property because it is callable')
                 setattr(self.__class__, name, property(value))
             else:
                 setattr(self, name, value)
@@ -180,7 +180,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         if v is not None:
             return v
 
-        logger.info('Getting variable from system.')
+        logger.debug('Getting variable from system.')
         return getattr(self.system, var)
 
     def add_ensemble(self, name, values):
@@ -203,7 +203,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         if not hasattr(self, name):
             self.add_variable(name)
 
-        logger.info('Adding ensemble {}.'.format(name))
+        logger.info('Adding ensemble {} with possible values {}.'.format(name, values))
         self._ensembles[name] = values
 
     def add_input_simulation(self, input_sim, clone_settings):
@@ -364,8 +364,8 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
             if self.cpus:
                 raise ValueError('Engine has REQUIRED core count. Do not set simulation cpus!')
 
-            logger.info("Setting simulation core count to the REQUIRED value by engine ({}). "
-                        "Do not alter this!".format(self.engine.cpus))
+            logger.debug("Setting simulation core count to the REQUIRED value by engine ({}). "
+                         "Do not alter this!".format(self.engine.cpus))
             self._processes = self.engine.cpus
 
     # Private methods
