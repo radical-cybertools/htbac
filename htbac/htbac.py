@@ -1,6 +1,5 @@
 import yaml
 import pprint
-import logging
 from pkg_resources import resource_stream
 
 import radical.utils as ru
@@ -13,8 +12,7 @@ __author__ = "Jumana Dakka <jumanadakka@gmail.com>, Kristof Farkas-Pall <kristof
 __license__ = "MIT"
 
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+logger = ru.Logger(__name__, level='INFO')
 
 
 class Runner(object):
@@ -43,7 +41,7 @@ class Runner(object):
 
         # Profiler for Runner
         self._uid = ru.generate_id('radical.htbac.workflow_runner')
-        self._logger = ru.get_logger('radical.htbac.workflow_runner')
+        self._logger = ru.Logger('radical.htbac.workflow_runner', level='INFO')
         self._prof = ru.Profiler(name=self._uid)
         self._prof.prof('create workflow_runner obj', uid=self._uid)
         self._root_directories = list()

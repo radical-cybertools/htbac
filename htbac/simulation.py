@@ -1,11 +1,12 @@
 import os
 import re
-import logging
 from typing import List
 from operator import mul
 from collections import OrderedDict, Sized
 from itertools import product, izip
 from abc import ABCMeta, abstractmethod, abstractproperty
+
+import radical.utils as ru
 
 import numpy as np
 from radical.entk import Pipeline, Stage, Task
@@ -13,9 +14,7 @@ from radical.entk import Pipeline, Stage, Task
 from .engine import Engine
 from .abpath import AbFolder, AbFile
 
-logging.basicConfig()
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+logger = ru.Logger(__name__, level='INFO')
 
 
 class Simulatable:
@@ -115,8 +114,8 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         # self._input_files = list()  # Files than are input to this simulation
         # self._arguments = list()  # Files that are arguments to the executable.
 
-        self._processes = 0
-        self._threads_per_process = 0
+        self._processes = 1
+        self._threads_per_process = 1
         self._variables = dict()
         self._ensembles = OrderedDict()
 
@@ -220,7 +219,8 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         if clone_settings:
             self.engine = input_sim.engine
-            self.cpus = input_sim._cpus
+            self.processes = input_sim._processes
+            self.threads_pre_process = input_sim._threads_per_process
             self.system = input_sim.system
 
             for in_file, attrs in input_sim._variables.iteritems():
