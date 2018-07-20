@@ -3,6 +3,7 @@ import os, sys
 
 from htbac import Runner, System, Simulation, Protocol, AbFile
 
+global CUR_STAGE 
 CUR_STAGE = 1
 MAX_STAGES = int(sys.argv[1])
 

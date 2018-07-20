@@ -110,6 +110,8 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         self.name = name
         self.engine = None
         self.system = None
+        self.current_stage = None
+        self.max_stages = None
 
         self._input_sim = None  # Input simulation. Needs to link data generated here.
         # self._input_files = list()  # Files than are input to this simulation
@@ -303,23 +305,39 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
     def func_condition(self): 
 
-        global CUR_STAG
-        if CUR_STAGE < MAX_STAGES:
-            CUR_STAGE += 1
+        print self.current_stage
+        if self.current_stage < self.max_stages:
+            self.current_stage += 1
             return True
 
         return False
 
-    def generate_stage(self):
-        global CUR_STAGE
+    def func_on_true(self):
+
+        print self.current_stage
 
         s = Stage()
         s.name = self.name
         s.add_tasks({self.generate_task(**x) for x in self._ensemble_product()})
         s.post_exec = {
-                       'condition': self.func_condition,
-                       'on_true': self.generate_stage,
-                       'on_false': self.func_on_false
+                       'condition': self.func_condition(),
+                       'on_true': self.func_on_true(),
+                       'on_false': self.func_on_false()
+                    }
+
+        return s
+
+
+    def generate_stage(self):
+        
+
+        s = Stage()
+        s.name = self.name
+        s.add_tasks({self.generate_task(**x) for x in self._ensemble_product()})
+        s.post_exec = {
+                       'condition': self.func_condition(),
+                       'on_true': self.func_on_true(),
+                       'on_false': self.func_on_false()
                     }
 
         return s
@@ -350,6 +368,14 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     @property
     def cpus(self):
         return self._cpus * len(self)
+
+    # @property
+    # def current_stage(self):
+    #     return self.current_stage
+
+    # @property
+    # def max_stages(self):
+    #     return self.max_stages
 
     @cpus.setter
     def cpus(self, value):
