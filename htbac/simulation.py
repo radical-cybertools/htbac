@@ -1,11 +1,12 @@
 import os
 import re
-import logging
 from typing import List
 from operator import mul
 from collections import OrderedDict, Sized
 from itertools import product, izip
 from abc import ABCMeta, abstractmethod, abstractproperty
+
+import radical.utils as ru
 
 import numpy as np
 from radical.entk import Pipeline, Stage, Task
@@ -13,9 +14,7 @@ from radical.entk import Pipeline, Stage, Task
 from .engine import Engine
 from .abpath import AbFolder, AbFile
 
-logging.basicConfig()
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+logger = ru.Logger(__name__, level='INFO')
 
 
 class Simulatable:
@@ -115,8 +114,8 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         # self._input_files = list()  # Files than are input to this simulation
         # self._arguments = list()  # Files that are arguments to the executable.
 
-        self._processes = 0
-        self._threads_per_process = 0
+        self._processes = 1
+        self._threads_per_process = 1
         self._variables = dict()
         self._ensembles = OrderedDict()
 
@@ -155,11 +154,11 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     # Public methods
 
     def add_variable(self, name, in_file=None, value=None):
-        logger.info('Adding variable called {}.'.format(name))
+        logger.debug('Adding variable called {}.'.format(name))
         if not hasattr(self, name) or getattr(self, name) is None:
-            logger.info('Setting the value to {}.'.format(value))
+            logger.debug('Setting the value to {}.'.format(value))
             if callable(value):
-                logger.info('Value is stored as property because it is callable')
+                logger.debug('Value is stored as property because it is callable')
                 setattr(self.__class__, name, property(value))
             else:
                 setattr(self, name, value)
@@ -181,7 +180,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         if v is not None:
             return v
 
-        logger.info('Getting variable from system.')
+        logger.debug('Getting variable from system.')
         return getattr(self.system, var)
 
     def add_ensemble(self, name, values):
@@ -204,7 +203,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         if not hasattr(self, name):
             self.add_variable(name)
 
-        logger.info('Adding ensemble {}.'.format(name))
+        logger.info('Adding ensemble {} with possible values {}.'.format(name, values))
         self._ensembles[name] = values
 
     def add_input_simulation(self, input_sim, clone_settings):
@@ -220,7 +219,8 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         if clone_settings:
             self.engine = input_sim.engine
-            self.cpus = input_sim._cpus
+            self.processes = input_sim._processes
+            self.threads_per_process = input_sim._threads_per_process
             self.system = input_sim.system
 
             for in_file, attrs in input_sim._variables.iteritems():
@@ -340,11 +340,11 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         self._processes = value
 
     @property
-    def threads_pre_process(self):
-        return self._threads_pre_process
+    def threads_per_process(self):
+        return self._threads_per_process
 
-    @threads_pre_process.setter
-    def threads_pre_process(self, value):
+    @threads_per_process.setter
+    def threads_per_process(self, value):
         self._threads_per_process = value
 
     def configure_engine_for_resource(self, resource):
@@ -364,8 +364,8 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
             if self.cpus:
                 raise ValueError('Engine has REQUIRED core count. Do not set simulation cpus!')
 
-            logger.info("Setting simulation core count to the REQUIRED value by engine ({}). "
-                        "Do not alter this!".format(self.engine.cpus))
+            logger.debug("Setting simulation core count to the REQUIRED value by engine ({}). "
+                         "Do not alter this!".format(self.engine.cpus))
             self._processes = self.engine.cpus
 
     # Private methods

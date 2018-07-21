@@ -1,10 +1,10 @@
-import logging
 import parmed as pmd
+
+import radical.utils as ru
 
 from .abpath import AbFolder
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+logger = ru.Logger(__name__, level='INFO')
 
 
 class System(AbFolder):
