@@ -110,8 +110,8 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         self.name = name
         self.engine = None
         self.system = None
-        self.current_stage = None
-        self.max_stages = None
+        self._current_stage = 1
+        self.total_stages = 0
 
         self._input_sim = None  # Input simulation. Needs to link data generated here.
         # self._input_files = list()  # Files than are input to this simulation
@@ -307,7 +307,9 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         print self.current_stage
         if self.current_stage < self.max_stages:
-            self.current_stage += 1
+            self._current_stage += 1
+            import pdb 
+            pdb.set_trace()
             return True
 
         return False
@@ -329,7 +331,6 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
 
     def generate_stage(self):
-        
 
         s = Stage()
         s.name = self.name
@@ -369,13 +370,13 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     def cpus(self):
         return self._cpus * len(self)
 
-    # @property
-    # def current_stage(self):
-    #     return self.current_stage
+    @property
+    def current_stage(self):
+        return self._current_stage
 
-    # @property
-    # def max_stages(self):
-    #     return self.max_stages
+    @property
+    def max_stages(self):
+        return self.total_stages
 
     @cpus.setter
     def cpus(self, value):

@@ -2,8 +2,7 @@ import numpy as np
 import os, sys
 
 from htbac import Runner, System, Simulation, Protocol, AbFile
-
-global CUR_STAGE 
+ 
 CUR_STAGE = 1
 MAX_STAGES = int(sys.argv[1])
 
@@ -18,7 +17,7 @@ def run_adaptive():
     top = AbFile('systems/ptp1b-l1-l2-complex.top', tag='topology')
     tag = AbFile('systems/ptp1b-l1-l2-tags.pdb', tag='alchemicaltags')
     cor = AbFile('systems/ptp1b-l1-l2-complex.inpcrd', tag='coordinate')
-    system = System(name='ptp1b-l1-l2', files=[pdb, top, tag, cor])
+    system = System(name = 'ptp1b-l1-l2', files = [pdb, top, tag, cor])
     
     # Protocol takes arguments
 
@@ -27,11 +26,12 @@ def run_adaptive():
     sim1 = Simulation(name='minimization')
     p.append(sim1)
     sim1.engine = 'dummy'
+    sim1.total_stages = MAX_STAGES
 
     sim1.system = system
-    ht = Runner('local', comm_server=('two.radical-project.org', 33158))
+    ht = Runner('local', comm_server = ('two.radical-project.org', 33158))
     ht.add_protocol(p)
-    ht.run(walltime=480, queue='high')
+    ht.run(walltime = 480, queue = 'high')
 
 
 if __name__ == '__main__':
