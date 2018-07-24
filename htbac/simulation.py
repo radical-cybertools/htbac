@@ -272,7 +272,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         task = Task()
         task.name = "-".join("{}-{}".format(k, w) for k, w, in ensembles.iteritems()) or "sim"
-
+        
         task.pre_exec += self.engine.pre_exec
         task.executable += self.engine.executable
         task.arguments += self.engine.arguments
@@ -281,11 +281,11 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
                          'threads_per_process': self._threads_per_process,
                          'thread_type': None
                          }
-
+                         
         task.arguments.extend(self.arguments)
         task.copy_input_data.extend(self.copied_files)
         task.copy_input_data.extend(self.system.copied_files)
-
+        
         task.post_exec.append('echo "{}" > sim_desc.txt'.format(task.name))
 
         if self._input_sim:
@@ -294,7 +294,9 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         task.link_input_data.extend(self.system.linked_files)
 
         task.pre_exec.extend(self._sed.format(n, v, f) for f, vs in self.get_variables().items() for n, v in vs)
-
+        task.lfs = [len(v) for v in self._ensembles.values()][0]
+        task.tag = task.name 
+        
         return task
 
     def generate_stage(self):
