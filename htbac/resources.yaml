@@ -133,6 +133,15 @@ bw_aprun:
   namd_mpi:
     executable:
       - "/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2"
+    pre_exec:
+      - "module swap PrgEnv-cray PrgEnv-gnu"
+      - "module load rca"
+      - "module load craype-hugepages8M"
+      - "module list"
+      - "export HUGETLB_DEFAULT_PAGE_SIZE=8M"
+      - "export HUGETLB_MORECORE=no"
+      - "export ATP_ENABLED=1"
+      - "ulimit -c unlimited"
     arguments:
       - "+pemap"
       - "0-31"
