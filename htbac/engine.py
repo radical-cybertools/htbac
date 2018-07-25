@@ -4,7 +4,8 @@ class Engine(object):
         self.executable = None
         self.pre_exec = None
         self.arguments = None
-        self.cpus = None
+        self.processes = None
+        self.threads_per_process = None
         self.uses_mpi = None
 
     @classmethod
@@ -14,7 +15,8 @@ class Engine(object):
         e.executable = kwargs.get('executable')
         e.pre_exec = kwargs.get('pre_exec', list())
         e.arguments = kwargs.get('arguments', list())
-        e.cpus = kwargs.get('cpus')
+        e.processes = kwargs.get('processes')
+        e.threads_per_process = kwargs.get('threads_per_process')
         e.uses_mpi = kwargs.get('uses_mpi')
 
         return e

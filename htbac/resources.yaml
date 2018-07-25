@@ -37,7 +37,8 @@ titan_orte:
       - "1-15"
       - "+commap"
       - "0"
-    cpus: 16
+    processes: 
+    threads_per_process : 
     uses_mpi: No
 
   namd_openmp:
@@ -52,7 +53,8 @@ titan_orte:
       - "1-15"
       - "+commap"
       - "0"
-    cpus: 16
+    processes: 
+    threads_per_process : 
     uses_mpi: No
 
   openmm:
@@ -64,7 +66,8 @@ titan_orte:
       - "module load cudatoolkit"
       - "export OPENMM_CUDA_COMPILER=`which nvcc`"
       - "export LD_PRELOAD=/lib64/librt.so.1"
-    cpus: 16
+    processes: 
+    threads_per_process : 
     uses_mpi: No
 
 
@@ -127,7 +130,8 @@ bw_aprun:
       - "1-15"
       - "+commap"
       - "0"
-    cpus: 16
+    processes: 
+    threads_per_process : 
     uses_mpi: No
 
   namd_mpi:
@@ -148,7 +152,8 @@ bw_aprun:
       - "0-29"
       - "+commap"
       - "30"
-    cpus: 32
+    processes: 
+    threads_per_process : 
     uses_mpi: No
 
   dummy:
@@ -192,7 +197,7 @@ bw_local_orte:
       - "0-31"
     uses_mpi: Yes
 
-local:
+local_localhost_anaconda:
   resource_dictionary:
     resource: "local.localhost_anaconda"
     acess_schema: "local"
@@ -213,3 +218,25 @@ local:
     cpus: 1
     uses_mpi: No
 
+localhost:
+  resource_dictionary:
+    resource: "local.localhost"
+    acess_schema: null
+    project : ""
+    cpus : 2
+    
+
+  namd:
+    executable:
+     - "namd2"
+    arguments:
+     - "+ppn"
+     - "2"
+    cpus:
+    uses_mpi: No
+
+  dummy:
+    executable:
+      - "/bin/echo"
+    cpus: 1
+    uses_mpi: No
