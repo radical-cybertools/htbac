@@ -69,8 +69,12 @@ class Ties(object):
                         task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage.name)]
                         task.executable = [NAMD2]
 
-                        task.mpi = True
-                        task.cores = self.cores
+                        task.cpu_reqs = { 
+                            'processes': 1,
+                            'process_type': 'MPI',
+                            'threads_per_process': self.cores,
+                            'thread_type': None
+                        }
 
                         links = []
                         links += ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-tags.pdb'.format(system)]
