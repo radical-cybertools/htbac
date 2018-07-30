@@ -5,8 +5,7 @@ __license__     = "MIT"
 import os
 
 import radical.utils as ru
-from radical.entk import AppManager, ResourceManager
-
+from radical.entk import AppManager
 
 class Runner(object):
     def __init__(self):
@@ -81,7 +80,7 @@ class Runner(object):
         # Create Application Manager
         self.app_manager = AppManager(hostname=self._hostname, port=self._port)
         self.app_manager.resource_desc = res_dict
-        self.app_manager.workflow(pipelines)
+        self.app_manager.workflow = pipelines
         self.app_manager.shared_data = input_data
 
         self._prof.prof('execution_run')
