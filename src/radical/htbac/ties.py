@@ -51,52 +51,107 @@ class Ties(object):
         # Simulation stages
         # =================
 
-        for step in self.workflow:
-            stage = Stage()
-            stage.name = step
-            print stage.name
+        
+        stage_0 = Stage()
+        stage_0.name = self.workflow[0]
+        print stage_0.name
 
-               
-            for system in self.systems:  
-                box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
-                for replica in range(self.number_of_replicas):
-                    for ld in self.lambdas:
+           
+        for system in self.systems:  
+            box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
+            for replica in range(self.number_of_replicas):
+                for ld in self.lambdas:
 
-                        task = Task()
-                        task.name = 'system_{}_replica_{}_lambda_{}'.format(system, replica, ld)
+                    task = Task()
+                    task.name = 'system_{}_replica_{}_lambda_{}'.format(system, replica, ld)
 
-                        task.arguments += ['ties-{}.conf'.format(stage.name)]
-                        task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage.name)]
-                        task.executable = [NAMD2]
+                    task.arguments += ['ties-{}.conf'.format(stage_0.name)]
+                    task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage_0.name)]
+                    task.executable = [NAMD2]
+                    task.lfs_per_process = self.number_of_replicas*len(self.lambdas)*len(self.systems)
+                    task.cpu_reqs = { 
+                            'processes': 1,
+                            'process_type': 'MPI',
+                            'threads_per_process': 32,
+                            'thread_type': None
+                        }
 
-                        task.mpi = True
-                        task.cores = self.cores
+                    links = []
+                    links += ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-tags.pdb'.format(system)]
+                    if self.workflow.index(self.workflow[0]):
+                        previous_stage = pipeline.stages[-1]
+                        previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
+                        path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.uid, previous_stage.uid, previous_task.uid)
+                        links += [path+previous_stage.name+suffix for suffix in _simulation_file_suffixes]
+                    else:
+                        links += ['$SHARED/{}-complex.pdb'.format(system)]
 
-                        links = []
-                        links += ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-tags.pdb'.format(system)]
-                        if self.workflow.index(step):
-                            previous_stage = pipeline.stages[-1]
-                            previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
-                            path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.uid, previous_stage.uid, previous_task.uid)
-                            links += [path+previous_stage.name+suffix for suffix in _simulation_file_suffixes]
-                        else:
-                            links += ['$SHARED/{}-complex.pdb'.format(system)]
+                    print "Linking files:", links
+                    task.link_input_data = links
 
-                        print "Linking files:", links
-                        task.link_input_data = links
+                    task.pre_exec += ["sed -i 's/BOX_X/{}/g' *.conf".format(box[0]),
+                                      "sed -i 's/BOX_Y/{}/g' *.conf".format(box[1]),
+                                      "sed -i 's/BOX_Z/{}/g' *.conf".format(box[2]),
+                                      "sed -i 's/SYSTEM/{}/g' *.conf".format(system)]
 
-                        task.pre_exec += ["sed -i 's/BOX_X/{}/g' *.conf".format(box[0]),
-                                          "sed -i 's/BOX_Y/{}/g' *.conf".format(box[1]),
-                                          "sed -i 's/BOX_Z/{}/g' *.conf".format(box[2]),
-                                          "sed -i 's/SYSTEM/{}/g' *.conf".format(system)]
+                    task.pre_exec += ["sed -i 's/STEP/{}/g' *.conf".format(self.step_count[self.workflow[0]])]
 
-                        task.pre_exec += ["sed -i 's/STEP/{}/g' *.conf".format(self.step_count[step])]
+                    task.pre_exec += ["sed -i 's/LAMBDA/{}/g' *.conf".format(ld)]
 
-                        task.pre_exec += ["sed -i 's/LAMBDA/{}/g' *.conf".format(ld)]
+                    stage_0.add_tasks(task)
 
-                        stage.add_tasks(task)
+        pipeline.add_stages(stage_0)
 
-            pipeline.add_stages(stage)
+        stage_1 = Stage()
+        stage_1.name = self.workflow[1]
+        print stage_1.name
+
+           
+        for system in self.systems:  
+            box = pmd.amber.AmberAsciiRestart('systems/ties{lig}/{s}/build/{s}-complex.crd'.format(lig=self.ligand, s=system)).box
+            for replica in range(self.number_of_replicas):
+                for ld in self.lambdas:
+
+                    task = Task()
+                    task.name = 'system_{}_replica_{}_lambda_{}'.format(system, replica, ld)
+
+                    task.arguments += ['ties-{}.conf'.format(stage_1.name)]
+                    task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage_1.name)]
+                    task.executable = [NAMD2]
+                    task.tag = task.name
+                    task.cpu_reqs = { 
+                            'processes': 1,
+                            'process_type': 'MPI',
+                            'threads_per_process': 32,
+                            'thread_type': None
+                        }
+
+                    links = []
+                    links += ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-tags.pdb'.format(system)]
+                    if self.workflow.index(self.workflow[1]):
+                        previous_stage = pipeline.stages[-1]
+                        previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
+                        path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.uid, previous_stage.uid, previous_task.uid)
+                        links += [path+previous_stage.name+suffix for suffix in _simulation_file_suffixes]
+                    else:
+                        links += ['$SHARED/{}-complex.pdb'.format(system)]
+
+                    print "Linking files:", links
+                    task.link_input_data = links
+
+                    task.pre_exec += ["sed -i 's/BOX_X/{}/g' *.conf".format(box[0]),
+                                      "sed -i 's/BOX_Y/{}/g' *.conf".format(box[1]),
+                                      "sed -i 's/BOX_Z/{}/g' *.conf".format(box[2]),
+                                      "sed -i 's/SYSTEM/{}/g' *.conf".format(system)]
+
+                    task.pre_exec += ["sed -i 's/STEP/{}/g' *.conf".format(self.step_count[self.workflow[1]])]
+
+                    task.pre_exec += ["sed -i 's/LAMBDA/{}/g' *.conf".format(ld)]
+
+                    stage_1.add_tasks(task)
+
+
+        pipeline.add_stages(stage_1)
             
         # Analysis stage
         # ==============
