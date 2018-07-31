@@ -45,8 +45,8 @@ class Runner(object):
         self._port = port
 
 
-    def run(self, strong_scaled = 1, autoterminate = True, queue = 'compute',
-            walltime = 60):
+    def run(self, strong_scaled = 1, autoterminate = True, queue = 'high',
+            walltime = 1440):
         pipelines = set()
         input_data = list()
 
@@ -63,19 +63,12 @@ class Runner(object):
         #self._cores = self._cores * self.total_replicas
         print 'Running on', self._cores, 'cores with', self.total_replicas, 'replicas'
 
-        res_dict = {'resource': 'xsede.comet',
+        res_dict = {'resource': 'ncsa.bw_aprun',
                     'walltime': walltime,
                     'cpus': int(self._cores*strong_scaled),
-                    'project': 'unc100',
+                    'project': 'bamm',
                     'queue': queue,
                     'access_schema': 'gsissh'}
-
-        # res_dict = {'resource': 'ncsa.bw_aprun',
-        #             'walltime': walltime,
-        #             'cpus': int(self._cores*strong_scaled),
-        #             'project': 'bamm',
-        #             'queue': queue,
-        #             'access_schema': 'gsissh'}
 
         # res_dict = {'resource': 'ornl.titan_aprun',
         #             'walltime': walltime,
