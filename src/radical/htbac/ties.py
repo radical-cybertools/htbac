@@ -67,12 +67,12 @@ class Ties(object):
 
                     task.arguments += ['ties-{}.conf'.format(stage_0.name)]
                     task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage_0.name)]
-                    task.executable = [NAMD2]
+                    task.executable = ['namd2', '+ppn 24']
                     task.lfs_per_process = self.number_of_replicas*len(self.lambdas)*len(self.systems)
                     task.cpu_reqs = { 
                             'processes': 1,
                             'process_type': 'MPI',
-                            'threads_per_process': 32,
+                            'threads_per_process': self.cores,
                             'thread_type': None
                         }
 
@@ -117,12 +117,12 @@ class Ties(object):
 
                     task.arguments += ['ties-{}.conf'.format(stage_1.name)]
                     task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage_1.name)]
-                    task.executable = [NAMD2]
+                    task.executable = ['namd2', '+ppn 24']
                     task.tag = task.name
                     task.cpu_reqs = { 
                             'processes': 1,
                             'process_type': 'MPI',
-                            'threads_per_process': 32,
+                            'threads_per_process': self.cores,
                             'thread_type': None
                         }
 
