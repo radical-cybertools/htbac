@@ -49,7 +49,7 @@ class Esmacs(object):
                 for replica in range(self.number_of_replicas):
                 
                     task = Task()
-                    task.name = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
+                    task.name = 'system-{}-replica-{}'.format(system, replica)
 
                     # task.pre_exec = ['module load namd/2.12',
                     #                  'export MPICH_PTL_SEND_CREDITS=-1',
