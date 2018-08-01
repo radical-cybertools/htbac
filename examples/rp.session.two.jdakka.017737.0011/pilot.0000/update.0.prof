@@ -1,4 +1,0 @@
-#time,event,comp,thread,uid,state,msg
-1532553383.3292,sync_abs,update.0,MainThread,,,nid25429:10.128.100.30:1532553383.3:1532553383.29:ntp
-1532553383.4313,END,update.0,MainThread,,,
-1532553383.7116,component_init,update.0,MainThread,,,

@@ -1,4 +1,0 @@
-#time,event,comp,thread,uid,state,msg
-1533061161.5413,sync_abs,radical.htbac.ties.0000,MainThread,,,localhost.localdomain:138.201.86.166:1533061161.54:1533061161.54:ntp
-1533061161.5413,create ties instance,radical.htbac.ties.0000,MainThread,radical.htbac.ties.0000,,
-1533064231.7601,END,radical.htbac.ties.0000,MainThread,,,
