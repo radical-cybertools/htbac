@@ -47,7 +47,7 @@ class Ties(object):
     def generate_pipeline(self):
 
         pipeline = Pipeline()
-
+        pipeline.name = 'p1'
         # Simulation stages
         # =================
 
@@ -63,16 +63,16 @@ class Ties(object):
                 for ld in self.lambdas:
 
                     task = Task()
-                    task.name = 'system_{}_replica_{}_lambda_{}'.format(system, replica, ld)
-
-                    task.arguments += ['ties-{}.conf'.format(stage_0.name)]
-                    task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage_0.name)]
+                    task.name = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
+                    task.arguments = ['+pemap', '0-31']
+                    task.arguments += ['ties-{}.conf'.format(self.workflow[0])]
+                    task.copy_input_data = ['$SHARED/ties-{}.conf'.format(self.workflow[0])]
                     task.executable = [NAMD2]
                     task.lfs_per_process = self.number_of_replicas*len(self.lambdas)*len(self.systems)
                     task.cpu_reqs = { 
-                            'processes': 1,
+                            'processes': 32,
                             'process_type': 'MPI',
-                            'threads_per_process': 32,
+                            'threads_per_process': 1,
                             'thread_type': None
                         }
 
@@ -81,7 +81,7 @@ class Ties(object):
                     if self.workflow.index(self.workflow[0]):
                         previous_stage = pipeline.stages[-1]
                         previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
-                        path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.uid, previous_stage.uid, previous_task.uid)
+                        path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.name, previous_stage.name, previous_task.name)
                         links += [path+previous_stage.name+suffix for suffix in _simulation_file_suffixes]
                     else:
                         links += ['$SHARED/{}-complex.pdb'.format(system)]
@@ -113,16 +113,16 @@ class Ties(object):
                 for ld in self.lambdas:
 
                     task = Task()
-                    task.name = 'system_{}_replica_{}_lambda_{}'.format(system, replica, ld)
-
-                    task.arguments += ['ties-{}.conf'.format(stage_1.name)]
-                    task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage_1.name)]
+                    task.name = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
+                    task.arguments = ['+pemap', '0-31']
+                    task.arguments += ['ties-{}.conf'.format(self.workflow[1])]
+                    task.copy_input_data = ['$SHARED/ties-{}.conf'.format(self.workflow[1])]
                     task.executable = [NAMD2]
                     task.tag = task.name
                     task.cpu_reqs = { 
-                            'processes': 1,
+                            'processes': 32,
                             'process_type': 'MPI',
-                            'threads_per_process': 32,
+                            'threads_per_process': 1,
                             'thread_type': None
                         }
 
@@ -131,7 +131,7 @@ class Ties(object):
                     if self.workflow.index(self.workflow[1]):
                         previous_stage = pipeline.stages[-1]
                         previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
-                        path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.uid, previous_stage.uid, previous_task.uid)
+                        path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.name, previous_stage.name, previous_task.name)
                         links += [path+previous_stage.name+suffix for suffix in _simulation_file_suffixes]
                     else:
                         links += ['$SHARED/{}-complex.pdb'.format(system)]
