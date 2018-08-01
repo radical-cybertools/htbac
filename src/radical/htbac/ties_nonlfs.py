@@ -13,7 +13,7 @@ _reduced_steps = dict(min=1000, eq1=5000, eq2=5000, prod=50000)
 _full_steps = dict(min=1000, eq1=30000, eq2=970000, prod=2000000)
 
 
-class Ties(object):
+class Ties_nonLFS(object):
 
     def __init__(self, number_of_replicas, number_of_windows, systems = list(), 
         cores=32, workflow=None, ligand=False, full=False, additional=list()):
