@@ -37,7 +37,7 @@ class Esmacs(object):
     def generate_pipeline(self):
 
         pipeline = Pipeline()
-        pipeline = 'p_esmacs'
+        pipeline.name = 'p_esmacs'
 
         # Simulation stages
         # =================
