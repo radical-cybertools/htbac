@@ -1,0 +1,1204 @@
+2018-07-25 23:00:40,194: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : INFO    : python.interpreter   version: 2.7.12 (default, Dec 4 2017, 14:50:18) [GCC 5.4.0 20160609]
+2018-07-25 23:00:40,194: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : INFO    :                      pid/tid: 21961/MainThread
+2018-07-25 23:00:40,194: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : PTYShell init <saga.utils.pty_shell.PTYShell object at 0x7f09ba00b0d0>
+2018-07-25 23:00:40,196: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : INFO    : PTY prompt pattern: [\$#%>\]]\s*$
+2018-07-25 23:00:40,197: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : INFO    : ssh copy  mode set to 'sftp'
+2018-07-25 23:00:40,197: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : INFO    : ssh share mode set to 'auto'
+2018-07-25 23:00:40,198: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : INFO    : ssh timeout    set to '2000.0'
+2018-07-25 23:00:40,199: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : SSH Connection M_FLAGS: -o ControlMaster=auto -o ControlPath=/tmp/saga_ssh_jdakka_%h_%p.ctrl -o TCPKeepAlive=no  -o ServerAliveInterval=10 -o ServerAliveCountMax=20 -o ConnectTimeout=2000
+2018-07-25 23:00:40,199: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : SSH Connection S_FLAGS: -o ControlMaster=auto -o ControlPath=/tmp/saga_ssh_jdakka_%h_%p.ctrl -o TCPKeepAlive=no  -o ServerAliveInterval=10 -o ServerAliveCountMax=20 -o ConnectTimeout=2000
+2018-07-25 23:00:40,199: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : open master pty for [ssh] [bw.ncsa.illinois.edu] jdakka: /usr/bin/env TERM=vt100 X509_USER_PROXY='/tmp/x509up_u1008'  "/usr/bin/gsissh" -t -o IdentityFile=/home/jdakka/.ssh/id_rsa  -o ControlMaster=auto -o ControlPath=/tmp/saga_ssh_jdakka_%h_%p.ctrl -o TCPKeepAlive=no  -o ServerAliveInterval=10 -o ServerAliveCountMax=20 -o ConnectTimeout=2000 bw.ncsa.illinois.edu'
+2018-07-25 23:00:40,200: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : PTYProcess init <saga.utils.pty_process.PTYProcess object at 0x7f09ba02e050>
+2018-07-25 23:00:40,201: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : INFO    : running: /usr/bin/env TERM=vt100 X509_USER_PROXY=/tmp/x509up_u1008 /usr/bin/gsissh -t -o IdentityFile=/home/jdakka/.ssh/id_rsa -o ControlMaster=auto -o ControlPath=/tmp/saga_ssh_jdakka_%h_%p.ctrl -o TCPKeepAlive=no -o ServerAliveInterval=10 -o ServerAliveCountMax=20 -o ConnectTimeout=2000 bw.ncsa.illinois.edu
+2018-07-25 23:00:40,205: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  146] [   51] ( export PROMPT_COMMAND='' PS1='$' ; set prompt='$'\n)
+2018-07-25 23:00:40,334: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  146] [   82] (mux_client_request_session: session request failed: Session open refused by peer\n)
+2018-07-25 23:00:41,208: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  146] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:00:41,208: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  146] [   28] ( printf 'HELLO_%d_SAGA\n' 1\n)
+2018-07-25 23:00:42,216: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  146] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:00:42,217: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  146] [   28] ( printf 'HELLO_%d_SAGA\n' 2\n)
+2018-07-25 23:00:42,269: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  146] [  243] (\nAccess by OTP or Two Factor Certificate Authority only.\nUse myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.\ngsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.\n\n\nBlue Waters Admin Team\n\n\n)
+2018-07-25 23:00:42,464: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  146] [  104] (ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing\n)
+2018-07-25 23:00:43,022: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  146] [  929] (Last login: Wed Jul 25 15:49:1 ... ~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n)
+2018-07-25 23:00:43,221: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  146] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:00:43,221: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  146] [   28] ( printf 'HELLO_%d_SAGA\n' 3\n)
+2018-07-25 23:00:44,225: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  146] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:00:44,225: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  146] [   28] ( printf 'HELLO_%d_SAGA\n' 4\n)
+2018-07-25 23:00:45,228: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  146] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:00:45,228: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  146] [   28] ( printf 'HELLO_%d_SAGA\n' 5\n)
+2018-07-25 23:00:45,359: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  146] [   19] (dakka@h2ologin1:~> )
+2018-07-25 23:00:45,364: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got initial shell prompt (6) (mux_client_request_session: session request failed: Session open refused by peer
+
+Access by OTP or Two Factor Certificate Authority only.
+Use myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.
+gsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.
+
+
+Blue Waters Admin Team
+
+
+ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing
+Last login: Wed Jul 25 15:49:15 2018 from static.166.86.201.138.clients.your-server.de
+ 
+   ___  __           _      __     __ 
+  / _ )/ /_ _____   | | /| / /__ _/ /____ ___  ___
+ / _  / / // / -_)  | |/ |/ / _ `/ __/ -_) __)(_-<
+/____/_/\_,_/\__/   |__/|__/\_,_/\__/\__/_/ /___/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Batch and Scheduler configuration.
+  Queues:  normal (default), high, low, debug
+  Features:  "xe" (default), "xk", "x" (xe or xk non-specific)
+             "xehimem" (128GB mem), "xkhimem" (64GB mem)
+  30 min default wall time, 48 hr maximum
+  -lnodes=X:ppn=Y syntax supported.
+
+All SSH traffic on this system is monitored.
+
+Questions?  Mail help+bw@ncsa.illinois.edu to create a support ticket.
+For known issues:  https://bluewaters.ncsa.illinois.edu/known-issues
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+dakka@h2ologin1:~> )
+2018-07-25 23:00:45,364: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : waiting for prompt trigger HELLO_5_SAGA: (6) (mux_client_request_session: session request failed: Session open refused by peer
+
+Access by OTP or Two Factor Certificate Authority only.
+Use myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.
+gsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.
+
+
+Blue Waters Admin Team
+
+
+ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing
+Last login: Wed Jul 25 15:49:15 2018 from static.166.86.201.138.clients.your-server.de
+ 
+   ___  __           _      __     __ 
+  / _ )/ /_ _____   | | /| / /__ _/ /____ ___  ___
+ / _  / / // / -_)  | |/ |/ / _ `/ __/ -_) __)(_-<
+/____/_/\_,_/\__/   |__/|__/\_,_/\__/\__/_/ /___/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Batch and Scheduler configuration.
+  Queues:  normal (default), high, low, debug
+  Features:  "xe" (default), "xk", "x" (xe or xk non-specific)
+             "xehimem" (128GB mem), "xkhimem" (64GB mem)
+  30 min default wall time, 48 hr maximum
+  -lnodes=X:ppn=Y syntax supported.
+
+All SSH traffic on this system is monitored.
+
+Questions?  Mail help+bw@ncsa.illinois.edu to create a support ticket.
+For known issues:  https://bluewaters.ncsa.illinois.edu/known-issues
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+dakka@h2ologin1:~> )
+2018-07-25 23:00:45,364: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  146] [   33] ($$HELLO_1_SAGA\n$$HELLO_2_SAGA\n$)
+2018-07-25 23:00:45,364: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got shell prompt trigger (5) ($$HELLO_1_SAGA
+$$HELLO_2_SAGA)
+2018-07-25 23:00:45,365: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got initial shell prompt (6) (
+$)
+2018-07-25 23:00:45,365: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : waiting for prompt trigger HELLO_5_SAGA: (6) (
+$)
+2018-07-25 23:00:45,456: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  146] [   48] ($HELLO_3_SAGA\n$$HELLO_4_SAGA\n$$HELLO_5_SAGA\n$)
+2018-07-25 23:00:45,456: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got shell prompt trigger (5) ($HELLO_3_SAGA
+$$HELLO_4_SAGA
+$$HELLO_5_SAGA)
+2018-07-25 23:00:45,456: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got initial shell prompt (6) (
+$)
+2018-07-25 23:00:45,456: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : Got initial shell prompt (6) (
+$)
+2018-07-25 23:00:45,456: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : PTYProcess init <saga.utils.pty_process.PTYProcess object at 0x7f09b8770290>
+2018-07-25 23:00:45,457: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : INFO    : running: /usr/bin/env TERM=vt100 X509_USER_PROXY=/tmp/x509up_u1008 /usr/bin/gsissh -t -o IdentityFile=/home/jdakka/.ssh/id_rsa -o ControlMaster=auto -o ControlPath=/tmp/saga_ssh_jdakka_%h_%p.ctrl -o TCPKeepAlive=no -o ServerAliveInterval=10 -o ServerAliveCountMax=20 -o ConnectTimeout=2000 bw.ncsa.illinois.edu
+2018-07-25 23:00:45,461: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   51] ( export PROMPT_COMMAND='' PS1='$' ; set prompt='$'\n)
+2018-07-25 23:00:45,591: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [   82] (mux_client_request_session: session request failed: Session open refused by peer\n)
+2018-07-25 23:00:46,465: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:00:46,466: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   28] ( printf 'HELLO_%d_SAGA\n' 1\n)
+2018-07-25 23:00:47,475: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:00:47,476: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   28] ( printf 'HELLO_%d_SAGA\n' 2\n)
+2018-07-25 23:00:47,666: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [  243] (\nAccess by OTP or Two Factor Certificate Authority only.\nUse myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.\ngsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.\n\n\nBlue Waters Admin Team\n\n\n)
+2018-07-25 23:00:47,838: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [  104] (ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing\n)
+2018-07-25 23:00:48,378: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [  404] (Last login: Wed Jul 25 15:49:31 2018 from static.166.86.201.138.clients.your-server.de\n \n   ___  __           _      __     __ \n  / _ )/ /_ _____   | | /| / /__ _/ /____ ___  ___\n / _  / / // / -_)  | |/ |/ / _ `/ __/ -_) __)(_-<\n/____/_/\_,_/\__/   |__/|__/\_,_/\__/\__/_/ /___/\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nBatch and Scheduler configuration.\n)
+2018-07-25 23:00:48,380: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [  525] (  Queues:  normal (default), high, low, debug\n  Features:  "xe" (default), "xk", "x" (xe or xk non-specific)\n             "xehimem" (128GB mem), "xkhimem" (64GB mem)\n  30 min default wall time, 48 hr maximum\n  -lnodes=X:ppn=Y syntax supported.\n\nAll SSH traffic on this system is monitored.\n\nQuestions?  Mail help+bw@ncsa.illinois.edu to create a support ticket.\nFor known issues:  https://bluewaters.ncsa.illinois.edu/known-issues\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n)
+2018-07-25 23:00:48,489: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:00:48,489: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   28] ( printf 'HELLO_%d_SAGA\n' 3\n)
+2018-07-25 23:00:49,504: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:00:49,504: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   28] ( printf 'HELLO_%d_SAGA\n' 4\n)
+2018-07-25 23:00:50,462: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [   20] (dakka@h2ologin2:~> $)
+2018-07-25 23:00:50,467: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got initial shell prompt (6) (mux_client_request_session: session request failed: Session open refused by peer
+
+Access by OTP or Two Factor Certificate Authority only.
+Use myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.
+gsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.
+
+
+Blue Waters Admin Team
+
+
+ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing
+Last login: Wed Jul 25 15:49:31 2018 from static.166.86.201.138.clients.your-server.de
+ 
+   ___  __           _      __     __ 
+  / _ )/ /_ _____   | | /| / /__ _/ /____ ___  ___
+ / _  / / // / -_)  | |/ |/ / _ `/ __/ -_) __)(_-<
+/____/_/\_,_/\__/   |__/|__/\_,_/\__/\__/_/ /___/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Batch and Scheduler configuration.
+  Queues:  normal (default), high, low, debug
+  Features:  "xe" (default), "xk", "x" (xe or xk non-specific)
+             "xehimem" (128GB mem), "xkhimem" (64GB mem)
+  30 min default wall time, 48 hr maximum
+  -lnodes=X:ppn=Y syntax supported.
+
+All SSH traffic on this system is monitored.
+
+Questions?  Mail help+bw@ncsa.illinois.edu to create a support ticket.
+For known issues:  https://bluewaters.ncsa.illinois.edu/known-issues
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+dakka@h2ologin2:~> $)
+2018-07-25 23:00:50,467: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : waiting for prompt trigger HELLO_4_SAGA: (6) (mux_client_request_session: session request failed: Session open refused by peer
+
+Access by OTP or Two Factor Certificate Authority only.
+Use myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.
+gsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.
+
+
+Blue Waters Admin Team
+
+
+ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing
+Last login: Wed Jul 25 15:49:31 2018 from static.166.86.201.138.clients.your-server.de
+ 
+   ___  __           _      __     __ 
+  / _ )/ /_ _____   | | /| / /__ _/ /____ ___  ___
+ / _  / / // / -_)  | |/ |/ / _ `/ __/ -_) __)(_-<
+/____/_/\_,_/\__/   |__/|__/\_,_/\__/\__/_/ /___/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Batch and Scheduler configuration.
+  Queues:  normal (default), high, low, debug
+  Features:  "xe" (default), "xk", "x" (xe or xk non-specific)
+             "xehimem" (128GB mem), "xkhimem" (64GB mem)
+  30 min default wall time, 48 hr maximum
+  -lnodes=X:ppn=Y syntax supported.
+
+All SSH traffic on this system is monitored.
+
+Questions?  Mail help+bw@ncsa.illinois.edu to create a support ticket.
+For known issues:  https://bluewaters.ncsa.illinois.edu/known-issues
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+dakka@h2ologin2:~> $)
+2018-07-25 23:00:50,468: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [   47] ($HELLO_1_SAGA\n$$HELLO_2_SAGA\n$$HELLO_3_SAGA\n)
+2018-07-25 23:00:50,468: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got shell prompt trigger (5) ($HELLO_1_SAGA
+$$HELLO_2_SAGA
+$$HELLO_3_SAGA)
+2018-07-25 23:00:50,577: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [   17] ($$HELLO_4_SAGA\n$)
+2018-07-25 23:00:50,577: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got shell prompt trigger (5) (
+$$HELLO_4_SAGA)
+2018-07-25 23:00:50,578: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got initial shell prompt (6) (
+$)
+2018-07-25 23:00:50,578: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : Got initial shell prompt (6) (
+$)
+2018-07-25 23:00:50,578: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : running command shell: exec /bin/sh -i
+2018-07-25 23:00:50,578: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   30] ( stty -echo ; exec /bin/sh -i\n)
+2018-07-25 23:00:50,976: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [   13] (h2ologin2:~> )
+2018-07-25 23:00:50,976: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:00:51,078: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [  152] (set HISTFILE=$HOME/.saga_history; PS1='PROMPT-$?->'; PS2=''; PROMPT_COMMAND=''; export PS1 PS2 PROMPT_COMMAND 2>&1 >/dev/null; cd $HOME 2>&1 >/dev/null\n)
+2018-07-25 23:00:51,195: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [   10] (PROMPT-0->)
+2018-07-25 23:00:51,195: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got new shell prompt
+2018-07-25 23:00:51,195: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:00:51,297: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:00:51,400: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : run_sync: echo "WORKDIR: /scratch/sciteam/$USER"
+2018-07-25 23:00:51,400: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   39] (echo "WORKDIR: /scratch/sciteam/$USER"\n)
+2018-07-25 23:00:51,516: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [   43] (WORKDIR: /scratch/sciteam/dakka\nPROMPT-0->)
+2018-07-25 23:00:51,517: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : PTYShell del  <saga.utils.pty_shell.PTYShell object at 0x7f09ba00b0d0>
+2018-07-25 23:00:51,618: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : PTYProcess del  <saga.utils.pty_process.PTYProcess object at 0x7f09b8770290>
+2018-07-25 23:00:51,762: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : PTYProcess init <saga.utils.pty_process.PTYProcess object at 0x7f09b8734fd0>
+2018-07-25 23:00:51,762: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : INFO    : running: /usr/bin/env TERM=vt100 X509_USER_PROXY=/tmp/x509up_u1008 /usr/bin/gsissh -t -o IdentityFile=/home/jdakka/.ssh/id_rsa -o ControlMaster=auto -o ControlPath=/tmp/saga_ssh_jdakka_%h_%p.ctrl -o TCPKeepAlive=no -o ServerAliveInterval=10 -o ServerAliveCountMax=20 -o ConnectTimeout=2000 bw.ncsa.illinois.edu
+2018-07-25 23:00:51,763: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   51] ( export PROMPT_COMMAND='' PS1='$' ; set prompt='$'\n)
+2018-07-25 23:00:51,882: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [   82] (mux_client_request_session: session request failed: Session open refused by peer\n)
+2018-07-25 23:00:52,769: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:00:52,769: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   28] ( printf 'HELLO_%d_SAGA\n' 1\n)
+2018-07-25 23:00:53,760: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [  243] (\nAccess by OTP or Two Factor Certificate Authority only.\nUse myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.\ngsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.\n\n\nBlue Waters Admin Team\n\n\n)
+2018-07-25 23:00:53,772: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:00:53,772: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   28] ( printf 'HELLO_%d_SAGA\n' 2\n)
+2018-07-25 23:00:53,932: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [  104] (ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing\n)
+2018-07-25 23:00:54,453: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [   88] (Last login: Wed Jul 25 16:00:48 2018 from static.166.86.201.138.clients.your-server.de\n)
+2018-07-25 23:00:54,454: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [  841] ( \n   ___  __           _      ... ~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n)
+2018-07-25 23:00:54,786: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:00:54,787: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   28] ( printf 'HELLO_%d_SAGA\n' 3\n)
+2018-07-25 23:00:55,788: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:00:55,788: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   28] ( printf 'HELLO_%d_SAGA\n' 4\n)
+2018-07-25 23:00:56,524: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [   20] (dakka@h2ologin2:~> $)
+2018-07-25 23:00:56,529: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got initial shell prompt (6) (mux_client_request_session: session request failed: Session open refused by peer
+
+Access by OTP or Two Factor Certificate Authority only.
+Use myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.
+gsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.
+
+
+Blue Waters Admin Team
+
+
+ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing
+Last login: Wed Jul 25 16:00:48 2018 from static.166.86.201.138.clients.your-server.de
+ 
+   ___  __           _      __     __ 
+  / _ )/ /_ _____   | | /| / /__ _/ /____ ___  ___
+ / _  / / // / -_)  | |/ |/ / _ `/ __/ -_) __)(_-<
+/____/_/\_,_/\__/   |__/|__/\_,_/\__/\__/_/ /___/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Batch and Scheduler configuration.
+  Queues:  normal (default), high, low, debug
+  Features:  "xe" (default), "xk", "x" (xe or xk non-specific)
+             "xehimem" (128GB mem), "xkhimem" (64GB mem)
+  30 min default wall time, 48 hr maximum
+  -lnodes=X:ppn=Y syntax supported.
+
+All SSH traffic on this system is monitored.
+
+Questions?  Mail help+bw@ncsa.illinois.edu to create a support ticket.
+For known issues:  https://bluewaters.ncsa.illinois.edu/known-issues
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+dakka@h2ologin2:~> $)
+2018-07-25 23:00:56,529: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : waiting for prompt trigger HELLO_4_SAGA: (6) (mux_client_request_session: session request failed: Session open refused by peer
+
+Access by OTP or Two Factor Certificate Authority only.
+Use myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.
+gsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.
+
+
+Blue Waters Admin Team
+
+
+ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing
+Last login: Wed Jul 25 16:00:48 2018 from static.166.86.201.138.clients.your-server.de
+ 
+   ___  __           _      __     __ 
+  / _ )/ /_ _____   | | /| / /__ _/ /____ ___  ___
+ / _  / / // / -_)  | |/ |/ / _ `/ __/ -_) __)(_-<
+/____/_/\_,_/\__/   |__/|__/\_,_/\__/\__/_/ /___/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Batch and Scheduler configuration.
+  Queues:  normal (default), high, low, debug
+  Features:  "xe" (default), "xk", "x" (xe or xk non-specific)
+             "xehimem" (128GB mem), "xkhimem" (64GB mem)
+  30 min default wall time, 48 hr maximum
+  -lnodes=X:ppn=Y syntax supported.
+
+All SSH traffic on this system is monitored.
+
+Questions?  Mail help+bw@ncsa.illinois.edu to create a support ticket.
+For known issues:  https://bluewaters.ncsa.illinois.edu/known-issues
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+dakka@h2ologin2:~> $)
+2018-07-25 23:00:56,529: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [   47] ($HELLO_1_SAGA\n$$HELLO_2_SAGA\n$$HELLO_3_SAGA\n)
+2018-07-25 23:00:56,530: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got shell prompt trigger (5) ($HELLO_1_SAGA
+$$HELLO_2_SAGA
+$$HELLO_3_SAGA)
+2018-07-25 23:00:56,637: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [   17] ($$HELLO_4_SAGA\n$)
+2018-07-25 23:00:56,638: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got shell prompt trigger (5) (
+$$HELLO_4_SAGA)
+2018-07-25 23:00:56,638: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got initial shell prompt (6) (
+$)
+2018-07-25 23:00:56,638: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : Got initial shell prompt (6) (
+$)
+2018-07-25 23:00:56,638: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   30] ( stty -echo ; exec /bin/sh -i\n)
+2018-07-25 23:00:57,045: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [   13] (h2ologin2:~> )
+2018-07-25 23:00:57,046: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:00:57,148: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [  152] (set HISTFILE=$HOME/.saga_history; PS1='PROMPT-$?->'; PS2=''; PROMPT_COMMAND=''; export PS1 PS2 PROMPT_COMMAND 2>&1 >/dev/null; cd $HOME 2>&1 >/dev/null\n)
+2018-07-25 23:00:57,263: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [   10] (PROMPT-0->)
+2018-07-25 23:00:57,264: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:00:57,366: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:00:57,469: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [   32] (cd / &&  test -d  '/' && cd '/'\n)
+2018-07-25 23:00:57,583: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [   10] (PROMPT-0->)
+2018-07-25 23:00:57,586: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:00:57,688: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  158] [  114] (mkdir -p / && cd / &&  mkdir -p '/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/'\n)
+2018-07-25 23:00:57,818: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  158] [   10] (PROMPT-0->)
+2018-07-25 23:00:57,819: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:00:57,921: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : PTYProcess init <saga.utils.pty_process.PTYProcess object at 0x7f09b87416d0>
+2018-07-25 23:00:57,922: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : INFO    : running: /usr/bin/env TERM=vt100 X509_USER_PROXY=/tmp/x509up_u1008 /usr/bin/gsisftp -o IdentityFile=/home/jdakka/.ssh/id_rsa -o ControlMaster=auto -o ControlPath=/tmp/saga_ssh_jdakka_%h_%p.ctrl -o TCPKeepAlive=no -o ServerAliveInterval=10 -o ServerAliveCountMax=20 -o ConnectTimeout=2000 bw.ncsa.illinois.edu
+2018-07-25 23:00:58,058: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  159] [   82] (mux_client_request_session: session request failed: Session open refused by peer\n)
+2018-07-25 23:00:59,576: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  159] [  243] (\nAccess by OTP or Two Factor Certificate Authority only.\nUse myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.\ngsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.\n\n\nBlue Waters Admin Team\n\n\n)
+2018-07-25 23:00:59,745: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  159] [  104] (ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing\n)
+2018-07-25 23:01:02,268: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  159] [   36] (Connected to bw.ncsa.illinois.edu.\n)
+2018-07-25 23:01:02,383: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  159] [    6] (sftp> )
+2018-07-25 23:01:02,384: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got initial shell prompt (6) (mux_client_request_session: session request failed: Session open refused by peer
+
+Access by OTP or Two Factor Certificate Authority only.
+Use myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.
+gsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.
+
+
+Blue Waters Admin Team
+
+
+ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing
+Connected to bw.ncsa.illinois.edu.
+sftp> )
+2018-07-25 23:01:02,384: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : Got initial shell prompt (6) (mux_client_request_session: session request failed: Session open refused by peer
+
+Access by OTP or Two Factor Certificate Authority only.
+Use myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.
+gsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.
+
+
+Blue Waters Admin Team
+
+
+ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing
+Connected to bw.ncsa.illinois.edu.
+sftp> )
+2018-07-25 23:01:02,384: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  159] [     ] (flush pty read cache)
+2018-07-25 23:01:02,487: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  159] [     ] (flush pty read cache)
+2018-07-25 23:01:02,589: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  159] [  250] (mput  "//tmp/rp_agent_tar_dirZM1BqF/rp.session.two.jdakka.017737.0011.pmgr.0000.launching.0.child.tgz" "/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/rp.session.two.jdakka.017737.0011.pmgr.0000.launching.0.child.tgz"\n)
+2018-07-25 23:01:02,589: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  159] [   26] (mput  "//tmp/rp_agent_tar_)
+2018-07-25 23:01:02,590: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  159] [  161] (dirZM1BqF/rp.session.two.jdakka.017737.0011.pmgr .0000.launching.0.child.tgz" "/scratch/sciteam/dakka/radical.pilot.sandbox/rp.se ssion.two.jdakka.017737.0011/)
+2018-07-25 23:01:02,591: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  159] [   45] (rp.session.two.jdakka.017737.0011.pmgr.0000.l)
+2018-07-25 23:01:02,591: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  159] [   25] (aunchi ng.0.child.tgz"\n)
+2018-07-25 23:01:02,707: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  159] [  254] (Uploading //tmp/rp_agent_tar_dirZM1BqF/rp.session.two.jdakka.017737.0011.pmgr.0000.launching.0.child.tgz to /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/rp.session.two.jdakka.017737.0011.pmgr.0000.launching.0.child.tgz\n)
+2018-07-25 23:01:02,822: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  159] [   79] (//tmp/rp_agent_tar_dirZM1BqF/rp.ses   0%    0     0.0KB/s   0.0KB/s   --:-- ETA)
+2018-07-25 23:01:03,822: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  159] [   79] (//tmp/rp_agent_tar_dirZM1BqF/rp.ses  44%  544KB 543.9KB/s 544.0KB/s   00:01 ETA)
+2018-07-25 23:01:04,006: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  159] [   81] (//tmp/rp_agent_tar_dirZM1BqF/rp.ses 100% 1223KB   1.0MB/s 678.6KB/s   00:01    \n)
+2018-07-25 23:01:04,123: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  159] [    6] (sftp> )
+2018-07-25 23:01:04,123: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : copy done: ['mput', 'Uploading', '//tmp/rp_agent_tar_dirZM1BqF/rp.ses', 'sftp>']
+2018-07-25 23:01:04,171: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : PTYProcess init <saga.utils.pty_process.PTYProcess object at 0x7f09ba756a50>
+2018-07-25 23:01:04,171: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : INFO    : running: /usr/bin/env TERM=vt100 X509_USER_PROXY=/tmp/x509up_u1008 /usr/bin/gsissh -t -o IdentityFile=/home/jdakka/.ssh/id_rsa -o ControlMaster=auto -o ControlPath=/tmp/saga_ssh_jdakka_%h_%p.ctrl -o TCPKeepAlive=no -o ServerAliveInterval=10 -o ServerAliveCountMax=20 -o ConnectTimeout=2000 bw.ncsa.illinois.edu
+2018-07-25 23:01:04,173: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [   51] ( export PROMPT_COMMAND='' PS1='$' ; set prompt='$'\n)
+2018-07-25 23:01:04,293: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [   82] (mux_client_request_session: session request failed: Session open refused by peer\n)
+2018-07-25 23:01:05,180: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:01:05,180: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [   28] ( printf 'HELLO_%d_SAGA\n' 1\n)
+2018-07-25 23:01:05,940: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [  243] (\nAccess by OTP or Two Factor Certificate Authority only.\nUse myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.\ngsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.\n\n\nBlue Waters Admin Team\n\n\n)
+2018-07-25 23:01:06,113: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [  104] (ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing\n)
+2018-07-25 23:01:06,190: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:01:06,190: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [   28] ( printf 'HELLO_%d_SAGA\n' 2\n)
+2018-07-25 23:01:06,652: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [  286] (Last login: Wed Jul 25 16:00:54 2018 from static.166.86.201.138.clients.your-server.de\n \n   ___  __           _      __     __ \n  / _ )/ /_ _____   | | /| / /__ _/ /____ ___  ___\n / _  / / // / -_)  | |/ |/ / _ `/ __/ -_) __)(_-<\n/____/_/\_,_/\__/   |__/|__/\_,_/\__/\__/_/ /___/\n)
+2018-07-25 23:01:06,654: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [  643] (~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ... ~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n)
+2018-07-25 23:01:07,193: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:01:07,193: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [   28] ( printf 'HELLO_%d_SAGA\n' 3\n)
+2018-07-25 23:01:08,194: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:01:08,195: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [   28] ( printf 'HELLO_%d_SAGA\n' 4\n)
+2018-07-25 23:01:08,810: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [   19] (dakka@h2ologin2:~> )
+2018-07-25 23:01:08,815: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got initial shell prompt (6) (mux_client_request_session: session request failed: Session open refused by peer
+
+Access by OTP or Two Factor Certificate Authority only.
+Use myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.
+gsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.
+
+
+Blue Waters Admin Team
+
+
+ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing
+Last login: Wed Jul 25 16:00:54 2018 from static.166.86.201.138.clients.your-server.de
+ 
+   ___  __           _      __     __ 
+  / _ )/ /_ _____   | | /| / /__ _/ /____ ___  ___
+ / _  / / // / -_)  | |/ |/ / _ `/ __/ -_) __)(_-<
+/____/_/\_,_/\__/   |__/|__/\_,_/\__/\__/_/ /___/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Batch and Scheduler configuration.
+  Queues:  normal (default), high, low, debug
+  Features:  "xe" (default), "xk", "x" (xe or xk non-specific)
+             "xehimem" (128GB mem), "xkhimem" (64GB mem)
+  30 min default wall time, 48 hr maximum
+  -lnodes=X:ppn=Y syntax supported.
+
+All SSH traffic on this system is monitored.
+
+Questions?  Mail help+bw@ncsa.illinois.edu to create a support ticket.
+For known issues:  https://bluewaters.ncsa.illinois.edu/known-issues
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+dakka@h2ologin2:~> )
+2018-07-25 23:01:08,816: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : waiting for prompt trigger HELLO_4_SAGA: (6) (mux_client_request_session: session request failed: Session open refused by peer
+
+Access by OTP or Two Factor Certificate Authority only.
+Use myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.
+gsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.
+
+
+Blue Waters Admin Team
+
+
+ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing
+Last login: Wed Jul 25 16:00:54 2018 from static.166.86.201.138.clients.your-server.de
+ 
+   ___  __           _      __     __ 
+  / _ )/ /_ _____   | | /| / /__ _/ /____ ___  ___
+ / _  / / // / -_)  | |/ |/ / _ `/ __/ -_) __)(_-<
+/____/_/\_,_/\__/   |__/|__/\_,_/\__/\__/_/ /___/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Batch and Scheduler configuration.
+  Queues:  normal (default), high, low, debug
+  Features:  "xe" (default), "xk", "x" (xe or xk non-specific)
+             "xehimem" (128GB mem), "xkhimem" (64GB mem)
+  30 min default wall time, 48 hr maximum
+  -lnodes=X:ppn=Y syntax supported.
+
+All SSH traffic on this system is monitored.
+
+Questions?  Mail help+bw@ncsa.illinois.edu to create a support ticket.
+For known issues:  https://bluewaters.ncsa.illinois.edu/known-issues
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+dakka@h2ologin2:~> )
+2018-07-25 23:01:08,816: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [   48] ($$HELLO_1_SAGA\n$$HELLO_2_SAGA\n$$HELLO_3_SAGA\n)
+2018-07-25 23:01:08,816: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got shell prompt trigger (5) ($$HELLO_1_SAGA
+$$HELLO_2_SAGA
+$$HELLO_3_SAGA)
+2018-07-25 23:01:08,924: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [   17] ($$HELLO_4_SAGA\n$)
+2018-07-25 23:01:08,924: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got shell prompt trigger (5) (
+$$HELLO_4_SAGA)
+2018-07-25 23:01:08,925: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got initial shell prompt (6) (
+$)
+2018-07-25 23:01:08,925: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : Got initial shell prompt (6) (
+$)
+2018-07-25 23:01:08,925: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [   30] ( stty -echo ; exec /bin/sh -i\n)
+2018-07-25 23:01:09,324: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [   13] (h2ologin2:~> )
+2018-07-25 23:01:09,324: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  160] [     ] (flush pty read cache)
+2018-07-25 23:01:09,427: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [  152] (set HISTFILE=$HOME/.saga_history; PS1='PROMPT-$?->'; PS2=''; PROMPT_COMMAND=''; export PS1 PS2 PROMPT_COMMAND 2>&1 >/dev/null; cd $HOME 2>&1 >/dev/null\n)
+2018-07-25 23:01:09,542: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [   10] (PROMPT-0->)
+2018-07-25 23:01:09,542: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  160] [     ] (flush pty read cache)
+2018-07-25 23:01:09,650: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : PTYProcess init <saga.utils.pty_process.PTYProcess object at 0x7f09ba756a90>
+2018-07-25 23:01:09,651: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : INFO    : running: /usr/bin/env TERM=vt100 X509_USER_PROXY=/tmp/x509up_u1008 /usr/bin/gsissh -t -o IdentityFile=/home/jdakka/.ssh/id_rsa -o ControlMaster=auto -o ControlPath=/tmp/saga_ssh_jdakka_%h_%p.ctrl -o TCPKeepAlive=no -o ServerAliveInterval=10 -o ServerAliveCountMax=20 -o ConnectTimeout=2000 bw.ncsa.illinois.edu
+2018-07-25 23:01:09,655: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  161] [   51] ( export PROMPT_COMMAND='' PS1='$' ; set prompt='$'\n)
+2018-07-25 23:01:09,785: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  161] [   82] (mux_client_request_session: session request failed: Session open refused by peer\n)
+2018-07-25 23:01:10,662: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  161] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:01:10,662: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  161] [   28] ( printf 'HELLO_%d_SAGA\n' 1\n)
+2018-07-25 23:01:11,670: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  161] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:01:11,671: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  161] [   28] ( printf 'HELLO_%d_SAGA\n' 2\n)
+2018-07-25 23:01:11,850: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  161] [  243] (\nAccess by OTP or Two Factor Certificate Authority only.\nUse myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.\ngsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.\n\n\nBlue Waters Admin Team\n\n\n)
+2018-07-25 23:01:12,019: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  161] [  104] (ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing\n)
+2018-07-25 23:01:12,542: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  161] [   88] (Last login: Wed Jul 25 16:00:42 2018 from static.166.86.201.138.clients.your-server.de\n)
+2018-07-25 23:01:12,543: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  161] [  841] ( \n   ___  __           _      ... ~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n)
+2018-07-25 23:01:12,683: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  161] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:01:12,683: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  161] [   28] ( printf 'HELLO_%d_SAGA\n' 3\n)
+2018-07-25 23:01:13,686: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  161] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:01:13,686: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  161] [   28] ( printf 'HELLO_%d_SAGA\n' 4\n)
+2018-07-25 23:01:14,688: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  161] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:01:14,688: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  161] [   28] ( printf 'HELLO_%d_SAGA\n' 5\n)
+2018-07-25 23:01:14,708: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  161] [   67] (dakka@h2ologin1:~> $$HELLO_1_SAGA\n$$HELLO_2_SAGA\n$$HELLO_3_SAGA\n)
+2018-07-25 23:01:14,708: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got shell prompt trigger (5) (mux_client_request_session: session request failed: Session open refused by peer
+
+Access by OTP or Two Factor Certificate Authority only.
+Use myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.
+gsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.
+
+
+Blue Waters Admin Team
+
+
+ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing
+Last login: Wed Jul 25 16:00:42 2018 from static.166.86.201.138.clients.your-server.de
+ 
+   ___  __           _      __     __ 
+  / _ )/ /_ _____   | | /| / /__ _/ /____ ___  ___
+ / _  / / // / -_)  | |/ |/ / _ `/ __/ -_) __)(_-<
+/____/_/\_,_/\__/   |__/|__/\_,_/\__/\__/_/ /___/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Batch and Scheduler configuration.
+  Queues:  normal (default), high, low, debug
+  Features:  "xe" (default), "xk", "x" (xe or xk non-specific)
+             "xehimem" (128GB mem), "xkhimem" (64GB mem)
+  30 min default wall time, 48 hr maximum
+  -lnodes=X:ppn=Y syntax supported.
+
+All SSH traffic on this system is monitored.
+
+Questions?  Mail help+bw@ncsa.illinois.edu to create a support ticket.
+For known issues:  https://bluewaters.ncsa.illinois.edu/known-issues
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+dakka@h2ologin1:~> $$HELLO_1_SAGA
+$$HELLO_2_SAGA
+$$HELLO_3_SAGA)
+2018-07-25 23:01:14,819: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  161] [   33] ($$HELLO_4_SAGA\n$$HELLO_5_SAGA\n$)
+2018-07-25 23:01:14,820: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got shell prompt trigger (5) (
+$$HELLO_4_SAGA
+$$HELLO_5_SAGA)
+2018-07-25 23:01:14,820: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got initial shell prompt (6) (
+$)
+2018-07-25 23:01:14,820: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : Got initial shell prompt (6) (
+$)
+2018-07-25 23:01:14,821: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  161] [   30] ( stty -echo ; exec /bin/sh -i\n)
+2018-07-25 23:01:15,199: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  161] [   13] (h2ologin1:~> )
+2018-07-25 23:01:15,199: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  161] [     ] (flush pty read cache)
+2018-07-25 23:01:15,301: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  161] [  152] (set HISTFILE=$HOME/.saga_history; PS1='PROMPT-$?->'; PS2=''; PROMPT_COMMAND=''; export PS1 PS2 PROMPT_COMMAND 2>&1 >/dev/null; cd $HOME 2>&1 >/dev/null\n)
+2018-07-25 23:01:15,416: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  161] [   10] (PROMPT-0->)
+2018-07-25 23:01:15,417: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  161] [     ] (flush pty read cache)
+2018-07-25 23:01:15,519: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  160] [     ] (flush pty read cache)
+2018-07-25 23:01:15,621: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [   35] (mkdir -p .saga/adaptors/shell_job/\n)
+2018-07-25 23:01:15,743: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [   10] (PROMPT-0->)
+2018-07-25 23:01:15,744: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  160] [     ] (flush pty read cache)
+2018-07-25 23:01:15,846: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [   45] (test -f .saga/adaptors/shell_job//wrapper.sh\n)
+2018-07-25 23:01:15,962: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [   10] (PROMPT-0->)
+2018-07-25 23:01:15,962: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  160] [     ] (flush pty read cache)
+2018-07-25 23:01:16,064: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [   71] (/bin/sh .saga/adaptors/shell_job//wrapper.sh .saga/adaptors/shell_job/\n)
+2018-07-25 23:01:16,208: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [   12] (PID: 21153\n)
+2018-07-25 23:01:16,559: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [   12] (PROMPT-0->\n)
+2018-07-25 23:01:16,560: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  161] [     ] (flush pty read cache)
+2018-07-25 23:01:16,662: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  161] [   71] (/bin/sh .saga/adaptors/shell_job//wrapper.sh .saga/adaptors/shell_job/\n)
+2018-07-25 23:01:16,823: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  161] [   12] (PID: 20600\n)
+2018-07-25 23:01:17,110: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  161] [   12] (PROMPT-0->\n)
+2018-07-25 23:01:17,111: radical.saga.pty    : pmgr.0000.launching.0           : Thread-1       : DEBUG   : flush: [  161] [     ] (flush pty read cache)
+2018-07-25 23:01:17,111: radical.saga.pty    : pmgr.0000.launching.0           : Thread-1       : WARNING : flush: [  161] [    1] (discard data: '
+')
+2018-07-25 23:01:17,119: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  160] [     ] (flush pty read cache)
+2018-07-25 23:01:17,119: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : WARNING : flush: [  160] [    1] (discard data: '
+')
+2018-07-25 23:01:17,214: radical.saga.pty    : pmgr.0000.launching.0           : Thread-1       : DEBUG   : write: [  161] [    8] (MONITOR\n)
+2018-07-25 23:01:17,222: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [  266] (RUN true && ( /bin/sh -c 'tar zmxvf /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/rp.session.two.jdakka.017737.0011.pmgr.0000.launching.0.child.tgz -C /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011' )\n)
+2018-07-25 23:01:17,358: radical.saga.pty    : pmgr.0000.launching.0           : Thread-1       : DEBUG   : read : [  161] [ 3120] (18736.0:RUNNING: \n18736.0:DON ... RUNNING: \n19381.0:DONE:0   \n)
+2018-07-25 23:01:17,380: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [   10] (RUNNING \n)
+2018-07-25 23:01:17,381: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [   13] (OK\n21472.0\n)
+2018-07-25 23:01:17,384: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [   12] (PROMPT-0->\n)
+2018-07-25 23:01:17,385: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  160] [     ] (flush pty read cache)
+2018-07-25 23:01:17,385: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : WARNING : flush: [  160] [    1] (discard data: '
+')
+2018-07-25 23:01:17,488: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [   14] (STATS 21472.0\n)
+2018-07-25 23:01:17,625: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [  106] (OK\nSTATE : RUNNING\n\nSTART  : 1532552477\n\nSTART_STDERR\n\nEND_STDERR\n\nSTART_STDOUT\n\nEND_STDOUT\n\n)
+2018-07-25 23:01:17,629: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [   12] (PROMPT-0->\n)
+2018-07-25 23:01:17,768: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  160] [     ] (flush pty read cache)
+2018-07-25 23:01:17,769: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : WARNING : flush: [  160] [    1] (discard data: '
+')
+2018-07-25 23:01:17,871: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [   14] (STATS 21472.0\n)
+2018-07-25 23:01:18,006: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [    4] (OK\n)
+2018-07-25 23:01:18,007: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [  120] (STATE : DONE\n\nSTART  : 1532552477\nSTOP   : 1532552477\n\nSTART_STDERR\n\nEND_STDERR\n\nSTART_STDOUT\n\nEND_STDOUT\n\n)
+2018-07-25 23:01:18,010: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [   12] (PROMPT-0->\n)
+2018-07-25 23:01:18,011: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  160] [     ] (flush pty read cache)
+2018-07-25 23:01:18,012: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : WARNING : flush: [  160] [    1] (discard data: '
+')
+2018-07-25 23:01:18,114: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [   15] (STDOUT 21472.0\n)
+2018-07-25 23:01:18,236: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [    4] (OK\n)
+2018-07-25 23:01:18,237: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [  588] (626f6f7473747261705f302e73680a6361636572742e70656d2e677a0a70696c6f742e303030302f0a70696c6f742e303030302f6167656e745f302e6366670a70696c6f742e303030302f70696c6f742e303030302e70726f662e74677a0a70696c6f742e303030302f70696c6f742e303030302e6c6f672e74677a0a7261646963616c2e70696c6f742d302e35302e342d76302e35302e342d39352d6732303866643734652d70726f6a6563742d44412d7363686564756c65722d616c676f2e7461722e677a0a7261646963616c2e7574696c732d302e35302e312d76302e35302e312d312d67636536303833362d646576656c2e7461722e677a0a736167612d707974686f6e2d302e35302e302d76302e35302e302d646576656c2e7461722e677a0a\n)
+2018-07-25 23:01:18,240: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [   12] (PROMPT-0->\n)
+2018-07-25 23:01:18,242: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  160] [     ] (flush pty read cache)
+2018-07-25 23:01:18,242: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : WARNING : flush: [  160] [    1] (discard data: '
+')
+2018-07-25 23:01:18,344: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  160] [   15] (STDERR 21472.0\n)
+2018-07-25 23:01:18,433: radical.saga.pty    : pmgr.0000.launching.0           : Thread-1       : DEBUG   : read : [  161] [   38] (21472.0:RUNNING: \n21472.0:DONE:0   \n)
+2018-07-25 23:01:18,467: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [    6] (OK\n\n)
+2018-07-25 23:01:18,470: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  160] [   12] (PROMPT-0->\n)
+2018-07-25 23:01:18,510: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : PTYShell init <saga.utils.pty_shell.PTYShell object at 0x7f09b86fa150>
+2018-07-25 23:01:18,511: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : INFO    : PTY prompt pattern: [\$#%>\]]\s*$
+2018-07-25 23:01:18,511: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : INFO    : ssh copy  mode set to 'sftp'
+2018-07-25 23:01:18,511: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : INFO    : ssh share mode set to 'auto'
+2018-07-25 23:01:18,511: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : INFO    : ssh timeout    set to '2000.0'
+2018-07-25 23:01:18,512: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : SSH Connection M_FLAGS: -o ControlMaster=auto -o ControlPath=/tmp/saga_ssh_jdakka_%h_%p.ctrl -o TCPKeepAlive=no  -o ServerAliveInterval=10 -o ServerAliveCountMax=20 -o ConnectTimeout=2000
+2018-07-25 23:01:18,512: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : SSH Connection S_FLAGS: -o ControlMaster=auto -o ControlPath=/tmp/saga_ssh_jdakka_%h_%p.ctrl -o TCPKeepAlive=no  -o ServerAliveInterval=10 -o ServerAliveCountMax=20 -o ConnectTimeout=2000
+2018-07-25 23:01:18,512: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : PTYProcess init <saga.utils.pty_process.PTYProcess object at 0x7f09ba6e82d0>
+2018-07-25 23:01:18,512: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : INFO    : running: /usr/bin/env TERM=vt100 X509_USER_PROXY=/tmp/x509up_u1008 /usr/bin/gsissh -t -o IdentityFile=/home/jdakka/.ssh/id_rsa -o ControlMaster=auto -o ControlPath=/tmp/saga_ssh_jdakka_%h_%p.ctrl -o TCPKeepAlive=no -o ServerAliveInterval=10 -o ServerAliveCountMax=20 -o ConnectTimeout=2000 bw.ncsa.illinois.edu
+2018-07-25 23:01:18,514: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [   51] ( export PROMPT_COMMAND='' PS1='$' ; set prompt='$'\n)
+2018-07-25 23:01:18,635: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   82] (mux_client_request_session: session request failed: Session open refused by peer\n)
+2018-07-25 23:01:19,519: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:01:19,519: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [   28] ( printf 'HELLO_%d_SAGA\n' 1\n)
+2018-07-25 23:01:20,186: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  243] (\nAccess by OTP or Two Factor Certificate Authority only.\nUse myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.\ngsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.\n\n\nBlue Waters Admin Team\n\n\n)
+2018-07-25 23:01:20,355: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  104] (ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing\n)
+2018-07-25 23:01:20,529: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:01:20,530: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [   28] ( printf 'HELLO_%d_SAGA\n' 2\n)
+2018-07-25 23:01:20,899: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   88] (Last login: Wed Jul 25 16:01:06 2018 from static.166.86.201.138.clients.your-server.de\n)
+2018-07-25 23:01:20,901: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  280] ( \n   ___  __           _      __     __ \n  / _ )/ /_ _____   | | /| / /__ _/ /____ ___  ___\n / _  / / // / -_)  | |/ |/ / _ `/ __/ -_) __)(_-<\n/____/_/\_,_/\__/   |__/|__/\_,_/\__/\__/_/ /___/\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n)
+2018-07-25 23:01:20,903: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  561] (Batch and Scheduler configuration.\n  Queues:  normal (default), high, low, debug\n  Features:  "xe" (default), "xk", "x" (xe or xk non-specific)\n             "xehimem" (128GB mem), "xkhimem" (64GB mem)\n  30 min default wall time, 48 hr maximum\n  -lnodes=X:ppn=Y syntax supported.\n\nAll SSH traffic on this system is monitored.\n\nQuestions?  Mail help+bw@ncsa.illinois.edu to create a support ticket.\nFor known issues:  https://bluewaters.ncsa.illinois.edu/known-issues\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n)
+2018-07-25 23:01:21,533: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:01:21,534: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [   28] ( printf 'HELLO_%d_SAGA\n' 3\n)
+2018-07-25 23:01:22,539: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [   69] ( export PROMPT_COMMAND='' PS1='$' > /dev/null 2>&1 || set prompt='$'\n)
+2018-07-25 23:01:22,539: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [   28] ( printf 'HELLO_%d_SAGA\n' 4\n)
+2018-07-25 23:01:23,188: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   19] (dakka@h2ologin2:~> )
+2018-07-25 23:01:23,193: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got initial shell prompt (6) (mux_client_request_session: session request failed: Session open refused by peer
+
+Access by OTP or Two Factor Certificate Authority only.
+Use myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.
+gsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.
+
+
+Blue Waters Admin Team
+
+
+ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing
+Last login: Wed Jul 25 16:01:06 2018 from static.166.86.201.138.clients.your-server.de
+ 
+   ___  __           _      __     __ 
+  / _ )/ /_ _____   | | /| / /__ _/ /____ ___  ___
+ / _  / / // / -_)  | |/ |/ / _ `/ __/ -_) __)(_-<
+/____/_/\_,_/\__/   |__/|__/\_,_/\__/\__/_/ /___/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Batch and Scheduler configuration.
+  Queues:  normal (default), high, low, debug
+  Features:  "xe" (default), "xk", "x" (xe or xk non-specific)
+             "xehimem" (128GB mem), "xkhimem" (64GB mem)
+  30 min default wall time, 48 hr maximum
+  -lnodes=X:ppn=Y syntax supported.
+
+All SSH traffic on this system is monitored.
+
+Questions?  Mail help+bw@ncsa.illinois.edu to create a support ticket.
+For known issues:  https://bluewaters.ncsa.illinois.edu/known-issues
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+dakka@h2ologin2:~> )
+2018-07-25 23:01:23,193: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : waiting for prompt trigger HELLO_4_SAGA: (6) (mux_client_request_session: session request failed: Session open refused by peer
+
+Access by OTP or Two Factor Certificate Authority only.
+Use myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.
+gsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.
+
+
+Blue Waters Admin Team
+
+
+ControlSocket /tmp/saga_ssh_jdakka_bw.ncsa.illinois.edu_22.ctrl already exists, disabling multiplexing
+Last login: Wed Jul 25 16:01:06 2018 from static.166.86.201.138.clients.your-server.de
+ 
+   ___  __           _      __     __ 
+  / _ )/ /_ _____   | | /| / /__ _/ /____ ___  ___
+ / _  / / // / -_)  | |/ |/ / _ `/ __/ -_) __)(_-<
+/____/_/\_,_/\__/   |__/|__/\_,_/\__/\__/_/ /___/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Batch and Scheduler configuration.
+  Queues:  normal (default), high, low, debug
+  Features:  "xe" (default), "xk", "x" (xe or xk non-specific)
+             "xehimem" (128GB mem), "xkhimem" (64GB mem)
+  30 min default wall time, 48 hr maximum
+  -lnodes=X:ppn=Y syntax supported.
+
+All SSH traffic on this system is monitored.
+
+Questions?  Mail help+bw@ncsa.illinois.edu to create a support ticket.
+For known issues:  https://bluewaters.ncsa.illinois.edu/known-issues
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+dakka@h2ologin2:~> )
+2018-07-25 23:01:23,193: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   49] ($$HELLO_1_SAGA\n$$HELLO_2_SAGA\n$$HELLO_3_SAGA\n$)
+2018-07-25 23:01:23,193: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got shell prompt trigger (5) ($$HELLO_1_SAGA
+$$HELLO_2_SAGA
+$$HELLO_3_SAGA)
+2018-07-25 23:01:23,193: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got initial shell prompt (6) (
+$)
+2018-07-25 23:01:23,194: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : waiting for prompt trigger HELLO_4_SAGA: (6) (
+$)
+2018-07-25 23:01:23,301: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   16] ($HELLO_4_SAGA\n$)
+2018-07-25 23:01:23,302: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got shell prompt trigger (5) ($HELLO_4_SAGA)
+2018-07-25 23:01:23,302: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got initial shell prompt (6) (
+$)
+2018-07-25 23:01:23,302: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : Got initial shell prompt (6) (
+$)
+2018-07-25 23:01:23,302: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : running command shell: exec /bin/sh -i
+2018-07-25 23:01:23,302: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [   30] ( stty -echo ; exec /bin/sh -i\n)
+2018-07-25 23:01:23,680: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   13] (h2ologin2:~> )
+2018-07-25 23:01:23,681: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:01:23,783: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [  152] (set HISTFILE=$HOME/.saga_history; PS1='PROMPT-$?->'; PS2=''; PROMPT_COMMAND=''; export PS1 PS2 PROMPT_COMMAND 2>&1 >/dev/null; cd $HOME 2>&1 >/dev/null\n)
+2018-07-25 23:01:23,898: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   10] (PROMPT-0->)
+2018-07-25 23:01:23,899: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : got new shell prompt
+2018-07-25 23:01:23,899: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:01:24,001: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:01:24,103: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : run_sync: qstat --version
+2018-07-25 23:01:24,103: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [   16] (qstat --version\n)
+2018-07-25 23:01:24,231: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   66] (Version: 6.0.4\nCommit: 6a0b37f85c7d644e9217cbab1542792d646f59a6\n)
+2018-07-25 23:01:24,232: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   10] (PROMPT-0->)
+2018-07-25 23:01:24,232: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:01:24,335: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : run_sync: which qdel
+2018-07-25 23:01:24,335: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [   11] (which qdel\n)
+2018-07-25 23:01:24,453: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   28] (/opt/torque/6.0.4/bin/qdel\n)
+2018-07-25 23:01:24,453: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   10] (PROMPT-0->)
+2018-07-25 23:01:24,454: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:01:24,556: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : run_sync: which qsub
+2018-07-25 23:01:24,556: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [   11] (which qsub\n)
+2018-07-25 23:01:24,673: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   28] (/opt/torque/6.0.4/bin/qsub\n)
+2018-07-25 23:01:24,673: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   10] (PROMPT-0->)
+2018-07-25 23:01:24,674: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:01:24,776: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : run_sync: which pbsnodes
+2018-07-25 23:01:24,776: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [   15] (which pbsnodes\n)
+2018-07-25 23:01:24,893: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   32] (/opt/torque/6.0.4/bin/pbsnodes\n)
+2018-07-25 23:01:24,893: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   10] (PROMPT-0->)
+2018-07-25 23:01:24,894: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:01:24,997: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : run_sync: which qstat
+2018-07-25 23:01:24,997: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [   12] (which qstat\n)
+2018-07-25 23:01:25,114: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   39] (/opt/torque/6.0.4/bin/qstat\nPROMPT-0->)
+2018-07-25 23:01:25,115: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:01:25,217: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : run_sync: which aprun
+2018-07-25 23:01:25,217: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [   12] (which aprun\n)
+2018-07-25 23:01:25,334: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   36] (/opt/xalt/0.7.6/sles11.3/bin/aprun\n)
+2018-07-25 23:01:25,335: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   10] (PROMPT-0->)
+2018-07-25 23:01:25,335: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:01:25,437: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/pbsnodes -a | grep -E "(np|pcpu)[[:blank:]]*="
+2018-07-25 23:01:25,438: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : write: [  162] [   89] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/pbsnodes -a | grep -E "(np|pcpu)[[:blank:]]*="\n)
+2018-07-25 23:01:26,246: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   84] (     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,247: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   42] (     np = 32\n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,247: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  238] (     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,248: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   28] (     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,360: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 1862] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,361: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 2310] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,361: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 3234] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,474: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 3220] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,474: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  462] (     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,475: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 2604] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,475: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 2856] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,587: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 32\n     np = 32\n   ... np = 32\n     np = 32\n     np)
+2018-07-25 23:01:26,588: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 32\n     np = 32\n     np = ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,588: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 32\n     np = 32\n   ... np = 32\n     np = 32\n     np)
+2018-07-25 23:01:26,589: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 32\n     np = 32\n     np = ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,589: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 32\n     np = 32\n   ... np = 32\n     np = 32\n     np)
+2018-07-25 23:01:26,590: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 32\n     np = 32\n     np = ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,590: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 32\n     np = 32\n   ... np = 32\n     np = 32\n     np)
+2018-07-25 23:01:26,591: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 32\n     np = 32\n     np = ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,591: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 32\n     np = 32\n   ... np = 32\n     np = 32\n     np)
+2018-07-25 23:01:26,592: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 32\n     np = 32\n     np = ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,593: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 32\n     np = 32\n   ... np = 32\n     np = 32\n     np)
+2018-07-25 23:01:26,593: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 32\n     np = 32\n     np = ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,594: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   12] (     np = 32)
+2018-07-25 23:01:26,701: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (\n     np = 32\n     np = 32\n ...   np = 32\n     np = 32\n     )
+2018-07-25 23:01:26,701: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (np = 32\n     np = 32\n     np ... 32\n     np = 32\n     np = 32)
+2018-07-25 23:01:26,702: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (\n     np = 32\n     np = 32\n ...   np = 32\n     np = 32\n     )
+2018-07-25 23:01:26,702: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (np = 32\n     np = 32\n     np ... 32\n     np = 32\n     np = 32)
+2018-07-25 23:01:26,703: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (\n     np = 32\n     np = 32\n ...   np = 32\n     np = 32\n     )
+2018-07-25 23:01:26,703: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (np = 32\n     np = 32\n     np ... 32\n     np = 32\n     np = 32)
+2018-07-25 23:01:26,704: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (\n     np = 32\n     np = 32\n ...   np = 32\n     np = 32\n     )
+2018-07-25 23:01:26,704: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (np = 32\n     np = 32\n     np ... 32\n     np = 32\n     np = 32)
+2018-07-25 23:01:26,705: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [    8] (\n     n)
+2018-07-25 23:01:26,814: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4094] (p = 32\n     np = 32\n     np  ... 32\n     np = 32\n     np = 32)
+2018-07-25 23:01:26,815: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4096] (\n     np = 32\n     np = 32\n ...  np = 32\n     np = 32\n     n)
+2018-07-25 23:01:26,815: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4094] (p = 32\n     np = 32\n     np  ... 32\n     np = 32\n     np = 32)
+2018-07-25 23:01:26,816: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4096] (\n     np = 32\n     np = 32\n ...  np = 32\n     np = 32\n     n)
+2018-07-25 23:01:26,817: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4094] (p = 32\n     np = 32\n     np  ... 32\n     np = 32\n     np = 32)
+2018-07-25 23:01:26,817: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4096] (\n     np = 32\n     np = 32\n ...  np = 32\n     np = 32\n     n)
+2018-07-25 23:01:26,818: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4094] (p = 32\n     np = 32\n     np  ... 32\n     np = 32\n     np = 32)
+2018-07-25 23:01:26,819: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4096] (\n     np = 32\n     np = 32\n ...  np = 32\n     np = 32\n     n)
+2018-07-25 23:01:26,819: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4094] (p = 32\n     np = 32\n     np  ... 32\n     np = 32\n     np = 32)
+2018-07-25 23:01:26,820: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4096] (\n     np = 32\n     np = 32\n ...  np = 32\n     np = 32\n     n)
+2018-07-25 23:01:26,821: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4094] (p = 32\n     np = 32\n     np  ... 32\n     np = 32\n     np = 32)
+2018-07-25 23:01:26,821: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4096] (\n     np = 32\n     np = 32\n ...  np = 32\n     np = 32\n     n)
+2018-07-25 23:01:26,822: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4094] (p = 32\n     np = 32\n     np  ... 32\n     np = 32\n     np = 32)
+2018-07-25 23:01:26,823: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4096] (\n     np = 32\n     np = 32\n ...  np = 32\n     np = 32\n     n)
+2018-07-25 23:01:26,824: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4094] (p = 32\n     np = 32\n     np  ... 32\n     np = 32\n     np = 32)
+2018-07-25 23:01:26,825: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4096] (\n     np = 32\n     np = 32\n ...  np = 32\n     np = 32\n     n)
+2018-07-25 23:01:26,825: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4094] (p = 32\n     np = 32\n     np  ... 32\n     np = 32\n     np = 32)
+2018-07-25 23:01:26,826: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4096] (\n     np = 32\n     np = 32\n ... np = 32\n     np = 32\n     np)
+2018-07-25 23:01:26,827: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 32\n     np = 32\n     np = ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,828: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 3948] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,927: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 32\n     np = 32\n   ... np = 32\n     np = 32\n     np)
+2018-07-25 23:01:26,928: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 32\n     np = 32\n     np = ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,929: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 32\n     np = 32\n   ... np = 32\n     np = 32\n     np)
+2018-07-25 23:01:26,930: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 32\n     np = 32\n     np = ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,932: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 32\n     np = 32\n   ... np = 32\n     np = 32\n     np)
+2018-07-25 23:01:26,933: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 32\n     np = 32\n     np = ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,934: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 32\n     np = 32\n   ... np = 32\n     np = 32\n     np)
+2018-07-25 23:01:26,935: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 32\n     np = 32\n     np = ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,936: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 32\n     np = 32\n   ... np = 32\n     np = 32\n     np)
+2018-07-25 23:01:26,936: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 32\n     np = 32\n     np = ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,938: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 32\n     np = 32\n   ... np = 32\n     np = 32\n     np)
+2018-07-25 23:01:26,938: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 32\n     np = 32\n     np = ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,939: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 32\n     np = 32\n   ... np = 32\n     np = 32\n     np)
+2018-07-25 23:01:26,940: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 32\n     np = 32\n     np = ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:26,941: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 32\n     np = 32\n   ... np = 32\n     np = 32\n     np)
+2018-07-25 23:01:26,942: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 3567] ( = 32\n     np = 32\n     np = ...    np = 32\n     np = 32\n    )
+2018-07-25 23:01:27,041: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( np = 32\n     np = 32\n     n ...  32\n     np = 32\n     np = 3)
+2018-07-25 23:01:27,043: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (2\n     np = 32\n     np = 32\ ...    np = 32\n     np = 32\n    )
+2018-07-25 23:01:27,044: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( np = 32\n     np = 32\n     n ...  32\n     np = 32\n     np = 3)
+2018-07-25 23:01:27,045: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (2\n     np = 32\n     np = 32\ ...    np = 32\n     np = 32\n    )
+2018-07-25 23:01:27,046: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( np = 32\n     np = 32\n     n ...  32\n     np = 32\n     np = 3)
+2018-07-25 23:01:27,047: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (2\n     np = 32\n     np = 32\ ...    np = 32\n     np = 32\n    )
+2018-07-25 23:01:27,048: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( np = 32\n     np = 32\n     n ...  32\n     np = 32\n     np = 3)
+2018-07-25 23:01:27,049: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (2\n     np = 32\n     np = 32\ ...    np = 32\n     np = 32\n    )
+2018-07-25 23:01:27,051: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( np = 32\n     np = 32\n     n ...  32\n     np = 32\n     np = 3)
+2018-07-25 23:01:27,052: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (2\n     np = 32\n     np = 32\ ...    np = 32\n     np = 32\n    )
+2018-07-25 23:01:27,053: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( np = 16\n     np = 16\n     n ...  16\n     np = 16\n     np = 1)
+2018-07-25 23:01:27,054: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (6\n     np = 16\n     np = 16\ ...    np = 16\n     np = 16\n    )
+2018-07-25 23:01:27,055: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( np = 16\n     np = 16\n     n ...  32\n     np = 32\n     np = 3)
+2018-07-25 23:01:27,056: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (2\n     np = 32\n     np = 32\ ...    np = 32\n     np = 32\n    )
+2018-07-25 23:01:27,058: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( np = 32\n     np = 32\n     n ...  32\n     np = 32\n     np = 3)
+2018-07-25 23:01:27,059: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 2831] (2\n     np = 32\n     np = 32\ ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:27,060: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 1218] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:27,062: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  714] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:27,063: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  714] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:27,065: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  742] (     np = 32\n     np = 32\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,067: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  714] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,069: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  644] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,071: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  714] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,073: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  672] (     np = 16\n     np = 16\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:27,074: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  798] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:27,076: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  798] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:27,078: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  798] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:27,080: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  798] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:27,082: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  798] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:27,084: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  826] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:27,155: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 32\n     np = 32\n   ... np = 32\n     np = 32\n     np)
+2018-07-25 23:01:27,157: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 32\n     np = 32\n     np = ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:27,159: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 32\n     np = 32\n   ... np = 16\n     np = 16\n     np)
+2018-07-25 23:01:27,161: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 16\n     np = 16\n     np = ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,163: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 16\n     np = 16\n   ... np = 16\n     np = 16\n     np)
+2018-07-25 23:01:27,164: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 16\n     np = 16\n     np = ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,165: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] (     np = 16\n     np = 16\n   ... np = 16\n     np = 16\n     np)
+2018-07-25 23:01:27,167: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 4095] ( = 16\n     np = 16\n     np = ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,168: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [ 2142] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,170: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  686] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,172: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  672] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,174: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  714] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,175: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  728] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,177: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  742] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,179: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  714] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,181: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  616] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,182: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  672] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,184: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  742] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,186: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  728] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,188: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  658] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,190: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  560] (     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,191: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  742] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,193: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  714] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,195: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  714] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,197: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  672] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,199: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  728] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,201: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  588] (     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,203: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  700] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,204: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  714] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,206: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  728] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,208: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  714] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,210: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  742] (     np = 16\n     np = 16\n   ... \n     np = 16\n     np = 16\n)
+2018-07-25 23:01:27,211: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  742] (     np = 16\n     np = 16\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:27,213: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  602] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:27,215: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  700] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:27,217: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  784] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:27,219: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  812] (     np = 32\n     np = 32\n   ... \n     np = 32\n     np = 32\n)
+2018-07-25 23:01:27,220: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  786] (     np = 32\n     np = 32\n   ...      np = 128\n     np = 128\n)
+2018-07-25 23:01:27,222: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  315] (     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n)
+2018-07-25 23:01:27,224: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  360] (     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n)
+2018-07-25 23:01:27,226: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [  240] (     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n     np = 128\n)
+2018-07-25 23:01:27,228: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   15] (     np = 128\n)
+2018-07-25 23:01:27,239: radical.saga.pty    : pmgr.0000.launching.0           : MainThread     : DEBUG   : read : [  162] [   10] (PROMPT-0->)
+2018-07-25 23:01:27,294: radical.saga.pty    : pmgr.0000.launching.0           : Thread-3       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:01:27,396: radical.saga.pty    : pmgr.0000.launching.0           : Thread-3       : DEBUG   : run_sync: mkdir -p /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000
+2018-07-25 23:01:27,396: radical.saga.pty    : pmgr.0000.launching.0           : Thread-3       : DEBUG   : write: [  162] [   99] (mkdir -p /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000\n)
+2018-07-25 23:01:27,518: radical.saga.pty    : pmgr.0000.launching.0           : Thread-3       : DEBUG   : read : [  162] [   10] (PROMPT-0->)
+2018-07-25 23:01:27,518: radical.saga.pty    : pmgr.0000.launching.0           : Thread-3       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:01:27,621: radical.saga.pty    : pmgr.0000.launching.0           : Thread-3       : DEBUG   : run_sync: SCRIPTFILE=`mktemp -t SAGA-Python-TORQUEJobScript.XXXXXX` &&  echo "
+#!/bin/bash 
+#PBS -N pilot.0000 
+#PBS -v RADICAL_PILOT_PROFILE=TRUE
+#PBS -o /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/bootstrap_0.out 
+#PBS -e /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/bootstrap_0.err 
+#PBS -l walltime=0:30:00 
+#PBS -q high
+#PBS -A bamm 
+#PBS -l nodes=1:ppn=32
+export    PBS_O_WORKDIR=/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000 
+mkdir -p  /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000
+cd        /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000
+/bin/bash -l /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/bootstrap_0.sh  -d 'radical.utils-0.50.1-v0.50.1-1-gce60836-devel.tar.gz:saga-python-0.50.0-v0.50.0-devel.tar.gz:radical.pilot-0.50.4-v0.50.4-95-g208fd74e-project-DA-scheduler-algo.tar.gz' -p 'pilot.0000' -s 'rp.session.two.jdakka.017737.0011' -m 'create' -r 'local' -b 'default' -g 'default' -v '/scratch/sciteam/dakka/radical.pilot.sandbox/ve.ncsa.bw_aprun.0.50.4' -y '30' -i 'python2.7' -e 'module switch PrgEnv-cray PrgEnv-gnu' -e 'module load bwpy' export SAGA_PPN=32
+export SAGA_GPN=1
+" > $SCRIPTFILE && /opt/torque/6.0.4/bin/qsub $SCRIPTFILE && rm -f $SCRIPTFILE
+2018-07-25 23:01:27,621: radical.saga.pty    : pmgr.0000.launching.0           : Thread-3       : DEBUG   : write: [  162] [ 1420] (SCRIPTFILE=`mktemp -t SAGA-Pyt ... IPTFILE && rm -f $SCRIPTFILE\n)
+2018-07-25 23:01:28,216: radical.saga.pty    : pmgr.0000.launching.0           : Thread-3       : DEBUG   : read : [  162] [  299] (\nWARNING: Job script does not invoke any 'aprun'/'ccmrun' command. \nJob will be submitted as usual, but please ensure your job script eventually\ninvokes 'aprun'/'ccmrun' command to execute tasks on allocated compute nodes.\nPlease contact help+bw@ncsa.illinois.edu if you need any assistance.\n\n)
+2018-07-25 23:01:28,944: radical.saga.pty    : pmgr.0000.launching.0           : Thread-3       : DEBUG   : read : [  162] [   38] (INFO: Job submitted to account: bamm\n)
+2018-07-25 23:01:28,966: radical.saga.pty    : pmgr.0000.launching.0           : Thread-3       : DEBUG   : read : [  162] [   12] (8854473.bw\n)
+2018-07-25 23:01:28,972: radical.saga.pty    : pmgr.0000.launching.0           : Thread-3       : DEBUG   : read : [  162] [   10] (PROMPT-0->)
+2018-07-25 23:01:28,980: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:01:29,082: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : write: [  158] [   32] (cd / &&  test -d  '/' && cd '/'\n)
+2018-07-25 23:01:29,197: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  158] [   10] (PROMPT-0->)
+2018-07-25 23:01:29,198: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:01:29,301: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : write: [  158] [  138] (mkdir -p / && cd / &&  mkdir -p '/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/'\n)
+2018-07-25 23:01:29,424: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  158] [   10] (PROMPT-0->)
+2018-07-25 23:01:29,425: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:01:29,527: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  159] [     ] (flush pty read cache)
+2018-07-25 23:01:29,630: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  159] [     ] (flush pty read cache)
+2018-07-25 23:01:29,732: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : write: [  159] [  216] (mput  "/home/jdakka/da_scheduler/htbac/examples/systems/ptp1b-l1-l2-complex.inpcrd" "/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/ptp1b-l1-l2-complex.inpcrd"\n)
+2018-07-25 23:01:29,732: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   31] (mput  "/home/jdakka/da_schedule)
+2018-07-25 23:01:29,732: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   65] (r/htbac/examples/systems/ptp1b-l1-l2-comple x.inpcrd" "/scratch/)
+2018-07-25 23:01:29,733: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   44] (sciteam/dakka/radical.pilot.sandbox/rp.sessi)
+2018-07-25 23:01:29,733: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   40] (on.two.jdakka.01 7737.0011/pilot.0000/s)
+2018-07-25 23:01:29,733: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   35] (taging_area/ptp1b-l1-l2-complex.inp)
+2018-07-25 23:01:29,733: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [    6] (crd"\n)
+2018-07-25 23:01:29,849: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [  220] (Uploading /home/jdakka/da_scheduler/htbac/examples/systems/ptp1b-l1-l2-complex.inpcrd to /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/ptp1b-l1-l2-complex.inpcrd\n)
+2018-07-25 23:01:29,963: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   79] (/home/jdakka/da_scheduler/htbac/exa   0%    0     0.0KB/s -1222.-5KB/s   --:-- )
+2018-07-25 23:01:30,963: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   79] (/home/jdakka/da_scheduler/htbac/exa  97% 1952KB   1.9MB/s   1.9MB/s   00:00 ETA)
+2018-07-25 23:01:30,989: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   81] (/home/jdakka/da_scheduler/htbac/exa 100% 1997KB   1.9MB/s   1.9MB/s   00:01    \n)
+2018-07-25 23:01:31,105: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [    6] (sftp> )
+2018-07-25 23:01:31,106: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : copy done: ['mput', 'Uploading', '/home/jdakka/da_scheduler/htbac/exa', 'sftp>']
+2018-07-25 23:01:31,110: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:01:31,212: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : write: [  158] [  138] (mkdir -p / && cd / &&  mkdir -p '/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/'\n)
+2018-07-25 23:01:31,336: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  158] [   10] (PROMPT-0->)
+2018-07-25 23:01:31,337: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:01:31,439: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  159] [     ] (flush pty read cache)
+2018-07-25 23:01:31,541: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  159] [     ] (flush pty read cache)
+2018-07-25 23:01:31,643: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : write: [  159] [  238] (mput  "/home/jdakka/da_scheduler/venv/local/lib/python2.7/site-packages/htbac/protocols/default-configs/rfe/ties-0.conf" "/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/ties-0.conf"\n)
+2018-07-25 23:01:31,644: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   26] (mput  "/home/jdakka/da_sch)
+2018-07-25 23:01:31,644: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   61] (eduler/venv/local/lib/python2.7/site-packages/ht bac/protoco)
+2018-07-25 23:01:31,644: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   46] (ls/default-configs/rfe/ties-0.conf" "/scratch/)
+2018-07-25 23:01:31,644: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   42] (sciteam/dakka/radical.p ilot.sandbox/rp.s)
+2018-07-25 23:01:31,645: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   49] (ession.two.jdakka.017737.0011/pilot.0000/staging_)
+2018-07-25 23:01:31,645: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   21] (area/ties-0.co nf"\n)
+2018-07-25 23:01:31,760: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [  242] (Uploading /home/jdakka/da_scheduler/venv/local/lib/python2.7/site-packages/htbac/protocols/default-configs/rfe/ties-0.conf to /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/ties-0.conf\n)
+2018-07-25 23:01:31,895: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   79] (/home/jdakka/da_scheduler/venv/loca   0%    0     0.0KB/s -1997.-2KB/s   --:-- )
+2018-07-25 23:01:32,009: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   81] (/home/jdakka/da_scheduler/venv/loca 100% 2389    20.3KB/s   1.9MB/s   00:00    \n)
+2018-07-25 23:01:32,126: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [    6] (sftp> )
+2018-07-25 23:01:32,127: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : copy done: ['mput', 'Uploading', '/home/jdakka/da_scheduler/venv/loca', 'sftp>']
+2018-07-25 23:01:32,130: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:01:32,232: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : write: [  158] [  138] (mkdir -p / && cd / &&  mkdir -p '/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/'\n)
+2018-07-25 23:01:32,359: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  158] [   10] (PROMPT-0->)
+2018-07-25 23:01:32,360: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:01:32,462: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  159] [     ] (flush pty read cache)
+2018-07-25 23:01:32,565: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  159] [     ] (flush pty read cache)
+2018-07-25 23:01:32,667: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : write: [  159] [  238] (mput  "/home/jdakka/da_scheduler/venv/local/lib/python2.7/site-packages/htbac/protocols/default-configs/rfe/ties-1.conf" "/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/ties-1.conf"\n)
+2018-07-25 23:01:32,667: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   19] (mput  "/home/jdakka)
+2018-07-25 23:01:32,667: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   64] (/da_scheduler/venv/local/lib/python2.7/site-packages/ht bac/pro)
+2018-07-25 23:01:32,667: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   44] (tocols/default-configs/rfe/ties-1.conf" "/sc)
+2018-07-25 23:01:32,668: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   47] (ratch/sciteam/dakka/radical.p ilot.sandbox/rp.)
+2018-07-25 23:01:32,668: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   38] (session.two.jdakka.017737.0011/pilot.0)
+2018-07-25 23:01:32,668: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   33] (000/staging_area/ties-1.co nf"\n)
+2018-07-25 23:01:32,783: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [  242] (Uploading /home/jdakka/da_scheduler/venv/local/lib/python2.7/site-packages/htbac/protocols/default-configs/rfe/ties-1.conf to /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/ties-1.conf\n)
+2018-07-25 23:01:32,898: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   79] (/home/jdakka/da_scheduler/venv/loca   0%    0     0.0KB/s  -2.-2KB/s   --:-- ET)
+2018-07-25 23:01:33,013: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   81] (/home/jdakka/da_scheduler/venv/loca 100% 2221    18.9KB/s   1.9MB/s   00:00    \n)
+2018-07-25 23:01:33,134: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [    6] (sftp> )
+2018-07-25 23:01:33,135: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : copy done: ['mput', 'Uploading', '/home/jdakka/da_scheduler/venv/loca', 'sftp>']
+2018-07-25 23:01:33,172: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:01:33,274: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : write: [  158] [  138] (mkdir -p / && cd / &&  mkdir -p '/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/'\n)
+2018-07-25 23:01:33,617: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  158] [   10] (PROMPT-0->)
+2018-07-25 23:01:33,618: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:01:33,720: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  159] [     ] (flush pty read cache)
+2018-07-25 23:01:33,822: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  159] [     ] (flush pty read cache)
+2018-07-25 23:01:33,924: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : write: [  159] [  204] (mput  "/home/jdakka/da_scheduler/htbac/examples/systems/ptp1b-l1-l2-tags.pdb" "/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/ptp1b-l1-l2-tags.pdb"\n)
+2018-07-25 23:01:33,924: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   31] (mput  "/home/jdakka/da_schedule)
+2018-07-25 23:01:33,925: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [  109] (r/htbac/examples/systems/ptp1b-l1-l2-tags.p db" "/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two)
+2018-07-25 23:01:33,925: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   69] (.jdakka.017737.0 011/pilot.0000/staging_area/ptp1b-l1-l2-tags.pdb"\n)
+2018-07-25 23:01:34,040: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [  208] (Uploading /home/jdakka/da_scheduler/htbac/examples/systems/ptp1b-l1-l2-tags.pdb to /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/ptp1b-l1-l2-tags.pdb\n)
+2018-07-25 23:01:34,155: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   79] (/home/jdakka/da_scheduler/htbac/exa   0%    0     0.0KB/s  -2.-1KB/s   --:-- ET)
+2018-07-25 23:01:35,155: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   79] (/home/jdakka/da_scheduler/htbac/exa  69% 3008KB   2.9MB/s   2.9MB/s   00:00 ETA)
+2018-07-25 23:01:35,206: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   81] (/home/jdakka/da_scheduler/htbac/exa 100% 4323KB   4.0MB/s   2.9MB/s   00:01    \n)
+2018-07-25 23:01:35,323: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [    6] (sftp> )
+2018-07-25 23:01:35,323: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : copy done: ['mput', 'Uploading', '/home/jdakka/da_scheduler/htbac/exa', 'sftp>']
+2018-07-25 23:01:35,327: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:01:35,429: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : write: [  158] [  138] (mkdir -p / && cd / &&  mkdir -p '/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/'\n)
+2018-07-25 23:01:35,553: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  158] [   10] (PROMPT-0->)
+2018-07-25 23:01:35,554: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:01:35,657: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  159] [     ] (flush pty read cache)
+2018-07-25 23:01:35,759: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  159] [     ] (flush pty read cache)
+2018-07-25 23:01:35,861: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : write: [  159] [  210] (mput  "/home/jdakka/da_scheduler/htbac/examples/systems/ptp1b-l1-l2-complex.pdb" "/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/ptp1b-l1-l2-complex.pdb"\n)
+2018-07-25 23:01:35,861: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   24] (mput  "/home/jdakka/da_s)
+2018-07-25 23:01:35,862: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   57] (cheduler/htbac/examples/systems/ptp1b-l1-l2-comple x.pdb)
+2018-07-25 23:01:35,862: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   37] (" "/scratch/sciteam/dakka/radical.pil)
+2018-07-25 23:01:35,862: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   44] (ot.sandbox/rp.session.two.jdakka.01773 7.00)
+2018-07-25 23:01:35,862: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   35] (11/pilot.0000/staging_area/ptp1b-l1)
+2018-07-25 23:01:35,862: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   18] (-l2-complex.pdb"\n)
+2018-07-25 23:01:35,978: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [  214] (Uploading /home/jdakka/da_scheduler/htbac/examples/systems/ptp1b-l1-l2-complex.pdb to /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/ptp1b-l1-l2-complex.pdb\n)
+2018-07-25 23:01:36,093: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   79] (/home/jdakka/da_scheduler/htbac/exa   0%    0     0.0KB/s -4322.-7KB/s   --:-- )
+2018-07-25 23:01:36,577: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   81] (/home/jdakka/da_scheduler/htbac/exa 100% 3733KB   7.5MB/s   3.7MB/s   00:00    \n)
+2018-07-25 23:01:36,693: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [    6] (sftp> )
+2018-07-25 23:01:36,694: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : copy done: ['mput', 'Uploading', '/home/jdakka/da_scheduler/htbac/exa', 'sftp>']
+2018-07-25 23:01:36,697: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:01:36,800: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : write: [  158] [  138] (mkdir -p / && cd / &&  mkdir -p '/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/'\n)
+2018-07-25 23:01:36,925: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  158] [   10] (PROMPT-0->)
+2018-07-25 23:01:36,926: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  158] [     ] (flush pty read cache)
+2018-07-25 23:01:37,028: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  159] [     ] (flush pty read cache)
+2018-07-25 23:01:37,130: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : flush: [  159] [     ] (flush pty read cache)
+2018-07-25 23:01:37,232: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : write: [  159] [  210] (mput  "/home/jdakka/da_scheduler/htbac/examples/systems/ptp1b-l1-l2-complex.top" "/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/ptp1b-l1-l2-complex.top"\n)
+2018-07-25 23:01:37,233: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   26] (mput  "/home/jdakka/da_sch)
+2018-07-25 23:01:37,233: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   66] (eduler/htbac/examples/systems/ptp1b-l1-l2-comple x.top" "/scratch)
+2018-07-25 23:01:37,233: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   32] (/sciteam/dakka/radical.pilot.san)
+2018-07-25 23:01:37,233: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   36] (dbox/rp.session.two.jdakka.01773 7.)
+2018-07-25 23:01:37,234: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   24] (0011/pilot.0000/staging_)
+2018-07-25 23:01:37,234: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   21] (area/ptp1b-l1-l2-comp)
+2018-07-25 23:01:37,234: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   10] (lex.top"\n)
+2018-07-25 23:01:37,349: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [  214] (Uploading /home/jdakka/da_scheduler/htbac/examples/systems/ptp1b-l1-l2-complex.top to /scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/staging_area/ptp1b-l1-l2-complex.top\n)
+2018-07-25 23:01:37,464: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   79] (/home/jdakka/da_scheduler/htbac/exa   0%    0     0.0KB/s -3732.-7KB/s   --:-- )
+2018-07-25 23:01:38,186: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [   81] (/home/jdakka/da_scheduler/htbac/exa 100% 9931KB  13.4MB/s   9.7MB/s   00:00    \n)
+2018-07-25 23:01:38,303: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : read : [  159] [    6] (sftp> )
+2018-07-25 23:01:38,303: radical.saga.pty    : pmgr.0000.launching.0           : pmgr.0000.launching.0.child.subscriber._pmgr_control_cb: DEBUG   : copy done: ['mput', 'Uploading', '/home/jdakka/da_scheduler/htbac/exa', 'sftp>']
+2018-07-25 23:02:18,570: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:02:18,672: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:02:18,673: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:02:18,802: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:02:18,804: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  105] (    job_state = Q\n    ctime = Wed Jul 25 16:01:28 2018\n    mtime = Wed Jul 25 16:01:28 2018\nPROMPT-0->)
+2018-07-25 23:03:18,847: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:03:18,949: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:03:18,949: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:03:19,078: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:03:19,080: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  105] (    job_state = Q\n    ctime = Wed Jul 25 16:01:28 2018\n    mtime = Wed Jul 25 16:01:28 2018\nPROMPT-0->)
+2018-07-25 23:04:19,140: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:04:19,242: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:04:19,242: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:04:19,371: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:04:19,373: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  105] (    job_state = Q\n    ctime = Wed Jul 25 16:01:28 2018\n    mtime = Wed Jul 25 16:01:28 2018\nPROMPT-0->)
+2018-07-25 23:05:19,427: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:05:19,529: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:05:19,530: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:05:19,659: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:05:19,661: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  105] (    job_state = Q\n    ctime = Wed Jul 25 16:01:28 2018\n    mtime = Wed Jul 25 16:01:28 2018\nPROMPT-0->)
+2018-07-25 23:06:19,721: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:06:19,823: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:06:19,823: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:06:19,951: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:06:19,953: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  105] (    job_state = Q\n    ctime = Wed Jul 25 16:01:28 2018\n    mtime = Wed Jul 25 16:01:28 2018\nPROMPT-0->)
+2018-07-25 23:07:20,010: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:07:20,112: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:07:20,112: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:07:20,242: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:07:20,244: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  105] (    job_state = Q\n    ctime = Wed Jul 25 16:01:28 2018\n    mtime = Wed Jul 25 16:01:28 2018\nPROMPT-0->)
+2018-07-25 23:08:20,302: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:08:20,405: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:08:20,405: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:08:20,534: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:08:20,536: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  105] (    job_state = Q\n    ctime = Wed Jul 25 16:01:28 2018\n    mtime = Wed Jul 25 16:01:28 2018\nPROMPT-0->)
+2018-07-25 23:09:20,594: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:09:20,696: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:09:20,696: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:09:20,825: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:09:20,828: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  105] (    job_state = Q\n    ctime = Wed Jul 25 16:01:28 2018\n    mtime = Wed Jul 25 16:01:28 2018\nPROMPT-0->)
+2018-07-25 23:10:20,886: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:10:20,988: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:10:20,989: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:10:21,162: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:10:21,164: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  105] (    job_state = Q\n    ctime = Wed Jul 25 16:01:28 2018\n    mtime = Wed Jul 25 16:01:28 2018\nPROMPT-0->)
+2018-07-25 23:11:21,223: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:11:21,325: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:11:21,325: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:11:21,454: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:11:21,456: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  105] (    job_state = Q\n    ctime = Wed Jul 25 16:01:28 2018\n    mtime = Wed Jul 25 16:01:28 2018\nPROMPT-0->)
+2018-07-25 23:12:21,514: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:12:21,616: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:12:21,616: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:12:21,773: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:12:21,775: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  105] (    job_state = Q\n    ctime = Wed Jul 25 16:01:28 2018\n    mtime = Wed Jul 25 16:01:28 2018\nPROMPT-0->)
+2018-07-25 23:13:21,825: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:13:21,927: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:13:21,927: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:13:22,058: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:13:22,060: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  105] (    job_state = Q\n    ctime = Wed Jul 25 16:01:28 2018\n    mtime = Wed Jul 25 16:01:28 2018\nPROMPT-0->)
+2018-07-25 23:14:22,118: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:14:22,219: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:14:22,219: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:14:22,349: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:14:22,351: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  105] (    job_state = Q\n    ctime = Wed Jul 25 16:01:28 2018\n    mtime = Wed Jul 25 16:01:28 2018\nPROMPT-0->)
+2018-07-25 23:15:22,410: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:15:22,512: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:15:22,513: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:15:22,642: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:15:22,644: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:16:22,704: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:16:22,805: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:16:22,805: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:16:22,935: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:16:22,937: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:17:22,994: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:17:23,095: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:17:23,095: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:17:23,224: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:17:23,226: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:18:23,285: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:18:23,386: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:18:23,386: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:18:23,515: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:18:23,517: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:19:23,576: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:19:23,681: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:19:23,681: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:19:23,809: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:19:23,811: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:20:23,870: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:20:23,971: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:20:23,971: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:20:24,220: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:20:24,223: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:21:24,282: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:21:24,383: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:21:24,383: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:21:24,513: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:21:24,515: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:22:24,574: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:22:24,675: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:22:24,675: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:22:24,804: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:22:24,806: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:23:24,860: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:23:24,961: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:23:24,961: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:23:25,089: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:23:25,091: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:24:25,149: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:24:25,250: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:24:25,250: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:24:25,422: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:24:25,424: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:25:25,452: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:25:25,553: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:25:25,553: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:25:25,683: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:25:25,685: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:26:25,742: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:26:25,843: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:26:25,843: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:26:25,973: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:26:25,975: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:27:26,035: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:27:26,136: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:27:26,136: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:27:26,267: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:27:26,270: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:28:26,327: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:28:26,428: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:28:26,428: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:28:26,558: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:28:26,560: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:29:26,618: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:29:26,719: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:29:26,719: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:29:26,848: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:29:26,850: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:30:26,906: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:30:27,007: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:30:27,007: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:30:27,135: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:30:27,137: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:31:27,194: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:31:27,295: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:31:27,295: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:31:27,427: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:31:27,429: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:32:27,486: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:32:27,587: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:32:27,587: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:32:27,716: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:32:27,718: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:33:27,764: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:33:27,864: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:33:27,864: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:33:27,993: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:33:27,995: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:34:28,049: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:34:28,149: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:34:28,149: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:34:28,311: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:34:28,312: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:35:28,370: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:35:28,471: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:35:28,471: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:35:28,599: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:35:28,601: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:36:28,661: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:36:28,762: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:36:28,762: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:36:28,892: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:36:28,894: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:37:28,950: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:37:29,051: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:37:29,051: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:37:29,181: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:37:29,183: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:38:29,242: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:38:29,343: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:38:29,343: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:38:29,473: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:38:29,476: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:39:29,535: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:39:29,636: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:39:29,636: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:39:29,764: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:39:29,765: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:40:29,826: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:40:29,926: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:40:29,927: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:40:30,056: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:40:30,058: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state = R\n    ctime = Wed Jul 25 16:01:28 2018\n    exec_host = 192/0-31\n    mtime = Wed Jul 25 16:14:41 2018\n    start_time = Wed Jul 25 16:14:41 2018\nPROMPT-0->)
+2018-07-25 23:41:30,117: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : flush: [  162] [     ] (flush pty read cache)
+2018-07-25 23:41:30,218: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : run_sync: unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'
+2018-07-25 23:41:30,218: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : write: [  162] [  161] (unset GREP_OPTIONS; /opt/torque/6.0.4/bin/qstat -f1 8854473 | grep -E -i '(job_state)|(Job_Name)|(exec_host)|(exit_status)|(ctime)|(start_time)|(stime)|(mtime)'\n)
+2018-07-25 23:41:30,348: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [   27] (    Job_Name = pilot.0000\n)
+2018-07-25 23:41:30,349: radical.saga.pty    : pmgr.0000.launching.0           : Thread-2       : DEBUG   : read : [  162] [  174] (    job_state =

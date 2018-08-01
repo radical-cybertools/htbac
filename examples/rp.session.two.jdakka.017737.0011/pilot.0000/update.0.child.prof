@@ -1,0 +1,6 @@
+#time,event,comp,thread,uid,state,msg
+1532553383.4312,sync_abs,update.0.child,MainThread,,,nid25429:10.128.100.30:1532553383.38:1532553383.37:ntp
+1532553383.6637,component_init,update.0.child,MainThread,,,
+1532553384.3806,update_request,update.0.child,update.0.child.subscriber._state_cb,pilot.0000,,PMGR_ACTIVE
+1532553384.7054,update_pushed,update.0.child,update.0.child.idler._idle_cb,,,bulk size: 1
+1532553384.7055,update_pushed,update.0.child,update.0.child.idler._idle_cb,pilot.0000,,PMGR_ACTIVE

@@ -1,0 +1,385 @@
+{
+    "pilot": [
+        {
+            "_id": "pilot.0000", 
+            "cfg": {
+                "agent_launch_method": "APRUN", 
+                "bridges": {
+                    "agent_executing_queue": {
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "agent_schedule_pubsub": {
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "agent_scheduling_queue": {
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "agent_staging_input_queue": {
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "agent_staging_output_queue": {
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "agent_unschedule_pubsub": {
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "control_pubsub": {
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "log_pubsub": {
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "state_pubsub": {
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }
+                }, 
+                "bulk_collection_size": 100, 
+                "bulk_collection_time": 1.0, 
+                "components": {
+                    "AgentExecutingComponent": {
+                        "count": 1
+                    }, 
+                    "AgentSchedulingComponent": {
+                        "count": 1
+                    }, 
+                    "AgentStagingInputComponent": {
+                        "count": 1
+                    }, 
+                    "AgentStagingOutputComponent": {
+                        "count": 1
+                    }, 
+                    "UpdateWorker": {
+                        "count": 1
+                    }
+                }, 
+                "cores": 5, 
+                "cores_per_node": 0, 
+                "cu_post_exec": null, 
+                "cu_pre_exec": null, 
+                "cu_tmp": null, 
+                "db_poll_sleeptime": 1.0, 
+                "dburl": "mongodb://user:user@ds223760.mlab.com:23760/scalability", 
+                "debug": 10, 
+                "export_to_cu": null, 
+                "gpus": 0, 
+                "gpus_per_node": 1, 
+                "lfs_path_per_node": "/tmp", 
+                "lfs_size_per_node": 32768, 
+                "logdir": ".", 
+                "lrms": "TORQUE", 
+                "max_io_loglength": 1024, 
+                "mode": "shared", 
+                "mpi_launch_method": "APRUN", 
+                "owner": "agent_0", 
+                "pilot_id": "pilot.0000", 
+                "pilot_sandbox": "/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/", 
+                "resource_cfg": {
+                    "agent_launch_method": "APRUN", 
+                    "agent_scheduler": "CONTINUOUS", 
+                    "agent_spawner": "POPEN", 
+                    "default_queue": "normal", 
+                    "default_remote_workdir": "/scratch/sciteam/$USER", 
+                    "description": "The NCSA Blue Waters Cray XE6/XK7 system (https://bluewaters.ncsa.illinois.edu/)", 
+                    "filesystem_endpoint": "gsisftp://bw.ncsa.illinois.edu/", 
+                    "gpus_per_node": 1, 
+                    "gsissh": {
+                        "filesystem_endpoint": "gsisftp://bw.ncsa.illinois.edu/", 
+                        "job_manager_endpoint": "torque+gsissh://bw.ncsa.illinois.edu"
+                    }, 
+                    "job_manager_endpoint": "torque+gsissh://bw.ncsa.illinois.edu", 
+                    "label": "ncsa.bw_aprun", 
+                    "lfs_path_per_node": "/tmp", 
+                    "lfs_size_per_node": 32768, 
+                    "local": {
+                        "filesystem_endpoint": "file://localhost/", 
+                        "job_manager_endpoint": "torque://localhost"
+                    }, 
+                    "lrms": "TORQUE", 
+                    "mpi_launch_method": "APRUN", 
+                    "notes": "Running 'touch .hushlogin' on the login node will reduce the likelihood of prompt detection issues.", 
+                    "pre_bootstrap_0": [
+                        "module switch PrgEnv-cray PrgEnv-gnu", 
+                        "module load bwpy"
+                    ], 
+                    "python_dist": "default", 
+                    "python_interpreter": "python2.7", 
+                    "rp_version": "local", 
+                    "schemas": [
+                        "gsissh", 
+                        "local"
+                    ], 
+                    "stage_cacerts": "True", 
+                    "task_launch_method": "APRUN", 
+                    "valid_roots": [
+                        "/scratch/sciteam"
+                    ], 
+                    "virtenv_mode": "create"
+                }, 
+                "resource_sandbox": "/scratch/sciteam/dakka/radical.pilot.sandbox", 
+                "runtime": 30, 
+                "scheduler": "CONTINUOUS", 
+                "session_id": "rp.session.two.jdakka.017737.0011", 
+                "session_sandbox": "/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011", 
+                "spawner": "POPEN", 
+                "staging_area": "staging_area", 
+                "staging_schema": "staging", 
+                "target": "local", 
+                "task_launch_method": "APRUN"
+            }, 
+            "client_sandbox": "/home/jdakka/da_scheduler/htbac/examples", 
+            "cmd": [
+                {
+                    "arg": [], 
+                    "cmd": "cancel_pilot"
+                }, 
+                {
+                    "arg": [], 
+                    "cmd": "cancel_pilot"
+                }
+            ], 
+            "control": "pmgr", 
+            "description": {
+                "access_schema": "gsissh", 
+                "candidate_hosts": null, 
+                "cleanup": null, 
+                "cores": 5, 
+                "exit_on_error": false, 
+                "gpus": 0, 
+                "memory": null, 
+                "project": "bamm", 
+                "queue": "high", 
+                "resource": "ncsa.bw_aprun", 
+                "runtime": 30, 
+                "sandbox": null
+            }, 
+            "js_hop": "gsissh://bw.ncsa.illinois.edu", 
+            "js_url": "torque+gsissh://bw.ncsa.illinois.edu", 
+            "log": null, 
+            "pilot_sandbox": "gsisftp://bw.ncsa.illinois.edu/scratch/sciteam/dakka/radical.pilot.sandbox/rp.session.two.jdakka.017737.0011/pilot.0000/", 
+            "pmgr": "pmgr.0000", 
+            "resource": "ncsa.bw_aprun", 
+            "resource_details": null, 
+            "resource_sandbox": "gsisftp://bw.ncsa.illinois.edu/scratch/sciteam/dakka/radical.pilot.sandbox", 
+            "session": "rp.session.two.jdakka.017737.0011", 
+            "state": "FAILED", 
+            "states": [
+                "NEW", 
+                "PMGR_LAUNCHING_PENDING", 
+                "PMGR_LAUNCHING", 
+                "PMGR_ACTIVE_PENDING", 
+                "PMGR_ACTIVE", 
+                "PMGR_ACTIVE", 
+                "FAILED"
+            ], 
+            "stderr": null, 
+            "stdout": null, 
+            "type": "pilot", 
+            "uid": "pilot.0000", 
+            "unit_ids": []
+        }
+    ], 
+    "pmgr": [
+        {
+            "_id": "pmgr.0000", 
+            "cfg": {
+                "bridges": {
+                    "control_pubsub": {
+                        "addr_in": "tcp://138.201.86.166:34781", 
+                        "addr_out": "tcp://138.201.86.166:39444", 
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "log_pubsub": {
+                        "addr_in": "tcp://138.201.86.166:33226", 
+                        "addr_out": "tcp://138.201.86.166:42769", 
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "pmgr_launching_queue": {
+                        "addr_in": "tcp://138.201.86.166:41756", 
+                        "addr_out": "tcp://138.201.86.166:42322", 
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "state_pubsub": {
+                        "addr_in": "tcp://138.201.86.166:38212", 
+                        "addr_out": "tcp://138.201.86.166:33191", 
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }
+                }, 
+                "components": {
+                    "PMGRLaunchingComponent": {
+                        "count": 1
+                    }
+                }, 
+                "db_poll_sleeptime": 10.0, 
+                "owner": "pmgr.0000", 
+                "uid": "pmgr.0000"
+            }, 
+            "type": "pmgr", 
+            "uid": "pmgr.0000"
+        }
+    ], 
+    "session": {
+        "_id": "rp.session.two.jdakka.017737.0011", 
+        "cfg": {
+            "bridges": {
+                "control_pubsub": {
+                    "bulk_size": 0, 
+                    "log_level": "error", 
+                    "stall_hwm": 1
+                }, 
+                "log_pubsub": {
+                    "bulk_size": 0, 
+                    "log_level": "error", 
+                    "stall_hwm": 1
+                }, 
+                "state_pubsub": {
+                    "bulk_size": 0, 
+                    "log_level": "error", 
+                    "stall_hwm": 1
+                }
+            }, 
+            "components": {
+                "UpdateWorker": {
+                    "count": 1
+                }
+            }, 
+            "dburl": "mongodb://user:user@ds223760.mlab.com:23760/scalability", 
+            "default_dburl": "mongodb://rp:rp@ds015335.mlab.com:15335/rp", 
+            "logdir": "/home/jdakka/da_scheduler/htbac/examples/rp.session.two.jdakka.017737.0011", 
+            "owner": "rp.session.two.jdakka.017737.0011", 
+            "session_id": "rp.session.two.jdakka.017737.0011"
+        }, 
+        "connected": 1532552427.091195, 
+        "created": 1532552426.53836, 
+        "metadata": [
+            {
+                "radical_stack": {
+                    "py": "2.7.12 (default, Dec  4 2017, 14:50:18)  [GCC 5.4.0 20160609]", 
+                    "rp": "0.50.4-v0.50.4-95-g208fd74e@project-DA-scheduler_algo", 
+                    "rs": "0.50.0-v0.50.0@devel", 
+                    "ru": "0.50.1-v0.50.1-1-gce60836@devel"
+                }
+            }, 
+            {
+                "radical_stack": {
+                    "py": "2.7.14 (default, May 29 2018, 17:35:49)  [GCC 4.9.3 20150626 (Cray Inc.)]", 
+                    "rp": "0.50.4-v0.50.4-95-g208fd74e@project-DA-scheduler_algo", 
+                    "rs": "0.50.0-v0.50.0@devel", 
+                    "ru": "0.50.1-v0.50.1-1-gce60836@devel"
+                }
+            }
+        ], 
+        "type": "session", 
+        "uid": "rp.session.two.jdakka.017737.0011"
+    }, 
+    "umgr": [
+        {
+            "_id": "umgr.0000", 
+            "cfg": {
+                "bridges": {
+                    "control_pubsub": {
+                        "addr_in": "tcp://138.201.86.166:34781", 
+                        "addr_out": "tcp://138.201.86.166:39444", 
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "log_pubsub": {
+                        "addr_in": "tcp://138.201.86.166:33226", 
+                        "addr_out": "tcp://138.201.86.166:42769", 
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "state_pubsub": {
+                        "addr_in": "tcp://138.201.86.166:38212", 
+                        "addr_out": "tcp://138.201.86.166:33191", 
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "umgr_reschedule_pubsub": {
+                        "addr_in": "tcp://138.201.86.166:32805", 
+                        "addr_out": "tcp://138.201.86.166:41666", 
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "umgr_scheduling_queue": {
+                        "addr_in": "tcp://138.201.86.166:35989", 
+                        "addr_out": "tcp://138.201.86.166:42747", 
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "umgr_staging_input_queue": {
+                        "addr_in": "tcp://138.201.86.166:41212", 
+                        "addr_out": "tcp://138.201.86.166:40395", 
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "umgr_staging_output_queue": {
+                        "addr_in": "tcp://138.201.86.166:33429", 
+                        "addr_out": "tcp://138.201.86.166:46834", 
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }, 
+                    "umgr_unschedule_pubsub": {
+                        "addr_in": "tcp://138.201.86.166:33095", 
+                        "addr_out": "tcp://138.201.86.166:39527", 
+                        "bulk_size": 0, 
+                        "log_level": "error", 
+                        "stall_hwm": 1
+                    }
+                }, 
+                "bulk_collection_size": 100, 
+                "bulk_collection_time": 1.0, 
+                "components": {
+                    "UMGRSchedulingComponent": {
+                        "count": 1
+                    }, 
+                    "UMGRStagingInputComponent": {
+                        "count": 1
+                    }, 
+                    "UMGRStagingOutputComponent": {
+                        "count": 1
+                    }
+                }, 
+                "db_poll_sleeptime": 1.0, 
+                "owner": "umgr.0000", 
+                "scheduler": "round_robin", 
+                "uid": "umgr.0000"
+            }, 
+            "type": "umgr", 
+            "uid": "umgr.0000"
+        }
+    ], 
+    "unit": []
+}

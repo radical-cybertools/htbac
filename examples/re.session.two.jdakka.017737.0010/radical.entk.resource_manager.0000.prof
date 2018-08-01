@@ -1,0 +1,16 @@
+#time,event,comp,thread,uid,state,msg
+1532552426.3615,sync_abs,radical.entk.resource_manager.0000,MainThread,,,localhost.localdomain:138.201.86.166:1532552426.35:1532552426.35:ntp
+1532552426.3618,rmgr obj created,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1532552426.3618,validating rdesc,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1532552426.3621,rdesc validated,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1532552426.3621,populating rmgr,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1532552426.3623,rmgr populated,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1532552426.4123,creating rreq,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1532552428.9220,rreq created,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1532552440.1832,rreq submitted,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1532552499.2410,shared data staging initiated,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1532553390.4649,resource active,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1532555013.1801,canceling resource allocation,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1532555134.8475,resource allocation cancelled,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1532555134.8645,canceling resource allocation,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1532555134.9588,END,radical.entk.resource_manager.0000,Dummy-1,,,

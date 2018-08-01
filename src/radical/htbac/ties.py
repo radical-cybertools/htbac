@@ -64,7 +64,11 @@ class Ties(object):
 
                     task = Task()
                     task.name = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
+<<<<<<< HEAD
                     task.arguments = ['+pemap', '0-31']
+=======
+
+>>>>>>> bea3a63836f7744dbac585fb5152cb0c9baf5095
                     task.arguments += ['ties-{}.conf'.format(self.workflow[0])]
                     task.copy_input_data = ['$SHARED/ties-{}.conf'.format(self.workflow[0])]
                     task.executable = [NAMD2]
@@ -114,7 +118,11 @@ class Ties(object):
 
                     task = Task()
                     task.name = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
+<<<<<<< HEAD
                     task.arguments = ['+pemap', '0-31']
+=======
+
+>>>>>>> bea3a63836f7744dbac585fb5152cb0c9baf5095
                     task.arguments += ['ties-{}.conf'.format(self.workflow[1])]
                     task.copy_input_data = ['$SHARED/ties-{}.conf'.format(self.workflow[1])]
                     task.executable = [NAMD2]
