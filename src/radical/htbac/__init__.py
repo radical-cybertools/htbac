@@ -9,3 +9,4 @@ from radical.htbac.ties_null import Ties_null
 from radical.htbac.ties_eq import TiesEquilibration
 from radical.htbac.ties_prod import TiesProduction
 from radical.htbac.ties_full_analysis import TiesAnalysis, AdaptiveQuadrature
+from radical.htbac.ties_nonlfs import Ties_nonLFS

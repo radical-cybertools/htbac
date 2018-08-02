@@ -9,8 +9,8 @@ def main():
                                                                   
 
     ht.add_protocol(ties)
-    ht.cores = 32
-    ht.rabbitmq_config(hostname='two.radical-project.org', port=33048)
+    ht.cores = 24
+    ht.rabbitmq_config(hostname='two.radical-project.org', port=33052)
     ht.run(walltime = 40)
 
 

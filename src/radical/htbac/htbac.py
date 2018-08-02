@@ -63,11 +63,11 @@ class Runner(object):
         #self._cores = self._cores * self.total_replicas
         print 'Running on', self._cores, 'cores with', self.total_replicas, 'replicas'
 
-        res_dict = {'resource': 'ncsa.bw_aprun',
+        res_dict = {'resource': 'xsede.comet',
                     'walltime': walltime,
                     'cpus': int(self._cores*strong_scaled),
-                    'project': 'bamm',
-                    'queue': queue,
+                    'project': 'unc100',
+                    'queue': 'compute',
                     'access_schema': 'gsissh'}
 
         # res_dict = {'resource': 'ornl.titan_aprun',

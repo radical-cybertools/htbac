@@ -65,13 +65,13 @@ class Ties(object):
                     task = Task()
                     task.name = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
 
-                    task.arguments = ['+pemap', '0-31']
+                    task.arguments = ['+pemap', '0', '-', self.cores-1]
                     task.arguments += ['ties-{}.conf'.format(self.workflow[0])]
                     task.copy_input_data = ['$SHARED/ties-{}.conf'.format(self.workflow[0])]
-                    task.executable = [NAMD2]
+                    task.executable = ["namd2"]
                     task.lfs_per_process = self.number_of_replicas*len(self.lambdas)*len(self.systems)
                     task.cpu_reqs = { 
-                            'processes': 32,
+                            'processes': self.cores,
                             'process_type': 'MPI',
                             'threads_per_process': 1,
                             'thread_type': None
@@ -98,7 +98,7 @@ class Ties(object):
                     task.pre_exec += ["sed -i 's/STEP/{}/g' *.conf".format(self.step_count[self.workflow[0]])]
 
                     task.pre_exec += ["sed -i 's/LAMBDA/{}/g' *.conf".format(ld)]
-
+                    task.pre_exec += ["module load namd/2.12"]
                     stage_0.add_tasks(task)
 
         pipeline.add_stages(stage_0)
@@ -115,13 +115,13 @@ class Ties(object):
 
                     task = Task()
                     task.name = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
-                    task.arguments = ['+pemap', '0-31']
+                    task.arguments = ['+pemap', '0', '-', self.cores-1]
                     task.arguments += ['ties-{}.conf'.format(self.workflow[1])]
                     task.copy_input_data = ['$SHARED/ties-{}.conf'.format(self.workflow[1])]
-                    task.executable = [NAMD2]
+                    task.executable = ["namd2"]
                     task.tag = task.name
                     task.cpu_reqs = { 
-                            'processes': 32,
+                            'processes': self.cores,
                             'process_type': 'MPI',
                             'threads_per_process': 1,
                             'thread_type': None
@@ -148,7 +148,7 @@ class Ties(object):
                     task.pre_exec += ["sed -i 's/STEP/{}/g' *.conf".format(self.step_count[self.workflow[1]])]
 
                     task.pre_exec += ["sed -i 's/LAMBDA/{}/g' *.conf".format(ld)]
-
+                    task.pre_exec += ["module load namd/2.12"]
                     stage_1.add_tasks(task)
 
 
