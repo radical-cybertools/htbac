@@ -45,12 +45,11 @@ class Protocol(Simulatable, MutableSequence):
         return p
 
     def configure_engine_for_resource(self, resource):
-        for sim in self:
-            sim.configure_engine_for_resource(resource)
+        [sim.configure_engine_for_resource(resource) for sim in self if isinstance(sim, Simulatable)]
 
     @property
     def shared_data(self):
-        return (data for sim in self for data in sim.shared_data)
+        return (data for sim in self if isinstance(sim, Simulatable) for data in sim.shared_data)
 
     @property
     def cpus(self):
