@@ -130,16 +130,16 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     def __repr__(self):
         return self.name
 
-    def output_data(self, for_ensemble):
+    def output_data(self, extensions=None, **for_ensemble):
         task = "-".join("{}-{}".format(k, w) for k, w, in for_ensemble.iteritems()) or "sim"
         path = self._path.format(stage=self.name, pipeline='protocol', task=task)
-        return [os.path.join(path, self.name+s) for s in ['.coor', '.xsc', '.vel']]
+        return [os.path.join(path, self.output(**for_ensemble)+s) for s in (extensions or ['.coor', '.xsc', '.vel'])]
 
     @property
     def input(self):
         return self._input_sim.name if self._input_sim else str()
 
-    def output(self, ensembles):
+    def output(self, **ensembles):
         return "-".join("{}-{}".format(k, w) for k, w, in ensembles.iteritems()) or self.name
 
     def __getattr__(self, item):
@@ -270,7 +270,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
             raise ValueError('Some variables are not defined!')
 
         task = Task()
-        task.name = self.output(ensembles)
+        task.name = self.output(**ensembles)
 
         task.pre_exec += self.engine.pre_exec
         task.executable += self.engine.executable
@@ -288,7 +288,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         task.post_exec.append('echo "{}" > sim_desc.txt'.format(task.name))
 
         if self._input_sim:
-            task.link_input_data.extend(self._input_sim.output_data(for_ensemble=ensembles))
+            task.link_input_data.extend(self._input_sim.output_data(**ensembles))
 
         task.link_input_data.extend(self.system.linked_files)
 
