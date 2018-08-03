@@ -141,7 +141,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
     @property
     def output(self):
-        return self.name
+        return "-".join("{}-{}".format(k, w) for k, w, in self._ensembles.iteritems()) or self.name
 
     def __getattr__(self, item):
         return getattr(self.system, item)
@@ -271,7 +271,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
             raise ValueError('Some variables are not defined!')
 
         task = Task()
-        task.name = "-".join("{}-{}".format(k, w) for k, w, in ensembles.iteritems()) or "sim"
+        task.name = self.output
 
         task.pre_exec += self.engine.pre_exec
         task.executable += self.engine.executable
