@@ -34,5 +34,5 @@ class DataAggregate(Chainable):
         s.add_tasks({self.generate_task()})
         return s
 
-    def add_input_simulation(self, input_sim, clone_settings):
+    def add_input_simulation(self, input_sim):
         self.input_sim = input_sim

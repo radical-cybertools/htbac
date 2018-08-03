@@ -86,7 +86,7 @@ class Chainable:
     __metaclass__ = ABCMeta
 
     @abstractmethod
-    def add_input_simulation(self, input_sim, clone_settings):
+    def add_input_simulation(self, input_sim):
         raise NotImplementedError
 
     @abstractmethod
@@ -103,7 +103,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         ----------
         name: str, optional
             Name of the simulation. Examples include "minimize", "equilibrate", etc. All <output>
-            field in configuration files will use this value!
+            field in configuration files will use this value if you don't have ensembles!
         """
 
         self.name = name
@@ -205,29 +205,15 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         logger.info('Adding ensemble {} with possible values {}.'.format(name, values))
         self._ensembles[name] = values
 
-    def add_input_simulation(self, input_sim, clone_settings):
+    def add_input_simulation(self, input_sim):
         """
 
         Parameters
         ----------
         input_sim: Simulation
-        clone_settings: bool
 
         """
         self._input_sim = input_sim
-
-        if clone_settings:
-            self.engine = input_sim.engine
-            self.processes = input_sim._processes
-            self.threads_per_process = input_sim._threads_per_process
-            self.system = input_sim.system
-
-            for in_file, attrs in input_sim._variables.iteritems():
-                for attr in attrs:
-                    self.add_variable(attr, value=getattr(input_sim, attr))
-
-            for ens, values in input_sim._ensembles.iteritems():
-                self.add_ensemble(ens, values)
 
     def add_input_file(self, input_file, is_executable_argument, auto_detect_variables=True):
         """

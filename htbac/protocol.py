@@ -3,7 +3,7 @@ from collections import MutableSequence
 
 from radical.entk import Pipeline
 
-from .simulation import Chainable, Simulatable
+from .simulation import Simulatable
 
 
 class Protocol(Simulatable, MutableSequence):
@@ -11,9 +11,8 @@ class Protocol(Simulatable, MutableSequence):
 
     """
 
-    def __init__(self, clone_settings):
-        self._simulations = list()
-        self.clone_settings = clone_settings
+    def __init__(self, *simulations):
+        self._simulations = list(simulations)
 
     def __getitem__(self, item):
         return self._simulations[item]
@@ -22,7 +21,7 @@ class Protocol(Simulatable, MutableSequence):
         raise IndexError('Protocol elements cannot be changed.')
 
     def __delitem__(self, key):
-        raise IndexError('Protocol elements cannot be deleted')
+        raise IndexError('Protocol elements cannot be deleted.')
 
     def insert(self, index, simulation):
         if index != len(self):
@@ -30,7 +29,7 @@ class Protocol(Simulatable, MutableSequence):
 
         if len(self):
             logging.info('Simulation appended to protocol.')
-            simulation.add_input_simulation(self[-1], clone_settings=self.clone_settings)
+            simulation.add_input_simulation(self[-1])
 
         simulation.name += "-{}".format(len(self))
 
