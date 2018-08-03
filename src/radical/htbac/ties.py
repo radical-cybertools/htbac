@@ -63,7 +63,7 @@ class Ties(object):
                 for ld in self.lambdas:
 
                     task = Task()
-                    task.name = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
+                    task.name = 'step-{}-system-{}-replica-{}-lambda-{}'.format(self.workflow[0], system, replica, ld)
                                                  
                     task.arguments = ['+ppn', '23', '+pemap', '1-23','+commap', '0']
                     task.arguments += ['ties-{}.conf'.format(self.workflow[0])]
@@ -114,12 +114,13 @@ class Ties(object):
                 for ld in self.lambdas:
 
                     task = Task()
-                    # task.name = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
+                    task.name = 'step-{}-system-{}-replica-{}-lambda-{}'.format(self.workflow[1], system, replica, ld)
                     task.arguments = ['+ppn', '23', '+pemap', '1-23','+commap', '0']
                     task.arguments += ['ties-{}.conf'.format(self.workflow[1])]
                     task.copy_input_data = ['$SHARED/ties-{}.conf'.format(self.workflow[1])]
                     task.executable = ["namd2"]
-                    task.tag = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
+                    previous_stage = pipeline.stages[-1]
+                    task.tag = 'step-{}-system-{}-replica-{}-lambda-{}'.format(self.workflow[0], system, replica, ld)
                     task.cpu_reqs = { 
                             'processes': 1,
                             'process_type':"",
@@ -131,13 +132,14 @@ class Ties(object):
                     links += ['$SHARED/{}-complex.top'.format(system), '$SHARED/{}-tags.pdb'.format(system)]
                     if self.workflow.index(self.workflow[1]):
                         previous_stage = pipeline.stages[-1]
-                        previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
+                        placeholder = 'step-{}-system-{}-replica-{}-lambda-{}'.format(self.workflow[0], system, replica, ld)
+                        previous_task = next(t for t in previous_stage.tasks if t.name == placeholder)
                         path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.name, previous_stage.name, previous_task.name)
                         links += [path+previous_stage.name+suffix for suffix in _simulation_file_suffixes]
                     else:
                         links += ['$SHARED/{}-complex.pdb'.format(system)]
 
-                    print "Linking files:", links
+                   
                     task.link_input_data = links
 
                     task.pre_exec += ["sed -i 's/BOX_X/{}/g' *.conf".format(box[0]),
@@ -204,7 +206,7 @@ class Ties(object):
         # pipeline.add_stages(average)
 
 
-        print 'TIES pipeline has', len(pipeline.stages), 'stages. Tasks counts:', [len(s.tasks) for s in pipeline.stages]
+        
         return pipeline
 
     # Input data
