@@ -1,4 +1,3 @@
-import logging
 from collections import MutableSequence
 
 from radical.entk import Pipeline
@@ -12,7 +11,8 @@ class Protocol(Simulatable, MutableSequence):
     """
 
     def __init__(self, *simulations):
-        self._simulations = list(simulations)
+        self._simulations = list()
+        self.extend(simulations)
 
     def __getitem__(self, item):
         return self._simulations[item]
@@ -28,7 +28,6 @@ class Protocol(Simulatable, MutableSequence):
             raise IndexError('New simulation can only be appended to end of protocol!')
 
         if len(self):
-            logging.info('Simulation appended to protocol.')
             simulation.add_input_simulation(self[-1])
 
         simulation.name += "-{}".format(len(self))
