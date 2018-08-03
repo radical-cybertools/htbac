@@ -69,12 +69,12 @@ class Ties(object):
                     task.arguments += ['ties-{}.conf'.format(self.workflow[0])]
                     task.copy_input_data = ['$SHARED/ties-{}.conf'.format(self.workflow[0])]
                     task.executable = ["namd2"]
-                    task.lfs_per_process = self.number_of_replicas*len(self.lambdas)*len(self.systems)
+                    task.lfs_per_process = 1024
                     task.cpu_reqs = { 
                             'processes': 1,
                             'process_type':"",
-                            'threads_per_process': 1,
-                            'thread_type': 'OpenMP'
+                            'threads_per_process': 24,
+                            'thread_type': ""
                         }
 
                     links = []
@@ -114,17 +114,17 @@ class Ties(object):
                 for ld in self.lambdas:
 
                     task = Task()
-                    task.name = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
+                    # task.name = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
                     task.arguments = ['+ppn', '23', '+pemap', '1-23','+commap', '0']
                     task.arguments += ['ties-{}.conf'.format(self.workflow[1])]
                     task.copy_input_data = ['$SHARED/ties-{}.conf'.format(self.workflow[1])]
                     task.executable = ["namd2"]
-                    task.tag = task.name
+                    task.tag = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
                     task.cpu_reqs = { 
                             'processes': 1,
                             'process_type':"",
-                            'threads_per_process': 1,
-                            'thread_type': 'OpenMP'
+                            'threads_per_process': 24,
+                            'thread_type': ""
                         }
 
                     links = []
