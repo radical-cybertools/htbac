@@ -8,13 +8,14 @@ class DataAggregate(Chainable):
     def __init__(self, extension):
         self.extension = extension
         self.input_sim = None
+        self.name = "aggregate"
 
     def generate_task(self):
 
         assert isinstance(self.input_sim, Simulation)
 
         task = Task()
-        task.name = "aggregate"
+        task.name = self.name
 
         task.executable = ["tar", "czvfh"]
         task.arguments = ["data.tgz", "*"]
@@ -30,7 +31,7 @@ class DataAggregate(Chainable):
 
     def generate_stage(self):
         s = Stage()
-        s.name = "aggregate"
+        s.name = self.name
         s.add_tasks({self.generate_task()})
         return s
 
