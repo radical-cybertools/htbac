@@ -65,7 +65,7 @@ class Ties(object):
                     task = Task()
                     task.name = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
                                                  
-                    task.arguments = ['+ppn', '24', '+pemap', '1-24','+commap', '0']
+                    task.arguments = ['+ppn', '23', '+pemap', '1-23','+commap', '0']
                     task.arguments += ['ties-{}.conf'.format(self.workflow[0])]
                     task.copy_input_data = ['$SHARED/ties-{}.conf'.format(self.workflow[0])]
                     task.executable = ["namd2"]
@@ -115,7 +115,7 @@ class Ties(object):
 
                     task = Task()
                     task.name = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
-                    task.arguments = ['+ppn', '24', '+pemap', '1-24','+commap', '0']
+                    task.arguments = ['+ppn', '23', '+pemap', '1-23','+commap', '0']
                     task.arguments += ['ties-{}.conf'.format(self.workflow[1])]
                     task.copy_input_data = ['$SHARED/ties-{}.conf'.format(self.workflow[1])]
                     task.executable = ["namd2"]
