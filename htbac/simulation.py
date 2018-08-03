@@ -133,13 +133,15 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     def output_data(self, extensions=None, **for_ensemble):
         task = "-".join("{}-{}".format(k, w) for k, w, in for_ensemble.iteritems()) or "sim"
         path = self._path.format(stage=self.name, pipeline='protocol', task=task)
-        return [os.path.join(path, self.output(**for_ensemble)+s) for s in (extensions or ['.coor', '.xsc', '.vel'])]
+        return [os.path.join(path, self.output+s) for s in (extensions or ['.coor', '.xsc', '.vel'])]
 
     @property
     def input(self):
-        return self._input_sim.name if self._input_sim else str()
+        return self._input_sim.output
 
-    def output(self, **ensembles):
+    @property
+    def output(self):
+        ensembles = {k: getattr(self, k) for k in self._ensembles.keys()}
         return "-".join("{}-{}".format(k, w) for k, w, in ensembles.iteritems()) or self.name
 
     def __getattr__(self, item):
@@ -256,7 +258,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
             raise ValueError('Some variables are not defined!')
 
         task = Task()
-        task.name = self.output(**ensembles)
+        task.name = self.output
 
         task.pre_exec += self.engine.pre_exec
         task.executable += self.engine.executable
