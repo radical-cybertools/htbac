@@ -62,8 +62,8 @@ class RFE(ConcreteProtocol):
 
     @classmethod
     def minimize(cls):
-        cls._simulation_from_file("default-configs/rfe/ties-0.conf")
+        return cls._simulation_from_file("default-configs/rfe/ties-0.conf")
 
     @classmethod
     def simulation(cls):
-        cls._simulation_from_file("default-configs/rfe/ties-1.conf")
+        return cls._simulation_from_file("default-configs/rfe/ties-1.conf")

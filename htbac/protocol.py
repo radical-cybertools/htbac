@@ -15,7 +15,7 @@ class Protocol(Simulatable, MutableSequence):
         self.extend(simulations)
 
     def __getitem__(self, item):
-        return self._simulations[item]
+        return self._simulations.__getitem__(item)
 
     def __setitem__(self, key, value):
         raise IndexError('Protocol elements cannot be changed.')
