@@ -16,7 +16,7 @@ _full_steps = dict(min=1000, eq1=30000, eq2=970000, prod=2000000)
 class Ties(object):
 
     def __init__(self, number_of_replicas, number_of_windows, systems = list(), 
-        cores=32, workflow=None, ligand=False, full=False, additional=list()):
+        cores=24, workflow=None, ligand=False, full=False, additional=list()):
 
         self.number_of_replicas = number_of_replicas
         self.lambdas = np.linspace(0.0, 1.0, number_of_windows, endpoint=True)
@@ -64,17 +64,17 @@ class Ties(object):
 
                     task = Task()
                     task.name = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
-
-                    task.arguments = ['+pemap', '0', '-', self.cores-1]
+                                                 
+                    task.arguments = ['+ppn', '24', '+pemap', '1-24','+commap', '0']
                     task.arguments += ['ties-{}.conf'.format(self.workflow[0])]
                     task.copy_input_data = ['$SHARED/ties-{}.conf'.format(self.workflow[0])]
                     task.executable = ["namd2"]
                     task.lfs_per_process = self.number_of_replicas*len(self.lambdas)*len(self.systems)
                     task.cpu_reqs = { 
-                            'processes': self.cores,
-                            'process_type': 'MPI',
+                            'processes': 1,
+                            'process_type':"",
                             'threads_per_process': 1,
-                            'thread_type': None
+                            'thread_type': 'OpenMP'
                         }
 
                     links = []
@@ -115,16 +115,16 @@ class Ties(object):
 
                     task = Task()
                     task.name = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
-                    task.arguments = ['+pemap', '0', '-', self.cores-1]
+                    task.arguments = ['+ppn', '24', '+pemap', '1-24','+commap', '0']
                     task.arguments += ['ties-{}.conf'.format(self.workflow[1])]
                     task.copy_input_data = ['$SHARED/ties-{}.conf'.format(self.workflow[1])]
                     task.executable = ["namd2"]
                     task.tag = task.name
                     task.cpu_reqs = { 
-                            'processes': self.cores,
-                            'process_type': 'MPI',
+                            'processes': 1,
+                            'process_type':"",
                             'threads_per_process': 1,
-                            'thread_type': None
+                            'thread_type': 'OpenMP'
                         }
 
                     links = []
