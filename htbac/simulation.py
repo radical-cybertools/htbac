@@ -137,7 +137,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
     @property
     def input(self):
-        return self._input_sim.output
+        return self._input_sim.output if self._input_sim is not None else None
 
     @property
     def output(self):
