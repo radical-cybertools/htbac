@@ -142,7 +142,8 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     @property
     def output(self):
         ensembles = {k: getattr(self, k) for k in self._ensembles.keys()}
-        return "-".join("{}-{}".format(k, w) for k, w, in ensembles.iteritems()) or self.name
+        concat = "-".join("{}-{}".format(k, w) for k, w, in ensembles.iteritems())
+        return self.name + "-" + concat
 
     def __getattr__(self, item):
         return getattr(self.system, item)

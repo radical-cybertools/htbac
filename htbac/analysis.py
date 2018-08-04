@@ -25,7 +25,8 @@ class DataAggregate(Chainable):
                          'thread_type': None
                          }
 
-        task.link_input_data.extend(self.input_sim.output_data([self.extension], **x) for x in self.input_sim._ensemble_product())
+        a = (self.input_sim.output_data([self.extension], **x) for x in self.input_sim._ensemble_product())
+        task.link_input_data.extend(d for d in a)
 
         return task
 
