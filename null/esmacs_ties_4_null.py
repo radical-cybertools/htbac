@@ -13,7 +13,7 @@ def main():
     ht.add_protocol(esm1)    
     ht.add_protocol(ties1)
 
-    ht.rabbitmq_config(hostname='two.radical-project.org', port=33048) # add new port number 
+    ht.rabbitmq_config(hostname='two.radical-project.org', port=33052) # add new port number 
     ht.run(walltime=60)
 
 
