@@ -156,7 +156,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
     def add_variable(self, name, in_file=None, value=None):
         logger.debug('Adding variable called {}.'.format(name))
-        if not hasattr(self, name) or getattr(self, name) is None:
+        if not hasattr(self, name) or (getattr(self, name) is None and value is not None):
             logger.debug('Setting the value to {}.'.format(value))
             if callable(value):
                 logger.debug('Value is stored as property because it is callable')
