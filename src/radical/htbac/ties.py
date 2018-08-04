@@ -64,7 +64,8 @@ class Ties(object):
                     for ld in self.lambdas:
 
                         task = Task()
-                        task.name = 'system-{}-replica-{}-lambda-{}'.format(system, replica, ld)
+                        placeholder = str(ld).replace(".","-")
+                        task.name = 'system-{}-replica-{}-lambda-{}'.format(system, replica, placeholder)
                         task.arguments = ['+pemap', '0-31']
                         task.arguments += ['ties-{}.conf'.format(stage.name)]
                         task.copy_input_data = ['$SHARED/ties-{}.conf'.format(stage.name)]
@@ -82,7 +83,7 @@ class Ties(object):
                         if self.workflow.index(step):
                             previous_stage = pipeline.stages[-1]
                             previous_task = next(t for t in previous_stage.tasks if t.name == task.name)
-                            path = '$Pipeline-{}-Stage-{}-Task_{}/'.format(pipeline.name, previous_stage.name, previous_task.name)
+                            path = '$Pipeline_{}_Stage_{}_Task_{}/'.format(pipeline.name, previous_stage.name, previous_task.name)
                             links += [path+previous_stage.name+suffix for suffix in _simulation_file_suffixes]
                         else:
                             links += ['$SHARED/{}-complex.pdb'.format(system)]

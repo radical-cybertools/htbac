@@ -69,7 +69,7 @@ class Runner(object):
                     'cpus': int(self._cores*strong_scaled),
                     'project': 'bamm',
                     'queue': queue,
-                    'access_schema': 'gsissh'}
+                    'access_schema': 'local'}
 
         # res_dict = {'resource': 'ornl.titan_aprun',
         #             'walltime': walltime,

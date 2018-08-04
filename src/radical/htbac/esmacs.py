@@ -66,8 +66,9 @@ class Esmacs(object):
                     # ** each application is given -n * -d cores      
 
                     #task.cpu_reqs = {'processes': 1, 'process_type': 'MPI', 'threads_per_process': 16, 'thread_type': None}
-                    task.arguments += ['esmacs-{}.conf'.format(stage.name)]
+
                     task.arguments = ['+pemap', '0-31']
+                    task.arguments += ['esmacs-{}.conf'.format(stage.name)]
                     task.executable = [NAMD2]
                     task.copy_input_data = ['$SHARED/esmacs-{}.conf'.format(stage.name)]
                     
