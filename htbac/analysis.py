@@ -5,8 +5,9 @@ from .simulation import Chainable, Simulation
 
 class DataAggregate(Chainable):
 
-    def __init__(self, extension):
+    def __init__(self, extension, output_name="data.tgz"):
         self.extension = extension
+        self.output_name = output_name
         self.input_sim = None
         self.name = "aggregate"
 
@@ -18,7 +19,7 @@ class DataAggregate(Chainable):
         task.name = self.name
 
         task.executable = ["tar", "czvfh"]
-        task.arguments = ["data.tgz", "*"]
+        task.arguments = [self.output_name, "*{}".format(self.extension)]
         task.cpu_reqs = {'processes': 1,
                          'process_type': None,
                          'threads_per_process': 1,
@@ -28,6 +29,7 @@ class DataAggregate(Chainable):
         links = [self.input_sim.output_data([self.extension], **x) for x in self.input_sim._ensemble_product()]
         links = [l for link in links for l in link]
         task.link_input_data.extend(links)
+        task.download_output_data = [self.output_name]
 
         return task
 
