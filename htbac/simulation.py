@@ -130,8 +130,12 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     def __repr__(self):
         return self.name
 
+    @staticmethod
+    def _task_name(**for_ensemble):
+        return "-".join("{}-{}".format(k, w) for k, w, in for_ensemble.iteritems()) or "task"
+
     def output_data(self, extensions=None, **for_ensemble):
-        task = "-".join("{}-{}".format(k, w) for k, w, in for_ensemble.iteritems()) or "sim"
+        task = self._task_name(**for_ensemble)
         path = self._path.format(stage=self.name, pipeline='protocol', task=task)
         return [os.path.join(path, self.output+s) for s in (extensions or ['.coor', '.xsc', '.vel'])]
 
@@ -142,8 +146,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     @property
     def output(self):
         ensembles = {k: getattr(self, k) for k in self._ensembles.keys()}
-        concat = "-".join("{}-{}".format(k, w) for k, w, in ensembles.iteritems())
-        return self.name + "-" + concat
+        return self.name + "-" + self._task_name(**ensembles)
 
     def __getattr__(self, item):
         return getattr(self.system, item)
@@ -259,7 +262,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
             raise ValueError('Some variables are not defined!')
 
         task = Task()
-        task.name = self.output
+        task.name = self._task_name(**ensembles)
 
         task.pre_exec += self.engine.pre_exec
         task.executable += self.engine.executable
