@@ -362,4 +362,4 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     # Private methods
 
     def _ensemble_product(self):
-        return (dict(izip(self._ensembles, x)) for x in product(*self._ensembles.itervalues()))
+        return (OrderedDict(izip(self._ensembles, x)) for x in product(*self._ensembles.itervalues()))
