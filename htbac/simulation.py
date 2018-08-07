@@ -80,16 +80,22 @@ class Simulatable:
 class Chainable:
     """Simulation object that can use output from one simulation as input for itself.
 
-    There is a way to also copy the settings of the previous simulations over.
-
     """
-    __metaclass__ = ABCMeta
+    _path = "$Pipeline_{pipeline}_Stage_{stage}_Task_{task}"
 
-    @abstractmethod
+    def __init__(self):
+        self._input_sim = None
+
     def add_input_simulation(self, input_sim):
-        raise NotImplementedError
+        self._input_sim = input_sim
 
-    @abstractmethod
+    def input_data(self, extensions=None, **ensemble):
+        if self._input_sim is None:
+            return list()
+
+        path = self._path.format(stage=self._input_sim.name, pipeline='protocol', task=ensemble['task_name'])
+        return [os.path.join(path, self._input_sim.name + "-" + ensemble["task_name"]+s) for s in (extensions or ['.coor', '.xsc', '.vel'])]
+
     def generate_stage(self):
         raise NotImplementedError
 
@@ -110,21 +116,16 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         self.engine = None
         self.system = None
 
-        self._input_sim = None  # Input simulation. Needs to link data generated here.
-        # self._input_files = list()  # Files than are input to this simulation
-        # self._arguments = list()  # Files that are arguments to the executable.
-        self.output = None
-
         self._processes = 1
         self._threads_per_process = 1
         self._variables = dict()
         self._ensembles = OrderedDict()
 
         AbFolder.__init__(self)
+        Chainable.__init__(self)
 
     # Internal constants
 
-    _path = "$Pipeline_{pipeline}_Stage_{stage}_Task_{task}"
     _sed = "sed -i.bak 's/<{}>/{}/g' {}"
     _placeholder = re.compile("<(\S+)>")
 
@@ -230,13 +231,6 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
                 for var in variables:
                     self.add_variable(var, in_file=abfile.name)
 
-    def output_data(self, extensions=None, **ensemble):
-        if self._input_sim is None:
-            return list()
-
-        path = self._path.format(stage=self._input_sim.name, pipeline='protocol', task=ensemble['task_name'])
-        return [os.path.join(path, ensemble["input"]+s) for s in (extensions or ['.coor', '.xsc', '.vel'])]
-
     # Methods used by underlying execution framework
 
     def generate_task(self, **ensembles):
@@ -273,7 +267,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         task.post_exec.append('echo "{}" > sim_desc.txt'.format(task.name))
 
-        task.link_input_data.extend(self.output_data(**ensembles))
+        task.link_input_data.extend(self.input_data(**ensembles))
         task.link_input_data.extend(self.system.linked_files)
 
         task.pre_exec.extend(self._sed.format(n, v, f) for f, vs in self.get_variables().items() for n, v in vs)
