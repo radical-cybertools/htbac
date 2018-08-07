@@ -4,7 +4,7 @@ import radical.utils as ru
 
 from .abpath import AbFolder
 
-logger = ru.Logger(__name__, level='INFO')
+logger = ru.Logger(__name__, level='DEBUG')
 
 
 class System(AbFolder):
@@ -77,4 +77,4 @@ class System(AbFolder):
         try:
             return next(f for f in self._files if f.tag == item)
         except StopIteration:
-            raise AttributeError("'System object has no attribute {}".format(item))
+            raise AttributeError("System {} has no `{}`".format(self.name, item))

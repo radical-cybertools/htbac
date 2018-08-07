@@ -145,11 +145,11 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     # Public methods
 
     def add_variable(self, name, in_file=None, value=None):
-        logger.debug('Adding variable called {}.'.format(name))
+        log_msg = '{}: adding var `{}`.'.format(self.name, name)
         if not hasattr(self, name) or (getattr(self, name) is None and value is not None):
-            logger.debug('Setting the value to {}.'.format(value))
+            log_msg += ' Its value is `{}`.'.format(value)
             if callable(value):
-                logger.debug('Value is stored as property because it is callable')
+                log_msg += ' Therefore stored as a property.'
                 setattr(self.__class__, name, property(value))
             else:
                 setattr(self, name, value)
@@ -158,6 +158,8 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
             self._variables[in_file].add(name)
         elif in_file is not None:
             self._variables[in_file] = {name}
+
+        logger.debug(log_msg)
 
     def all_variables_defined(self):
         return all(self.get_variable(v) is not None for vs in self._variables.values() for v in vs)
@@ -170,10 +172,9 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         try:
             v = getattr(self, var)
             if v is None:
-                logger.debug('Attempting to get variable from system instance.')
                 v = getattr(self.system, var)
         except AttributeError:
-            logger.warn('Variable `{}` is not defined! Returning None.'.format(var))
+            logger.warn('{}: var `{}` is not defined! Returning None.'.format(self.name, var))
             v = None
         finally:
             return v
@@ -198,7 +199,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         if not hasattr(self, name):
             self.add_variable(name)
 
-        logger.info('Adding ensemble {} with possible values {}.'.format(name, values))
+        logger.info('{}: adding ensemble {} with possible values {}.'.format(self.name, name, values))
         self._ensembles[name] = values
 
     def add_input_simulation(self, input_sim):
@@ -314,8 +315,8 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
     @processes.setter
     def processes(self, value):
-        if isinstance(self.engine, Engine) and self.engine.cpus:
-            raise ValueError('Engine has REQUIRED core count. Do not set simulation cpus!')
+        if isinstance(self.engine, Engine) and self.engine.processes:
+            raise ValueError('Engine has REQUIRED process count. Do not set simulation processes!')
         self._processes = value
 
     @property
@@ -324,6 +325,9 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
     @threads_per_process.setter
     def threads_per_process(self, value):
+        if isinstance(self.engine, Engine) and self.engine.threads_per_process:
+            raise ValueError('Engine has REQUIRED thread count. Do not set simulation threads!')
+
         self._threads_per_process = value
 
     def configure_engine_for_resource(self, resource):
@@ -337,14 +341,14 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         self.engine = Engine.from_dictionary(**engine)
 
-        logger.info("Engine is using executable: {}".format(self.engine.executable))
+        logger.info("{}: engine is using executable: {}".format(self.name, self.engine.executable))
 
         if self.engine.processes and self.engine.threads_per_process:
             if self.processes or self.threads_per_process:
                 raise ValueError('Engine has REQUIRED process/thread counts. Do not set simulation processes/threads!')
 
-            logger.debug("Setting simulation process/thread count to the REQUIRED value by engine ({}:{}). "
-                         "Do not alter this!".format(self.engine.processes, self.engine.threads_per_process))
+            logger.debug("{}: setting process/thread count to the REQUIRED value by engine ({}:{}). "
+                         "Do not alter this!".format(self.name, self.engine.processes, self.engine.threads_per_process))
             self._processes = self.engine.processes
             self._threads_per_process = self.engine.threads_per_process
 
@@ -363,5 +367,3 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
             ensemble["input"] = input_name
 
         return ensembles
-
-
