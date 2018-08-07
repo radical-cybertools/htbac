@@ -4,10 +4,8 @@ Example implementation using Abigail and NAMD.
 
 """
 
-import numpy as np
-
-from htbac import Runner, System, Simulation, Protocol, AbFile
-from htbac.protocols import Rfe
+from htbac import Runner, System, AbFile, DataAggregate
+from htbac.protocols import RFE
 
 
 def run_rfe():
@@ -17,28 +15,26 @@ def run_rfe():
     cor = AbFile('systems/ptp1b-l1-l2-complex.inpcrd', tag='coordinate')
     system = System(name='ptp1b-l1-l2', files=[pdb, top, tag, cor])
 
-    p = Protocol(clone_settings=False)
+    p = RFE()
+    p.append(DataAggregate(extension=".alch"))
 
-    for step, numsteps in zip(Rfe.steps, [5000, 50000]):
+    # Protocol `p` is made up of 3 steps:
+    # minimize -> simulate -> aggregate data
 
-        rfe = Simulation()
-        rfe.system = system
-        rfe.engine = 'namd_mpi'
-        rfe.cores = 32
+    for sim, numsteps in zip(p.simulations(), [5000, 50000]):
 
-        rfe.cutoff = 12.0
-        rfe.switchdist = 10.0
-        rfe.pairlistdist = 13.5
-        rfe.numminsteps = 5000
-        rfe.numsteps = numsteps
+        sim.system = system
+        sim.engine = 'namd'
+        sim.processes = 32
+        sim.threads_per_process = 1
 
-        rfe.add_input_file(step, is_executable_argument=True)
-        
-        rfe.add_ensemble('replica', range(1))
-        # to increase the number of EnTK tasks: change the lambdawindow parameter
-        rfe.add_ensemble('lambdawindow', [1.]) 
+        sim.cutoff = 12.0
+        sim.switchdist = 10.0
+        sim.pairlistdist = 13.5
+        sim.numsteps = numsteps
 
-        p.append(rfe)
+        sim.add_ensemble('replica', range(5))
+        sim.add_ensemble('lambdawindow', [1.0, 0.5, 0.0])
 
     ht = Runner('bw_aprun', comm_server=('two.radical-project.org', 33158))
     ht.add_protocol(p)
