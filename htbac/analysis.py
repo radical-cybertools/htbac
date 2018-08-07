@@ -1,6 +1,6 @@
 from radical.entk import Stage, Task
 
-from .simulation import Chainable, Simulation
+from .simulation import Chainable
 
 
 class DataAggregate(Chainable):
@@ -13,8 +13,6 @@ class DataAggregate(Chainable):
         Chainable.__init__(self)
 
     def generate_task(self):
-
-        assert isinstance(self.input_sim, Simulation)
 
         task = Task()
         task.name = self.name

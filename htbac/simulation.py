@@ -87,6 +87,8 @@ class Chainable:
         self._input_sim = None
 
     def add_input_simulation(self, input_sim):
+        if not isinstance(input_sim, Simulation):
+            raise ValueError('Trying to add input simulation `{}`, but got {}'.format(input_sim, type(input_sim)))
         self._input_sim = input_sim
 
     def input_data(self, extensions=None, **ensemble):
