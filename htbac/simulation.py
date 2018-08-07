@@ -88,7 +88,7 @@ class Chainable:
 
     def add_input_simulation(self, input_sim):
         if not isinstance(input_sim, Simulation):
-            raise ValueError('Trying to add input simulation `{}`, but got {}'.format(input_sim, type(input_sim)))
+            raise ValueError('Trying to add input simulation {}, but got {}'.format(input_sim, type(input_sim)))
         self._input_sim = input_sim
 
     def input_data(self, extensions=None, **ensemble):
@@ -145,9 +145,9 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     # Public methods
 
     def add_variable(self, name, in_file=None, value=None):
-        log_msg = '{}: adding var `{}`.'.format(self.name, name)
+        log_msg = '{}: adding var {}.'.format(self.name, name)
         if not hasattr(self, name) or (getattr(self, name) is None and value is not None):
-            log_msg += ' Its value is `{}`.'.format(value)
+            log_msg += ' Its value is {}.'.format(value)
             if callable(value):
                 log_msg += ' Therefore stored as a property.'
                 setattr(self.__class__, name, property(value))

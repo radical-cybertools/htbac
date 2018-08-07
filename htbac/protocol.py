@@ -1,8 +1,12 @@
 from collections import MutableSequence
 
+import radical.utils as ru
 from radical.entk import Pipeline
 
 from .simulation import Simulatable
+
+
+logger = ru.Logger(__name__, level='DEBUG')
 
 
 class Protocol(Simulatable, MutableSequence):
@@ -41,7 +45,9 @@ class Protocol(Simulatable, MutableSequence):
         if len(self):
             simulation.add_input_simulation(self[-1])
 
+        old_name = simulation.name
         simulation.name += "-{}".format(len(self))
+        logger.debug('Renaming {} to {}'.format(old_name, simulation.name))
 
         self._simulations.insert(index, simulation)
 
