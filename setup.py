@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 setup(name='htbac',
-      version='0.0.1',
+      version='0.2',
       description='High Throughput Binding affinity calculator',
       url='https://github.com/radical-cybertools/radical.htbac',
       license='MIT',
