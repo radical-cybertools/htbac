@@ -339,13 +339,14 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         logger.info("Engine is using executable: {}".format(self.engine.executable))
 
-        if self.engine.cpus:
-            if self.cpus:
-                raise ValueError('Engine has REQUIRED core count. Do not set simulation cpus!')
+        if self.engine.processes and self.engine.threads_per_process:
+            if self.processes or self.threads_per_process:
+                raise ValueError('Engine has REQUIRED process/thread counts. Do not set simulation processes/threads!')
 
-            logger.debug("Setting simulation core count to the REQUIRED value by engine ({}). "
-                         "Do not alter this!".format(self.engine.cpus))
-            self._processes = self.engine.cpus
+            logger.debug("Setting simulation process/thread count to the REQUIRED value by engine ({}:{}). "
+                         "Do not alter this!".format(self.engine.processes, self.engine.threads_per_process))
+            self._processes = self.engine.processes
+            self._threads_per_process = self.engine.threads_per_process
 
     # Private methods
 
