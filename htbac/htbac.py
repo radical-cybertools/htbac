@@ -100,13 +100,13 @@ class Runner(object):
 
         self.resource['resource_dictionary']['cpus'] = cpus or _cpus
 
-        if resource:
+        if resource is not None:
             self.resource['resource_dictionary']['resource'] = resource
-        if walltime:
+        if walltime is not None:
             self.resource['resource_dictionary']['walltime'] = walltime
-        if queue:
+        if queue is not None:
             self.resource['resource_dictionary']['queue'] = queue
-        if access_schema:
+        if access_schema is not None:
             self.resource['resource_dictionary']['access_schema'] = access_schema
 
         logger.info(self.pretty_print_resource_description(self.resource['resource_dictionary']))

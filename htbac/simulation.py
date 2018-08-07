@@ -14,7 +14,7 @@ from radical.entk import Pipeline, Stage, Task
 from .engine import Engine
 from .abpath import AbFolder, AbFile
 
-logger = ru.Logger(__name__, level='INFO')
+logger = ru.Logger(__name__, level='DEBUG')
 
 
 class Simulatable:
@@ -80,16 +80,24 @@ class Simulatable:
 class Chainable:
     """Simulation object that can use output from one simulation as input for itself.
 
-    There is a way to also copy the settings of the previous simulations over.
-
     """
-    __metaclass__ = ABCMeta
+    _path = "$Pipeline_{pipeline}_Stage_{stage}_Task_{task}"
 
-    @abstractmethod
-    def add_input_simulation(self, input_sim, clone_settings):
-        raise NotImplementedError
+    def __init__(self):
+        self._input_sim = None
 
-    @abstractmethod
+    def add_input_simulation(self, input_sim):
+        if not isinstance(input_sim, Simulation):
+            raise ValueError('Trying to add input simulation {}, but got {}'.format(input_sim, type(input_sim)))
+        self._input_sim = input_sim
+
+    def input_data(self, extensions=None, **ensemble):
+        if self._input_sim is None:
+            return list()
+
+        path = self._path.format(stage=self._input_sim.name, pipeline='protocol', task=ensemble['task_name'])
+        return [os.path.join(path, self._input_sim.name + "-" + ensemble["task_name"]+s) for s in (extensions or ['.coor', '.xsc', '.vel'])]
+
     def generate_stage(self):
         raise NotImplementedError
 
@@ -103,16 +111,12 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         ----------
         name: str, optional
             Name of the simulation. Examples include "minimize", "equilibrate", etc. All <output>
-            field in configuration files will use this value!
+            field in configuration files will use this value if you don't have ensembles!
         """
 
         self.name = name
         self.engine = None
         self.system = None
-
-        self._input_sim = None  # Input simulation. Needs to link data generated here.
-        # self._input_files = list()  # Files than are input to this simulation
-        # self._arguments = list()  # Files that are arguments to the executable.
 
         self._processes = 1
         self._threads_per_process = 1
@@ -120,27 +124,14 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         self._ensembles = OrderedDict()
 
         AbFolder.__init__(self)
+        Chainable.__init__(self)
 
     # Internal constants
 
-    _path = "$Pipeline_{pipeline}_Stage_{stage}_Task_{task}"
     _sed = "sed -i.bak 's/<{}>/{}/g' {}"
     _placeholder = re.compile("<(\S+)>")
 
     def __repr__(self):
-        return self.name
-
-    def output_data(self, for_ensemble):
-        task = "-".join("{}-{}".format(k, w) for k, w, in for_ensemble.iteritems()) or "sim"
-        path = self._path.format(stage=self.name, pipeline='protocol', task=task)
-        return [os.path.join(path, self.name+s) for s in ['.coor', '.xsc', '.vel']]
-
-    @property
-    def input(self):
-        return self._input_sim.name if self._input_sim else str()
-
-    @property
-    def output(self):
         return self.name
 
     def __getattr__(self, item):
@@ -154,11 +145,11 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     # Public methods
 
     def add_variable(self, name, in_file=None, value=None):
-        logger.debug('Adding variable called {}.'.format(name))
-        if not hasattr(self, name) or getattr(self, name) is None:
-            logger.debug('Setting the value to {}.'.format(value))
+        log_msg = '{}: adding var {}.'.format(self.name, name)
+        if not hasattr(self, name) or (getattr(self, name) is None and value is not None):
+            log_msg += ' Its value is {}.'.format(value)
             if callable(value):
-                logger.debug('Value is stored as property because it is callable')
+                log_msg += ' Therefore stored as a property.'
                 setattr(self.__class__, name, property(value))
             else:
                 setattr(self, name, value)
@@ -168,6 +159,8 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         elif in_file is not None:
             self._variables[in_file] = {name}
 
+        logger.debug(log_msg)
+
     def all_variables_defined(self):
         return all(self.get_variable(v) is not None for vs in self._variables.values() for v in vs)
 
@@ -175,13 +168,16 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         return {f: [(v, self.get_variable(v)) for v in vs] for f, vs in self._variables.items()}
 
     def get_variable(self, var):
-        v = getattr(self, var)
-
-        if v is not None:
+        v = None
+        try:
+            v = getattr(self, var)
+            if v is None:
+                v = getattr(self.system, var)
+        except AttributeError:
+            logger.warn('{}: var `{}` is not defined! Returning None.'.format(self.name, var))
+            v = None
+        finally:
             return v
-
-        logger.debug('Getting variable from system.')
-        return getattr(self.system, var)
 
     def add_ensemble(self, name, values):
         """Add a parameter to the simulation that you want multiple values to be run with.
@@ -203,32 +199,18 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         if not hasattr(self, name):
             self.add_variable(name)
 
-        logger.info('Adding ensemble {} with possible values {}.'.format(name, values))
+        logger.info('{}: adding ensemble {} with possible values {}.'.format(self.name, name, values))
         self._ensembles[name] = values
 
-    def add_input_simulation(self, input_sim, clone_settings):
+    def add_input_simulation(self, input_sim):
         """
 
         Parameters
         ----------
         input_sim: Simulation
-        clone_settings: bool
 
         """
         self._input_sim = input_sim
-
-        if clone_settings:
-            self.engine = input_sim.engine
-            self.processes = input_sim._processes
-            self.threads_per_process = input_sim._threads_per_process
-            self.system = input_sim.system
-
-            for in_file, attrs in input_sim._variables.iteritems():
-                for attr in attrs:
-                    self.add_variable(attr, value=getattr(input_sim, attr))
-
-            for ens, values in input_sim._ensembles.iteritems():
-                self.add_ensemble(ens, values)
 
     def add_input_file(self, input_file, is_executable_argument, auto_detect_variables=True):
         """
@@ -259,7 +241,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         Parameters
         ----------
-        ensembles: dict
+        ensembles: dict, OrderedDict
             Dictionary of the *current* values of variables that are ensembles. All the variables
             that were declared with `add_ensemble` should be specified here so that a correct
             task object can be generated.
@@ -271,7 +253,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
             raise ValueError('Some variables are not defined!')
 
         task = Task()
-        task.name = "-".join("{}-{}".format(k, w) for k, w, in ensembles.iteritems()) or "sim"
+        task.name = ensembles['task_name']
 
         task.pre_exec += self.engine.pre_exec
         task.executable += self.engine.executable
@@ -288,9 +270,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         task.post_exec.append('echo "{}" > sim_desc.txt'.format(task.name))
 
-        if self._input_sim:
-            task.link_input_data.extend(self._input_sim.output_data(for_ensemble=ensembles))
-
+        task.link_input_data.extend(self.input_data(**ensembles))
         task.link_input_data.extend(self.system.linked_files)
 
         task.pre_exec.extend(self._sed.format(n, v, f) for f, vs in self.get_variables().items() for n, v in vs)
@@ -335,8 +315,8 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
     @processes.setter
     def processes(self, value):
-        if isinstance(self.engine, Engine) and self.engine.cpus:
-            raise ValueError('Engine has REQUIRED core count. Do not set simulation cpus!')
+        if isinstance(self.engine, Engine) and self.engine.processes:
+            raise ValueError('Engine has REQUIRED process count. Do not set simulation processes!')
         self._processes = value
 
     @property
@@ -345,6 +325,9 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
     @threads_per_process.setter
     def threads_per_process(self, value):
+        if isinstance(self.engine, Engine) and self.engine.threads_per_process:
+            raise ValueError('Engine has REQUIRED thread count. Do not set simulation threads!')
+
         self._threads_per_process = value
 
     def configure_engine_for_resource(self, resource):
@@ -358,17 +341,29 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         self.engine = Engine.from_dictionary(**engine)
 
-        logger.info("Engine is using executable: {}".format(self.engine.executable))
+        logger.info("{}: engine is using executable: {}".format(self.name, self.engine.executable))
 
-        if self.engine.cpus:
-            if self.cpus:
-                raise ValueError('Engine has REQUIRED core count. Do not set simulation cpus!')
+        if self.engine.processes and self.engine.threads_per_process:
+            if self.processes or self.threads_per_process:
+                raise ValueError('Engine has REQUIRED process/thread counts. Do not set simulation processes/threads!')
 
-            logger.debug("Setting simulation core count to the REQUIRED value by engine ({}). "
-                         "Do not alter this!".format(self.engine.cpus))
-            self._processes = self.engine.cpus
+            logger.debug("{}: setting process/thread count to the REQUIRED value by engine ({}:{}). "
+                         "Do not alter this!".format(self.name, self.engine.processes, self.engine.threads_per_process))
+            self._processes = self.engine.processes
+            self._threads_per_process = self.engine.threads_per_process
 
     # Private methods
 
     def _ensemble_product(self):
-        return (dict(izip(self._ensembles, x)) for x in product(*self._ensembles.itervalues()))
+        ensembles = [OrderedDict(izip(self._ensembles, x)) for x in product(*self._ensembles.itervalues())]
+        for ensemble in ensembles:
+            # TODO: should we sort the values of ensemble (alphabetically) so ids can match up between stages?
+            task_name = "-".join("{}-{}".format(k, w) for k, w, in ensemble.items()) or "task"
+            output = self.name + "-" + task_name
+            input_name = None if self._input_sim is None else self._input_sim.name + "-" + task_name
+
+            ensemble["task_name"] = task_name
+            ensemble["output"] = output
+            ensemble["input"] = input_name
+
+        return ensembles

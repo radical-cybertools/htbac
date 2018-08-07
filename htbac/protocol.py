@@ -1,9 +1,12 @@
-import logging
 from collections import MutableSequence
 
+import radical.utils as ru
 from radical.entk import Pipeline
 
-from .simulation import Chainable, Simulatable
+from .simulation import Simulatable
+
+
+logger = ru.Logger(__name__, level='DEBUG')
 
 
 class Protocol(Simulatable, MutableSequence):
@@ -11,28 +14,40 @@ class Protocol(Simulatable, MutableSequence):
 
     """
 
-    def __init__(self, clone_settings):
+    def __init__(self, *simulations):
         self._simulations = list()
-        self.clone_settings = clone_settings
+        self.extend(simulations)
+
+    def simulations(self):
+        """Protocol's simulation objects only
+
+        Returns
+        -------
+        iterator
+            Iterator over the contents of the protocol that are Simulation instances.
+        """
+
+        return (s for s in self if isinstance(s, Simulatable))
 
     def __getitem__(self, item):
-        return self._simulations[item]
+        return self._simulations.__getitem__(item)
 
     def __setitem__(self, key, value):
         raise IndexError('Protocol elements cannot be changed.')
 
     def __delitem__(self, key):
-        raise IndexError('Protocol elements cannot be deleted')
+        raise IndexError('Protocol elements cannot be deleted.')
 
     def insert(self, index, simulation):
         if index != len(self):
             raise IndexError('New simulation can only be appended to end of protocol!')
 
         if len(self):
-            logging.info('Simulation appended to protocol.')
-            simulation.add_input_simulation(self[-1], clone_settings=self.clone_settings)
+            simulation.add_input_simulation(self[-1])
 
+        old_name = simulation.name
         simulation.name += "-{}".format(len(self))
+        logger.debug('Renaming {} to {}'.format(old_name, simulation.name))
 
         self._simulations.insert(index, simulation)
 
@@ -47,12 +62,11 @@ class Protocol(Simulatable, MutableSequence):
         return p
 
     def configure_engine_for_resource(self, resource):
-        for sim in self:
-            sim.configure_engine_for_resource(resource)
+        [sim.configure_engine_for_resource(resource) for sim in self if isinstance(sim, Simulatable)]
 
     @property
     def shared_data(self):
-        return (data for sim in self for data in sim.shared_data)
+        return (data for sim in self if isinstance(sim, Simulatable) for data in sim.shared_data)
 
     @property
     def cpus(self):
