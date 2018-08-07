@@ -14,6 +14,17 @@ class Protocol(Simulatable, MutableSequence):
         self._simulations = list()
         self.extend(simulations)
 
+    def simulations(self):
+        """Protocol's simulation objects only
+
+        Returns
+        -------
+        iterator
+            Iterator over the contents of the protocol that are Simulation instances.
+        """
+
+        return (s for s in self if isinstance(s, Simulatable))
+
     def __getitem__(self, item):
         return self._simulations.__getitem__(item)
 
