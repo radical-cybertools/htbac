@@ -8,8 +8,9 @@ class DataAggregate(Chainable):
     def __init__(self, extension, output_name="data.tgz"):
         self.extension = extension
         self.output_name = output_name
-        self.input_sim = None
         self.name = "aggregate"
+
+        Chainable.__init__(self)
 
     def generate_task(self):
 
@@ -26,7 +27,7 @@ class DataAggregate(Chainable):
                          'thread_type': None
                          }
 
-        links = [self.input_sim.output_data([self.extension], **x) for x in self.input_sim._ensemble_product()]
+        links = [self.input_data([self.extension], **x) for x in self._input_sim._ensemble_product()]
         links = [l for link in links for l in link]
         task.link_input_data.extend(links)
         task.download_output_data = [self.output_name]
@@ -38,6 +39,3 @@ class DataAggregate(Chainable):
         s.name = self.name
         s.add_tasks({self.generate_task()})
         return s
-
-    def add_input_simulation(self, input_sim):
-        self.input_sim = input_sim
