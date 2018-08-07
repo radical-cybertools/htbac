@@ -14,7 +14,7 @@ from radical.entk import Pipeline, Stage, Task
 from .engine import Engine
 from .abpath import AbFolder, AbFile
 
-logger = ru.Logger(__name__, level='INFO')
+logger = ru.Logger(__name__, level='DEBUG')
 
 
 class Simulatable:

@@ -77,4 +77,4 @@ class System(AbFolder):
         try:
             return next(f for f in self._files if f.tag == item)
         except StopIteration:
-            raise AttributeError("'System' object has no attribute {}".format(item))
+            raise AttributeError("'System object has no attribute {}".format(item))
