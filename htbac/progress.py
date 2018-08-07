@@ -11,7 +11,7 @@ from pymongo import MongoClient
 
 
 @click.command()
-@click.option('--db-url', default=os.environ['RADICAL_PILOT_DBURL'], help="MongoDB url used to run this script")
+@click.option('--db-url', default=os.environ.get('RADICAL_PILOT_DBURL', ''), help="MongoDB url used to run this script")
 @click.option('--session', type=str, help="Radical pilot session name")
 @click.option('--tasks-per-stage', default=-1, help="Number of tasks per stage. Used to show progress per stage")
 def progress(db_url, session, tasks_per_stage):
