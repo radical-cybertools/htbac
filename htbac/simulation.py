@@ -113,6 +113,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         self._input_sim = None  # Input simulation. Needs to link data generated here.
         # self._input_files = list()  # Files than are input to this simulation
         # self._arguments = list()  # Files that are arguments to the executable.
+        self.output = None
 
         self._processes = 1
         self._threads_per_process = 1
@@ -129,24 +130,6 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
     def __repr__(self):
         return self.name
-
-    @staticmethod
-    def _task_name(**for_ensemble):
-        return "-".join("{}-{}".format(k, w) for k, w, in for_ensemble.iteritems()) or "task"
-
-    def output_data(self, extensions=None, **for_ensemble):
-        task = self._task_name(**for_ensemble)
-        path = self._path.format(stage=self.name, pipeline='protocol', task=task)
-        return [os.path.join(path, self.output+s) for s in (extensions or ['.coor', '.xsc', '.vel'])]
-
-    @property
-    def input(self):
-        return self._input_sim.output if self._input_sim is not None else None
-
-    @property
-    def output(self):
-        ensembles = {k: getattr(self, k) for k in self._ensembles.keys()}
-        return self.name + "-" + self._task_name(**ensembles)
 
     def __getattr__(self, item):
         return getattr(self.system, item)
@@ -180,13 +163,17 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         return {f: [(v, self.get_variable(v)) for v in vs] for f, vs in self._variables.items()}
 
     def get_variable(self, var):
-        v = getattr(self, var)
-
-        if v is not None:
+        v = None
+        try:
+            v = getattr(self, var)
+            if v is None:
+                logger.debug('Attempting to get variable from system instance.')
+                v = getattr(self.system, var)
+        except AttributeError:
+            logger.warn('Variable `{}` is not defined! Returning None.'.format(var))
+            v = None
+        finally:
             return v
-
-        logger.debug('Getting variable from system.')
-        return getattr(self.system, var)
 
     def add_ensemble(self, name, values):
         """Add a parameter to the simulation that you want multiple values to be run with.
@@ -243,6 +230,13 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
                 for var in variables:
                     self.add_variable(var, in_file=abfile.name)
 
+    def output_data(self, extensions=None, **ensemble):
+        if self._input_sim is None:
+            return list()
+
+        path = self._path.format(stage=self._input_sim.name, pipeline='protocol', task=ensemble['task_name'])
+        return [os.path.join(path, ensemble["input"]+s) for s in (extensions or ['.coor', '.xsc', '.vel'])]
+
     # Methods used by underlying execution framework
 
     def generate_task(self, **ensembles):
@@ -250,7 +244,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         Parameters
         ----------
-        ensembles: dict
+        ensembles: dict, OrderedDict
             Dictionary of the *current* values of variables that are ensembles. All the variables
             that were declared with `add_ensemble` should be specified here so that a correct
             task object can be generated.
@@ -262,7 +256,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
             raise ValueError('Some variables are not defined!')
 
         task = Task()
-        task.name = self._task_name(**ensembles)
+        task.name = ensembles['task_name']
 
         task.pre_exec += self.engine.pre_exec
         task.executable += self.engine.executable
@@ -279,9 +273,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         task.post_exec.append('echo "{}" > sim_desc.txt'.format(task.name))
 
-        if self._input_sim:
-            task.link_input_data.extend(self._input_sim.output_data(**ensembles))
-
+        task.link_input_data.extend(self.output_data(**ensembles))
         task.link_input_data.extend(self.system.linked_files)
 
         task.pre_exec.extend(self._sed.format(n, v, f) for f, vs in self.get_variables().items() for n, v in vs)
@@ -362,4 +354,17 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     # Private methods
 
     def _ensemble_product(self):
-        return (OrderedDict(izip(self._ensembles, x)) for x in product(*self._ensembles.itervalues()))
+        ensembles = [OrderedDict(izip(self._ensembles, x)) for x in product(*self._ensembles.itervalues())]
+        for ensemble in ensembles:
+            # TODO: should we sort the values of ensemble (alphabetically) so ids can match up between stages?
+            task_name = "-".join("{}-{}".format(k, w) for k, w, in ensemble.items()) or "task"
+            output = self.name + "-" + task_name
+            input_name = None if self._input_sim is None else self._input_sim.name + "-" + task_name
+
+            ensemble["task_name"] = task_name
+            ensemble["output"] = output
+            ensemble["input"] = input_name
+
+        return ensembles
+
+
