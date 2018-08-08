@@ -3,6 +3,8 @@ Utility script to get the progress of a session. Pass the name and tasks per sta
 
 progress.py rp.session.two.00000.0000 65
 """
+from __future__ import division
+
 import os
 import json
 
@@ -33,12 +35,12 @@ def progress(db_url, session, tasks_per_stage):
     cursor = collection.find()
     count = [(unit['state'] == 'DONE') for unit in cursor if unit['type'] == 'unit']
 
-    if count == 0:
+    if len(count) == 0:
         click.echo('There are no units in the session.')
         return
 
     if tasks_per_stage == -1:
-        tasks_per_stage = sum(count)
+        tasks_per_stage = len(count)
 
     stage, completed = divmod(sum(count), tasks_per_stage)
     percentage = round(completed/tasks_per_stage * 100, 2)
