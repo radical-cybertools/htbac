@@ -2,6 +2,10 @@ import os
 import shutil
 import filecmp
 
+import radical.utils as ru
+
+logger = ru.Logger(__name__, level='DEBUG')
+
 
 class AbFile:
     """An protocol for objects that support RP style path mechanism.
@@ -19,6 +23,9 @@ class AbFile:
         self.tag = tag
         self.needs_copying = needs_copying
         self.is_executable_argument = is_executable_argument
+
+        if not os.path.exists(path):
+            logger.warn("File {} does not exists!".format(path))
 
     @property
     def remote_shared_path(self):
