@@ -16,8 +16,8 @@ class ConcreteProtocol(Protocol):
 class ESMACS(ConcreteProtocol):
 
     def __init__(self):
-        super(ESMACS, self).__init__([self.minimize(), self.thermal_equilibrate(),
-                                      self.equilibrate(), self.production()])
+        super(ESMACS, self).__init__(self.minimize(), self.thermal_equilibrate(),
+                                     self.equilibrate(), self.production())
 
     @classmethod
     def minimize(cls):
@@ -58,7 +58,7 @@ class ESMACS(ConcreteProtocol):
 class RFE(ConcreteProtocol):
 
     def __init__(self):
-        super(RFE, self).__init__([self.minimize(), self.simulation()])
+        super(RFE, self).__init__(self.minimize(), self.simulation())
 
     @classmethod
     def minimize(cls):

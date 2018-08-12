@@ -10,6 +10,7 @@ setup(name='htbac',
       packages=find_packages(),
       package_data={'': ['*.yaml', 'protocols/default-configs/*/*']},
       install_requires=['numpy', 'parmed', 'PyYAML', 'click'],
+                        # 'radical.pilot', 'radical.entk', 'saga-python', 'radical.utils'],
       zip_safe=False,
       entry_points={
             'console_scripts': ['progress=htbac.progress:progress'],

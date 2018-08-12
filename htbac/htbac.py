@@ -1,5 +1,5 @@
+import os
 import yaml
-import pprint
 from pkg_resources import resource_stream
 
 import radical.utils as ru
@@ -113,6 +113,13 @@ class Runner(object):
 
         # Create Resource Manager object with the above resource description
         self._app_manager.resource_desc = self.resource['resource_dictionary']
+
+        # Check if files in shared data exist. RP and ENTK fail (semi) silently on this!
+
+        for path in shared_data:
+            if not os.path.exists(path):
+                raise IOError("File {} does not exist!".format(path))
+
         self._app_manager.shared_data = list(shared_data)
 
         # Create Application Manager
