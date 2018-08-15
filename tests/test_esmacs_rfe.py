@@ -63,4 +63,4 @@ def test_ordering():
     assert p._simulations[1].name == "simulation-1"
 
 
-test_ordering()
+

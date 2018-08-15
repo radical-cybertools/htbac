@@ -1,4 +1,3 @@
-
 from htbac import Protocol, Simulation, System
 import pytest
 
@@ -32,4 +31,3 @@ def test_simulation_component():
 
     s1 = Simulation(name='equilibrate')
     
-test_simulation_component()
