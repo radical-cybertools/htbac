@@ -23,7 +23,7 @@ More details about the science enabled by HTBAC can be found in the following pu
 * "High-Throughput Binding affinity Calculations at Extreme Scales." Jumana Dakka, Matteo Turilli, David W Wright, Stefan J Zasada, Vivek Balasubramanian, Shunzhou Wan, Peter V Coveney, and Shantenu Jha. Computational Approaches for Cancer Workshop at IEEE SuperComputing (CAFCW- 2017). (https://arxiv.org/abs/1712.09168)
 
 
-**Project Github Page:** https://github.com/radical-cybertools/radical.entk
+**Project Github Page:** https://github.com/radical-cybertools/htbac
 
 
 .. toctree::
