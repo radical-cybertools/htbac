@@ -36,6 +36,9 @@ def run_rfe():
         sim.add_ensemble('replica', range(5))
         sim.add_ensemble('lambdawindow', [1.0, 0.5, 0.0])
 
+        import pdb
+        pdb.set_trace()
+
     ht = Runner('bw_aprun', comm_server=('two.radical-project.org', 33158))
     ht.add_protocol(p)
     ht.run(walltime=480, queue='high')

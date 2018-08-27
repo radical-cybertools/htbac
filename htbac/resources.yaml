@@ -206,7 +206,7 @@ bw_local_orte:
       - "0-31"
     uses_mpi: Yes
 
-local:
+local_anaconda:
   resource_dictionary:
     resource: "local.localhost_anaconda"
     acess_schema: "local"
@@ -227,3 +227,23 @@ local:
     threads_per_process : 1
     uses_mpi: No
 
+local_virtualenv:
+  resource_dictionary:
+    resource: "local.localhost"
+    acess_schema: "local"
+    cpus:
+
+  namd:
+    executable:
+     - "namd2"
+    arguments:
+     - "+ppn"
+     - "2"
+    uses_mpi: No
+
+  dummy:
+    executable:
+      - "/bin/echo"
+    processes: 1
+    threads_per_process : 1
+    uses_mpi: No
