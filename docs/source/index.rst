@@ -17,7 +17,7 @@ More details about the science enabled by HTBAC can be found in the following pu
 
 * "Concurrent and Adaptive Extreme Scale Binding Free Energy Calculations." Jumana Dakka, Kristof Farkas-Pall, Matteo Turilli, David W Wright, Peter V Coveney, and Shantenu Jha. 2018 IEEE 14th International Conference on eScience. `Arxiv <https://arxiv.org/pdf/1801.01174.pdf>`_ 
 
-* Enabling Trade-off Between Accuracy and Computational Cost: Adaptive Algorithms to Reduce Time to Clinical Insight. SCALE Award Winner, 18th IEEE/ACM International Symposium on Cluster, Cloud and Grid Computing (CCGrid 2018). `Arxiv <http://ccs.chem.ucl.ac.uk/sites/ccs.chem.ucl.ac.uk/files/scale2018-ccgrid.pdf>`_
+* "Enabling Trade-off Between Accuracy and Computational Cost: Adaptive Algorithms to Reduce Time to Clinical Insight." SCALE Award Winner, 18th IEEE/ACM International Symposium on Cluster, Cloud and Grid Computing (CCGrid 2018). `Arxiv <http://ccs.chem.ucl.ac.uk/sites/ccs.chem.ucl.ac.uk/files/scale2018-ccgrid.pdf>`_
 
 
 * "High-Throughput Binding affinity Calculations at Extreme Scales." Jumana Dakka, Matteo Turilli, David W Wright, Stefan J Zasada, Vivek Balasubramanian, Shunzhou Wan, Peter V Coveney, and Shantenu Jha. Computational Approaches for Cancer Workshop at IEEE SuperComputing (CAFCW- 2017). `Arxiv <https://arxiv.org/abs/1712.09168>`_
