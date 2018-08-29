@@ -18,8 +18,8 @@ To install HTBAC, we need to create a virtual or conda environment . Open a term
         source activate venv
 
 
-HTBAC uses the `Ensemble Toolkit <https://radicalentk.readthedocs.io/en/latest/>` to execute ensemble-based workflows. 
-Install the Ensemble Toolkit before installing HTBAC by accessing the `installation guide <https://radicalentk.readthedocs.io/en/latest/install.html>`. 
+HTBAC uses the `Ensemble Toolkit <https://radicalentk.readthedocs.io/en/latest/>`_ to execute ensemble-based workflows. 
+Install the Ensemble Toolkit before installing HTBAC by accessing the `installation guide <https://radicalentk.readthedocs.io/en/latest/install.html>`_. 
 
 Once the Ensemble Toolkit is properly installed, install HTBAC by running the following commands:
 
