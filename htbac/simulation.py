@@ -118,8 +118,8 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         self.engine = None
         self.system = None
 
-        self._processes = 1
-        self._threads_per_process = 1
+        self._processes = None
+        self._threads_per_process = None
         self._variables = dict()
         self._ensembles = OrderedDict()
 
