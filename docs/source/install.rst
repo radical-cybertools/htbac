@@ -81,8 +81,7 @@ http://docs.mongodb.org/manual/installation/
 There are multiple commercial providers of hosted MongoDB services, some of them
 offering free usage tiers. We have had some good experience with the following:
 
-* https://mongolab.com/
-
+https://mlab.com/
 
 .. _ssh_gsissh_setup:
 
