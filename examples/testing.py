@@ -17,6 +17,8 @@ p = Protocol()
 # define step 0: 
 s0 = Simulation(name='minimizer')
 s0.engine = 'namd'
+s0.processes = 1
+s0.threads_per_process = 16
 s0.add_ensemble('replica', range(5))
 s0.add_ensemble('lambdawindow', [1.0, 0.5, 0.0]) 
 s0.add_input_file("default_configs/rfe/ties-0.conf", is_executable_argument=True)
@@ -42,10 +44,13 @@ p.append(s0)
 # define step 1: 
 s1 = Simulation(name='equilibrate')
 s1.engine = 'namd'
+s1.processes = 1
+s1.threads_per_process = 16
 s1.add_ensemble('replica', range(5))
 s1.add_ensemble('lambdawindow', [1.0, 0.5, 0.0])
 s1.add_input_file("default_configs/rfe/ties-1.conf", is_executable_argument=True)
 s1.system = system
+s1.watermodel = "tip3"
 
 # <placeholders>
 s1.cutoff = 12.0
@@ -58,5 +63,6 @@ s1.numsteps = 50000
 p.append(s1)
 
 ht = Runner('titan_orte', comm_server=('two.radical-project.org', 33048))
+
 ht.add_protocol(p)
 ht.run(walltime=480)
