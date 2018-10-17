@@ -62,7 +62,7 @@ s1.numsteps = 50000
 # append step 1 to protocol:
 p.append(s1)
 
-ht = Runner('titan_orte', comm_server=('two.radical-project.org', 33048))
+ht = Runner('bw_aprun', comm_server=('two.radical-project.org', 33048))
 
 ht.add_protocol(p)
 ht.run(walltime=480)
