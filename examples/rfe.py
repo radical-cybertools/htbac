@@ -21,7 +21,7 @@ def run_rfe():
     # Protocol `p` is made up of 3 steps:
     # minimize -> simulate -> aggregate data
 
-    for sim, numsteps in zip(p.simulations(), [5000, 50000]):
+    for sim, numsteps in zip(p.simulations(), [5000, 2000000]):
 
         sim.system = system
         sim.engine = 'namd'
@@ -31,17 +31,17 @@ def run_rfe():
         sim.cutoff = 12.0
         sim.switchdist = 10.0
         sim.pairlistdist = 13.5
+        sim.watermodel = "tip3"
         sim.numsteps = numsteps
 
         sim.add_ensemble('replica', range(5))
-        sim.add_ensemble('lambdawindow', [1.0, 0.5, 0.0])
+        sim.add_ensemble('lambdawindow', [1.0, 0.95, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 
+            0.3, 0.2, 0.1, 0.05, 0.0])
 
-        import pdb
-        pdb.set_trace()
 
-    ht = Runner('bw_aprun', comm_server=('two.radical-project.org', 33158))
+    ht = Runner('bw_aprun', comm_server=('two.radical-project.org', 33048))
     ht.add_protocol(p)
-    ht.run(walltime=480, queue='high')
+    ht.run(walltime=720, queue='low')
 
 
 if __name__ == '__main__':
