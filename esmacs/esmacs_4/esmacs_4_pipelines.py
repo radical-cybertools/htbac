@@ -8,11 +8,11 @@ def main():
                                                     'brd4-gsk2',
                                                     'brd4-gsk3',
                                                     'brd4-gsk4']), 
-                                                    cores=32, full=False)
+                                                    cores=32, full=True)
     ht.add_protocol(esm)
 
-    ht.rabbitmq_config(hostname='two.radical-project.org', port=33064) # add new port number 
-    ht.run(strong_scaled=1, autoterminate=True, queue='high', walltime=200)
+    ht.rabbitmq_config(hostname='two.radical-project.org', port=33048) # add new port number 
+    ht.run(strong_scaled=1, autoterminate=True, queue='low', walltime=1440)
 
 
 if __name__ == '__main__':

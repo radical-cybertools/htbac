@@ -46,7 +46,7 @@ class Runner(object):
         self._port = port
 
 
-    def run(self, strong_scaled = 1, autoterminate = True, queue = 'high',
+    def run(self, strong_scaled = 1, autoterminate = True, queue = 'low',
             walltime = 1440):
         pipelines = set()
         input_data = list()
@@ -69,7 +69,7 @@ class Runner(object):
                     'cpus': int(self._cores*strong_scaled),
                     'project': 'bamm',
                     'queue': queue,
-                    'access_schema': 'local'}
+                    'access_schema': 'gsissh'}
 
         # res_dict = {'resource': 'ornl.titan_aprun',
         #             'walltime': walltime,
