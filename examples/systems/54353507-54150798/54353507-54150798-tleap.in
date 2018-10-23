@@ -1,0 +1,34 @@
+source oldff/leaprc.ff99SB
+source leaprc.water.tip3p
+source leaprc.gaff2
+source leaprc.phosaa10
+frcmod = loadamberparams /cs/biomd/incite-janssen-ligands/ties/topology/good/54353507-54150798/hybrid/hybrid.frcmod
+loadoff /cs/biomd/incite-janssen-ligands/ties/topology/good/54353507-54150798/hybrid/hybrid.lib
+
+# Load moleculaes
+lig = loadpdb /cs/biomd/incite-janssen-ligands/ties/topology/good/54353507-54150798/hybrid/hybrid.pdb
+rec = loadpdb /cs/biomd/incite-janssen-ligands/docking/model_protein/final_modelling/1lhxf-with-loop.pdb
+sol = loadpdb /cs/biomd/incite-janssen-ligands/docking/model_protein/final_modelling/water.pdb
+
+# Create complex
+com = combine{rec lig}
+complex = combine{com sol}
+alignaxes complex
+
+# Counterions & Solvation
+addions complex Cl- 0.0
+addions complex Na+ 0.0
+solvatebox complex TIP3PBOX 10
+
+# Save pdb, topology and inpcrd files
+savepdb lig lig.pdb
+saveamberparm lig lig.top lig.crd
+savepdb rec rec.pdb
+saveamberparm rec rec.top rec.crd
+savepdb com com.pdb
+saveamberparm com com.top com.crd
+savepdb complex complex.pdb
+saveamberparm complex complex.top complex.crd
+
+quit
+
