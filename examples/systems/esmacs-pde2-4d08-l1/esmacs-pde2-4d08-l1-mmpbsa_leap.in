@@ -1,0 +1,18 @@
+source oldff/leaprc.ff99SBildn
+source leaprc.gaff
+addAtomTypes { { "ZN" "Zn" "sp3" } { "S3" "S" "sp3" } { "N2" "N" "sp3" } }
+loadoff atomic_ions.lib
+loadamberparams frcmod.ions1lsm_hfe_tip3p
+loadamberparams frcmod.ionslrcm_hfe_tip3p
+loadamberprep ZAFF.prep 
+loadamberparams ZAFF.frcmod
+
+frcmod = loadamberparams /net/dirac/mnt/store7/dave/janssen/store/system_descriptions/pde2/drugs_par/4d08/resp/j1/j1.frcmod
+loadamberprep /net/dirac/mnt/store7/dave/janssen/store/system_descriptions/pde2/drugs_par/4d08/resp/j1/j1.prep
+lig = loadpdb /net/dirac/mnt/store7/dave/janssen/store/pde2/4d08/com/drug/j1/j1/build/lig.pdb
+saveamberparm lig /net/dirac/mnt/store7/dave/janssen/store/pde2/4d08/com/drug/j1/j1/build/lig.top /net/dirac/mnt/store7/dave/janssen/store/pde2/4d08/com/drug/j1/j1/build/lig.crd
+rec = loadpdb /net/dirac/mnt/store7/dave/janssen/store/pde2/4d08/com/drug/j1/j1/build/rec.pdb 
+saveamberparm rec /net/dirac/mnt/store7/dave/janssen/store/pde2/4d08/com/drug/j1/j1/build/rec.top /net/dirac/mnt/store7/dave/janssen/store/pde2/4d08/com/drug/j1/j1/build/rec.crd
+com = loadpdb /net/dirac/mnt/store7/dave/janssen/store/pde2/4d08/com/drug/j1/j1/build/com.pdb
+saveamberparm com /net/dirac/mnt/store7/dave/janssen/store/pde2/4d08/com/drug/j1/j1/build/com.top /net/dirac/mnt/store7/dave/janssen/store/pde2/4d08/com/drug/j1/j1/build/com.crd
+quit
