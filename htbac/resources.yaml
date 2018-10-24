@@ -112,7 +112,7 @@ bw_aprun:
     walltime:
     cpus:
     project: "bamm"
-    queue: "normal"
+    queue: "high"
     access_schema: "gsissh"
 
   max_cu_count: 400
