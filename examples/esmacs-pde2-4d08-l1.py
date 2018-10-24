@@ -96,7 +96,6 @@ s3.numsteps = 2000000
 # append step 4 to protocol:
 p.append(s3)
 
-p.append(DataAggregate(extension=".alch"))
 
 ht = Runner('bw_aprun', comm_server=('two.radical-project.org', 33048))
 
