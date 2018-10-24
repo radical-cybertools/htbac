@@ -107,4 +107,4 @@ p.append(DataAggregate(extension=".alch"))
 ht = Runner('bw_aprun', comm_server=('two.radical-project.org', 33048))
 
 ht.add_protocol(p)
-ht.run(walltime=480)
+ht.run(walltime=2880)
