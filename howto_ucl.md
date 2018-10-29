@@ -44,7 +44,7 @@ files
 
 * `ssh <username>@149.165.156.58`
 * renew proxy : `myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 -t 1000 -l <user>`
-* `tmux new -s <session_name> 
+* `tmux new -s <session_name>` 
 * `source /home/<user>/htbac/venv/bin/active`
 * `cd <uploaded_folder>`
 * `python <script.py>`
