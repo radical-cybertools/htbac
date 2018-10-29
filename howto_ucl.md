@@ -47,4 +47,4 @@ files
 * `tmux new -s <session_name> 
 * `source /home/<user>/htbac/venv/bin/active`
 * `cd <uploaded_folder>`
-* python <script.py>
+* `python <script.py>`
