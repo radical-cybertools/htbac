@@ -4,8 +4,7 @@
 
 #### Setup the system files 
 
-* Create a folder for each system which includes script, default configs, system
-files 
+* Create a folder for each system that includes script, default configs, system files (use the following as templates) 
 
     * [RFE system files](https://github.com/radical-cybertools/htbac/tree/master/examples/systems/54353507-54150798)
 
