@@ -38,7 +38,7 @@ files
       ```
       ht.run(walltime=2880)
       ```
-* Upload folder to VM (sftp)
+* Upload folder to VM via `sftp`
 
 ### Execution Instructions: 
 
