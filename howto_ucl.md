@@ -46,6 +46,7 @@
 * `tmux new -s <session_name>` 
 * `source /home/<user>/htbac/venv/bin/active`
 * `cd <uploaded_folder>`
+* If running for the first time, please check with @jdakka about creating a static `VE` on Blue Waters 
 * `python <script.py>`
 
 ### After Execution:
