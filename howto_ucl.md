@@ -48,3 +48,7 @@ files
 * `source /home/<user>/htbac/venv/bin/active`
 * `cd <uploaded_folder>`
 * `python <script.py>`
+
+### After Execution:
+
+* Each job executed from the VM will create a session folder `rp.*`. This folder contains the output data for each unit (`NAMD` executable). On Blue Waters this output data is found in `/u/sciteam/<user>/scratch/radical.pilot.sandbox/rp.*`
