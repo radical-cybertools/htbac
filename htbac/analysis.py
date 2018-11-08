@@ -37,3 +37,39 @@ class DataAggregate(Chainable):
         s.name = self.name
         s.add_tasks({self.generate_task()})
         return s
+
+
+class GradientBoostClassifier(Chainable):
+
+    def __init__(self):
+        self.name = "GradientBoostingClassifier"
+        self.hyperparameters = 4
+        self.data_path  = '/pylon5/mc3bggp/dakka/hyperspace_data/constellation/constellation/data/fashion'
+        self.optimization_file = '/home/jdakka/hyperspace/constellation/constellation/gbm/space4/optimize.py'
+        self.results_dir = '/pylon5/mc3bggp/dakka/hyperspace_data/results_space_4'
+
+        Chainable.__init__(self)
+
+    def generate_task(self):
+
+        task = Task()
+        task.name = self.name
+
+        task.executable = ['python']
+        task.arguments = ['optimize.py', '--data_path', self.data_path, 
+                            '--results_dir', self.results_dir]
+        task.cpu_reqs = {'processes': self.hyperparameters**2,
+                         'process_type': None,
+                         'threads_per_process': 28, 
+                         'thread_type': 'MPI'
+                         }
+
+        task.upload_input_data = [self.optimization_file]
+
+        return task
+
+    def generate_stage(self):
+        s = Stage()
+        s.name = self.name
+        s.add_tasks({self.generate_task()})
+        return s
