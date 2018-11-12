@@ -264,6 +264,12 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
                          'thread_type': None
                          }
 
+        task.gpu_reqs = {'processes': self._gpu_processes,
+                         'process_type': 'MPI' if self.engine.gpu_uses_mpi else None,
+                         'threads_per_process': self._gpu_threads_per_process,
+                         'thread_type': None
+                         }
+
         task.arguments.extend(self.arguments)
         task.copy_input_data.extend(self.copied_files)
         task.copy_input_data.extend(self.system.copied_files)
@@ -310,14 +316,28 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         return self._processes * self._threads_per_process * len(self)
 
     @property
+    def gpus(self):
+        return self._gpu_processes * self._gpu_threads_per_process * len(self)
+
+    @property
     def processes(self):
         return self._processes
+
+    @property
+    def gpu_processes(self):
+        return self._gpu_processes
 
     @processes.setter
     def processes(self, value):
         if isinstance(self.engine, Engine) and self.engine.processes:
             raise ValueError('Engine has REQUIRED process count. Do not set simulation processes!')
         self._processes = value
+
+    @processes.setter
+    def gpu_processes(self, value):
+        if isinstance(self.engine, Engine) and self.engine.gpu_processes:
+            raise ValueError('Engine has REQUIRED GPU.')
+        self._gpu_processes = value
 
     @property
     def threads_per_process(self):
@@ -326,9 +346,18 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     @threads_per_process.setter
     def threads_per_process(self, value):
         if isinstance(self.engine, Engine) and self.engine.threads_per_process:
-            raise ValueError('Engine has REQUIRED thread count. Do not set simulation threads!')
+            raise ValueError('Engine has REQUIRED GPU threads')
 
         self._threads_per_process = value
+
+    @property
+    def gpu_threads_per_process(self):
+        return self._gpu_threads_per_process
+
+    @threads_per_process.setter
+    def gpu_threads_per_process(self, value):
+        if isinstance(self.engine, Engine) and self.engine.gpu_threads_per_process:
+            raise ValueError('Engine has REQUIRED GPU threads')
 
     def configure_engine_for_resource(self, resource):
         if not isinstance(self.engine, str):
