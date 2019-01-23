@@ -61,6 +61,17 @@ class Simulatable:
         """
         return 0
 
+    @abstractproperty
+    def gpus(self):
+        """Number of cpus required to fulfill the needs of the job(s).
+
+        Returns
+        -------
+        int
+            core count
+        """
+        return 0
+
     @abstractmethod
     def configure_engine_for_resource(self, resource):
         """Configure engine for a specific resource.
@@ -119,7 +130,9 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         self.system = None
 
         self._processes = None
+        self._gpu_processes = None
         self._threads_per_process = None
+        self._gpu_threads_per_process = None
         self._variables = dict()
         self._ensembles = OrderedDict()
 
@@ -333,7 +346,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
             raise ValueError('Engine has REQUIRED process count. Do not set simulation processes!')
         self._processes = value
 
-    @processes.setter
+    @gpu_processes.setter
     def gpu_processes(self, value):
         if isinstance(self.engine, Engine) and self.engine.gpu_processes:
             raise ValueError('Engine has REQUIRED GPU.')
@@ -346,7 +359,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     @threads_per_process.setter
     def threads_per_process(self, value):
         if isinstance(self.engine, Engine) and self.engine.threads_per_process:
-            raise ValueError('Engine has REQUIRED GPU threads')
+            raise ValueError('Engine has REQUIRED CPU threads')
 
         self._threads_per_process = value
 
@@ -354,7 +367,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
     def gpu_threads_per_process(self):
         return self._gpu_threads_per_process
 
-    @threads_per_process.setter
+    @gpu_threads_per_process.setter
     def gpu_threads_per_process(self, value):
         if isinstance(self.engine, Engine) and self.engine.gpu_threads_per_process:
             raise ValueError('Engine has REQUIRED GPU threads')
@@ -370,16 +383,29 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
 
         self.engine = Engine.from_dictionary(**engine)
 
-        logger.info("{}: engine is using executable: {}".format(self.name, self.engine.executable))
+        logger.info("{}: engine {} is using executable: {}".format(self.name, self.engine, self.engine.executable))
 
         if self.engine.processes and self.engine.threads_per_process:
             if self.processes or self.threads_per_process:
                 raise ValueError('Engine has REQUIRED process/thread counts. Do not set simulation processes/threads!')
 
+
             logger.debug("{}: setting process/thread count to the REQUIRED value by engine ({}:{}). "
                          "Do not alter this!".format(self.name, self.engine.processes, self.engine.threads_per_process))
+
             self._processes = self.engine.processes
             self._threads_per_process = self.engine.threads_per_process
+            
+
+        if self.engine.gpu_processes or self.engine.gpu_threads_per_process:
+            if self.gpu_processes or self.gpu_threads_per_process:
+                raise ValueError('Engine has REQUIRED GPU process/thread counts. Do not set simulation GPU processes/threads!')
+
+            logger.debug("{}: setting GPU process/thread count to the REQUIRED value by engine ({}:{}). "
+                         "Do not alter this!".format(self.name, self.engine.gpu_processes, self.engine.gpu_threads_per_process))
+
+            self._gpu_processes = self.engine.gpu_processes
+            self._gpu_threads_per_process = self.engine.gpu_threads_per_process
 
     # Private methods
 

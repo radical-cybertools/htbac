@@ -78,3 +78,14 @@ class Protocol(Simulatable, MutableSequence):
             Number of cpus the first simulation in the protocol requires.
         """
         return self[0].cpus
+
+    @property
+    def gpus(self):
+        """
+
+        Returns
+        -------
+        int
+            Number of gpus the first simulation in the protocol requires.
+        """
+        return self[0].gpus

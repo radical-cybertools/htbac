@@ -5,5 +5,6 @@ from .system import System
 from .engine import Engine
 from .abpath import AbFile
 from .analysis import DataAggregate
+from .analysis import GradientBoostClassifier
 
 

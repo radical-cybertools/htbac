@@ -1,6 +1,7 @@
 import os
 import yaml
 from pkg_resources import resource_stream
+import pprint
 
 import radical.utils as ru
 from radical.entk import AppManager
@@ -57,7 +58,7 @@ class Runner(object):
         self._protocols.append(protocol)
 
     def run(self, resource=None, walltime=None, strong_scaled=1,
-            queue=None, access_schema=None, cpus=None,  dry_run=False):
+            queue=None, access_schema=None, cpus=None,  gpus=None, dry_run=False):
         """Run protocols.
 
         Parameters
@@ -81,6 +82,7 @@ class Runner(object):
         pipelines = set()
         shared_data = set()
         _cpus = 0
+        _gpus = 0
 
         max_cu_count = self.resource.get('max_cu_count', 0)
 
@@ -94,11 +96,13 @@ class Runner(object):
             pipelines.add(gen_pipeline)
             shared_data.update(protocol.shared_data)
             _cpus += protocol.cpus
+            _gpus += protocol.gpus
 
         _cpus *= strong_scaled
         _cpus += self.resource.get('agent_cpus', 0)
 
         self.resource['resource_dictionary']['cpus'] = cpus or _cpus
+        self.resource['resource_dictionary']['gpus'] = gpus or _gpus
 
         if resource is not None:
             self.resource['resource_dictionary']['resource'] = resource
@@ -109,10 +113,13 @@ class Runner(object):
         if access_schema is not None:
             self.resource['resource_dictionary']['access_schema'] = access_schema
 
+
         logger.info(self.pretty_print_resource_description(self.resource['resource_dictionary']))
 
         # Create Resource Manager object with the above resource description
         self._app_manager.resource_desc = self.resource['resource_dictionary']
+        logger.info("app_man.resource_desc".format(self._app_manager.resource_desc))
+
 
         # Check if files in shared data exist. RP and ENTK fail (semi) silently on this!
 
@@ -121,12 +128,15 @@ class Runner(object):
                 raise IOError("File {} does not exist!".format(path))
 
         self._app_manager.shared_data = list(shared_data)
+        logger.info("app_man.shared_data".format(self._app_manager.shared_data))
+        
+
 
         # Create Application Manager
         self._app_manager.workflow = pipelines
 
         for i, s in enumerate(next(iter(pipelines)).stages):
-            logger.info("Stage #{}: has {} tasks, each with {}*{} threads.".format(
+            logger.info("Stage #{}: has {} tasks, each with {}*{} cpu threads".format(
                                   i, len(s.tasks),
                                   next(iter(s.tasks)).cpu_reqs['processes'],
                                   next(iter(s.tasks)).cpu_reqs['threads_per_process']))
@@ -162,5 +172,5 @@ class Runner(object):
 
     @staticmethod
     def pretty_print_resource_description(r):
-        return "Running on {cpus} cpus for {walltime} minutes at {resource} " \
+        return "Running on {cpus} cpus and {gpus} for {walltime} minutes at {resource} " \
                "{queue} queue consuming {project} allocation.".format(**r)

@@ -54,13 +54,16 @@ class GradientBoostClassifier(Chainable):
 
         task = Task()
         task.name = self.name
-
+        task.pre_exec = ['env > env.log', 
+        'export PATH=/home/dakka/miniconda3/bin:$PATH', 
+        'export LD_LIBRARY_PATH=/home/dakka/miniconda3/lib:$LD_LIBRARY_PATH', 
+        'source activate ve_hyperspace']
         task.executable = ['python']
         task.arguments = ['optimize.py', '--data_path', self.data_path, 
                             '--results_dir', self.results_dir]
         task.cpu_reqs = {'processes': self.hyperparameters**2,
                          'process_type': None,
-                         'threads_per_process': 28, 
+                         'threads_per_process': 32, 
                          'thread_type': 'MPI'
                          }
 
