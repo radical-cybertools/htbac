@@ -271,7 +271,7 @@ xsede.bridges:
       - "export LD_LIBRARY_PATH=/home/dakka/miniconda3/lib:$LD_LIBRARY_PATH"
       - "source activate ve_hyperspace"
 
-xsede.bridges_gpu:
+xsede.bridges_gpu:  
   resource_dictionary:
     resource: "xsede.bridges"
     walltime:
@@ -285,7 +285,7 @@ xsede.bridges_gpu:
     - 'two.radical-project.org'
     - 33048
 
-  python:
+  python3:
     executable:
       - "python"
     pre_exec:
@@ -294,7 +294,7 @@ xsede.bridges_gpu:
       - "export LD_LIBRARY_PATH=/home/dakka/miniconda3/lib:$LD_LIBRARY_PATH"
       - "source activate ve_hyperspace"
 
-  openmm:
+  openmm3:
     executable:
       - "python"
     pre_exec:
@@ -315,3 +315,34 @@ xsede.bridges_gpu:
     gpu_threads_per_process : 1
 
     gpu_uses_mpi: No
+
+  python2:
+    executable:
+      - "python"
+    pre_exec:
+      - "env > env.log"
+      - "export PATH=/home/dakka/miniconda3/bin:$PATH"
+      - "export LD_LIBRARY_PATH=/home/dakka/miniconda3/lib:$LD_LIBRARY_PATH"
+      - "source activate ve_hyperspace"
+
+  openmm2:
+    executable:
+      - "python"
+    pre_exec:
+    - "env > env.log" 
+    - "export PATH=/pylon5/mc3bggp/dakka/miniconda2/bin:$PATH"
+    - "export LD_LIBRARY_PATH=/pylon5/mc3bggp/dakka/miniconda2/lib:$LD_LIBRARY_PATH"
+    - "module load mpi/gcc_openmpi"
+    - "module load cuda/9.0"
+    - "source activate cvae"
+
+    processes: 1
+    threads_per_process : 32
+
+    uses_mpi: No
+
+    gpu_processes: 1
+    gpu_threads_per_process : 1
+
+    gpu_uses_mpi: No
+
