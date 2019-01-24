@@ -68,7 +68,7 @@
 
 ### After Execution:
 
-* Each job executed from the VM will create a session folder `rp.*`. This folder contains the output data for each unit (`NAMD` executable). On `xsede.bridges` this output data is found in the project folder `/pylon5/<project>/<user>/radical.pilot.sandbox/rp.*`
+* Each job executed from the VM will create a session folder `rp.*`. This folder contains the output data for each unit (`OpenMM` executable). On `xsede.bridges` this output data is found in the project folder `/pylon5/<project>/<user>/radical.pilot.sandbox/rp.*`
 
 
 
