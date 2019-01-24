@@ -3,7 +3,7 @@
 
 ### Before Execution:
 
-#### Setup the system files 
+#### Setup 
 
 * Create a folder for each system that includes script, default configs, system files (use the following as templates) 
 
