@@ -58,12 +58,12 @@
 ### Runtime Environment Variables for Execution 
 
 '''
-export RADICAL_PILOT_DBURL=<mongodb://>
-export SAGA_PTY_SSH_TIMEOUT=2000
-export RADICAL_PILOT_PROFILE=True
-export PATH=/usr/sbin:$PATH
-export RADICAL_VERBOSE="DEBUG"
-export RADICAL_ENTK_PROFILE=True
+* export RADICAL_PILOT_DBURL=<mongodb://>
+* export SAGA_PTY_SSH_TIMEOUT=2000
+* export RADICAL_PILOT_PROFILE=True
+* export PATH=/usr/sbin:$PATH
+* export RADICAL_VERBOSE="DEBUG"
+* export RADICAL_ENTK_PROFILE=True
 '''
 
 ### After Execution:
