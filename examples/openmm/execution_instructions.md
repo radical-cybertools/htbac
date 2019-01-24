@@ -46,7 +46,7 @@
 
 ### Execution Instructions: 
 
-```
+
 * `ssh VM`
 * renew proxy : `myproxy-logon -l <username> -s myproxy.xsede.org`
 * `tmux new -s <session_name>` 
@@ -55,18 +55,18 @@
 * `git clone https://github.com/radical-cybertools/htbac.git`
 * `cd htbac`
 * `pip install .`
-```
+
 
 ### Runtime Environment Variables for Execution 
 
-```
-* export RADICAL_PILOT_DBURL=<mongodb://>
-* export SAGA_PTY_SSH_TIMEOUT=2000
-* export RADICAL_PILOT_PROFILE=True
-* export PATH=/usr/sbin:$PATH
-* export RADICAL_VERBOSE="DEBUG"
-* export RADICAL_ENTK_PROFILE=True
-```
+
+* `export RADICAL_PILOT_DBURL=<mongodb://>`
+* `export SAGA_PTY_SSH_TIMEOUT=2000`
+* `export RADICAL_PILOT_PROFILE=True`
+* `export PATH=/usr/sbin:$PATH`
+* `export RADICAL_VERBOSE="DEBUG"`
+* `export RADICAL_ENTK_PROFILE=True`
+
 
 ### After Execution:
 
