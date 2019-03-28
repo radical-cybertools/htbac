@@ -38,7 +38,7 @@
     * Check the resource yaml [file](https://github.com/radical-cybertools/htbac/blob/master/htbac/resources.yaml#L274)
 
     ```
-    ht = Runner('xsede.bridges_gpu', comm_server=('two.radical-project.org', 33048))
+    ht = Runner('xsede.bridges_gpu', comm_server=('two.radical-project.org', 33243))
     ht.add_protocol(sim)
     ht.run(walltime=30, queue =  'GPU')
 
@@ -67,6 +67,9 @@
 * `export RADICAL_VERBOSE="DEBUG"`
 * `export RADICAL_ENTK_PROFILE=True`
 
+### Execution: 
+
+`python openmm_example.py`
 
 ### After Execution:
 
