@@ -15,7 +15,7 @@ titan_orte:
 
   namd:
     executable:
-      - namd2
+      - "namd2"
     pre_exec:
       - "module load namd/2.12"
       - "export MPICH_PTL_SEND_CREDITS=-1"
@@ -26,7 +26,7 @@ titan_orte:
 
   namd_openmp_cuda:
     executable:
-      - /lustre/atlas/scratch/farkaspall/chm126/software/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2
+      - "/lustre/atlas/scratch/farkaspall/chm126/software/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
     pre_exec:
       - "export LD_PRELOAD=/lib64/librt.so.1"
     arguments:
@@ -42,7 +42,7 @@ titan_orte:
 
   namd_openmp:
     executable:
-      - /lustre/atlas2/csc230/world-shared/openmpi/applications/namd/namd-openmp/CRAY-XE-gnu/namd2
+      -"/lustre/atlas2/csc230/world-shared/openmpi/applications/namd/namd-openmp/CRAY-XE-gnu/namd2"
     pre_exec:
       - "export LD_PRELOAD=/lib64/librt.so.1"
     arguments:
@@ -58,7 +58,7 @@ titan_orte:
 
   openmm:
     executable:
-      - /lustre/atlas/scratch/farkaspall/chm126/software/miniconda2/bin/python
+      - "/lustre/atlas/scratch/farkaspall/chm126/software/miniconda2/bin/python"
     pre_exec:
       - "export PATH=/lustre/atlas/scratch/farkaspall/chm126/software/miniconda2/bin:$PATH"
       - "export LD_LIBRARY_PATH=/lustre/atlas/scratch/farkaspall/chm126/software/miniconda2/lib:$LD_LIBRARY_PATH"
@@ -89,7 +89,7 @@ titan_aprun:
 
   namd_mpi:
     executable:
-      - /ccs/proj/chm126/apbhati/rest2_2.11_copy/CRAY-XE-gnu/namd2
+      - "/ccs/proj/chm126/apbhati/rest2_2.11_copy/CRAY-XE-gnu/namd2"
     pre_exec:
       - "module swap PrgEnv-pgi PrgEnv-gnu"
       - "module load rca"
@@ -121,7 +121,7 @@ bw_aprun:
 
   namd_openmp_cuda:
     executable:
-      - /u/sciteam/dakka/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2
+      - "/u/sciteam/dakka/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
     arguments:
       - "+ppn"
       - "15"
@@ -135,7 +135,7 @@ bw_aprun:
 
   namd_mpi:
     executable:
-      - /u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2
+      - "/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2"
     pre_exec:
       - "module swap PrgEnv-cray PrgEnv-gnu"
       - "module load rca"
@@ -152,7 +152,7 @@ bw_aprun:
 
   namd_openmp:
     executable:
-      - /u/sciteam/farkaspa/namd/NAMD_2.12_Linux-x86_64-multicore/namd2
+      - "/u/sciteam/farkaspa/namd/NAMD_2.12_Linux-x86_64-multicore/namd2"
     arguments:
       - "+ppn"
       - "30"
@@ -184,7 +184,7 @@ bw_orte:
 
   namd_openmp_cuda:
     executable:
-      - /u/sciteam/dakka/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2
+      - "/u/sciteam/dakka/NAMD_2.12_Linux-x86_64-multicore-CUDA/namd2"
     uses_mpi: No
 
 bw_local_orte:
@@ -200,7 +200,7 @@ bw_local_orte:
 
   namd_mpi:
     executable:
-      - /u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2
+      - "/u/sciteam/jphillip/NAMD_LATEST_CRAY-XE-MPI-BlueWaters/namd2"
     arguments:
       - "+pemap"
       - "0-31"
@@ -214,7 +214,7 @@ local_anaconda:
 
   namd:
     executable:
-     - namd2
+     - "namd2"
     arguments:
      - "+ppn"
      - "2"
@@ -222,7 +222,7 @@ local_anaconda:
 
   dummy:
     executable:
-      - /bin/echo
+      - "/bin/echo"
     processes: 1
     threads_per_process : 1
     uses_mpi: No
@@ -235,7 +235,7 @@ local_virtualenv:
 
   namd:
     executable:
-     - namd2
+     - "namd2"
     arguments:
      - "+ppn"
      - "2"
@@ -243,7 +243,7 @@ local_virtualenv:
 
   dummy:
     executable:
-      - /bin/echo
+      - "/bin/echo"
     processes: 1
     threads_per_process : 1
     uses_mpi: No
@@ -264,7 +264,7 @@ xsede.bridges:
 
   python:
     executable:
-    - python
+    - "python"
     pre_exec:
       - "env > env.log"
       - "export PATH=/home/dakka/miniconda3/bin:$PATH"
@@ -327,7 +327,7 @@ xsede.bridges_gpu:
 
   openmm:
     executable:
-      - python
+      - "python"
     pre_exec:
     - "env > env.log" 
     - "export PATH=/pylon5/mc3bggp/dakka/miniconda2/bin:$PATH"
