@@ -1,4 +1,4 @@
-## Instructions for running ESMACS/TIES on VM
+## Instructions for running ESMACS/TIES on VM (Blue Waters) 
 
 ### Before Execution:
 
