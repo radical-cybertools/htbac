@@ -29,6 +29,6 @@ sim.add_input_file('inputs/benchmark.py', is_executable_argument=True)
 # analysis.results_dir = '/pylon5/mc3bggp/dakka/hyperspace_data/results_space_4'
 
 
-# ht = Runner('xsede.bridges_gpu', comm_server=('two.radical-project.org', 33243))
-# ht.add_protocol(sim)
-# ht.run(walltime=30, queue =  'GPU')
+ht = Runner('xsede.bridges_gpu', comm_server=('two.radical-project.org', 33243))
+ht.add_protocol(sim)
+ht.run(walltime=30, queue =  'GPU')

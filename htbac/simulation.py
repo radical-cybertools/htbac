@@ -269,7 +269,7 @@ class Simulation(Simulatable, Chainable, Sized, AbFolder):
         task.name = ensembles['task_name']
 
         task.pre_exec += self.engine.pre_exec
-        task.executable += self.engine.executable
+        task.executable += str(self.engine.executable)
         task.arguments += self.engine.arguments
         task.cpu_reqs = {'processes': self._processes,
                          'process_type': 'MPI' if self.engine.uses_mpi else None,
