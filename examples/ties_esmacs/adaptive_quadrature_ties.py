@@ -22,8 +22,7 @@ s0.engine = 'namd'
 s0.processes = 32
 s0.threads_per_process = 1
 s0.add_ensemble('replica', range(5))
-s0.add_ensemble('lambdawindow', [1.00, 0.95, 0.90, 0.80, 0.70, 0.60, 0.50, 0.40, 
-            0.30, 0.20, 0.10, 0.05, 0.00])
+s0.add_ensemble('lambdawindow', [1.00, 0.50, 0.00])
 s0.add_input_file("default_configs/rfe/54353507-54150798/eq0.conf", is_executable_argument=True)
 s0.system = system
 
@@ -43,8 +42,7 @@ s1.engine = 'namd'
 s1.processes = 32
 s1.threads_per_process = 1
 s1.add_ensemble('replica', range(5))
-s1.add_ensemble('lambdawindow', [1.00, 0.95, 0.90, 0.80, 0.70, 0.60, 0.50, 0.40, 
-            0.30, 0.20, 0.10, 0.05, 0.00])
+s1.add_ensemble('lambdawindow', [1.00, 0.50, 0.00])
 s1.add_input_file("default_configs/rfe/54353507-54150798/eq1.conf", is_executable_argument=True)
 s1.system = system
 
@@ -65,8 +63,7 @@ s2.engine = 'namd'
 s2.processes = 32
 s2.threads_per_process = 1
 s2.add_ensemble('replica', range(5))
-s2.add_ensemble('lambdawindow', [1.00, 0.95, 0.90, 0.80, 0.70, 0.60, 0.50, 0.40, 
-            0.30, 0.20, 0.10, 0.05, 0.00])
+s2.add_ensemble('lambdawindow', [1.00, 0.50, 0.00])
 s2.add_input_file("default_configs/rfe/54353507-54150798/eq2.conf", is_executable_argument=True)
 s2.system = system
 
@@ -102,7 +99,7 @@ s3.numsteps = 500000
 p0.append(s3)
 
 # p.append(DataAggregate(extension=".alch"))
-p0.append(TiesAnalysis(extension= ".alch", output_name = "dg.out"))
+p0.append(TiesAnalysis(extension = ".alch", output_name = ".out"))
 ht = Runner('bw_aprun', comm_server=('two.radical-project.org', 33048))
 ht.add_protocol(p0)
 ht.run(walltime=2880)
